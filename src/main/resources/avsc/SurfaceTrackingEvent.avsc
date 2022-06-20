@@ -1,0 +1,531 @@
+{
+  "type": "record",
+  "name": "SurfaceTrackingEvent",
+  "namespace": "com.ebay.epic.sojourner.common.model",
+  "fields": [
+    {
+      "name": "rheosHeader",
+      "type": {
+        "type": "record",
+        "name": "RheosHeader",
+        "fields": [
+          {
+            "name": "eventCreateTimestamp",
+            "type": "long"
+          },
+          {
+            "name": "eventSentTimestamp",
+            "type": "long"
+          },
+          {
+            "name": "schemaId",
+            "type": "int"
+          },
+          {
+            "name": "eventId",
+            "type": [
+              "null",
+              {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            ],
+            "default": null
+          },
+          {
+            "name": "producerId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "autoTrackEvent",
+      "type": {
+        "type": "record",
+        "name": "AutoTrackEvent",
+        "fields": [
+          {
+            "name": "guid",
+            "type": [
+              "null",
+              {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            ],
+            "default": null
+          },
+          {
+            "name": "userId",
+            "type": [
+              "null",
+              "long"
+            ],
+            "default": null
+          },
+          {
+            "name": "siteId",
+            "type": [
+              "null",
+              "int"
+            ],
+            "default": null
+          },
+          {
+            "name": "eventFamily",
+            "type": [
+              "null",
+              {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            ],
+            "default": null
+          },
+          {
+            "name": "agentVersion",
+            "type": [
+              "null",
+              {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            ],
+            "default": null
+          },
+          {
+            "name": "context",
+            "type": [
+              "null",
+              {
+                "type": "record",
+                "name": "Context",
+                "fields": [
+                  {
+                    "name": "appId",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "version",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "os",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "utcOffset",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "clientIp",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "userLang",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "userAgent",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "screenWidth",
+                    "type": [
+                      "null",
+                      "long"
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "screenHeight",
+                    "type": [
+                      "null",
+                      "long"
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "screenDPI",
+                    "type": [
+                      "null",
+                      "long"
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "deviceInfo",
+                    "type": [
+                      "null",
+                      {
+                        "type": "record",
+                        "name": "MobileDeviceContext",
+                        "fields": [
+                          {
+                            "name": "formFactor",
+                            "type": [
+                              "null",
+                              {
+                                "type": "enum",
+                                "name": "FormFactor",
+                                "symbols": [
+                                  "phone",
+                                  "tablet",
+                                  "watch",
+                                  "desktop"
+                                ]
+                              }
+                            ],
+                            "default": null
+                          },
+                          {
+                            "name": "manufacturer",
+                            "type": [
+                              "null",
+                              {
+                                "type": "string",
+                                "avro.java.string": "String"
+                              }
+                            ],
+                            "default": null
+                          },
+                          {
+                            "name": "osVersion",
+                            "type": [
+                              "null",
+                              {
+                                "type": "string",
+                                "avro.java.string": "String"
+                              }
+                            ],
+                            "default": null
+                          },
+                          {
+                            "name": "model",
+                            "type": [
+                              "null",
+                              {
+                                "type": "string",
+                                "avro.java.string": "String"
+                              }
+                            ],
+                            "default": null
+                          },
+                          {
+                            "name": "networkCarrier",
+                            "type": [
+                              "null",
+                              {
+                                "type": "string",
+                                "avro.java.string": "String"
+                              }
+                            ],
+                            "default": null
+                          },
+                          {
+                            "name": "networkConnectionType",
+                            "type": [
+                              "null",
+                              {
+                                "type": "string",
+                                "avro.java.string": "String"
+                              }
+                            ],
+                            "default": null
+                          },
+                          {
+                            "name": "theme",
+                            "type": [
+                              "null",
+                              {
+                                "type": "string",
+                                "avro.java.string": "String"
+                              }
+                            ],
+                            "default": null
+                          },
+                          {
+                            "name": "countryId",
+                            "type": [
+                              "null",
+                              {
+                                "type": "string",
+                                "avro.java.string": "String"
+                              }
+                            ],
+                            "default": null
+                          }
+                        ]
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "others",
+                    "type": [
+                      "null",
+                      {
+                        "type": "map",
+                        "values": [
+                          "null",
+                          {
+                            "type": "string",
+                            "avro.java.string": "String"
+                          }
+                        ],
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  }
+                ]
+              }
+            ],
+            "default": null
+          },
+          {
+            "name": "trackable",
+            "type": [
+              "null",
+              {
+                "type": "record",
+                "name": "Trackable",
+                "fields": [
+                  {
+                    "name": "trackableId",
+                    "type": {
+                      "type": "string",
+                      "avro.java.string": "String"
+                    }
+                  },
+                  {
+                    "name": "parentTrackableId",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "entityId",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "instanceId",
+                    "type": {
+                      "type": "string",
+                      "avro.java.string": "String"
+                    }
+                  },
+                  {
+                    "name": "description",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "correlationId",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "screenId",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "entityType",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  }
+                ]
+              }
+            ],
+            "default": null
+          },
+          {
+            "name": "activity",
+            "type": [
+              "null",
+              {
+                "type": "record",
+                "name": "Activity",
+                "fields": [
+                  {
+                    "name": "timestamp",
+                    "type": "long"
+                  },
+                  {
+                    "name": "duration",
+                    "type": [
+                      "null",
+                      "long"
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "ratio",
+                    "type": [
+                      "null",
+                      "double"
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "viewportWidth",
+                    "type": [
+                      "null",
+                      "long"
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "viewportHeight",
+                    "type": [
+                      "null",
+                      "long"
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "category",
+                    "type": {
+                      "type": "enum",
+                      "name": "ActivityCategory",
+                      "symbols": [
+                        "Impression",
+                        "Click"
+                      ]
+                    }
+                  },
+                  {
+                    "name": "type",
+                    "type": {
+                      "type": "string",
+                      "avro.java.string": "String"
+                    }
+                  },
+                  {
+                    "name": "referer",
+                    "type": [
+                      "null",
+                      {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  },
+                  {
+                    "name": "details",
+                    "type": [
+                      "null",
+                      {
+                        "type": "map",
+                        "values": [
+                          "null",
+                          {
+                            "type": "string",
+                            "avro.java.string": "String"
+                          }
+                        ],
+                        "avro.java.string": "String"
+                      }
+                    ],
+                    "default": null
+                  }
+                ]
+              }
+            ],
+            "default": null
+          }
+        ]
+      }
+    }
+  ]
+}

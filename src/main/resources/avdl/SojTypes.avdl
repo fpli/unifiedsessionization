@@ -1,0 +1,115 @@
+@namespace("com.ebay.epic.sojourner.common.model.avro")
+protocol GlobalEventTypes {
+	import idl "CommonTypes.avdl";
+
+	/** tags not included but in UbiEvent: current_impr_id, source_impr_id, staticPageType, reservedForFuture, eventAttr, oldSessionSkey, seqNum, sessionStartDt, sojDataDt, version */
+	record SojEvent {
+		/** Rheos header */
+		RheosHeader rheosHeader;
+		string guid;
+		/** dataClassification=Internal|isEncrypted=false|description=map from timestamp, publish time */
+		long eventTimestamp;
+		/** dataClassification=Internal|isEncrypted=false|description=mobile specific, map from mtsts, used for mobile case */
+		union{null, long} eventCaptureTime;
+		/** dataClassification=Internal|isEncrypted=false|description=request correlation id, map from tag rq */
+		union{null, string} requestCorrelationId;
+		/** dataClassification=Internal|isEncrypted=false|description=correlation guid, map from tag n */
+		union{null, string} cguid;
+		/** dataClassification=Internal|isEncrypted=false|description=Sojourner key for source id */
+		union{null, string} sid;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag p */
+		union{null, int} pageId;
+		union{null, string} pageName;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag pgf */
+		union{null, string} pageFamily;
+		/** dataClassification=Internal|isEncrypted=false|description=map from efam of pulsar event, event family */
+		union{null, string} eventFamily;
+		/** dataClassification=Internal|isEncrypted=false|description=map from eactn of pulsar event, event action */
+		union{null, string} eventAction;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag u/bu */
+		union{null, string} userId;
+		/** dataClassification=Internal|isEncrypted=false|description=Click Id, map from tag c */
+		union{null, string} clickId;
+		/** dataClassification=Internal|isEncrypted=false|description=Site ID, map from tag t */
+		union{null, string} siteId;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag snid */
+		union{null, string} sessionId;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag snsq */
+		union{null, string} seqNum;
+		union{null, string} ciid;
+		union{null, string} siid;
+		/** dataClassification=Internal|isEncrypted=false|description=1 indicates that the command redirected to another URL */
+		union{null, int} rdt;
+		/** dataClassification=Internal|isEncrypted=false|description=indicating that this is a registered user, map from tag regU */
+		union{null, int} regu;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag _ifrm */
+		union{null, boolean} iframe;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag r */
+		union{null, string} refererHash;
+		/** dataClassification=Internal|isEncrypted=false|description=search keyword, map from tag sQr */
+		union{null, string} sqr;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag itm/item */
+		union{null, string} itemId;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag flgs */
+		union{null, string} flags;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag Referer */
+		union{null, string} urlQueryString;
+		/** dataClassification=Internal|isEncrypted=false|description=web server, map from Server */
+		union{null, string} webServer;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag ck/C */
+		union{null, string} cookies;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag bott */
+		union{null, int} bot;
+		union{null, string} clientIP;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag RemoteIP */
+		union{null, string} remoteIP;
+		/** dataClassification=Internal|isEncrypted=false|description=map from tag Agent */
+		union{null, string} agentInfo;
+		/** dataClassification=Internal|isEncrypted=false|description=application ID, map from tag app */
+		union{null, string} appId;
+		/** dataClassification=Internal|isEncrypted=false|description=application version, map from mav */
+		union{null, string} appVersion;
+		/** dataClassification=Internal|isEncrypted=false|description=operation system version, map from osv */
+		union{null, string} osVersion;
+		/** dataClassification=Internal|isEncrypted=false|description=map from trffc_src */
+		union{null, string} trafficSource;
+		/** dataClassification=Internal|isEncrypted=false|description=map from cbrnd */
+		union{null, string} cobrand;
+		/** dataClassification=Internal|isEncrypted=false|description=map from dd_d */
+		union{null, string} deviceFamily;
+		/** dataClassification=Internal|isEncrypted=false|description=map from dd_dc */
+		union{null, string} deviceType;
+		/** dataClassification=Internal|isEncrypted=false|description=map from dd_bv */
+		union{null, string} browserVersion;
+		/** dataClassification=Internal|isEncrypted=false|description=map from dd_bf */
+		union{null, string} browserFamily;
+		/** dataClassification=Internal|isEncrypted=false|description=map from dd_os */
+		union{null, string} osFamily;
+		/** dataClassification=Internal|isEncrypted=false|description=map from dd_osv */
+		union{null, string} enrichedOsVersion;
+		map<string> applicationPayload;
+		/** CAL request log id */
+		union{null, string} rlogid = null;
+		/** Includes ForwardFor, ContentLength, Script, Server, Encoding, TMachine, TStamp, TName, TStatus, TDuration, TPayload */
+		map<string> clientData;
+		union{null, long} ingestTime;
+		union{null, long} sessionSkey;
+		union{null, long} sessionStartDt;
+		union{null, long} sojDataDt;
+		union{null, int} version;
+		union{null, int} staticPageType;
+		union{null, int} reservedForFuture;
+		union{null, string} eventAttr;
+		union{null, long} currentImprId;
+		union{null, long} sourceImprId;
+		union{null, long} oldSessionSkey;
+		union{null, boolean} partialValidPage;
+		union{null, array<int>} botFlags = null;
+		union{null, long} icfBinary;
+		union{null, long} eventCnt;
+		union{null, string} referrer;
+		union{null, string} forwardedFor;
+		union{null, boolean} rv;
+		union{null, map<bytes>} sojHeader = null;
+	}
+}

@@ -1,0 +1,401 @@
+{
+  "type": "record",
+  "name": "UniTrackingEvent",
+  "namespace": "com.ebay.epic.sojourner.common.model",
+  "doc": "Realtime behavior event schema to support AI Platform",
+  "fields": [
+    {
+      "name": "rheosHeader",
+      "type": {
+        "type": "record",
+        "name": "RheosHeader",
+        "fields": [
+          {
+            "name": "eventCreateTimestamp",
+            "type": "long"
+          },
+          {
+            "name": "eventSentTimestamp",
+            "type": "long"
+          },
+          {
+            "name": "schemaId",
+            "type": "int"
+          },
+          {
+            "name": "eventId",
+            "type": [
+              "null",
+              {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            ]
+          },
+          {
+            "name": "producerId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          }
+        ]
+      },
+      "doc": "Rheos header"
+    },
+    {
+      "name": "data_src",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": "com.ebay.bhvr.data.model.enumerable.DataSrc"
+    },
+    {
+      "name": "page_type",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": "com.ebay.bhvr.data.model.enumerable.PageType"
+    },
+    {
+      "name": "event_level",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": "com.ebay.bhvr.data.model.enumerable.EventLevel"
+    },
+    {
+      "name": "event_type",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": "com.ebay.bhvr.data.model.enumerable.EventType"
+    },
+    {
+      "name": "sub_page_type",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": "com.ebay.bhvr.data.model.enumerable.SubPageType"
+    },
+    {
+      "name": "sub_event_type",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": "com.ebay.bhvr.data.model.enumerable.SubEventType"
+    },
+    {
+      "name": "event_id",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "event_timestamp",
+      "type": [
+        "null",
+        "long"
+      ],
+      "doc": "Unix epoch time in millisecond"
+    },
+    {
+      "name": "page_id",
+      "type": [
+        "null",
+        "int"
+      ],
+      "doc": ""
+    },
+    {
+      "name": "rotation_id",
+      "type": [
+        "null",
+        "long"
+      ],
+      "doc": ""
+    },
+    {
+      "name": "site_id",
+      "type": [
+        "null",
+        "int"
+      ],
+      "doc": ""
+    },
+    {
+      "name": "dwell",
+      "type": [
+        "null",
+        "long"
+      ],
+      "doc": ""
+    },
+    {
+      "name": "payload",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": {
+            "type": "string",
+            "avro.java.string": "String"
+          },
+          "default": {}
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "app_id",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "app_version",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "user_agent",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "referer",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "user_lang",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "screen_dtl",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": {
+            "type": "string",
+            "avro.java.string": "String"
+          },
+          "default": {}
+        }
+      ],
+      "doc": "screen_id,screen_width,screen_height,viewport_width,viewport_height"
+    },
+    {
+      "name": "user_id",
+      "type": [
+        "null",
+        "long"
+      ],
+      "doc": ""
+    },
+    {
+      "name": "guid",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "plmt_id",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "plmt_pos",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "message_id",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "module_id",
+      "type": [
+        "null",
+        "int"
+      ],
+      "doc": ""
+    },
+    {
+      "name": "element_id",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "element_type",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "element_pos",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "item_id",
+      "type": [
+        "null",
+        "long"
+      ],
+      "doc": ""
+    },
+    {
+      "name": "session_skey",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "seq_num",
+      "type": [
+        "null",
+        "int"
+      ],
+      "doc": ""
+    },
+    {
+      "name": "session_start_timestamp",
+      "type": [
+        "null",
+        "long"
+      ],
+      "doc": "Unix epoch time in millisecond"
+    },
+    {
+      "name": "traffic_src",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": ["null","string"],
+          "default": {}
+        }
+      ],
+      "doc": ""
+    },
+    {
+      "name": "biz_dtl",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": ["null","string"],
+          "default": {}
+        }
+      ],
+      "doc": ""
+    }
+  ]
+}

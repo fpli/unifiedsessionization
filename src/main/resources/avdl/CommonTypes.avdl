@@ -1,0 +1,10 @@
+@namespace("com.ebay.epic.sojourner.common.model.avro")
+protocol CommonTypes {
+	record RheosHeader {
+		long eventCreateTimestamp;
+		long eventSentTimestamp;
+		int schemaId;
+		union{null, string} eventId = null;
+		string producerId;
+	}
+}

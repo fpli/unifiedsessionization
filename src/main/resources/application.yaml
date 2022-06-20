@@ -1,0 +1,275 @@
+flink:
+  app:
+    name: Unified Sessionization POC
+    parallelism:
+      default: 50
+      source: 50
+      pre-filter: 50
+      session: 50
+      post-filter: 50
+      sink-kafka: 50
+      max: 2000
+    checkpoint:
+      data-dir: /opt/tracking-behavior/checkpoint
+      interval-ms: 300000
+      timeout-ms: 900000
+      min-pause-between-ms: 120000
+      max-concurrent: 1
+      tolerate-failure-number: 3
+    source:
+      autotrack:
+        from-timestamp: 0
+        out-of-orderless-in-min: 3
+        idle-source-timeout-in-min: 10
+      ubi:
+        from-timestamp: 0
+        out-of-orderless-in-min: 3
+        idle-source-timeout-in-min: 10
+      utp:
+        from-timestamp: 0
+        out-of-orderless-in-min: 3
+        idle-source-timeout-in-min: 10
+    sink:
+      message-key: guid
+      sampling-key: guid
+      sampling-pct: 10
+      allow-drop: true
+      dc: rno
+      autotrack:
+        kafka:
+          topic: behavior.total.new.surfaceevent
+          subject: SessionizedEvent
+      ubi:
+        kafka:
+          topic: behavior.total.new.sojevent-poc
+          subject: behavior.sojourner.sojevent.schema
+      utp:
+        kafka:
+          topic: behavior.total.new.utpevent
+          subject: UnifiedTrackingRheosEvent
+    slot-sharing-group:
+      source:
+        lvs:
+          autotrack: autotracking-source-lvs
+          ubi: sojourner-source-lvs
+          utp: marketing-tracking-sourve-lvs
+        slc:
+          autotrack: autotracking-source-slc
+          ubi: sojourner-source-slc
+          utp: marketing-tracking-sourve-slc
+        rno:
+          autotrack: autotracking-source-rno
+          ubi: sojourner-source-rno
+          utp: marketing-tracking-sourve-rno
+        pre-filter: prefilter-operator
+        session: session-operator
+        post-filter: postfilter-operator
+        sink:
+          lvs:
+            autotrack: autotracking-sink-to-kafka-lvs
+            ubi: sojourner-sink-to-kafka-lvs
+            utp: marketing-tracking-sink-to-kafka-lvs
+          slc:
+            autotrack: autotracking-sink-to-kafka-slc
+            ubi: sojourner-sink-to-kafka-slc
+            utp: marketing-tracking-sink-to-kafka-slc
+          rno:
+            autotrack: autotracking-sink-to-kafka-rno
+            ubi: sojourner-sink-to-kafka-rno
+            utp: marketing-tracking-sink-to-kafka-rno
+    operator-name:
+      source:
+        lvs:
+          autotrack: AutoTracking Source LVS
+          ubi: Sojourner Source LVS
+          utp: Marketing Tracking Source LVS
+        slc:
+          autotrack: AutoTracking Source SLC
+          ubi: Sojourner Source SLC
+          utp: Marketing Tracking Source SLC
+        rno:
+          autotrack: AutoTracking Source RNO
+          ubi: Sojourner Source RNO
+          utp: Marketing Tracking Source RNO
+      pre-filter: PreFilter Operator
+      map: Normalizer Operator
+      post-filter:
+        autotrack: AutoTrack PostFilter Operator
+        ubi: UBI PostFilter Operator
+        utp: UTP PostFilter Operator
+      sink:
+        lvs:
+          autotrack: AutoTracking Sink to Kafka LVS
+          ubi: Sojourner Sink to Kafka LVS
+          utp: Marketing Tracking Sink To Kafka LVS
+        slc:
+          autotrack: AutoTracking Sink to Kafka SLC
+          ubi: Sojourner Sink to Kafka SLC
+          utp: Marketing Tracking Sink To Kafka SLC
+        rno:
+          autotrack: AutoTracking Sink to Kafka RNO
+          ubi: Sojourner Sink to Kafka RNO
+          utp: Marketing Tracking Sink To Kafka RNO
+    uid:
+      source:
+        lvs:
+          autotrack: autotracking-source-lvs
+          ubi: sojourner-source-lvs
+          utp: marketing-tracking-sourve-lvs
+        slc:
+          autotrack: autotracking-source-slc
+          ubi: sojourner-source-slc
+          utp: marketing-tracking-sourve-slc
+        rno:
+          autotrack: autotracking-source-rno
+          ubi: sojourner-source-rno
+          utp: marketing-tracking-sourve-rno
+      pre-filter: prefilter-operator
+      map: normalizer-operator
+      post-filter:
+        autotrack: autotrack-postFilter-operator
+        ubi: ubi-postFilter-operator
+        utp: utp-postFilter-operator
+      sink:
+        lvs:
+          autotrack: autotracking-sink-to-kafka-lvs
+          ubi: sojourner-sink-to-kafka-lvs
+          utp: marketing-tracking-sink-to-kafka-lvs
+        slc:
+          autotrack: autotracking-sink-to-kafka-slc
+          ubi: sojourner-sink-to-kafka-slc
+          utp: marketing-tracking-sink-to-kafka-slc
+        rno:
+          autotrack: autotracking-sink-to-kafka-rno
+          ubi: sojourner-sink-to-kafka-rno
+          utp: marketing-tracking-sink-to-kafka-rno
+
+kafka:
+  consumer:
+    autotrack:
+      group-id: unified-sessionization-poc
+      topic:
+        - behavior.autotracking.native.event.sessionized
+        - behavior.autotracking.event.sessionized
+      bootstrap-servers:
+        rno:
+          - rhs-bkuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-bkuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-bkuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-bkuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-bkuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+        lvs:
+          - rhs-lpuvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.27.tess.io:9092
+          - rhs-lpuvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.27.tess.io:9092
+          - rhs-lpuvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.27.tess.io:9092
+          - rhs-lpuvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.27.tess.io:9092
+          - rhs-lpuvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.27.tess.io:9092
+        slc:
+          - rhs-gpuvkiaa-kfk-slc-1.rheos-streaming-prod.svc.40.tess.io:9092
+          - rhs-gpuvkiaa-kfk-slc-2.rheos-streaming-prod.svc.40.tess.io:9092
+          - rhs-gpuvkiaa-kfk-slc-3.rheos-streaming-prod.svc.40.tess.io:9092
+          - rhs-gpuvkiaa-kfk-slc-4.rheos-streaming-prod.svc.40.tess.io:9092
+          - rhs-gpuvkiaa-kfk-slc-5.rheos-streaming-prod.svc.40.tess.io:9092
+      max-poll-records: 3000
+      # 16MB, default value is 50MB
+      fetch-max-bytes: 16777216
+      # 128KB, default value is 64KB
+      receive-buffer: 131072
+      fetch-max-wait-ms: 100
+      # 4MB, default value is 1MB
+      max-partitions-fetch-bytes: 4194304
+      auto-offset-reset: latest
+      partition-discovery-interval-ms: 60000
+    ubi:
+      group-id: unified-sessionization-poc
+      topic:
+        - behavior.totalv2.sojevent-nonbot-rno
+        - behavior.totalv2.sojevent-nonbot-lvs
+        - behavior.totalv2.sojevent-bot-rno
+        - behavior.totalv2.sojevent-bot-lvs
+      bootstrap-servers:
+        rno:
+          - rhs-fxuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.37.tess.io:9092
+          - rhs-fxuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.37.tess.io:9092
+          - rhs-fxuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.37.tess.io:9092
+          - rhs-fxuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.37.tess.io:9092
+          - rhs-fxuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.37.tess.io:9092
+        lvs:
+          - rhs-ravvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.38.tess.io:9092
+          - rhs-ravvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.38.tess.io:9092
+          - rhs-ravvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.38.tess.io:9092
+          - rhs-ravvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.38.tess.io:9092
+          - rhs-ravvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.38.tess.io:9092
+      max-poll-records: 3000
+      # 16MB, default value is 50MB
+      fetch-max-bytes: 16777216
+      # 128KB, default value is 64KB
+      receive-buffer: 131072
+      fetch-max-wait-ms: 100
+      # 4MB, default value is 1MB
+      max-partitions-fetch-bytes: 4194304
+      auto-offset-reset: latest
+      partition-discovery-interval-ms: 60000
+    utp:
+      group-id: unified-sessionization-poc
+      topic:
+        - marketing.tracking.events.total
+      bootstrap-servers:
+        slc:
+          - rhs-ncrvkiaa-kfk-slc-1.rheos-streaming-prod.svc.40.tess.io:9092
+          - rhs-ncrvkiaa-kfk-slc-2.rheos-streaming-prod.svc.40.tess.io:9092
+          - rhs-ncrvkiaa-kfk-slc-3.rheos-streaming-prod.svc.40.tess.io:9092
+          - rhs-ncrvkiaa-kfk-slc-4.rheos-streaming-prod.svc.40.tess.io:9092
+          - rhs-ncrvkiaa-kfk-slc-5.rheos-streaming-prod.svc.40.tess.io:9092
+        lvs:
+          - rhs-hcrvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.27.tess.io:9092
+          - rhs-hcrvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.27.tess.io:9092
+          - rhs-hcrvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.27.tess.io:9092
+          - rhs-hcrvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.27.tess.io:9092
+          - rhs-hcrvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.27.tess.io:9092
+      max-poll-records: 3000
+      # 16MB, default value is 50MB
+      fetch-max-bytes: 16777216
+      # 128KB, default value is 64KB
+      receive-buffer: 131072
+      fetch-max-wait-ms: 100
+      # 4MB, default value is 1MB
+      max-partitions-fetch-bytes: 4194304
+      auto-offset-reset: latest
+      partition-discovery-interval-ms: 60000
+  # TODO after finalize the stream name and DC
+  producer:
+    stream: behavior.
+    producerId: unified-sessionization-poc
+    bootstrap-servers:
+      rno:
+        - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
+        - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
+        - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
+        - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
+        - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+    batch-size: 524288
+    acks: 1
+    linger-ms: 50
+    # 30s
+    request-timeout-ms: 30000
+    retries: 30
+    buffer-memory: 268435456
+    compression-type: lz4
+    # 2min
+    delivery-timeout-ms: 120000
+
+rheos:
+  registry-url: https://rheos-services.stratus.ebay.com
+  client:
+    id: "urn:ebay-marketplace-consumerid:68a97ac2-013b-4915-9ed7-d6ae2ff01618"
+    iaf:
+      secret: c4bb6fca-7ac5-46dd-b218-a49cb6307dbc
+      env: production
+
+rest-client:
+  base-url: https://sojsvc.vip.ebay.com
+  username: soj-flink-app
+  config:
+    pull-interval: 30000
+    env: prod
