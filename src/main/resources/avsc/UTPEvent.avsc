@@ -1,6 +1,6 @@
 {
   "type": "record",
-  "name": "utpEvent",
+  "name": "UTPEvent",
   "namespace": "com.ebay.epic.common.model",
   "doc": " Unified tracking topic schema",
   "fields": [

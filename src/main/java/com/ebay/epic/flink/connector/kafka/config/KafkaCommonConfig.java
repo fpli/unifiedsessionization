@@ -1,6 +1,7 @@
 package com.ebay.epic.flink.connector.kafka.config;
 
 import com.ebay.epic.common.enums.DataCenter;
+import com.ebay.epic.common.enums.EventType;
 import com.ebay.epic.utils.FlinkEnvUtils;
 import com.ebay.epic.utils.Property;
 import com.google.common.base.Preconditions;
@@ -23,9 +24,10 @@ public abstract class KafkaCommonConfig {
     private Properties properties;
     private String brokers;
     private String groupId;
-
-    public KafkaCommonConfig(DataCenter dc) {
+    private EventType eventType;
+    public KafkaCommonConfig(DataCenter dc,EventType eventType) {
         this.dc = dc;
+        this.eventType = eventType;
         properties = new Properties();
         switch (dc) {
             case LVS:
@@ -44,6 +46,9 @@ public abstract class KafkaCommonConfig {
         Preconditions.checkState(StringUtils.isNotBlank(groupId));
         setAuthentication(properties);
         buildProperties(properties);
+    }
+    public KafkaCommonConfig(DataCenter dc) {
+        this(dc,null);
     }
 
     public abstract String getBrokersForDC(DataCenter dc) ;

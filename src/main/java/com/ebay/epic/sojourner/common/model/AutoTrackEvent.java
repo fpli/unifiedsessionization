@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.ebay.epic.common.model;
+package com.ebay.epic.sojourner.common.model;
 
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.message.BinaryMessageEncoder;
@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3755318486941106272L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AutoTrackEvent\",\"namespace\":\"com.ebay.epic.common.model\",\"fields\":[{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userId\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"siteId\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"eventFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"agentVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"context\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Context\",\"fields\":[{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"version\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"os\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"utcOffset\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"clientIp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userLang\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenDPI\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"deviceInfo\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"MobileDeviceContext\",\"fields\":[{\"name\":\"formFactor\",\"type\":[\"null\",{\"type\":\"enum\",\"name\":\"FormFactor\",\"symbols\":[\"phone\",\"tablet\",\"watch\",\"desktop\"]}],\"default\":null},{\"name\":\"manufacturer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"model\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkCarrier\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkConnectionType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"theme\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"countryId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"others\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"trackable\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Trackable\",\"fields\":[{\"name\":\"trackableId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"parentTrackableId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"instanceId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"correlationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"activity\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Activity\",\"fields\":[{\"name\":\"timestamp\",\"type\":\"long\"},{\"name\":\"duration\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"ratio\",\"type\":[\"null\",\"double\"],\"default\":null},{\"name\":\"viewportWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"viewportHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"category\",\"type\":{\"type\":\"enum\",\"name\":\"ActivityCategory\",\"symbols\":[\"Impression\",\"Click\"]}},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"referer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"details\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null}]}");
+  private static final long serialVersionUID = -544410880909836730L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AutoTrackEvent\",\"namespace\":\"com.ebay.epic.sojourner.common.model\",\"fields\":[{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userId\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"siteId\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"eventFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"agentVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"context\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Context\",\"fields\":[{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"version\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"os\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"utcOffset\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"clientIp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userLang\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenDPI\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"deviceInfo\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"MobileDeviceContext\",\"fields\":[{\"name\":\"formFactor\",\"type\":[\"null\",{\"type\":\"enum\",\"name\":\"FormFactor\",\"symbols\":[\"phone\",\"tablet\",\"watch\",\"desktop\"]}],\"default\":null},{\"name\":\"manufacturer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"model\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkCarrier\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkConnectionType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"theme\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"countryId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"others\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"trackable\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Trackable\",\"fields\":[{\"name\":\"trackableId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"parentTrackableId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"instanceId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"correlationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"activity\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Activity\",\"fields\":[{\"name\":\"timestamp\",\"type\":\"long\"},{\"name\":\"duration\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"ratio\",\"type\":[\"null\",\"double\"],\"default\":null},{\"name\":\"viewportWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"viewportHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"category\",\"type\":{\"type\":\"enum\",\"name\":\"ActivityCategory\",\"symbols\":[\"Impression\",\"Click\"]}},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"referer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"details\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -56,9 +56,9 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
   @Deprecated public java.lang.Integer siteId;
   @Deprecated public java.lang.String eventFamily;
   @Deprecated public java.lang.String agentVersion;
-  @Deprecated public com.ebay.epic.common.model.Context context;
-  @Deprecated public com.ebay.epic.common.model.Trackable trackable;
-  @Deprecated public com.ebay.epic.common.model.Activity activity;
+  @Deprecated public com.ebay.epic.sojourner.common.model.Context context;
+  @Deprecated public com.ebay.epic.sojourner.common.model.Trackable trackable;
+  @Deprecated public com.ebay.epic.sojourner.common.model.Activity activity;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -78,7 +78,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * @param trackable The new value for trackable
    * @param activity The new value for activity
    */
-  public AutoTrackEvent(java.lang.String guid, java.lang.Long userId, java.lang.Integer siteId, java.lang.String eventFamily, java.lang.String agentVersion, com.ebay.epic.common.model.Context context, com.ebay.epic.common.model.Trackable trackable, com.ebay.epic.common.model.Activity activity) {
+  public AutoTrackEvent(java.lang.String guid, java.lang.Long userId, java.lang.Integer siteId, java.lang.String eventFamily, java.lang.String agentVersion, com.ebay.epic.sojourner.common.model.Context context, com.ebay.epic.sojourner.common.model.Trackable trackable, com.ebay.epic.sojourner.common.model.Activity activity) {
     this.guid = guid;
     this.userId = userId;
     this.siteId = siteId;
@@ -114,9 +114,9 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
     case 2: siteId = (java.lang.Integer)value$; break;
     case 3: eventFamily = (java.lang.String)value$; break;
     case 4: agentVersion = (java.lang.String)value$; break;
-    case 5: context = (com.ebay.epic.common.model.Context)value$; break;
-    case 6: trackable = (com.ebay.epic.common.model.Trackable)value$; break;
-    case 7: activity = (com.ebay.epic.common.model.Activity)value$; break;
+    case 5: context = (com.ebay.epic.sojourner.common.model.Context)value$; break;
+    case 6: trackable = (com.ebay.epic.sojourner.common.model.Trackable)value$; break;
+    case 7: activity = (com.ebay.epic.sojourner.common.model.Activity)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -205,7 +205,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Gets the value of the 'context' field.
    * @return The value of the 'context' field.
    */
-  public com.ebay.epic.common.model.Context getContext() {
+  public com.ebay.epic.sojourner.common.model.Context getContext() {
     return context;
   }
 
@@ -213,7 +213,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Sets the value of the 'context' field.
    * @param value the value to set.
    */
-  public void setContext(com.ebay.epic.common.model.Context value) {
+  public void setContext(com.ebay.epic.sojourner.common.model.Context value) {
     this.context = value;
   }
 
@@ -221,7 +221,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Gets the value of the 'trackable' field.
    * @return The value of the 'trackable' field.
    */
-  public com.ebay.epic.common.model.Trackable getTrackable() {
+  public com.ebay.epic.sojourner.common.model.Trackable getTrackable() {
     return trackable;
   }
 
@@ -229,7 +229,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Sets the value of the 'trackable' field.
    * @param value the value to set.
    */
-  public void setTrackable(com.ebay.epic.common.model.Trackable value) {
+  public void setTrackable(com.ebay.epic.sojourner.common.model.Trackable value) {
     this.trackable = value;
   }
 
@@ -237,7 +237,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Gets the value of the 'activity' field.
    * @return The value of the 'activity' field.
    */
-  public com.ebay.epic.common.model.Activity getActivity() {
+  public com.ebay.epic.sojourner.common.model.Activity getActivity() {
     return activity;
   }
 
@@ -245,7 +245,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Sets the value of the 'activity' field.
    * @param value the value to set.
    */
-  public void setActivity(com.ebay.epic.common.model.Activity value) {
+  public void setActivity(com.ebay.epic.sojourner.common.model.Activity value) {
     this.activity = value;
   }
 
@@ -253,8 +253,8 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Creates a new AutoTrackEvent RecordBuilder.
    * @return A new AutoTrackEvent RecordBuilder
    */
-  public static com.ebay.epic.common.model.AutoTrackEvent.Builder newBuilder() {
-    return new com.ebay.epic.common.model.AutoTrackEvent.Builder();
+  public static com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder newBuilder() {
+    return new com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder();
   }
 
   /**
@@ -262,8 +262,8 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * @param other The existing builder to copy.
    * @return A new AutoTrackEvent RecordBuilder
    */
-  public static com.ebay.epic.common.model.AutoTrackEvent.Builder newBuilder(com.ebay.epic.common.model.AutoTrackEvent.Builder other) {
-    return new com.ebay.epic.common.model.AutoTrackEvent.Builder(other);
+  public static com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder newBuilder(com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder other) {
+    return new com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder(other);
   }
 
   /**
@@ -271,8 +271,8 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * @param other The existing instance to copy.
    * @return A new AutoTrackEvent RecordBuilder
    */
-  public static com.ebay.epic.common.model.AutoTrackEvent.Builder newBuilder(com.ebay.epic.common.model.AutoTrackEvent other) {
-    return new com.ebay.epic.common.model.AutoTrackEvent.Builder(other);
+  public static com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder newBuilder(com.ebay.epic.sojourner.common.model.AutoTrackEvent other) {
+    return new com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder(other);
   }
 
   /**
@@ -286,12 +286,12 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
     private java.lang.Integer siteId;
     private java.lang.String eventFamily;
     private java.lang.String agentVersion;
-    private com.ebay.epic.common.model.Context context;
-    private com.ebay.epic.common.model.Context.Builder contextBuilder;
-    private com.ebay.epic.common.model.Trackable trackable;
-    private com.ebay.epic.common.model.Trackable.Builder trackableBuilder;
-    private com.ebay.epic.common.model.Activity activity;
-    private com.ebay.epic.common.model.Activity.Builder activityBuilder;
+    private com.ebay.epic.sojourner.common.model.Context context;
+    private com.ebay.epic.sojourner.common.model.Context.Builder contextBuilder;
+    private com.ebay.epic.sojourner.common.model.Trackable trackable;
+    private com.ebay.epic.sojourner.common.model.Trackable.Builder trackableBuilder;
+    private com.ebay.epic.sojourner.common.model.Activity activity;
+    private com.ebay.epic.sojourner.common.model.Activity.Builder activityBuilder;
 
     /** Creates a new Builder */
     private Builder() {
@@ -302,7 +302,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.ebay.epic.common.model.AutoTrackEvent.Builder other) {
+    private Builder(com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.guid)) {
         this.guid = data().deepCopy(fields()[0].schema(), other.guid);
@@ -329,21 +329,21 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
         fieldSetFlags()[5] = true;
       }
       if (other.hasContextBuilder()) {
-        this.contextBuilder = com.ebay.epic.common.model.Context.newBuilder(other.getContextBuilder());
+        this.contextBuilder = com.ebay.epic.sojourner.common.model.Context.newBuilder(other.getContextBuilder());
       }
       if (isValidValue(fields()[6], other.trackable)) {
         this.trackable = data().deepCopy(fields()[6].schema(), other.trackable);
         fieldSetFlags()[6] = true;
       }
       if (other.hasTrackableBuilder()) {
-        this.trackableBuilder = com.ebay.epic.common.model.Trackable.newBuilder(other.getTrackableBuilder());
+        this.trackableBuilder = com.ebay.epic.sojourner.common.model.Trackable.newBuilder(other.getTrackableBuilder());
       }
       if (isValidValue(fields()[7], other.activity)) {
         this.activity = data().deepCopy(fields()[7].schema(), other.activity);
         fieldSetFlags()[7] = true;
       }
       if (other.hasActivityBuilder()) {
-        this.activityBuilder = com.ebay.epic.common.model.Activity.newBuilder(other.getActivityBuilder());
+        this.activityBuilder = com.ebay.epic.sojourner.common.model.Activity.newBuilder(other.getActivityBuilder());
       }
     }
 
@@ -351,7 +351,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
      * Creates a Builder by copying an existing AutoTrackEvent instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.ebay.epic.common.model.AutoTrackEvent other) {
+    private Builder(com.ebay.epic.sojourner.common.model.AutoTrackEvent other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.guid)) {
         this.guid = data().deepCopy(fields()[0].schema(), other.guid);
@@ -403,7 +403,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'guid'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder setGuid(java.lang.String value) {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder setGuid(java.lang.String value) {
       validate(fields()[0], value);
       this.guid = value;
       fieldSetFlags()[0] = true;
@@ -423,7 +423,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'guid' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder clearGuid() {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder clearGuid() {
       guid = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -442,7 +442,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'userId'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder setUserId(java.lang.Long value) {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder setUserId(java.lang.Long value) {
       validate(fields()[1], value);
       this.userId = value;
       fieldSetFlags()[1] = true;
@@ -462,7 +462,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'userId' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder clearUserId() {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder clearUserId() {
       userId = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -481,7 +481,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'siteId'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder setSiteId(java.lang.Integer value) {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder setSiteId(java.lang.Integer value) {
       validate(fields()[2], value);
       this.siteId = value;
       fieldSetFlags()[2] = true;
@@ -501,7 +501,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'siteId' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder clearSiteId() {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder clearSiteId() {
       siteId = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -520,7 +520,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'eventFamily'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder setEventFamily(java.lang.String value) {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder setEventFamily(java.lang.String value) {
       validate(fields()[3], value);
       this.eventFamily = value;
       fieldSetFlags()[3] = true;
@@ -540,7 +540,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'eventFamily' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder clearEventFamily() {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder clearEventFamily() {
       eventFamily = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -559,7 +559,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'agentVersion'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder setAgentVersion(java.lang.String value) {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder setAgentVersion(java.lang.String value) {
       validate(fields()[4], value);
       this.agentVersion = value;
       fieldSetFlags()[4] = true;
@@ -579,7 +579,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'agentVersion' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder clearAgentVersion() {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder clearAgentVersion() {
       agentVersion = null;
       fieldSetFlags()[4] = false;
       return this;
@@ -589,7 +589,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Gets the value of the 'context' field.
       * @return The value.
       */
-    public com.ebay.epic.common.model.Context getContext() {
+    public com.ebay.epic.sojourner.common.model.Context getContext() {
       return context;
     }
 
@@ -598,7 +598,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'context'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder setContext(com.ebay.epic.common.model.Context value) {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder setContext(com.ebay.epic.sojourner.common.model.Context value) {
       validate(fields()[5], value);
       this.contextBuilder = null;
       this.context = value;
@@ -618,12 +618,12 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
      * Gets the Builder instance for the 'context' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public com.ebay.epic.common.model.Context.Builder getContextBuilder() {
+    public com.ebay.epic.sojourner.common.model.Context.Builder getContextBuilder() {
       if (contextBuilder == null) {
         if (hasContext()) {
-          setContextBuilder(com.ebay.epic.common.model.Context.newBuilder(context));
+          setContextBuilder(com.ebay.epic.sojourner.common.model.Context.newBuilder(context));
         } else {
-          setContextBuilder(com.ebay.epic.common.model.Context.newBuilder());
+          setContextBuilder(com.ebay.epic.sojourner.common.model.Context.newBuilder());
         }
       }
       return contextBuilder;
@@ -634,7 +634,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder setContextBuilder(com.ebay.epic.common.model.Context.Builder value) {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder setContextBuilder(com.ebay.epic.sojourner.common.model.Context.Builder value) {
       clearContext();
       contextBuilder = value;
       return this;
@@ -652,7 +652,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'context' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder clearContext() {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder clearContext() {
       context = null;
       contextBuilder = null;
       fieldSetFlags()[5] = false;
@@ -663,7 +663,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Gets the value of the 'trackable' field.
       * @return The value.
       */
-    public com.ebay.epic.common.model.Trackable getTrackable() {
+    public com.ebay.epic.sojourner.common.model.Trackable getTrackable() {
       return trackable;
     }
 
@@ -672,7 +672,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'trackable'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder setTrackable(com.ebay.epic.common.model.Trackable value) {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder setTrackable(com.ebay.epic.sojourner.common.model.Trackable value) {
       validate(fields()[6], value);
       this.trackableBuilder = null;
       this.trackable = value;
@@ -692,12 +692,12 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
      * Gets the Builder instance for the 'trackable' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public com.ebay.epic.common.model.Trackable.Builder getTrackableBuilder() {
+    public com.ebay.epic.sojourner.common.model.Trackable.Builder getTrackableBuilder() {
       if (trackableBuilder == null) {
         if (hasTrackable()) {
-          setTrackableBuilder(com.ebay.epic.common.model.Trackable.newBuilder(trackable));
+          setTrackableBuilder(com.ebay.epic.sojourner.common.model.Trackable.newBuilder(trackable));
         } else {
-          setTrackableBuilder(com.ebay.epic.common.model.Trackable.newBuilder());
+          setTrackableBuilder(com.ebay.epic.sojourner.common.model.Trackable.newBuilder());
         }
       }
       return trackableBuilder;
@@ -708,7 +708,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder setTrackableBuilder(com.ebay.epic.common.model.Trackable.Builder value) {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder setTrackableBuilder(com.ebay.epic.sojourner.common.model.Trackable.Builder value) {
       clearTrackable();
       trackableBuilder = value;
       return this;
@@ -726,7 +726,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'trackable' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder clearTrackable() {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder clearTrackable() {
       trackable = null;
       trackableBuilder = null;
       fieldSetFlags()[6] = false;
@@ -737,7 +737,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Gets the value of the 'activity' field.
       * @return The value.
       */
-    public com.ebay.epic.common.model.Activity getActivity() {
+    public com.ebay.epic.sojourner.common.model.Activity getActivity() {
       return activity;
     }
 
@@ -746,7 +746,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'activity'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder setActivity(com.ebay.epic.common.model.Activity value) {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder setActivity(com.ebay.epic.sojourner.common.model.Activity value) {
       validate(fields()[7], value);
       this.activityBuilder = null;
       this.activity = value;
@@ -766,12 +766,12 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
      * Gets the Builder instance for the 'activity' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public com.ebay.epic.common.model.Activity.Builder getActivityBuilder() {
+    public com.ebay.epic.sojourner.common.model.Activity.Builder getActivityBuilder() {
       if (activityBuilder == null) {
         if (hasActivity()) {
-          setActivityBuilder(com.ebay.epic.common.model.Activity.newBuilder(activity));
+          setActivityBuilder(com.ebay.epic.sojourner.common.model.Activity.newBuilder(activity));
         } else {
-          setActivityBuilder(com.ebay.epic.common.model.Activity.newBuilder());
+          setActivityBuilder(com.ebay.epic.sojourner.common.model.Activity.newBuilder());
         }
       }
       return activityBuilder;
@@ -782,7 +782,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder setActivityBuilder(com.ebay.epic.common.model.Activity.Builder value) {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder setActivityBuilder(com.ebay.epic.sojourner.common.model.Activity.Builder value) {
       clearActivity();
       activityBuilder = value;
       return this;
@@ -800,7 +800,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'activity' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.AutoTrackEvent.Builder clearActivity() {
+    public com.ebay.epic.sojourner.common.model.AutoTrackEvent.Builder clearActivity() {
       activity = null;
       activityBuilder = null;
       fieldSetFlags()[7] = false;
@@ -820,17 +820,17 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
         if (contextBuilder != null) {
           record.context = this.contextBuilder.build();
         } else {
-          record.context = fieldSetFlags()[5] ? this.context : (com.ebay.epic.common.model.Context) defaultValue(fields()[5]);
+          record.context = fieldSetFlags()[5] ? this.context : (com.ebay.epic.sojourner.common.model.Context) defaultValue(fields()[5]);
         }
         if (trackableBuilder != null) {
           record.trackable = this.trackableBuilder.build();
         } else {
-          record.trackable = fieldSetFlags()[6] ? this.trackable : (com.ebay.epic.common.model.Trackable) defaultValue(fields()[6]);
+          record.trackable = fieldSetFlags()[6] ? this.trackable : (com.ebay.epic.sojourner.common.model.Trackable) defaultValue(fields()[6]);
         }
         if (activityBuilder != null) {
           record.activity = this.activityBuilder.build();
         } else {
-          record.activity = fieldSetFlags()[7] ? this.activity : (com.ebay.epic.common.model.Activity) defaultValue(fields()[7]);
+          record.activity = fieldSetFlags()[7] ? this.activity : (com.ebay.epic.sojourner.common.model.Activity) defaultValue(fields()[7]);
         }
         return record;
       } catch (java.lang.Exception e) {

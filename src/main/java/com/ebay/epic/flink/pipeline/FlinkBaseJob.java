@@ -27,20 +27,21 @@ public abstract class FlinkBaseJob {
 
     public abstract void kafkaSinkBuilder(DataStream dataStream, EventType eventType);
 
-    public void baseSinkBuilder(DataStream dataStream, Class className, String opName, String opUid) {
+    public void baseSinkBuilder(DataStream dataStream, Class className, String opName, String opUid
+    ,String sinkTopic,String sinkSubject,String sinkSlotGroup) {
         // sink to kafka
         KafkaProducerConfig config = KafkaProducerConfig.ofDC(getString(FLINK_APP_SINK_DC));
         FlinkKafkaProducerFactory producerFactory = new FlinkKafkaProducerFactory(config);
         dataStream.addSink(producerFactory.get(
                         className,
                         getString(Property.RHEOS_KAFKA_REGISTRY_URL),
-                        getString(FLINK_APP_SINK_TOPIC_UTP),
-                        getString(FLINK_APP_SINK_TOPIC_SUBJECT_UTP),
+                        getString(sinkTopic),
+                        getString(sinkSubject),
                         getString(PRODUCER_ID),
                         getBoolean(ALLOW_DROP),
                         getStringArray(FLINK_APP_SINK_MESSAGE_KEY, ",")))
                 .setParallelism(getInteger(SINK_KAFKA_PARALLELISM))
-                .slotSharingGroup(getString(SINK_SLOT_SHARE_GROUP_RNO_UTP))
+                .slotSharingGroup(getString(sinkSlotGroup))
                 .name(getString(opName))
                 .uid(getString(opUid));
     }

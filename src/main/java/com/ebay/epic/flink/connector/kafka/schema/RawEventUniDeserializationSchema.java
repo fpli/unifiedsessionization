@@ -108,7 +108,7 @@ public class RawEventUniDeserializationSchema implements DeserializationSchema<R
     private RawEvent surfaceConstruct(GenericRecord genericRecord, RheosEvent rheosEvent) {
         RawEvent rawEvent = new RawEvent();
         rawEvent.setGuid(genericRecord.get("guid").toString());
-        rawEvent.setEventTs(Long.valueOf(((GenericRecord) genericRecord.get("Activity"))
+        rawEvent.setEventTs(Long.valueOf(((GenericRecord) genericRecord.get("activity"))
                 .get("timestamp").toString()));
         rawEvent.setEventType(EventType.AUTOTRACK);
         rawEvent.setRheosByteArray(rheosEvent.toBytes());

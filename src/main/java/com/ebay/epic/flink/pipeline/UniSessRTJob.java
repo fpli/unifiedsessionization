@@ -63,7 +63,6 @@ public class UniSessRTJob extends FlinkBaseJob {
                         .uid(getString(PRE_FILTER_OP_UID));
 
         // session window
-
         SingleOutputStreamOperator<UniSession> ubiSessionDataStream =
                 rawEventPreFilterDS
                         .keyBy("guid")
@@ -84,7 +83,7 @@ public class UniSessRTJob extends FlinkBaseJob {
                 .setParallelism(getInteger(Property.SESSION_PARALLELISM))
                 .slotSharingGroup(getString(SESSION_WINDOR_SLOT_SHARE_GROUP))
                 .name("Session Operator")
-                .uid("session-operator");
+                .uid("session-operator").setMaxParallelism(getInteger(PARALLELISM_MAX));
 
         DataStream<RawEvent> rawEventWithSessionId =
                 ubiSessionDataStream.getSideOutput(OutputTagConstants.mappedEventOutputTag);
@@ -297,14 +296,17 @@ public class UniSessRTJob extends FlinkBaseJob {
     }
 
     private void autoTrackSinkBuilder(DataStream dataStream) {
-        baseSinkBuilder(dataStream, AutoTrackEvent.class, SINK_OPERATOR_NAME_RNO_AUTOTRACK, SINK_UID_RNO_AUTOTRACK);
+        baseSinkBuilder(dataStream, RawEvent.class, SINK_OPERATOR_NAME_RNO_AUTOTRACK, SINK_UID_RNO_AUTOTRACK,
+                FLINK_APP_SINK_TOPIC_AUTOTRACK,FLINK_APP_SINK_TOPIC_SUBJECT_AUTOTRACK,SINK_SLOT_SHARE_GROUP_RNO_AUTOTRACK);
     }
 
     private void ubiSinkBuilder(DataStream dataStream) {
-        baseSinkBuilder(dataStream, SojEvent.class, SINK_OPERATOR_NAME_RNO_UBI, SINK_UID_RNO_UBI);
+        baseSinkBuilder(dataStream, RawEvent.class, SINK_OPERATOR_NAME_RNO_UBI, SINK_UID_RNO_UBI,
+                FLINK_APP_SINK_TOPIC_UBI,FLINK_APP_SINK_TOPIC_SUBJECT_UBI,SINK_SLOT_SHARE_GROUP_RNO_UBI);
     }
 
     private void utpSinkBuilder(DataStream dataStream) {
-        baseSinkBuilder(dataStream, UTPEvent.class, SINK_OPERATOR_NAME_RNO_UTP, SINK_UID_RNO_UTP);
+        baseSinkBuilder(dataStream, RawEvent.class, SINK_OPERATOR_NAME_RNO_UTP, SINK_UID_RNO_UTP,
+                FLINK_APP_SINK_TOPIC_UTP,FLINK_APP_SINK_TOPIC_SUBJECT_UTP,SINK_SLOT_SHARE_GROUP_RNO_UTP );
     }
 }

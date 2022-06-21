@@ -1,0 +1,90 @@
+{
+  "type": "record",
+  "name": "UniSession",
+  "namespace": "com.ebay.epic.common.model",
+  "fields": [
+    {
+      "name": "rheosHeader",
+      "type": {
+        "type": "record",
+        "name": "RheosHeader",
+        "fields": [
+          {
+            "name": "eventCreateTimestamp",
+            "type": "long"
+          },
+          {
+            "name": "eventSentTimestamp",
+            "type": "long"
+          },
+          {
+            "name": "schemaId",
+            "type": "int"
+          },
+          {
+            "name": "eventId",
+            "type": [
+              "null",
+              {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            ]
+          },
+          {
+            "name": "producerId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          }
+        ]
+      },
+      "doc": "Rheos header"
+    },
+    {
+      "name": "guid",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "from ubisession guid"
+    },
+    {
+      "name": "globalSessionId",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "from unisession globalSessionId"
+    },
+
+    {
+      "name": "absStartTimestamp",
+      "type": [
+        "null",
+        "long"
+      ],
+      "doc": "from unisession absStartTimestamp"
+    },
+
+    {
+      "name": "absEndTimestamp",
+      "type": [
+        "null",
+        "long"
+      ],
+      "doc": "from unisession absEndTimestamp"
+    },
+
+    {
+      "name": "sessionStartDt",
+      "type": [
+        "null",
+        "long"
+      ],
+      "doc": "from unisession sessionStartDt"
+    }
+
+  ]
+}

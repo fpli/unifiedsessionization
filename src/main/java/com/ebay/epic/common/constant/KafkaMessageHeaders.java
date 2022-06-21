@@ -5,6 +5,5 @@ package com.ebay.epic.common.constant;
  * the key of kafka message headers should be as short as possible but meaningful
  */
 public class KafkaMessageHeaders {
-  public static final String PAGE_ID = "p";
-  public static final String SCHEMA_VERSION = "schemaVersion";
+  public static final String GLOBAL_SESSION_ID = "globalSessionID";
 }

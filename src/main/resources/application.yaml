@@ -61,22 +61,22 @@ flink:
           autotrack: autotracking-source-rno
           ubi: sojourner-source-rno
           utp: marketing-tracking-sourve-rno
-        pre-filter: prefilter-operator
-        session: session-operator
-        post-filter: postfilter-operator
-        sink:
-          lvs:
-            autotrack: autotracking-sink-to-kafka-lvs
-            ubi: sojourner-sink-to-kafka-lvs
-            utp: marketing-tracking-sink-to-kafka-lvs
-          slc:
-            autotrack: autotracking-sink-to-kafka-slc
-            ubi: sojourner-sink-to-kafka-slc
-            utp: marketing-tracking-sink-to-kafka-slc
-          rno:
-            autotrack: autotracking-sink-to-kafka-rno
-            ubi: sojourner-sink-to-kafka-rno
-            utp: marketing-tracking-sink-to-kafka-rno
+      pre-filter: prefilter-operator
+      session-window: session-operator
+      post-filter: postfilter-operator
+      sink:
+        lvs:
+          autotrack: autotracking-sink-to-kafka-lvs
+          ubi: sojourner-sink-to-kafka-lvs
+          utp: marketing-tracking-sink-to-kafka-lvs
+        slc:
+          autotrack: autotracking-sink-to-kafka-slc
+          ubi: sojourner-sink-to-kafka-slc
+          utp: marketing-tracking-sink-to-kafka-slc
+        rno:
+          autotrack: autotracking-sink-to-kafka-rno
+          ubi: sojourner-sink-to-kafka-rno
+          utp: marketing-tracking-sink-to-kafka-rno
     operator-name:
       source:
         lvs:
@@ -92,7 +92,7 @@ flink:
           ubi: Sojourner Source RNO
           utp: Marketing Tracking Source RNO
       pre-filter: PreFilter Operator
-      map: Normalizer Operator
+      session-window: Session Operator
       post-filter:
         autotrack: AutoTrack PostFilter Operator
         ubi: UBI PostFilter Operator
@@ -125,7 +125,7 @@ flink:
           ubi: sojourner-source-rno
           utp: marketing-tracking-sourve-rno
       pre-filter: prefilter-operator
-      map: normalizer-operator
+      session-window: session-operator
       post-filter:
         autotrack: autotrack-postFilter-operator
         ubi: ubi-postFilter-operator
@@ -258,6 +258,8 @@ kafka:
     compression-type: lz4
     # 2min
     delivery-timeout-ms: 120000
+    # 1000000 byte
+    max-request-size: 1000000
 
 rheos:
   registry-url: https://rheos-services.stratus.ebay.com

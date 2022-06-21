@@ -1,9 +1,6 @@
 package com.ebay.epic.utils;
 
-import com.ebay.epic.common.model.SurfaceTrackingEvent;
-import com.ebay.epic.common.model.SojEvent;
-import com.ebay.epic.common.model.UTPEvent;
-import com.ebay.epic.common.model.UniTrackingEvent;
+import com.ebay.epic.common.model.*;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -23,6 +20,9 @@ public class TimestampFieldExtractor {
         } else if (t instanceof SurfaceTrackingEvent) {
             SurfaceTrackingEvent surfaceTrackingEvent = (SurfaceTrackingEvent) t;
             return surfaceTrackingEvent.getRheosHeader().getEventSentTimestamp();
+        } else if (t instanceof RawEvent) {
+            RawEvent rawEvent = (RawEvent) t;
+            return rawEvent.getEventTs();
         } else {
             throw new IllegalStateException("Cannot extract timestamp filed for generate watermark");
         }

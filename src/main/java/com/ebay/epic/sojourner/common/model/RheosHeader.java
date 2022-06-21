@@ -3,7 +3,7 @@
  *
  * DO NOT EDIT DIRECTLY
  */
-package com.ebay.epic.common.model;
+package com.ebay.epic.sojourner.common.model;
 
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.message.BinaryMessageEncoder;
@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 5185858844994419854L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RheosHeader\",\"namespace\":\"com.ebay.epic.common.model\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = 8595038859388742668L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RheosHeader\",\"namespace\":\"com.ebay.epic.sojourner.common.model\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -190,8 +190,8 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * Creates a new RheosHeader RecordBuilder.
    * @return A new RheosHeader RecordBuilder
    */
-  public static com.ebay.epic.common.model.RheosHeader.Builder newBuilder() {
-    return new com.ebay.epic.common.model.RheosHeader.Builder();
+  public static com.ebay.epic.sojourner.common.model.RheosHeader.Builder newBuilder() {
+    return new com.ebay.epic.sojourner.common.model.RheosHeader.Builder();
   }
 
   /**
@@ -199,8 +199,8 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing builder to copy.
    * @return A new RheosHeader RecordBuilder
    */
-  public static com.ebay.epic.common.model.RheosHeader.Builder newBuilder(com.ebay.epic.common.model.RheosHeader.Builder other) {
-    return new com.ebay.epic.common.model.RheosHeader.Builder(other);
+  public static com.ebay.epic.sojourner.common.model.RheosHeader.Builder newBuilder(com.ebay.epic.sojourner.common.model.RheosHeader.Builder other) {
+    return new com.ebay.epic.sojourner.common.model.RheosHeader.Builder(other);
   }
 
   /**
@@ -208,8 +208,8 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * @param other The existing instance to copy.
    * @return A new RheosHeader RecordBuilder
    */
-  public static com.ebay.epic.common.model.RheosHeader.Builder newBuilder(com.ebay.epic.common.model.RheosHeader other) {
-    return new com.ebay.epic.common.model.RheosHeader.Builder(other);
+  public static com.ebay.epic.sojourner.common.model.RheosHeader.Builder newBuilder(com.ebay.epic.sojourner.common.model.RheosHeader other) {
+    return new com.ebay.epic.sojourner.common.model.RheosHeader.Builder(other);
   }
 
   /**
@@ -233,7 +233,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.ebay.epic.common.model.RheosHeader.Builder other) {
+    private Builder(com.ebay.epic.sojourner.common.model.RheosHeader.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.eventCreateTimestamp)) {
         this.eventCreateTimestamp = data().deepCopy(fields()[0].schema(), other.eventCreateTimestamp);
@@ -261,7 +261,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
      * Creates a Builder by copying an existing RheosHeader instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.ebay.epic.common.model.RheosHeader other) {
+    private Builder(com.ebay.epic.sojourner.common.model.RheosHeader other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.eventCreateTimestamp)) {
         this.eventCreateTimestamp = data().deepCopy(fields()[0].schema(), other.eventCreateTimestamp);
@@ -298,7 +298,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'eventCreateTimestamp'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.RheosHeader.Builder setEventCreateTimestamp(long value) {
+    public com.ebay.epic.sojourner.common.model.RheosHeader.Builder setEventCreateTimestamp(long value) {
       validate(fields()[0], value);
       this.eventCreateTimestamp = value;
       fieldSetFlags()[0] = true;
@@ -318,7 +318,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'eventCreateTimestamp' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.RheosHeader.Builder clearEventCreateTimestamp() {
+    public com.ebay.epic.sojourner.common.model.RheosHeader.Builder clearEventCreateTimestamp() {
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -336,7 +336,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'eventSentTimestamp'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.RheosHeader.Builder setEventSentTimestamp(long value) {
+    public com.ebay.epic.sojourner.common.model.RheosHeader.Builder setEventSentTimestamp(long value) {
       validate(fields()[1], value);
       this.eventSentTimestamp = value;
       fieldSetFlags()[1] = true;
@@ -356,7 +356,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'eventSentTimestamp' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.RheosHeader.Builder clearEventSentTimestamp() {
+    public com.ebay.epic.sojourner.common.model.RheosHeader.Builder clearEventSentTimestamp() {
       fieldSetFlags()[1] = false;
       return this;
     }
@@ -374,7 +374,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'schemaId'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.RheosHeader.Builder setSchemaId(int value) {
+    public com.ebay.epic.sojourner.common.model.RheosHeader.Builder setSchemaId(int value) {
       validate(fields()[2], value);
       this.schemaId = value;
       fieldSetFlags()[2] = true;
@@ -394,7 +394,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'schemaId' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.RheosHeader.Builder clearSchemaId() {
+    public com.ebay.epic.sojourner.common.model.RheosHeader.Builder clearSchemaId() {
       fieldSetFlags()[2] = false;
       return this;
     }
@@ -412,7 +412,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'eventId'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.RheosHeader.Builder setEventId(java.lang.String value) {
+    public com.ebay.epic.sojourner.common.model.RheosHeader.Builder setEventId(java.lang.String value) {
       validate(fields()[3], value);
       this.eventId = value;
       fieldSetFlags()[3] = true;
@@ -432,7 +432,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'eventId' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.RheosHeader.Builder clearEventId() {
+    public com.ebay.epic.sojourner.common.model.RheosHeader.Builder clearEventId() {
       eventId = null;
       fieldSetFlags()[3] = false;
       return this;
@@ -451,7 +451,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'producerId'.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.RheosHeader.Builder setProducerId(java.lang.String value) {
+    public com.ebay.epic.sojourner.common.model.RheosHeader.Builder setProducerId(java.lang.String value) {
       validate(fields()[4], value);
       this.producerId = value;
       fieldSetFlags()[4] = true;
@@ -471,7 +471,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * Clears the value of the 'producerId' field.
       * @return This builder.
       */
-    public com.ebay.epic.common.model.RheosHeader.Builder clearProducerId() {
+    public com.ebay.epic.sojourner.common.model.RheosHeader.Builder clearProducerId() {
       producerId = null;
       fieldSetFlags()[4] = false;
       return this;

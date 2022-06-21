@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 /**  Unified tracking topic schema */
 @org.apache.avro.specific.AvroGenerated
 public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3790366892628575461L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UTPEvent\",\"namespace\":\"com.ebay.epic.sojourner.common.model\",\"doc\":\" Unified tracking topic schema\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},\"doc\":\"Rheos header\"},{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"ID of the event by tracking collection service\"},{\"name\":\"producerEventId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"ID of the event by producer\"},{\"name\":\"eventTs\",\"type\":\"long\",\"doc\":\"Event received timestamp at the collection service\"},{\"name\":\"producerEventTs\",\"type\":\"long\",\"doc\":\"Event created timestamp at producer side\"},{\"name\":\"rlogId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"trackingId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"ID to associate user behavior and dilivery\",\"default\":\"\"},{\"name\":\"userId\",\"type\":[\"null\",\"long\"],\"doc\":\"Oracle id\",\"default\":\"\"},{\"name\":\"publicUserId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"public user id\",\"default\":\"\"},{\"name\":\"encryptedUserId\",\"type\":[\"null\",\"long\"],\"doc\":\"Encrypted user id in email open and click url\",\"default\":\"\"},{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"idfa\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"gadid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"deviceId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"channelType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"actionType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"partner\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"campaignId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"rotationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"siteId\",\"type\":[\"null\",\"int\"],\"default\":\"\"},{\"name\":\"url\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"referer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"deviceFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"deviceType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"browserFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"browserVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"osFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"appVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"service\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"server\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"remoteIp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"pageId\",\"type\":[\"null\",\"int\"],\"default\":\"\"},{\"name\":\"geoId\",\"type\":[\"null\",\"int\"],\"default\":\"\"},{\"name\":\"isBot\",\"type\":\"boolean\",\"default\":\"false\"},{\"name\":\"payload\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = -8429021875429672971L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UTPEvent\",\"namespace\":\"com.ebay.epic.common.model\",\"doc\":\" Unified tracking topic schema\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},\"doc\":\"Rheos header\"},{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"ID of the event by tracking collection service\"},{\"name\":\"producerEventId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"ID of the event by producer\"},{\"name\":\"eventTs\",\"type\":\"long\",\"doc\":\"Event received timestamp at the collection service\"},{\"name\":\"producerEventTs\",\"type\":\"long\",\"doc\":\"Event created timestamp at producer side\"},{\"name\":\"rlogId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"trackingId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"ID to associate user behavior and dilivery\",\"default\":\"\"},{\"name\":\"userId\",\"type\":[\"null\",\"long\"],\"doc\":\"Oracle id\",\"default\":\"\"},{\"name\":\"publicUserId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"public user id\",\"default\":\"\"},{\"name\":\"encryptedUserId\",\"type\":[\"null\",\"long\"],\"doc\":\"Encrypted user id in email open and click url\",\"default\":\"\"},{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"idfa\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"gadid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"deviceId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"channelType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"actionType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"partner\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"campaignId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"rotationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"siteId\",\"type\":[\"null\",\"int\"],\"default\":\"\"},{\"name\":\"url\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"referer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"deviceFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"deviceType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"browserFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"browserVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"osFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"appVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"service\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"server\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"remoteIp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"pageId\",\"type\":[\"null\",\"int\"],\"default\":\"\"},{\"name\":\"geoId\",\"type\":[\"null\",\"int\"],\"default\":\"\"},{\"name\":\"isBot\",\"type\":\"boolean\",\"default\":\"false\"},{\"name\":\"payload\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -53,7 +53,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
   }
 
   /** Rheos header */
-  @Deprecated public RheosHeader rheosHeader;
+  @Deprecated public com.ebay.epic.common.model.RheosHeader rheosHeader;
   /** ID of the event by tracking collection service */
   @Deprecated public java.lang.String eventId;
   /** ID of the event by producer */
@@ -148,7 +148,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * @param isBot The new value for isBot
    * @param payload The new value for payload
    */
-  public UTPEvent(RheosHeader rheosHeader, java.lang.String eventId, java.lang.String producerEventId, java.lang.Long eventTs, java.lang.Long producerEventTs, java.lang.String rlogId, java.lang.String trackingId, java.lang.Long userId, java.lang.String publicUserId, java.lang.Long encryptedUserId, java.lang.String guid, java.lang.String idfa, java.lang.String gadid, java.lang.String deviceId, java.lang.String channelType, java.lang.String actionType, java.lang.String partner, java.lang.String campaignId, java.lang.String rotationId, java.lang.Integer siteId, java.lang.String url, java.lang.String referer, java.lang.String userAgent, java.lang.String deviceFamily, java.lang.String deviceType, java.lang.String browserFamily, java.lang.String browserVersion, java.lang.String osFamily, java.lang.String osVersion, java.lang.String appVersion, java.lang.String appId, java.lang.String service, java.lang.String server, java.lang.String remoteIp, java.lang.Integer pageId, java.lang.Integer geoId, java.lang.Boolean isBot, java.util.Map<java.lang.String,java.lang.String> payload) {
+  public UTPEvent(com.ebay.epic.common.model.RheosHeader rheosHeader, java.lang.String eventId, java.lang.String producerEventId, java.lang.Long eventTs, java.lang.Long producerEventTs, java.lang.String rlogId, java.lang.String trackingId, java.lang.Long userId, java.lang.String publicUserId, java.lang.Long encryptedUserId, java.lang.String guid, java.lang.String idfa, java.lang.String gadid, java.lang.String deviceId, java.lang.String channelType, java.lang.String actionType, java.lang.String partner, java.lang.String campaignId, java.lang.String rotationId, java.lang.Integer siteId, java.lang.String url, java.lang.String referer, java.lang.String userAgent, java.lang.String deviceFamily, java.lang.String deviceType, java.lang.String browserFamily, java.lang.String browserVersion, java.lang.String osFamily, java.lang.String osVersion, java.lang.String appVersion, java.lang.String appId, java.lang.String service, java.lang.String server, java.lang.String remoteIp, java.lang.Integer pageId, java.lang.Integer geoId, java.lang.Boolean isBot, java.util.Map<java.lang.String,java.lang.String> payload) {
     this.rheosHeader = rheosHeader;
     this.eventId = eventId;
     this.producerEventId = producerEventId;
@@ -239,7 +239,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: rheosHeader = (RheosHeader)value$; break;
+    case 0: rheosHeader = (com.ebay.epic.common.model.RheosHeader)value$; break;
     case 1: eventId = (java.lang.String)value$; break;
     case 2: producerEventId = (java.lang.String)value$; break;
     case 3: eventTs = (java.lang.Long)value$; break;
@@ -285,7 +285,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'rheosHeader' field.
    * @return Rheos header
    */
-  public RheosHeader getRheosHeader() {
+  public com.ebay.epic.common.model.RheosHeader getRheosHeader() {
     return rheosHeader;
   }
 
@@ -294,7 +294,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Rheos header
    * @param value the value to set.
    */
-  public void setRheosHeader(RheosHeader value) {
+  public void setRheosHeader(com.ebay.epic.common.model.RheosHeader value) {
     this.rheosHeader = value;
   }
 
@@ -902,8 +902,8 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Creates a new UTPEvent RecordBuilder.
    * @return A new UTPEvent RecordBuilder
    */
-  public static UTPEvent.Builder newBuilder() {
-    return new UTPEvent.Builder();
+  public static com.ebay.epic.common.model.UTPEvent.Builder newBuilder() {
+    return new com.ebay.epic.common.model.UTPEvent.Builder();
   }
 
   /**
@@ -911,8 +911,8 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * @param other The existing builder to copy.
    * @return A new UTPEvent RecordBuilder
    */
-  public static UTPEvent.Builder newBuilder(UTPEvent.Builder other) {
-    return new UTPEvent.Builder(other);
+  public static com.ebay.epic.common.model.UTPEvent.Builder newBuilder(com.ebay.epic.common.model.UTPEvent.Builder other) {
+    return new com.ebay.epic.common.model.UTPEvent.Builder(other);
   }
 
   /**
@@ -920,8 +920,8 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * @param other The existing instance to copy.
    * @return A new UTPEvent RecordBuilder
    */
-  public static UTPEvent.Builder newBuilder(UTPEvent other) {
-    return new UTPEvent.Builder(other);
+  public static com.ebay.epic.common.model.UTPEvent.Builder newBuilder(com.ebay.epic.common.model.UTPEvent other) {
+    return new com.ebay.epic.common.model.UTPEvent.Builder(other);
   }
 
   /**
@@ -931,8 +931,8 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
     implements org.apache.avro.data.RecordBuilder<UTPEvent> {
 
     /** Rheos header */
-    private RheosHeader rheosHeader;
-    private RheosHeader.Builder rheosHeaderBuilder;
+    private com.ebay.epic.common.model.RheosHeader rheosHeader;
+    private com.ebay.epic.common.model.RheosHeader.Builder rheosHeaderBuilder;
     /** ID of the event by tracking collection service */
     private java.lang.String eventId;
     /** ID of the event by producer */
@@ -988,14 +988,14 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(UTPEvent.Builder other) {
+    private Builder(com.ebay.epic.common.model.UTPEvent.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.rheosHeader)) {
         this.rheosHeader = data().deepCopy(fields()[0].schema(), other.rheosHeader);
         fieldSetFlags()[0] = true;
       }
       if (other.hasRheosHeaderBuilder()) {
-        this.rheosHeaderBuilder = RheosHeader.newBuilder(other.getRheosHeaderBuilder());
+        this.rheosHeaderBuilder = com.ebay.epic.common.model.RheosHeader.newBuilder(other.getRheosHeaderBuilder());
       }
       if (isValidValue(fields()[1], other.eventId)) {
         this.eventId = data().deepCopy(fields()[1].schema(), other.eventId);
@@ -1151,7 +1151,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
      * Creates a Builder by copying an existing UTPEvent instance
      * @param other The existing instance to copy.
      */
-    private Builder(UTPEvent other) {
+    private Builder(com.ebay.epic.common.model.UTPEvent other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.rheosHeader)) {
         this.rheosHeader = data().deepCopy(fields()[0].schema(), other.rheosHeader);
@@ -1313,7 +1313,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Rheos header
       * @return The value.
       */
-    public RheosHeader getRheosHeader() {
+    public com.ebay.epic.common.model.RheosHeader getRheosHeader() {
       return rheosHeader;
     }
 
@@ -1323,7 +1323,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'rheosHeader'.
       * @return This builder.
       */
-    public UTPEvent.Builder setRheosHeader(RheosHeader value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setRheosHeader(com.ebay.epic.common.model.RheosHeader value) {
       validate(fields()[0], value);
       this.rheosHeaderBuilder = null;
       this.rheosHeader = value;
@@ -1345,12 +1345,12 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
      * Rheos header
      * @return This builder.
      */
-    public RheosHeader.Builder getRheosHeaderBuilder() {
+    public com.ebay.epic.common.model.RheosHeader.Builder getRheosHeaderBuilder() {
       if (rheosHeaderBuilder == null) {
         if (hasRheosHeader()) {
-          setRheosHeaderBuilder(RheosHeader.newBuilder(rheosHeader));
+          setRheosHeaderBuilder(com.ebay.epic.common.model.RheosHeader.newBuilder(rheosHeader));
         } else {
-          setRheosHeaderBuilder(RheosHeader.newBuilder());
+          setRheosHeaderBuilder(com.ebay.epic.common.model.RheosHeader.newBuilder());
         }
       }
       return rheosHeaderBuilder;
@@ -1362,7 +1362,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-    public UTPEvent.Builder setRheosHeaderBuilder(RheosHeader.Builder value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setRheosHeaderBuilder(com.ebay.epic.common.model.RheosHeader.Builder value) {
       clearRheosHeader();
       rheosHeaderBuilder = value;
       return this;
@@ -1382,7 +1382,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Rheos header
       * @return This builder.
       */
-    public UTPEvent.Builder clearRheosHeader() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearRheosHeader() {
       rheosHeader = null;
       rheosHeaderBuilder = null;
       fieldSetFlags()[0] = false;
@@ -1404,7 +1404,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'eventId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setEventId(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setEventId(java.lang.String value) {
       validate(fields()[1], value);
       this.eventId = value;
       fieldSetFlags()[1] = true;
@@ -1426,7 +1426,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * ID of the event by tracking collection service
       * @return This builder.
       */
-    public UTPEvent.Builder clearEventId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearEventId() {
       eventId = null;
       fieldSetFlags()[1] = false;
       return this;
@@ -1447,7 +1447,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'producerEventId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setProducerEventId(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setProducerEventId(java.lang.String value) {
       validate(fields()[2], value);
       this.producerEventId = value;
       fieldSetFlags()[2] = true;
@@ -1469,7 +1469,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * ID of the event by producer
       * @return This builder.
       */
-    public UTPEvent.Builder clearProducerEventId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearProducerEventId() {
       producerEventId = null;
       fieldSetFlags()[2] = false;
       return this;
@@ -1490,7 +1490,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'eventTs'.
       * @return This builder.
       */
-    public UTPEvent.Builder setEventTs(long value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setEventTs(long value) {
       validate(fields()[3], value);
       this.eventTs = value;
       fieldSetFlags()[3] = true;
@@ -1512,7 +1512,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Event received timestamp at the collection service
       * @return This builder.
       */
-    public UTPEvent.Builder clearEventTs() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearEventTs() {
       fieldSetFlags()[3] = false;
       return this;
     }
@@ -1532,7 +1532,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'producerEventTs'.
       * @return This builder.
       */
-    public UTPEvent.Builder setProducerEventTs(long value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setProducerEventTs(long value) {
       validate(fields()[4], value);
       this.producerEventTs = value;
       fieldSetFlags()[4] = true;
@@ -1554,7 +1554,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Event created timestamp at producer side
       * @return This builder.
       */
-    public UTPEvent.Builder clearProducerEventTs() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearProducerEventTs() {
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -1572,7 +1572,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'rlogId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setRlogId(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setRlogId(java.lang.String value) {
       validate(fields()[5], value);
       this.rlogId = value;
       fieldSetFlags()[5] = true;
@@ -1592,7 +1592,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'rlogId' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearRlogId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearRlogId() {
       rlogId = null;
       fieldSetFlags()[5] = false;
       return this;
@@ -1613,7 +1613,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'trackingId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setTrackingId(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setTrackingId(java.lang.String value) {
       validate(fields()[6], value);
       this.trackingId = value;
       fieldSetFlags()[6] = true;
@@ -1635,7 +1635,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * ID to associate user behavior and dilivery
       * @return This builder.
       */
-    public UTPEvent.Builder clearTrackingId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearTrackingId() {
       trackingId = null;
       fieldSetFlags()[6] = false;
       return this;
@@ -1656,7 +1656,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'userId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setUserId(java.lang.Long value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setUserId(java.lang.Long value) {
       validate(fields()[7], value);
       this.userId = value;
       fieldSetFlags()[7] = true;
@@ -1678,7 +1678,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Oracle id
       * @return This builder.
       */
-    public UTPEvent.Builder clearUserId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearUserId() {
       userId = null;
       fieldSetFlags()[7] = false;
       return this;
@@ -1699,7 +1699,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'publicUserId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setPublicUserId(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setPublicUserId(java.lang.String value) {
       validate(fields()[8], value);
       this.publicUserId = value;
       fieldSetFlags()[8] = true;
@@ -1721,7 +1721,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * public user id
       * @return This builder.
       */
-    public UTPEvent.Builder clearPublicUserId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearPublicUserId() {
       publicUserId = null;
       fieldSetFlags()[8] = false;
       return this;
@@ -1742,7 +1742,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'encryptedUserId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setEncryptedUserId(java.lang.Long value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setEncryptedUserId(java.lang.Long value) {
       validate(fields()[9], value);
       this.encryptedUserId = value;
       fieldSetFlags()[9] = true;
@@ -1764,7 +1764,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Encrypted user id in email open and click url
       * @return This builder.
       */
-    public UTPEvent.Builder clearEncryptedUserId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearEncryptedUserId() {
       encryptedUserId = null;
       fieldSetFlags()[9] = false;
       return this;
@@ -1783,7 +1783,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'guid'.
       * @return This builder.
       */
-    public UTPEvent.Builder setGuid(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setGuid(java.lang.String value) {
       validate(fields()[10], value);
       this.guid = value;
       fieldSetFlags()[10] = true;
@@ -1803,7 +1803,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'guid' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearGuid() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearGuid() {
       guid = null;
       fieldSetFlags()[10] = false;
       return this;
@@ -1822,7 +1822,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'idfa'.
       * @return This builder.
       */
-    public UTPEvent.Builder setIdfa(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setIdfa(java.lang.String value) {
       validate(fields()[11], value);
       this.idfa = value;
       fieldSetFlags()[11] = true;
@@ -1842,7 +1842,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'idfa' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearIdfa() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearIdfa() {
       idfa = null;
       fieldSetFlags()[11] = false;
       return this;
@@ -1861,7 +1861,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'gadid'.
       * @return This builder.
       */
-    public UTPEvent.Builder setGadid(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setGadid(java.lang.String value) {
       validate(fields()[12], value);
       this.gadid = value;
       fieldSetFlags()[12] = true;
@@ -1881,7 +1881,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'gadid' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearGadid() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearGadid() {
       gadid = null;
       fieldSetFlags()[12] = false;
       return this;
@@ -1900,7 +1900,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'deviceId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setDeviceId(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setDeviceId(java.lang.String value) {
       validate(fields()[13], value);
       this.deviceId = value;
       fieldSetFlags()[13] = true;
@@ -1920,7 +1920,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'deviceId' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearDeviceId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearDeviceId() {
       deviceId = null;
       fieldSetFlags()[13] = false;
       return this;
@@ -1939,7 +1939,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'channelType'.
       * @return This builder.
       */
-    public UTPEvent.Builder setChannelType(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setChannelType(java.lang.String value) {
       validate(fields()[14], value);
       this.channelType = value;
       fieldSetFlags()[14] = true;
@@ -1959,7 +1959,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'channelType' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearChannelType() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearChannelType() {
       channelType = null;
       fieldSetFlags()[14] = false;
       return this;
@@ -1978,7 +1978,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'actionType'.
       * @return This builder.
       */
-    public UTPEvent.Builder setActionType(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setActionType(java.lang.String value) {
       validate(fields()[15], value);
       this.actionType = value;
       fieldSetFlags()[15] = true;
@@ -1998,7 +1998,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'actionType' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearActionType() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearActionType() {
       actionType = null;
       fieldSetFlags()[15] = false;
       return this;
@@ -2017,7 +2017,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'partner'.
       * @return This builder.
       */
-    public UTPEvent.Builder setPartner(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setPartner(java.lang.String value) {
       validate(fields()[16], value);
       this.partner = value;
       fieldSetFlags()[16] = true;
@@ -2037,7 +2037,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'partner' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearPartner() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearPartner() {
       partner = null;
       fieldSetFlags()[16] = false;
       return this;
@@ -2056,7 +2056,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'campaignId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setCampaignId(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setCampaignId(java.lang.String value) {
       validate(fields()[17], value);
       this.campaignId = value;
       fieldSetFlags()[17] = true;
@@ -2076,7 +2076,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'campaignId' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearCampaignId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearCampaignId() {
       campaignId = null;
       fieldSetFlags()[17] = false;
       return this;
@@ -2095,7 +2095,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'rotationId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setRotationId(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setRotationId(java.lang.String value) {
       validate(fields()[18], value);
       this.rotationId = value;
       fieldSetFlags()[18] = true;
@@ -2115,7 +2115,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'rotationId' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearRotationId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearRotationId() {
       rotationId = null;
       fieldSetFlags()[18] = false;
       return this;
@@ -2134,7 +2134,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'siteId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setSiteId(java.lang.Integer value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setSiteId(java.lang.Integer value) {
       validate(fields()[19], value);
       this.siteId = value;
       fieldSetFlags()[19] = true;
@@ -2154,7 +2154,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'siteId' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearSiteId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearSiteId() {
       siteId = null;
       fieldSetFlags()[19] = false;
       return this;
@@ -2173,7 +2173,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'url'.
       * @return This builder.
       */
-    public UTPEvent.Builder setUrl(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setUrl(java.lang.String value) {
       validate(fields()[20], value);
       this.url = value;
       fieldSetFlags()[20] = true;
@@ -2193,7 +2193,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'url' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearUrl() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearUrl() {
       url = null;
       fieldSetFlags()[20] = false;
       return this;
@@ -2212,7 +2212,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'referer'.
       * @return This builder.
       */
-    public UTPEvent.Builder setReferer(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setReferer(java.lang.String value) {
       validate(fields()[21], value);
       this.referer = value;
       fieldSetFlags()[21] = true;
@@ -2232,7 +2232,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'referer' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearReferer() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearReferer() {
       referer = null;
       fieldSetFlags()[21] = false;
       return this;
@@ -2251,7 +2251,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'userAgent'.
       * @return This builder.
       */
-    public UTPEvent.Builder setUserAgent(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setUserAgent(java.lang.String value) {
       validate(fields()[22], value);
       this.userAgent = value;
       fieldSetFlags()[22] = true;
@@ -2271,7 +2271,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'userAgent' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearUserAgent() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearUserAgent() {
       userAgent = null;
       fieldSetFlags()[22] = false;
       return this;
@@ -2290,7 +2290,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'deviceFamily'.
       * @return This builder.
       */
-    public UTPEvent.Builder setDeviceFamily(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setDeviceFamily(java.lang.String value) {
       validate(fields()[23], value);
       this.deviceFamily = value;
       fieldSetFlags()[23] = true;
@@ -2310,7 +2310,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'deviceFamily' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearDeviceFamily() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearDeviceFamily() {
       deviceFamily = null;
       fieldSetFlags()[23] = false;
       return this;
@@ -2329,7 +2329,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'deviceType'.
       * @return This builder.
       */
-    public UTPEvent.Builder setDeviceType(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setDeviceType(java.lang.String value) {
       validate(fields()[24], value);
       this.deviceType = value;
       fieldSetFlags()[24] = true;
@@ -2349,7 +2349,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'deviceType' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearDeviceType() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearDeviceType() {
       deviceType = null;
       fieldSetFlags()[24] = false;
       return this;
@@ -2368,7 +2368,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'browserFamily'.
       * @return This builder.
       */
-    public UTPEvent.Builder setBrowserFamily(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setBrowserFamily(java.lang.String value) {
       validate(fields()[25], value);
       this.browserFamily = value;
       fieldSetFlags()[25] = true;
@@ -2388,7 +2388,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'browserFamily' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearBrowserFamily() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearBrowserFamily() {
       browserFamily = null;
       fieldSetFlags()[25] = false;
       return this;
@@ -2407,7 +2407,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'browserVersion'.
       * @return This builder.
       */
-    public UTPEvent.Builder setBrowserVersion(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setBrowserVersion(java.lang.String value) {
       validate(fields()[26], value);
       this.browserVersion = value;
       fieldSetFlags()[26] = true;
@@ -2427,7 +2427,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'browserVersion' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearBrowserVersion() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearBrowserVersion() {
       browserVersion = null;
       fieldSetFlags()[26] = false;
       return this;
@@ -2446,7 +2446,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'osFamily'.
       * @return This builder.
       */
-    public UTPEvent.Builder setOsFamily(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setOsFamily(java.lang.String value) {
       validate(fields()[27], value);
       this.osFamily = value;
       fieldSetFlags()[27] = true;
@@ -2466,7 +2466,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'osFamily' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearOsFamily() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearOsFamily() {
       osFamily = null;
       fieldSetFlags()[27] = false;
       return this;
@@ -2485,7 +2485,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'osVersion'.
       * @return This builder.
       */
-    public UTPEvent.Builder setOsVersion(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setOsVersion(java.lang.String value) {
       validate(fields()[28], value);
       this.osVersion = value;
       fieldSetFlags()[28] = true;
@@ -2505,7 +2505,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'osVersion' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearOsVersion() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearOsVersion() {
       osVersion = null;
       fieldSetFlags()[28] = false;
       return this;
@@ -2524,7 +2524,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'appVersion'.
       * @return This builder.
       */
-    public UTPEvent.Builder setAppVersion(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setAppVersion(java.lang.String value) {
       validate(fields()[29], value);
       this.appVersion = value;
       fieldSetFlags()[29] = true;
@@ -2544,7 +2544,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'appVersion' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearAppVersion() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearAppVersion() {
       appVersion = null;
       fieldSetFlags()[29] = false;
       return this;
@@ -2563,7 +2563,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'appId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setAppId(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setAppId(java.lang.String value) {
       validate(fields()[30], value);
       this.appId = value;
       fieldSetFlags()[30] = true;
@@ -2583,7 +2583,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'appId' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearAppId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearAppId() {
       appId = null;
       fieldSetFlags()[30] = false;
       return this;
@@ -2602,7 +2602,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'service'.
       * @return This builder.
       */
-    public UTPEvent.Builder setService(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setService(java.lang.String value) {
       validate(fields()[31], value);
       this.service = value;
       fieldSetFlags()[31] = true;
@@ -2622,7 +2622,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'service' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearService() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearService() {
       service = null;
       fieldSetFlags()[31] = false;
       return this;
@@ -2641,7 +2641,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'server'.
       * @return This builder.
       */
-    public UTPEvent.Builder setServer(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setServer(java.lang.String value) {
       validate(fields()[32], value);
       this.server = value;
       fieldSetFlags()[32] = true;
@@ -2661,7 +2661,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'server' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearServer() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearServer() {
       server = null;
       fieldSetFlags()[32] = false;
       return this;
@@ -2680,7 +2680,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'remoteIp'.
       * @return This builder.
       */
-    public UTPEvent.Builder setRemoteIp(java.lang.String value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setRemoteIp(java.lang.String value) {
       validate(fields()[33], value);
       this.remoteIp = value;
       fieldSetFlags()[33] = true;
@@ -2700,7 +2700,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'remoteIp' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearRemoteIp() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearRemoteIp() {
       remoteIp = null;
       fieldSetFlags()[33] = false;
       return this;
@@ -2719,7 +2719,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'pageId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setPageId(java.lang.Integer value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setPageId(java.lang.Integer value) {
       validate(fields()[34], value);
       this.pageId = value;
       fieldSetFlags()[34] = true;
@@ -2739,7 +2739,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'pageId' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearPageId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearPageId() {
       pageId = null;
       fieldSetFlags()[34] = false;
       return this;
@@ -2758,7 +2758,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'geoId'.
       * @return This builder.
       */
-    public UTPEvent.Builder setGeoId(java.lang.Integer value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setGeoId(java.lang.Integer value) {
       validate(fields()[35], value);
       this.geoId = value;
       fieldSetFlags()[35] = true;
@@ -2778,7 +2778,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'geoId' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearGeoId() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearGeoId() {
       geoId = null;
       fieldSetFlags()[35] = false;
       return this;
@@ -2797,7 +2797,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'isBot'.
       * @return This builder.
       */
-    public UTPEvent.Builder setIsBot(boolean value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setIsBot(boolean value) {
       validate(fields()[36], value);
       this.isBot = value;
       fieldSetFlags()[36] = true;
@@ -2817,7 +2817,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'isBot' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearIsBot() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearIsBot() {
       fieldSetFlags()[36] = false;
       return this;
     }
@@ -2835,7 +2835,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'payload'.
       * @return This builder.
       */
-    public UTPEvent.Builder setPayload(java.util.Map<java.lang.String,java.lang.String> value) {
+    public com.ebay.epic.common.model.UTPEvent.Builder setPayload(java.util.Map<java.lang.String,java.lang.String> value) {
       validate(fields()[37], value);
       this.payload = value;
       fieldSetFlags()[37] = true;
@@ -2855,7 +2855,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'payload' field.
       * @return This builder.
       */
-    public UTPEvent.Builder clearPayload() {
+    public com.ebay.epic.common.model.UTPEvent.Builder clearPayload() {
       payload = null;
       fieldSetFlags()[37] = false;
       return this;
@@ -2869,7 +2869,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
         if (rheosHeaderBuilder != null) {
           record.rheosHeader = this.rheosHeaderBuilder.build();
         } else {
-          record.rheosHeader = fieldSetFlags()[0] ? this.rheosHeader : (RheosHeader) defaultValue(fields()[0]);
+          record.rheosHeader = fieldSetFlags()[0] ? this.rheosHeader : (com.ebay.epic.common.model.RheosHeader) defaultValue(fields()[0]);
         }
         record.eventId = fieldSetFlags()[1] ? this.eventId : (java.lang.String) defaultValue(fields()[1]);
         record.producerEventId = fieldSetFlags()[2] ? this.producerEventId : (java.lang.String) defaultValue(fields()[2]);

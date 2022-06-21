@@ -277,7 +277,7 @@ public class Property {
     public static final String FLINK_APP_SINK_MESSAGE_KEY = "flink.app.sink.message-key"; // message key
     public static final String FLINK_APP_SINK_SAMPLING_KEY = "flink.app.sink.sampling-key"; // sampling key
     public static final String FLINK_APP_SINK_SAMPLING_PCT = "flink.app.sink.sampling-pct"; //sampling pct
-    public static final String ALLOW_DROP = "flink.app.sink.kafka.allow-drop";  // is allow error message
+    public static final String ALLOW_DROP = "flink.app.sink.allow-drop";  // is allow error message
 
     //sink topic
     public static final String FLINK_APP_SINK_TOPIC_AUTOTRACK = "flink.app.sink.autotrack.kafka.topic";

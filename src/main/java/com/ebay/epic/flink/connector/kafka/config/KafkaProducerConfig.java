@@ -4,7 +4,9 @@ import com.ebay.epic.common.enums.DataCenter;
 import com.ebay.epic.utils.Property;
 import com.google.common.base.Preconditions;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 
@@ -14,8 +16,8 @@ import static com.ebay.epic.utils.FlinkEnvUtils.*;
 import static com.ebay.epic.utils.Property.KAFKA_PRODUCER_BOOTSTRAP_SERVERS;
 import static com.ebay.epic.utils.Property.PRODUCER_ID;
 
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
 public class KafkaProducerConfig extends KafkaCommonConfig {
 
     private KafkaProducerConfig(DataCenter dc) {

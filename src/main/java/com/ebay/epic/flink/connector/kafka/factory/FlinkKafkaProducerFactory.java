@@ -62,7 +62,7 @@ public class FlinkKafkaProducerFactory {
     }
 
     // Rheos kafka producer
-    public <T extends SpecificRecord> FlinkKafkaProducer<T> get(Class<T> clazz,
+    public  <T> FlinkKafkaProducer<T> get(Class<T> clazz,
                                                                 String rheosServiceUrls, String topic,
                                                                 String subject, String producerId, boolean allowDrop,
                                                                 String... keys) {

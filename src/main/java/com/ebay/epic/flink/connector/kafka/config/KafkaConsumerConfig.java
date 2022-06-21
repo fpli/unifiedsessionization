@@ -6,6 +6,8 @@ import com.ebay.epic.utils.FlinkEnvUtils;
 import com.ebay.epic.utils.Property;
 import com.google.common.base.Preconditions;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.RoundRobinAssignor;
@@ -16,12 +18,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import static com.ebay.epic.utils.FlinkEnvUtils.*;
 import static com.ebay.epic.utils.Property.*;
-import static com.ebay.epic.utils.Property.PARTITION_DISCOVERY_INTERVAL_MS_AUTOTRACK;
 
-@Data
+@Getter
+@Setter
 public class KafkaConsumerConfig extends KafkaCommonConfig {
     private List<String> topics;
-    private EventType eventType;
     private static ConcurrentHashMap brokerMap = new ConcurrentHashMap();
     private static ConcurrentHashMap groupidMap = new ConcurrentHashMap();
     private static ConcurrentHashMap topicMap = new ConcurrentHashMap();
@@ -40,11 +41,11 @@ public class KafkaConsumerConfig extends KafkaCommonConfig {
     }
 
     private KafkaConsumerConfig(DataCenter dc, EventType eventType) {
-        super(dc);
-        this.eventType = eventType;
+        super(dc, eventType);
     }
 
     public static KafkaConsumerConfig build(DataCenter dataCenter, EventType eventType) {
+
         KafkaConsumerConfig config = new KafkaConsumerConfig(dataCenter, eventType);
         final List<String> topics = FlinkEnvUtils.getList(topicMap.get(eventType).toString());
         Preconditions.checkState(CollectionUtils.isNotEmpty(topics));
@@ -59,7 +60,7 @@ public class KafkaConsumerConfig extends KafkaCommonConfig {
     }
 
     private void enrichConfig(Properties properties) {
-        switch (eventType) {
+        switch (getEventType()) {
             case AUTOTRACK: {
                 properties.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG,
                         getInteger(MAX_POLL_RECORDS_AUTOTRACK));
@@ -128,13 +129,13 @@ public class KafkaConsumerConfig extends KafkaCommonConfig {
     @Override
     public String getBrokersForDC(DataCenter dc) {
 
-        String propKey = brokerMap.get(this.eventType) + "." + dc.getValue().toLowerCase();
+        String propKey = brokerMap.get(getEventType()) + "." + dc.getValue().toLowerCase();
         return getListString(propKey);
     }
 
     @Override
     public String getGId() {
 
-        return getString(groupidMap.get(this.eventType).toString());
+        return getString(groupidMap.get(getEventType()).toString());
     }
 }
