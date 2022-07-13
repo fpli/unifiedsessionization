@@ -177,6 +177,9 @@ public class Property {
     public static final String SINK_OPERATOR_NAME_LVS_UTP = "flink.app.operator-name.sink.lvs.utp";
     public static final String SINK_OPERATOR_NAME_SLC_UTP = "flink.app.operator-name.sink.slc.utp";
 
+    //session
+
+    public static final String SINK_OPERATOR_NAME_SESSION = "flink.app.operator-name.sink.session";
     // -------uid-----------
 
     // -----source-----
@@ -195,6 +198,8 @@ public class Property {
     public static final String SOURCE_UID_RNO_UTP = "flink.app.uid.source.rno.utp";
     public static final String SOURCE_UID_LVS_UTP = "flink.app.uid.source.lvs.utp";
     public static final String SOURCE_UID_SLC_UTP = "flink.app.uid.source.slc.utp";
+
+
 
     // ----pre filter----
     public static final String PRE_FILTER_OP_UID= "flink.app.uid.pre-filter";
@@ -223,6 +228,9 @@ public class Property {
     public static final String SINK_UID_RNO_UTP = "flink.app.uid.sink.rno.utp";
     public static final String SINK_UID_LVS_UTP = "flink.app.uid.sink.lvs.utp";
     public static final String SINK_UID_SLC_UTP = "flink.app.uid.sink.slc.utp";
+
+    //session
+    public static final String SINK_UID_SESSION = "flink.app.uid.sink.session";
 
     // -------slotsharinggroup-----------
 
@@ -269,6 +277,10 @@ public class Property {
     public static final String SINK_SLOT_SHARE_GROUP_LVS_UTP = "flink.app.slot-sharing-group.sink.lvs.utp";
     public static final String SINK_SLOT_SHARE_GROUP_SLC_UTP = "flink.app.slot-sharing-group.sink.slc.utp";
 
+    //session
+
+    public static final String SINK_SLOT_SHARE_GROUP_SESSION = "flink.app.slot-sharing-group.sink.session";
+
 
     // producer
 
@@ -283,10 +295,12 @@ public class Property {
     public static final String FLINK_APP_SINK_TOPIC_AUTOTRACK = "flink.app.sink.autotrack.kafka.topic";
     public static final String FLINK_APP_SINK_TOPIC_UBI = "flink.app.sink.ubi.kafka.topic";
     public static final String FLINK_APP_SINK_TOPIC_UTP = "flink.app.sink.utp.kafka.topic";
+    public static final String FLINK_APP_SINK_TOPIC_SESSION = "flink.app.sink.session.kafka.topic";
 
     public static final String FLINK_APP_SINK_TOPIC_SUBJECT_AUTOTRACK = "flink.app.sink.autotrack.kafka.subject";
     public static final String FLINK_APP_SINK_TOPIC_SUBJECT_UBI = "flink.app.sink.ubi.kafka.subject";
     public static final String FLINK_APP_SINK_TOPIC_SUBJECT_UTP = "flink.app.sink.utp.kafka.subject";
+    public static final String FLINK_APP_SINK_TOPIC_SUBJECT_SESSION = "flink.app.sink.session.kafka.subject";
 
 
 

@@ -1,7 +1,7 @@
 package com.ebay.epic.business.metric;
 
-import com.ebay.epic.common.model.RawEvent;
-import com.ebay.epic.common.model.UniSession;
+import com.ebay.epic.common.model.raw.RawEvent;
+import com.ebay.epic.common.model.raw.RawUniSession;
 import com.ebay.epic.common.model.UniSessionAccumulator;
 
 public class CommonMetrics implements FieldMetrics<RawEvent, UniSessionAccumulator> {
@@ -13,7 +13,7 @@ public class CommonMetrics implements FieldMetrics<RawEvent, UniSessionAccumulat
 
   @Override
   public void feed(RawEvent event, UniSessionAccumulator uniSessionAccumulator) {
-    UniSession uniSession = uniSessionAccumulator.getUniSession();
+    RawUniSession uniSession = uniSessionAccumulator.getUniSession();
     if (uniSession.getGuid() == null) {
       uniSession.setGuid(event.getGuid());
     }else if(event.getGuid()==null){

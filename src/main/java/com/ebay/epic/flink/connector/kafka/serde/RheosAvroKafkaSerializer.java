@@ -1,6 +1,6 @@
 package com.ebay.epic.flink.connector.kafka.serde;
 
-import com.ebay.epic.common.model.RawEvent;
+import com.ebay.epic.common.model.raw.RawEvent;
 import com.ebay.epic.flink.connector.kafka.config.RheosKafkaProducerConfig;
 import io.ebay.rheos.schema.avro.SchemaRegistryAwareAvroSerializerHelper;
 import io.ebay.rheos.schema.event.RheosEvent;

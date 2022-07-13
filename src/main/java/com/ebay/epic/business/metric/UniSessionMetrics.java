@@ -1,6 +1,6 @@
 package com.ebay.epic.business.metric;
 
-import com.ebay.epic.common.model.RawEvent;
+import com.ebay.epic.common.model.raw.RawEvent;
 import com.ebay.epic.common.model.UniSessionAccumulator;
 import lombok.extern.slf4j.Slf4j;
 

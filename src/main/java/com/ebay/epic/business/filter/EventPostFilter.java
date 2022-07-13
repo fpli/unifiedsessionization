@@ -1,7 +1,7 @@
 package com.ebay.epic.business.filter;
 
 import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.common.model.RawEvent;
+import com.ebay.epic.common.model.raw.RawEvent;
 
 public class EventPostFilter extends RecordFilter<RawEvent> {
 

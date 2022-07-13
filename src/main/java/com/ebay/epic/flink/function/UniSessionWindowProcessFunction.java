@@ -1,7 +1,9 @@
 package com.ebay.epic.flink.function;
 
 import com.ebay.epic.business.metric.UniSessionMetrics;
+import com.ebay.epic.common.model.RheosHeader;
 import com.ebay.epic.common.model.UniSession;
+import com.ebay.epic.common.model.raw.RawUniSession;
 import com.ebay.epic.common.model.UniSessionAccumulator;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.typeutils.base.LongSerializer;
@@ -12,19 +14,19 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
 public class UniSessionWindowProcessFunction
-        extends ProcessWindowFunction<UniSessionAccumulator, UniSession, Tuple, TimeWindow> {
+        extends ProcessWindowFunction<UniSessionAccumulator, RawUniSession, Tuple, TimeWindow> {
 
     private static final ValueStateDescriptor<Long> lastTimestampStateDescriptor =
             new ValueStateDescriptor("lastTimestamp", LongSerializer.INSTANCE);
 
-    private void outputSession(UniSession ubiSessionTmp,
-                               Collector<UniSession> out, boolean isOpen) {
-        UniSession uniSession = new UniSession();
+    private void outputSession(RawUniSession ubiSessionTmp,
+                               Collector<RawUniSession> out, boolean isOpen) {
+        RawUniSession uniSession = new RawUniSession();
         uniSession.setGuid(ubiSessionTmp.getGuid());
         uniSession.setGlobalSessionId(ubiSessionTmp.getGlobalSessionId());
         uniSession.setAbsStartTimestamp(ubiSessionTmp.getAbsStartTimestamp());
         uniSession.setAbsEndTimestamp(ubiSessionTmp.getAbsEndTimestamp());
-        ubiSessionTmp.setSessionStartDt(ubiSessionTmp.getSessionStartDt());
+        uniSession.setSessionStartDt(ubiSessionTmp.getSessionStartDt());
         out.collect(uniSession);
     }
 
@@ -33,7 +35,7 @@ public class UniSessionWindowProcessFunction
             Tuple tuple,
             Context context,
             Iterable<UniSessionAccumulator> elements,
-            Collector<UniSession> out)
+            Collector<RawUniSession> out)
             throws Exception {
         UniSessionAccumulator sessionAccumulator = elements.iterator().next();
         endSessionEvent(sessionAccumulator);

@@ -1,7 +1,7 @@
 package com.ebay.epic.flink.function;
 
-import com.ebay.epic.common.model.RawEvent;
-import com.ebay.epic.common.model.UniSession;
+import com.ebay.epic.common.model.raw.RawEvent;
+import com.ebay.epic.common.model.raw.RawUniSession;
 import com.ebay.epic.common.model.UniSessionAccumulator;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.streaming.runtime.operators.windowing.MapWithStateFunction;
@@ -12,14 +12,14 @@ public class RawEventMapWithStateFunction
 
   @Override
   public RawEvent map(RawEvent event, UniSessionAccumulator sessionAccumulator) throws Exception {
-    UniSession uniSession = new UniSession();
+    RawUniSession uniSession = new RawUniSession();
     if (!event.isNewSession() && uniSession.getGlobalSessionId() == null) {
-      uniSession.setGlobalSessionId(event.getSessionId());
+      uniSession.setGlobalSessionId(event.getGlobalSessionId());
     } else if (event.isNewSession() && uniSession.getGlobalSessionId() != null) {
-      event.setSessionId(uniSession.getGlobalSessionId());
+      event.setGlobalSessionId(uniSession.getGlobalSessionId());
     } else if (event.isNewSession() && uniSession.getGlobalSessionId() == null) {
-      event.updateSessionId();
-      uniSession.setGlobalSessionId(event.getSessionId());
+      event.updateGlobalSessionId();
+      uniSession.setGlobalSessionId(event.getGlobalSessionId());
     }
     return event;
   }

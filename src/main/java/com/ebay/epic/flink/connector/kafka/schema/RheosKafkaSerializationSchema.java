@@ -26,7 +26,6 @@ public class RheosKafkaSerializationSchema<T> implements KafkaSerializationSchem
     protected final List<String> keys;
     private final Class<T> clazz;
     private transient KafkaSerializer<T> rheosKafkaSerializer;
-    private static final String KEY_NAME="globalSessionId";
 
     public RheosKafkaSerializationSchema(RheosKafkaProducerConfig rheosKafkaConfig, Class<T> clazz, String... keys) {
         this.rheosKafkaConfig = rheosKafkaConfig;
@@ -43,12 +42,12 @@ public class RheosKafkaSerializationSchema<T> implements KafkaSerializationSchem
         Field field = null;
         String globalSessionId=null;
         try {
-            field = element.getClass().getDeclaredField(KEY_NAME);
+            field = element.getClass().getDeclaredField(KafkaMessageHeaders.GLOBAL_SESSION_ID);
             field.setAccessible(true);
             globalSessionId = String.valueOf(field.get(element));
 
         } catch (Exception e) {
-            log.error("Get field[{}] value error", KEY_NAME, e);
+            log.error("Get field[{}] value error", KafkaMessageHeaders.GLOBAL_SESSION_ID, e);
         }
         Header gSessionIdHeader = new RecordHeader(KafkaMessageHeaders.GLOBAL_SESSION_ID,
                 StringUtils.getBytes(globalSessionId, Charsets.UTF_8) );

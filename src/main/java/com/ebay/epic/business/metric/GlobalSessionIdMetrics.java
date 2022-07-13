@@ -1,7 +1,7 @@
 package com.ebay.epic.business.metric;
 
-import com.ebay.epic.common.model.RawEvent;
-import com.ebay.epic.common.model.UniSession;
+import com.ebay.epic.common.model.raw.RawEvent;
+import com.ebay.epic.common.model.raw.RawUniSession;
 import com.ebay.epic.common.model.UniSessionAccumulator;
 
 public class GlobalSessionIdMetrics implements FieldMetrics<RawEvent, UniSessionAccumulator> {
@@ -13,14 +13,14 @@ public class GlobalSessionIdMetrics implements FieldMetrics<RawEvent, UniSession
 
   @Override
   public void feed(RawEvent event, UniSessionAccumulator uniSessionAccumulator) {
-    UniSession uniSession = uniSessionAccumulator.getUniSession();
+    RawUniSession uniSession = uniSessionAccumulator.getUniSession();
     if (!event.isNewSession() && uniSession.getGlobalSessionId() == null) {
-      uniSession.setGlobalSessionId(event.getSessionId());
+      uniSession.setGlobalSessionId(event.getGlobalSessionId());
     } else if (event.isNewSession() && uniSession.getGlobalSessionId() != null) {
-      event.setSessionId(uniSession.getGlobalSessionId());
+      event.setGlobalSessionId(uniSession.getGlobalSessionId());
     } else if (event.isNewSession() && uniSession.getGlobalSessionId() == null) {
-      event.updateSessionId();
-      uniSession.setGlobalSessionId(event.getSessionId());
+      event.updateGlobalSessionId();
+      uniSession.setGlobalSessionId(event.getGlobalSessionId());
     }
   }
 

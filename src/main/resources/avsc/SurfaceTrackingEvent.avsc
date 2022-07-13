@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "SurfaceTrackingEvent",
-  "namespace": "com.ebay.epic.sojourner.common.model",
+  "namespace": "com.ebay.epic.common.model",
   "fields": [
     {
       "name": "rheosHeader",

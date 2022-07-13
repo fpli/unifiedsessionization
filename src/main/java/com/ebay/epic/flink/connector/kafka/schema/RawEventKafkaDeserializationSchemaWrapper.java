@@ -1,6 +1,6 @@
 package com.ebay.epic.flink.connector.kafka.schema;
 
-import com.ebay.epic.common.model.RawEvent;
+import com.ebay.epic.common.model.raw.RawEvent;
 import org.apache.flink.api.common.serialization.DeserializationSchema;
 import org.apache.flink.api.common.serialization.DeserializationSchema.InitializationContext;
 import org.apache.flink.api.common.typeinfo.TypeInformation;

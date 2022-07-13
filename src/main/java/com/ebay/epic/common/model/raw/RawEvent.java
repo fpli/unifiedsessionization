@@ -1,4 +1,4 @@
-package com.ebay.epic.common.model;
+package com.ebay.epic.common.model.raw;
 
 import com.ebay.epic.common.constant.Constants;
 import com.ebay.epic.common.enums.EventType;
@@ -11,16 +11,15 @@ public class RawEvent {
     private String guid;
     private Long eventTs;
     private EventType eventType;
-    private String globalSessionId;
+    private String globalSessionId= Constants.NO_SESSION_ID;
     private byte[] rheosByteArray;
     private Long ingestTimestamp;
     private Long kafkaReceivedTimestamp;
-    private String sessionId = Constants.NO_SESSION_ID;
     public boolean isNewSession() {
-        return Constants.NO_SESSION_ID.equals(sessionId);
+        return Constants.NO_SESSION_ID.equals(globalSessionId);
     }
-    public void updateSessionId() {
-        this.sessionId = concatTimestamp(this.guid, this.eventTs);
+    public void updateGlobalSessionId() {
+        this.globalSessionId = concatTimestamp(this.guid, this.eventTs);
     }
     private String concatTimestamp(String prefix, long timestamp) {
         long unixTimestamp = timestamp;

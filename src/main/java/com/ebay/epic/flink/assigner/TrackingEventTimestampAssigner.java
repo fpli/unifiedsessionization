@@ -12,7 +12,6 @@ public class TrackingEventTimestampAssigner<T> implements SerializableTimestampA
     public long extractTimestamp(T element, long recordTimestamp) {
 
         var field = 0L;
-
         try {
             field = TimestampFieldExtractor.getField(element);
         } catch (Exception e) {

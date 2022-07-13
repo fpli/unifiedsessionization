@@ -1,6 +1,7 @@
 package com.ebay.epic.utils;
 
 import com.ebay.epic.common.model.*;
+import com.ebay.epic.common.model.raw.RawEvent;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4565571082609133934L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SurfaceTrackingEvent\",\"namespace\":\"com.ebay.epic.sojourner.common.model\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"autoTrackEvent\",\"type\":{\"type\":\"record\",\"name\":\"AutoTrackEvent\",\"fields\":[{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userId\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"siteId\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"eventFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"agentVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"context\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Context\",\"fields\":[{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"version\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"os\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"utcOffset\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"clientIp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userLang\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenDPI\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"deviceInfo\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"MobileDeviceContext\",\"fields\":[{\"name\":\"formFactor\",\"type\":[\"null\",{\"type\":\"enum\",\"name\":\"FormFactor\",\"symbols\":[\"phone\",\"tablet\",\"watch\",\"desktop\"]}],\"default\":null},{\"name\":\"manufacturer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"model\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkCarrier\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkConnectionType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"theme\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"countryId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"others\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"trackable\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Trackable\",\"fields\":[{\"name\":\"trackableId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"parentTrackableId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"instanceId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"correlationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"activity\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Activity\",\"fields\":[{\"name\":\"timestamp\",\"type\":\"long\"},{\"name\":\"duration\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"ratio\",\"type\":[\"null\",\"double\"],\"default\":null},{\"name\":\"viewportWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"viewportHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"category\",\"type\":{\"type\":\"enum\",\"name\":\"ActivityCategory\",\"symbols\":[\"Impression\",\"Click\"]}},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"referer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"details\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null}]}}]}");
+  private static final long serialVersionUID = -6834933375943608795L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SurfaceTrackingEvent\",\"namespace\":\"com.ebay.epic.common.model\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"autoTrackEvent\",\"type\":{\"type\":\"record\",\"name\":\"AutoTrackEvent\",\"fields\":[{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userId\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"siteId\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"eventFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"agentVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"context\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Context\",\"fields\":[{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"version\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"os\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"utcOffset\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"clientIp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userLang\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenDPI\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"deviceInfo\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"MobileDeviceContext\",\"fields\":[{\"name\":\"formFactor\",\"type\":[\"null\",{\"type\":\"enum\",\"name\":\"FormFactor\",\"symbols\":[\"phone\",\"tablet\",\"watch\",\"desktop\"]}],\"default\":null},{\"name\":\"manufacturer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"model\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkCarrier\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkConnectionType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"theme\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"countryId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"others\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"trackable\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Trackable\",\"fields\":[{\"name\":\"trackableId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"parentTrackableId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"instanceId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"correlationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"activity\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Activity\",\"fields\":[{\"name\":\"timestamp\",\"type\":\"long\"},{\"name\":\"duration\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"ratio\",\"type\":[\"null\",\"double\"],\"default\":null},{\"name\":\"viewportWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"viewportHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"category\",\"type\":{\"type\":\"enum\",\"name\":\"ActivityCategory\",\"symbols\":[\"Impression\",\"Click\"]}},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"referer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"details\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -51,8 +51,8 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
     return DECODER.decode(b);
   }
 
-  @Deprecated public RheosHeader rheosHeader;
-  @Deprecated public AutoTrackEvent autoTrackEvent;
+  @Deprecated public com.ebay.epic.common.model.RheosHeader rheosHeader;
+  @Deprecated public com.ebay.epic.common.model.AutoTrackEvent autoTrackEvent;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -66,7 +66,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
    * @param rheosHeader The new value for rheosHeader
    * @param autoTrackEvent The new value for autoTrackEvent
    */
-  public SurfaceTrackingEvent(RheosHeader rheosHeader, AutoTrackEvent autoTrackEvent) {
+  public SurfaceTrackingEvent(com.ebay.epic.common.model.RheosHeader rheosHeader, com.ebay.epic.common.model.AutoTrackEvent autoTrackEvent) {
     this.rheosHeader = rheosHeader;
     this.autoTrackEvent = autoTrackEvent;
   }
@@ -85,8 +85,8 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: rheosHeader = (RheosHeader)value$; break;
-    case 1: autoTrackEvent = (AutoTrackEvent)value$; break;
+    case 0: rheosHeader = (com.ebay.epic.common.model.RheosHeader)value$; break;
+    case 1: autoTrackEvent = (com.ebay.epic.common.model.AutoTrackEvent)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -95,7 +95,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
    * Gets the value of the 'rheosHeader' field.
    * @return The value of the 'rheosHeader' field.
    */
-  public RheosHeader getRheosHeader() {
+  public com.ebay.epic.common.model.RheosHeader getRheosHeader() {
     return rheosHeader;
   }
 
@@ -103,7 +103,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
    * Sets the value of the 'rheosHeader' field.
    * @param value the value to set.
    */
-  public void setRheosHeader(RheosHeader value) {
+  public void setRheosHeader(com.ebay.epic.common.model.RheosHeader value) {
     this.rheosHeader = value;
   }
 
@@ -111,7 +111,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
    * Gets the value of the 'autoTrackEvent' field.
    * @return The value of the 'autoTrackEvent' field.
    */
-  public AutoTrackEvent getAutoTrackEvent() {
+  public com.ebay.epic.common.model.AutoTrackEvent getAutoTrackEvent() {
     return autoTrackEvent;
   }
 
@@ -119,7 +119,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
    * Sets the value of the 'autoTrackEvent' field.
    * @param value the value to set.
    */
-  public void setAutoTrackEvent(AutoTrackEvent value) {
+  public void setAutoTrackEvent(com.ebay.epic.common.model.AutoTrackEvent value) {
     this.autoTrackEvent = value;
   }
 
@@ -127,8 +127,8 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
    * Creates a new SurfaceTrackingEvent RecordBuilder.
    * @return A new SurfaceTrackingEvent RecordBuilder
    */
-  public static SurfaceTrackingEvent.Builder newBuilder() {
-    return new SurfaceTrackingEvent.Builder();
+  public static com.ebay.epic.common.model.SurfaceTrackingEvent.Builder newBuilder() {
+    return new com.ebay.epic.common.model.SurfaceTrackingEvent.Builder();
   }
 
   /**
@@ -136,8 +136,8 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
    * @param other The existing builder to copy.
    * @return A new SurfaceTrackingEvent RecordBuilder
    */
-  public static SurfaceTrackingEvent.Builder newBuilder(SurfaceTrackingEvent.Builder other) {
-    return new SurfaceTrackingEvent.Builder(other);
+  public static com.ebay.epic.common.model.SurfaceTrackingEvent.Builder newBuilder(com.ebay.epic.common.model.SurfaceTrackingEvent.Builder other) {
+    return new com.ebay.epic.common.model.SurfaceTrackingEvent.Builder(other);
   }
 
   /**
@@ -145,8 +145,8 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
    * @param other The existing instance to copy.
    * @return A new SurfaceTrackingEvent RecordBuilder
    */
-  public static SurfaceTrackingEvent.Builder newBuilder(SurfaceTrackingEvent other) {
-    return new SurfaceTrackingEvent.Builder(other);
+  public static com.ebay.epic.common.model.SurfaceTrackingEvent.Builder newBuilder(com.ebay.epic.common.model.SurfaceTrackingEvent other) {
+    return new com.ebay.epic.common.model.SurfaceTrackingEvent.Builder(other);
   }
 
   /**
@@ -155,10 +155,10 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<SurfaceTrackingEvent>
     implements org.apache.avro.data.RecordBuilder<SurfaceTrackingEvent> {
 
-    private RheosHeader rheosHeader;
-    private RheosHeader.Builder rheosHeaderBuilder;
-    private AutoTrackEvent autoTrackEvent;
-    private AutoTrackEvent.Builder autoTrackEventBuilder;
+    private com.ebay.epic.common.model.RheosHeader rheosHeader;
+    private com.ebay.epic.common.model.RheosHeader.Builder rheosHeaderBuilder;
+    private com.ebay.epic.common.model.AutoTrackEvent autoTrackEvent;
+    private com.ebay.epic.common.model.AutoTrackEvent.Builder autoTrackEventBuilder;
 
     /** Creates a new Builder */
     private Builder() {
@@ -169,21 +169,21 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(SurfaceTrackingEvent.Builder other) {
+    private Builder(com.ebay.epic.common.model.SurfaceTrackingEvent.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.rheosHeader)) {
         this.rheosHeader = data().deepCopy(fields()[0].schema(), other.rheosHeader);
         fieldSetFlags()[0] = true;
       }
       if (other.hasRheosHeaderBuilder()) {
-        this.rheosHeaderBuilder = RheosHeader.newBuilder(other.getRheosHeaderBuilder());
+        this.rheosHeaderBuilder = com.ebay.epic.common.model.RheosHeader.newBuilder(other.getRheosHeaderBuilder());
       }
       if (isValidValue(fields()[1], other.autoTrackEvent)) {
         this.autoTrackEvent = data().deepCopy(fields()[1].schema(), other.autoTrackEvent);
         fieldSetFlags()[1] = true;
       }
       if (other.hasAutoTrackEventBuilder()) {
-        this.autoTrackEventBuilder = AutoTrackEvent.newBuilder(other.getAutoTrackEventBuilder());
+        this.autoTrackEventBuilder = com.ebay.epic.common.model.AutoTrackEvent.newBuilder(other.getAutoTrackEventBuilder());
       }
     }
 
@@ -191,7 +191,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
      * Creates a Builder by copying an existing SurfaceTrackingEvent instance
      * @param other The existing instance to copy.
      */
-    private Builder(SurfaceTrackingEvent other) {
+    private Builder(com.ebay.epic.common.model.SurfaceTrackingEvent other) {
             super(SCHEMA$);
       if (isValidValue(fields()[0], other.rheosHeader)) {
         this.rheosHeader = data().deepCopy(fields()[0].schema(), other.rheosHeader);
@@ -209,7 +209,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
       * Gets the value of the 'rheosHeader' field.
       * @return The value.
       */
-    public RheosHeader getRheosHeader() {
+    public com.ebay.epic.common.model.RheosHeader getRheosHeader() {
       return rheosHeader;
     }
 
@@ -218,7 +218,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
       * @param value The value of 'rheosHeader'.
       * @return This builder.
       */
-    public SurfaceTrackingEvent.Builder setRheosHeader(RheosHeader value) {
+    public com.ebay.epic.common.model.SurfaceTrackingEvent.Builder setRheosHeader(com.ebay.epic.common.model.RheosHeader value) {
       validate(fields()[0], value);
       this.rheosHeaderBuilder = null;
       this.rheosHeader = value;
@@ -238,12 +238,12 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
      * Gets the Builder instance for the 'rheosHeader' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public RheosHeader.Builder getRheosHeaderBuilder() {
+    public com.ebay.epic.common.model.RheosHeader.Builder getRheosHeaderBuilder() {
       if (rheosHeaderBuilder == null) {
         if (hasRheosHeader()) {
-          setRheosHeaderBuilder(RheosHeader.newBuilder(rheosHeader));
+          setRheosHeaderBuilder(com.ebay.epic.common.model.RheosHeader.newBuilder(rheosHeader));
         } else {
-          setRheosHeaderBuilder(RheosHeader.newBuilder());
+          setRheosHeaderBuilder(com.ebay.epic.common.model.RheosHeader.newBuilder());
         }
       }
       return rheosHeaderBuilder;
@@ -254,7 +254,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-    public SurfaceTrackingEvent.Builder setRheosHeaderBuilder(RheosHeader.Builder value) {
+    public com.ebay.epic.common.model.SurfaceTrackingEvent.Builder setRheosHeaderBuilder(com.ebay.epic.common.model.RheosHeader.Builder value) {
       clearRheosHeader();
       rheosHeaderBuilder = value;
       return this;
@@ -272,7 +272,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
       * Clears the value of the 'rheosHeader' field.
       * @return This builder.
       */
-    public SurfaceTrackingEvent.Builder clearRheosHeader() {
+    public com.ebay.epic.common.model.SurfaceTrackingEvent.Builder clearRheosHeader() {
       rheosHeader = null;
       rheosHeaderBuilder = null;
       fieldSetFlags()[0] = false;
@@ -283,7 +283,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
       * Gets the value of the 'autoTrackEvent' field.
       * @return The value.
       */
-    public AutoTrackEvent getAutoTrackEvent() {
+    public com.ebay.epic.common.model.AutoTrackEvent getAutoTrackEvent() {
       return autoTrackEvent;
     }
 
@@ -292,7 +292,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
       * @param value The value of 'autoTrackEvent'.
       * @return This builder.
       */
-    public SurfaceTrackingEvent.Builder setAutoTrackEvent(AutoTrackEvent value) {
+    public com.ebay.epic.common.model.SurfaceTrackingEvent.Builder setAutoTrackEvent(com.ebay.epic.common.model.AutoTrackEvent value) {
       validate(fields()[1], value);
       this.autoTrackEventBuilder = null;
       this.autoTrackEvent = value;
@@ -312,12 +312,12 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
      * Gets the Builder instance for the 'autoTrackEvent' field and creates one if it doesn't exist yet.
      * @return This builder.
      */
-    public AutoTrackEvent.Builder getAutoTrackEventBuilder() {
+    public com.ebay.epic.common.model.AutoTrackEvent.Builder getAutoTrackEventBuilder() {
       if (autoTrackEventBuilder == null) {
         if (hasAutoTrackEvent()) {
-          setAutoTrackEventBuilder(AutoTrackEvent.newBuilder(autoTrackEvent));
+          setAutoTrackEventBuilder(com.ebay.epic.common.model.AutoTrackEvent.newBuilder(autoTrackEvent));
         } else {
-          setAutoTrackEventBuilder(AutoTrackEvent.newBuilder());
+          setAutoTrackEventBuilder(com.ebay.epic.common.model.AutoTrackEvent.newBuilder());
         }
       }
       return autoTrackEventBuilder;
@@ -328,7 +328,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-    public SurfaceTrackingEvent.Builder setAutoTrackEventBuilder(AutoTrackEvent.Builder value) {
+    public com.ebay.epic.common.model.SurfaceTrackingEvent.Builder setAutoTrackEventBuilder(com.ebay.epic.common.model.AutoTrackEvent.Builder value) {
       clearAutoTrackEvent();
       autoTrackEventBuilder = value;
       return this;
@@ -346,7 +346,7 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
       * Clears the value of the 'autoTrackEvent' field.
       * @return This builder.
       */
-    public SurfaceTrackingEvent.Builder clearAutoTrackEvent() {
+    public com.ebay.epic.common.model.SurfaceTrackingEvent.Builder clearAutoTrackEvent() {
       autoTrackEvent = null;
       autoTrackEventBuilder = null;
       fieldSetFlags()[1] = false;
@@ -361,12 +361,12 @@ public class SurfaceTrackingEvent extends org.apache.avro.specific.SpecificRecor
         if (rheosHeaderBuilder != null) {
           record.rheosHeader = this.rheosHeaderBuilder.build();
         } else {
-          record.rheosHeader = fieldSetFlags()[0] ? this.rheosHeader : (RheosHeader) defaultValue(fields()[0]);
+          record.rheosHeader = fieldSetFlags()[0] ? this.rheosHeader : (com.ebay.epic.common.model.RheosHeader) defaultValue(fields()[0]);
         }
         if (autoTrackEventBuilder != null) {
           record.autoTrackEvent = this.autoTrackEventBuilder.build();
         } else {
-          record.autoTrackEvent = fieldSetFlags()[1] ? this.autoTrackEvent : (AutoTrackEvent) defaultValue(fields()[1]);
+          record.autoTrackEvent = fieldSetFlags()[1] ? this.autoTrackEvent : (com.ebay.epic.common.model.AutoTrackEvent) defaultValue(fields()[1]);
         }
         return record;
       } catch (java.lang.Exception e) {

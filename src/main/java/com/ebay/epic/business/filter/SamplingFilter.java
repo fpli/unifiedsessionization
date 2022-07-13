@@ -1,9 +1,6 @@
 package com.ebay.epic.business.filter;
 
-import com.ebay.epic.business.filter.CombinationFilter;
-import com.ebay.epic.common.model.RawEvent;
-import com.ebay.epic.common.model.SojEvent;
-import com.ebay.epic.utils.FlinkEnvUtils;
+import com.ebay.epic.common.model.raw.RawEvent;
 import com.ebay.epic.utils.Property;
 import com.ebay.epic.utils.SOJSampleHash;
 import org.apache.commons.lang3.StringUtils;

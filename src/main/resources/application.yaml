@@ -6,8 +6,8 @@ flink:
       source: 50
       pre-filter: 50
       session: 50
-      post-filter: 50
-      sink-kafka: 50
+      post-filter: 20
+      sink-kafka: 20
       max: 2000
     checkpoint:
       data-dir: /opt/tracking-behavior/checkpoint
@@ -47,6 +47,10 @@ flink:
         kafka:
           topic: behavior.total.new.utpevent
           subject: UnifiedTrackingRheosEvent
+      session:
+        kafka:
+          topic: behavior.total.new.unisession
+          subject: unisessionschema
     slot-sharing-group:
       source:
         lvs:
@@ -77,6 +81,7 @@ flink:
           autotrack: autotracking-sink-to-kafka-rno
           ubi: sojourner-sink-to-kafka-rno
           utp: marketing-tracking-sink-to-kafka-rno
+        session: unisession-sink-to-kafka
     operator-name:
       source:
         lvs:
@@ -110,6 +115,7 @@ flink:
           autotrack: AutoTracking Sink to Kafka RNO
           ubi: Sojourner Sink to Kafka RNO
           utp: Marketing Tracking Sink To Kafka RNO
+        session: UniSession Sink to Kafka
     uid:
       source:
         lvs:
@@ -143,7 +149,7 @@ flink:
           autotrack: autotracking-sink-to-kafka-rno
           ubi: sojourner-sink-to-kafka-rno
           utp: marketing-tracking-sink-to-kafka-rno
-
+        session: unisession-sink-to-kafka
 kafka:
   consumer:
     autotrack:

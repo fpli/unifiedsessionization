@@ -3,7 +3,7 @@ package com.ebay.epic.flink.connector.kafka.schema;
 import com.ebay.epic.common.constant.Constants;
 import com.ebay.epic.common.enums.EventType;
 import com.ebay.epic.common.enums.SchemaSubject;
-import com.ebay.epic.common.model.RawEvent;
+import com.ebay.epic.common.model.raw.RawEvent;
 import com.ebay.epic.flink.connector.kafka.factory.RheosEventSerdeFactory;
 import com.ebay.epic.utils.SojTimestamp;
 import com.google.common.collect.Sets;
@@ -118,9 +118,8 @@ public class RawEventUniDeserializationSchema implements DeserializationSchema<R
     private RawEvent ubiConstruct(GenericRecord genericRecord, RheosEvent rheosEvent) {
         RawEvent rawEvent = new RawEvent();
         rawEvent.setGuid(genericRecord.get("guid").toString());
-        rawEvent.setEventTs(SojTimestamp
-                .getSojTimestampToUnixTimestamp(Long.valueOf(
-                        genericRecord.get("eventTimestamp").toString())));
+        rawEvent.setEventTs(Long.valueOf(
+                        genericRecord.get("eventTimestamp").toString()));
         rawEvent.setEventType(EventType.UBI);
         rawEvent.setRheosByteArray(rheosEvent.toBytes());
         return rawEvent;

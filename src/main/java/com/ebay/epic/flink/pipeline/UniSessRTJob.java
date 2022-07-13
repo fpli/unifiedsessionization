@@ -21,7 +21,9 @@ package com.ebay.epic.flink.pipeline;
 import com.ebay.epic.common.constant.OutputTagConstants;
 import com.ebay.epic.common.enums.EventType;
 import com.ebay.epic.common.enums.SchemaSubject;
-import com.ebay.epic.common.model.*;
+import com.ebay.epic.common.model.UniSession;
+import com.ebay.epic.common.model.raw.RawEvent;
+import com.ebay.epic.common.model.raw.RawUniSession;
 import com.ebay.epic.flink.connector.kafka.SourceDataStreamBuilder;
 import com.ebay.epic.flink.connector.kafka.schema.RawEventKafkaDeserializationSchemaWrapper;
 import com.ebay.epic.flink.connector.kafka.schema.RawEventUniDeserializationSchema;
@@ -48,6 +50,7 @@ public class UniSessRTJob extends FlinkBaseJob {
 
     public static void main(String[] args) throws Exception {
         final StreamExecutionEnvironment see = streamExecutionEnvironmentBuilder(args);
+        see.disableOperatorChaining();
         UniSessRTJob uniSessRTJob = new UniSessRTJob();
         DataStream surface = uniSessRTJob.consumerBuilder(see, EventType.AUTOTRACK);
         DataStream ubi = uniSessRTJob.consumerBuilder(see, EventType.UBI);
@@ -56,14 +59,13 @@ public class UniSessRTJob extends FlinkBaseJob {
         DataStream uniDs = surface.union(ubi).union(utp);
         // Filter logic before normalizer
         val rawEventPreFilterDS =
-                uniDs
-                        .filter(new TrackingEventPreFilterFunction())
+                uniDs.filter(new TrackingEventPreFilterFunction())
                         .setParallelism(getInteger(PRE_FILTER_PARALLELISM))
                         .name(getString(PRE_FILTER_OP_NAME))
                         .uid(getString(PRE_FILTER_OP_UID));
 
         // session window
-        SingleOutputStreamOperator<UniSession> ubiSessionDataStream =
+        SingleOutputStreamOperator<RawUniSession> uniSessionDataStream =
                 rawEventPreFilterDS
                         .keyBy("guid")
                         .window(RawEventTimeSessionWindows.withGapAndMaxDuration(Time.minutes(30),
@@ -75,21 +77,21 @@ public class UniSessRTJob extends FlinkBaseJob {
                         .aggregate(new UniSessionAgg(), new UniSessionWindowProcessFunction());
 
         WindowOperatorHelper.enrichWindowOperator(
-                (OneInputTransformation) ubiSessionDataStream.getTransformation(),
+                (OneInputTransformation) uniSessionDataStream.getTransformation(),
                 new RawEventMapWithStateFunction(),
                 OutputTagConstants.mappedEventOutputTag);
 
-        ubiSessionDataStream
+        uniSessionDataStream
                 .setParallelism(getInteger(Property.SESSION_PARALLELISM))
                 .slotSharingGroup(getString(SESSION_WINDOR_SLOT_SHARE_GROUP))
                 .name("Session Operator")
                 .uid("session-operator").setMaxParallelism(getInteger(PARALLELISM_MAX));
 
         DataStream<RawEvent> rawEventWithSessionId =
-                ubiSessionDataStream.getSideOutput(OutputTagConstants.mappedEventOutputTag);
+                uniSessionDataStream.getSideOutput(OutputTagConstants.mappedEventOutputTag);
 
         DataStream<RawEvent> latedStream =
-                ubiSessionDataStream.getSideOutput(OutputTagConstants.lateEventOutputTag);
+                uniSessionDataStream.getSideOutput(OutputTagConstants.lateEventOutputTag);
 
         DataStream<RawEvent> surfaceDS =
                 rawEventWithSessionId.filter(new TrackingEventPostFilterFunction(EventType.AUTOTRACK))
@@ -109,9 +111,20 @@ public class UniSessRTJob extends FlinkBaseJob {
                         .name(getString(POST_FILTER_OP_NAME_UTP))
                         .uid(getString(POST_FILTER_OP_UID_UTP));
 
+
+        SingleOutputStreamOperator<UniSession> uniSessionDS =
+                uniSessionDataStream
+                        .process(
+                                new RawUniSessionToUniSessionProcessFunction(
+                                ))
+                        .setParallelism(getInteger(Property.SESSION_PARALLELISM))
+                        .slotSharingGroup(getString(SESSION_WINDOR_SLOT_SHARE_GROUP))
+                        .name("RawUniSession to UniSession")
+                        .uid("RawUniSession-to-UniSession");
         uniSessRTJob.kafkaSinkBuilder(surfaceDS, EventType.AUTOTRACK);
         uniSessRTJob.kafkaSinkBuilder(ubiDS, EventType.UBI);
         uniSessRTJob.kafkaSinkBuilder(utpDS, EventType.UTP);
+        uniSessRTJob.kafkaSinkBuilder(uniSessionDS, EventType.OTHER);
 
         // Submit this job
         FlinkEnvUtils.execute(see, getString(FLINK_APP_NAME));
@@ -155,8 +168,10 @@ public class UniSessRTJob extends FlinkBaseJob {
                 utpSinkBuilder(dataStream);
                 break;
             }
-            default:
+            default: {
+                sessionSinkBuilder(dataStream);
                 break;
+            }
 
         }
     }
@@ -184,44 +199,44 @@ public class UniSessRTJob extends FlinkBaseJob {
                         new RawEventUniDeserializationSchema(
                                 FlinkEnvUtils.getString(Property.RHEOS_KAFKA_REGISTRY_URL),
                                 SchemaSubject.SURFACE)));
-        // 1. Rheos Consumer
-        // 1.1 Consume RawEvent from Rheos PathFinder topic
-        // 1.2 Assign timestamps and emit watermarks.
-        DataStream<RawEvent> rawEventDataStreamForSLC = dataStreamBuilder
-                .dc(SLC)
-                .operatorName(getString(SOURCE_OPERATOR_NAME_SLC_AUTOTRACK))
-                .eventType(EventType.AUTOTRACK)
-                .uid(getString(SOURCE_UID_SLC_AUTOTRACK))
-                .slotGroup(getString(Property.SOURCE_SLOT_SHARE_GROUP_SLC_AUTOTRACK))
-                .outOfOrderlessInMin(getInteger(FLINK_APP_SOURCE_OUT_OF_ORDERLESS_IN_MIN_AUTOTRACK))
-                .fromTimestamp(getString(FLINK_APP_SOURCE_FROM_TIMESTAMP_AUTOTRACK))
-                .idleSourceTimeout(getInteger(FLINK_APP_IDLE_SOURCE_TIMEOUT_IN_MIN_AUTOTRACK))
-                .build(new RawEventKafkaDeserializationSchemaWrapper(
-                        new RawEventUniDeserializationSchema(
-                                FlinkEnvUtils.getString(Property.RHEOS_KAFKA_REGISTRY_URL),
-                                SchemaSubject.SURFACE)));
-        // 1. Rheos Consumer
-        // 1.1 Consume RawEvent from Rheos PathFinder topic
-        // 1.2 Assign timestamps and emit watermarks.
-        DataStream<RawEvent> rawEventDataStreamForLVS = dataStreamBuilder
-                .dc(LVS)
-                .operatorName(getString(SOURCE_OPERATOR_NAME_LVS_AUTOTRACK))
-                .eventType(EventType.AUTOTRACK)
-                .uid(getString(SOURCE_UID_LVS_AUTOTRACK))
-                .slotGroup(getString(Property.SOURCE_SLOT_SHARE_GROUP_LVS_AUTOTRACK))
-                .outOfOrderlessInMin(getInteger(FLINK_APP_SOURCE_OUT_OF_ORDERLESS_IN_MIN_AUTOTRACK))
-                .fromTimestamp(getString(FLINK_APP_SOURCE_FROM_TIMESTAMP_AUTOTRACK))
-                .idleSourceTimeout(getInteger(FLINK_APP_IDLE_SOURCE_TIMEOUT_IN_MIN_AUTOTRACK))
-                .build(new RawEventKafkaDeserializationSchemaWrapper(
-                        new RawEventUniDeserializationSchema(
-                                FlinkEnvUtils.getString(Property.RHEOS_KAFKA_REGISTRY_URL),
-                                SchemaSubject.SURFACE)));
+//        // 1. Rheos Consumer
+//        // 1.1 Consume RawEvent from Rheos PathFinder topic
+//        // 1.2 Assign timestamps and emit watermarks.
+//        DataStream<RawEvent> rawEventDataStreamForSLC = dataStreamBuilder
+//                .dc(SLC)
+//                .operatorName(getString(SOURCE_OPERATOR_NAME_SLC_AUTOTRACK))
+//                .eventType(EventType.AUTOTRACK)
+//                .uid(getString(SOURCE_UID_SLC_AUTOTRACK))
+//                .slotGroup(getString(Property.SOURCE_SLOT_SHARE_GROUP_SLC_AUTOTRACK))
+//                .outOfOrderlessInMin(getInteger(FLINK_APP_SOURCE_OUT_OF_ORDERLESS_IN_MIN_AUTOTRACK))
+//                .fromTimestamp(getString(FLINK_APP_SOURCE_FROM_TIMESTAMP_AUTOTRACK))
+//                .idleSourceTimeout(getInteger(FLINK_APP_IDLE_SOURCE_TIMEOUT_IN_MIN_AUTOTRACK))
+//                .build(new RawEventKafkaDeserializationSchemaWrapper(
+//                        new RawEventUniDeserializationSchema(
+//                                FlinkEnvUtils.getString(Property.RHEOS_KAFKA_REGISTRY_URL),
+//                                SchemaSubject.SURFACE)));
+//        // 1. Rheos Consumer
+//        // 1.1 Consume RawEvent from Rheos PathFinder topic
+//        // 1.2 Assign timestamps and emit watermarks.
+//        DataStream<RawEvent> rawEventDataStreamForLVS = dataStreamBuilder
+//                .dc(LVS)
+//                .operatorName(getString(SOURCE_OPERATOR_NAME_LVS_AUTOTRACK))
+//                .eventType(EventType.AUTOTRACK)
+//                .uid(getString(SOURCE_UID_LVS_AUTOTRACK))
+//                .slotGroup(getString(Property.SOURCE_SLOT_SHARE_GROUP_LVS_AUTOTRACK))
+//                .outOfOrderlessInMin(getInteger(FLINK_APP_SOURCE_OUT_OF_ORDERLESS_IN_MIN_AUTOTRACK))
+//                .fromTimestamp(getString(FLINK_APP_SOURCE_FROM_TIMESTAMP_AUTOTRACK))
+//                .idleSourceTimeout(getInteger(FLINK_APP_IDLE_SOURCE_TIMEOUT_IN_MIN_AUTOTRACK))
+//                .build(new RawEventKafkaDeserializationSchemaWrapper(
+//                        new RawEventUniDeserializationSchema(
+//                                FlinkEnvUtils.getString(Property.RHEOS_KAFKA_REGISTRY_URL),
+//                                SchemaSubject.SURFACE)));
 
-        // union ubiEvent from SLC/RNO/LVS
-        DataStream<RawEvent> rawEventDataStream = rawEventDataStreamForRNO
-                .union(rawEventDataStreamForSLC)
-                .union(rawEventDataStreamForLVS);
-        return rawEventDataStream;
+//        // union ubiEvent from SLC/RNO/LVS
+//        DataStream<RawEvent> rawEventDataStream = rawEventDataStreamForRNO
+//                .union(rawEventDataStreamForSLC)
+//                .union(rawEventDataStreamForLVS);
+        return rawEventDataStreamForRNO;
     }
 
     private DataStream ubiConsumerBuilder(StreamExecutionEnvironment see) {
@@ -256,22 +271,22 @@ public class UniSessRTJob extends FlinkBaseJob {
         // 1.2 Assign timestamps and emit watermarks.
         SourceDataStreamBuilder<RawEvent> dataStreamBuilder =
                 new SourceDataStreamBuilder<>(see);
-        // 1. Rheos Consumer
-        // 1.1 Consume RawEvent from Rheos PathFinder topic
-        // 1.2 Assign timestamps and emit watermarks.
-        DataStream<RawEvent> rawEventDataStreamForSLC = dataStreamBuilder
-                .dc(SLC)
-                .operatorName(getString(SOURCE_OPERATOR_NAME_SLC_UTP))
-                .eventType(EventType.UTP)
-                .uid(getString(SOURCE_UID_SLC_UTP))
-                .slotGroup(getString(SOURCE_SLOT_SHARE_GROUP_SLC_UTP))
-                .outOfOrderlessInMin(getInteger(FLINK_APP_SOURCE_OUT_OF_ORDERLESS_IN_MIN_UTP))
-                .fromTimestamp(getString(FLINK_APP_SOURCE_FROM_TIMESTAMP_UTP))
-                .idleSourceTimeout(getInteger(FLINK_APP_IDLE_SOURCE_TIMEOUT_IN_MIN_UTP))
-                .build(new RawEventKafkaDeserializationSchemaWrapper(
-                        new RawEventUniDeserializationSchema(
-                                FlinkEnvUtils.getString(Property.RHEOS_KAFKA_REGISTRY_URL),
-                                SchemaSubject.UTP)));
+//        // 1. Rheos Consumer
+//        // 1.1 Consume RawEvent from Rheos PathFinder topic
+//        // 1.2 Assign timestamps and emit watermarks.
+//        DataStream<RawEvent> rawEventDataStreamForSLC = dataStreamBuilder
+//                .dc(SLC)
+//                .operatorName(getString(SOURCE_OPERATOR_NAME_SLC_UTP))
+//                .eventType(EventType.UTP)
+//                .uid(getString(SOURCE_UID_SLC_UTP))
+//                .slotGroup(getString(SOURCE_SLOT_SHARE_GROUP_SLC_UTP))
+//                .outOfOrderlessInMin(getInteger(FLINK_APP_SOURCE_OUT_OF_ORDERLESS_IN_MIN_UTP))
+//                .fromTimestamp(getString(FLINK_APP_SOURCE_FROM_TIMESTAMP_UTP))
+//                .idleSourceTimeout(getInteger(FLINK_APP_IDLE_SOURCE_TIMEOUT_IN_MIN_UTP))
+//                .build(new RawEventKafkaDeserializationSchemaWrapper(
+//                        new RawEventUniDeserializationSchema(
+//                                FlinkEnvUtils.getString(Property.RHEOS_KAFKA_REGISTRY_URL),
+//                                SchemaSubject.UTP)));
         // 1. Rheos Consumer
         // 1.1 Consume RawEvent from Rheos PathFinder topic
         // 1.2 Assign timestamps and emit watermarks.
@@ -289,24 +304,29 @@ public class UniSessRTJob extends FlinkBaseJob {
                                 FlinkEnvUtils.getString(Property.RHEOS_KAFKA_REGISTRY_URL),
                                 SchemaSubject.UTP)));
 
-        // union ubiEvent from SLC/RNO/LVS
-        DataStream<RawEvent> rawEventDataStream = rawEventDataStreamForSLC
-                .union(rawEventDataStreamForLVS);
-        return rawEventDataStream;
+//        // union ubiEvent from SLC/RNO/LVS
+//        DataStream<RawEvent> rawEventDataStream = rawEventDataStreamForSLC
+//                .union(rawEventDataStreamForLVS);
+        return rawEventDataStreamForLVS;
     }
 
     private void autoTrackSinkBuilder(DataStream dataStream) {
         baseSinkBuilder(dataStream, RawEvent.class, SINK_OPERATOR_NAME_RNO_AUTOTRACK, SINK_UID_RNO_AUTOTRACK,
-                FLINK_APP_SINK_TOPIC_AUTOTRACK,FLINK_APP_SINK_TOPIC_SUBJECT_AUTOTRACK,SINK_SLOT_SHARE_GROUP_RNO_AUTOTRACK);
+                FLINK_APP_SINK_TOPIC_AUTOTRACK, FLINK_APP_SINK_TOPIC_SUBJECT_AUTOTRACK, SINK_SLOT_SHARE_GROUP_RNO_AUTOTRACK);
     }
 
     private void ubiSinkBuilder(DataStream dataStream) {
         baseSinkBuilder(dataStream, RawEvent.class, SINK_OPERATOR_NAME_RNO_UBI, SINK_UID_RNO_UBI,
-                FLINK_APP_SINK_TOPIC_UBI,FLINK_APP_SINK_TOPIC_SUBJECT_UBI,SINK_SLOT_SHARE_GROUP_RNO_UBI);
+                FLINK_APP_SINK_TOPIC_UBI, FLINK_APP_SINK_TOPIC_SUBJECT_UBI, SINK_SLOT_SHARE_GROUP_RNO_UBI);
     }
 
     private void utpSinkBuilder(DataStream dataStream) {
         baseSinkBuilder(dataStream, RawEvent.class, SINK_OPERATOR_NAME_RNO_UTP, SINK_UID_RNO_UTP,
-                FLINK_APP_SINK_TOPIC_UTP,FLINK_APP_SINK_TOPIC_SUBJECT_UTP,SINK_SLOT_SHARE_GROUP_RNO_UTP );
+                FLINK_APP_SINK_TOPIC_UTP, FLINK_APP_SINK_TOPIC_SUBJECT_UTP, SINK_SLOT_SHARE_GROUP_RNO_UTP);
+    }
+
+    private void sessionSinkBuilder(DataStream dataStream) {
+        baseSinkBuilder(dataStream, UniSession.class, SINK_OPERATOR_NAME_SESSION, SINK_UID_SESSION,
+                FLINK_APP_SINK_TOPIC_SESSION, FLINK_APP_SINK_TOPIC_SUBJECT_SESSION, SINK_SLOT_SHARE_GROUP_SESSION);
     }
 }

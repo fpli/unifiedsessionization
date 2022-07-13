@@ -1,8 +1,7 @@
 package com.ebay.epic.flink.function;
 
 import com.ebay.epic.business.filter.EventPreFilter;
-import com.ebay.epic.common.model.RawEvent;
-import com.ebay.epic.common.model.SojEvent;
+import com.ebay.epic.common.model.raw.RawEvent;
 import org.apache.flink.api.common.functions.RichFilterFunction;
 import org.apache.flink.configuration.Configuration;
 
