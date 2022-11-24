@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class UniSession extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 4956898180481590837L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UniSession\",\"namespace\":\"com.ebay.epic.common.model\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},\"doc\":\"Rheos header\"},{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession guid\"},{\"name\":\"globalSessionId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from unisession globalSessionId\"},{\"name\":\"absStartTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absStartTimestamp\"},{\"name\":\"absEndTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absEndTimestamp\"},{\"name\":\"sessionStartDt\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession sessionStartDt\"}]}");
+  private static final long serialVersionUID = 5377131479248544133L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UniSession\",\"namespace\":\"com.ebay.epic.common.model\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},\"doc\":\"Rheos header\"},{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession guid\"},{\"name\":\"globalSessionId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from unisession globalSessionId\"},{\"name\":\"absStartTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absStartTimestamp\"},{\"name\":\"absEndTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absEndTimestamp\"},{\"name\":\"sessionStartDt\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession sessionStartDt\"},{\"name\":\"trafficSource\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"traffic source\"},{\"name\":\"ubiSessIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},{\"name\":\"ubiSessSkeys\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"autotrackSessIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"autotrackSessSkeys\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -63,6 +63,13 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
   @Deprecated public java.lang.Long absEndTimestamp;
   /** from unisession sessionStartDt */
   @Deprecated public java.lang.Long sessionStartDt;
+  /** traffic source */
+  @Deprecated public java.lang.String trafficSource;
+  @Deprecated public java.util.List<java.lang.String> ubiSessIds;
+  @Deprecated public java.util.List<java.lang.Long> ubiSessSkeys;
+  @Deprecated public java.util.List<java.lang.Long> autotrackSessIds;
+  @Deprecated public java.util.List<java.lang.Long> autotrackSessSkeys;
+  @Deprecated public java.util.Map<java.lang.String,java.lang.String> others;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -79,14 +86,26 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * @param absStartTimestamp from unisession absStartTimestamp
    * @param absEndTimestamp from unisession absEndTimestamp
    * @param sessionStartDt from unisession sessionStartDt
+   * @param trafficSource traffic source
+   * @param ubiSessIds The new value for ubiSessIds
+   * @param ubiSessSkeys The new value for ubiSessSkeys
+   * @param autotrackSessIds The new value for autotrackSessIds
+   * @param autotrackSessSkeys The new value for autotrackSessSkeys
+   * @param others The new value for others
    */
-  public UniSession(com.ebay.epic.common.model.RheosHeader rheosHeader, java.lang.String guid, java.lang.String globalSessionId, java.lang.Long absStartTimestamp, java.lang.Long absEndTimestamp, java.lang.Long sessionStartDt) {
+  public UniSession(com.ebay.epic.common.model.RheosHeader rheosHeader, java.lang.String guid, java.lang.String globalSessionId, java.lang.Long absStartTimestamp, java.lang.Long absEndTimestamp, java.lang.Long sessionStartDt, java.lang.String trafficSource, java.util.List<java.lang.String> ubiSessIds, java.util.List<java.lang.Long> ubiSessSkeys, java.util.List<java.lang.Long> autotrackSessIds, java.util.List<java.lang.Long> autotrackSessSkeys, java.util.Map<java.lang.String,java.lang.String> others) {
     this.rheosHeader = rheosHeader;
     this.guid = guid;
     this.globalSessionId = globalSessionId;
     this.absStartTimestamp = absStartTimestamp;
     this.absEndTimestamp = absEndTimestamp;
     this.sessionStartDt = sessionStartDt;
+    this.trafficSource = trafficSource;
+    this.ubiSessIds = ubiSessIds;
+    this.ubiSessSkeys = ubiSessSkeys;
+    this.autotrackSessIds = autotrackSessIds;
+    this.autotrackSessSkeys = autotrackSessSkeys;
+    this.others = others;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
@@ -99,6 +118,12 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
     case 3: return absStartTimestamp;
     case 4: return absEndTimestamp;
     case 5: return sessionStartDt;
+    case 6: return trafficSource;
+    case 7: return ubiSessIds;
+    case 8: return ubiSessSkeys;
+    case 9: return autotrackSessIds;
+    case 10: return autotrackSessSkeys;
+    case 11: return others;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -113,6 +138,12 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
     case 3: absStartTimestamp = (java.lang.Long)value$; break;
     case 4: absEndTimestamp = (java.lang.Long)value$; break;
     case 5: sessionStartDt = (java.lang.Long)value$; break;
+    case 6: trafficSource = (java.lang.String)value$; break;
+    case 7: ubiSessIds = (java.util.List<java.lang.String>)value$; break;
+    case 8: ubiSessSkeys = (java.util.List<java.lang.Long>)value$; break;
+    case 9: autotrackSessIds = (java.util.List<java.lang.Long>)value$; break;
+    case 10: autotrackSessSkeys = (java.util.List<java.lang.Long>)value$; break;
+    case 11: others = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -220,6 +251,103 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /**
+   * Gets the value of the 'trafficSource' field.
+   * @return traffic source
+   */
+  public java.lang.String getTrafficSource() {
+    return trafficSource;
+  }
+
+  /**
+   * Sets the value of the 'trafficSource' field.
+   * traffic source
+   * @param value the value to set.
+   */
+  public void setTrafficSource(java.lang.String value) {
+    this.trafficSource = value;
+  }
+
+  /**
+   * Gets the value of the 'ubiSessIds' field.
+   * @return The value of the 'ubiSessIds' field.
+   */
+  public java.util.List<java.lang.String> getUbiSessIds() {
+    return ubiSessIds;
+  }
+
+  /**
+   * Sets the value of the 'ubiSessIds' field.
+   * @param value the value to set.
+   */
+  public void setUbiSessIds(java.util.List<java.lang.String> value) {
+    this.ubiSessIds = value;
+  }
+
+  /**
+   * Gets the value of the 'ubiSessSkeys' field.
+   * @return The value of the 'ubiSessSkeys' field.
+   */
+  public java.util.List<java.lang.Long> getUbiSessSkeys() {
+    return ubiSessSkeys;
+  }
+
+  /**
+   * Sets the value of the 'ubiSessSkeys' field.
+   * @param value the value to set.
+   */
+  public void setUbiSessSkeys(java.util.List<java.lang.Long> value) {
+    this.ubiSessSkeys = value;
+  }
+
+  /**
+   * Gets the value of the 'autotrackSessIds' field.
+   * @return The value of the 'autotrackSessIds' field.
+   */
+  public java.util.List<java.lang.Long> getAutotrackSessIds() {
+    return autotrackSessIds;
+  }
+
+  /**
+   * Sets the value of the 'autotrackSessIds' field.
+   * @param value the value to set.
+   */
+  public void setAutotrackSessIds(java.util.List<java.lang.Long> value) {
+    this.autotrackSessIds = value;
+  }
+
+  /**
+   * Gets the value of the 'autotrackSessSkeys' field.
+   * @return The value of the 'autotrackSessSkeys' field.
+   */
+  public java.util.List<java.lang.Long> getAutotrackSessSkeys() {
+    return autotrackSessSkeys;
+  }
+
+  /**
+   * Sets the value of the 'autotrackSessSkeys' field.
+   * @param value the value to set.
+   */
+  public void setAutotrackSessSkeys(java.util.List<java.lang.Long> value) {
+    this.autotrackSessSkeys = value;
+  }
+
+  /**
+   * Gets the value of the 'others' field.
+   * @return The value of the 'others' field.
+   */
+  public java.util.Map<java.lang.String,java.lang.String> getOthers() {
+    return others;
+  }
+
+  /**
+   * Sets the value of the 'others' field.
+   * @param value the value to set.
+   */
+  public void setOthers(java.util.Map<java.lang.String,java.lang.String> value) {
+    this.others = value;
+  }
+
+  /**
    * Creates a new UniSession RecordBuilder.
    * @return A new UniSession RecordBuilder
    */
@@ -264,6 +392,13 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
     private java.lang.Long absEndTimestamp;
     /** from unisession sessionStartDt */
     private java.lang.Long sessionStartDt;
+    /** traffic source */
+    private java.lang.String trafficSource;
+    private java.util.List<java.lang.String> ubiSessIds;
+    private java.util.List<java.lang.Long> ubiSessSkeys;
+    private java.util.List<java.lang.Long> autotrackSessIds;
+    private java.util.List<java.lang.Long> autotrackSessSkeys;
+    private java.util.Map<java.lang.String,java.lang.String> others;
 
     /** Creates a new Builder */
     private Builder() {
@@ -303,6 +438,30 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
         this.sessionStartDt = data().deepCopy(fields()[5].schema(), other.sessionStartDt);
         fieldSetFlags()[5] = true;
       }
+      if (isValidValue(fields()[6], other.trafficSource)) {
+        this.trafficSource = data().deepCopy(fields()[6].schema(), other.trafficSource);
+        fieldSetFlags()[6] = true;
+      }
+      if (isValidValue(fields()[7], other.ubiSessIds)) {
+        this.ubiSessIds = data().deepCopy(fields()[7].schema(), other.ubiSessIds);
+        fieldSetFlags()[7] = true;
+      }
+      if (isValidValue(fields()[8], other.ubiSessSkeys)) {
+        this.ubiSessSkeys = data().deepCopy(fields()[8].schema(), other.ubiSessSkeys);
+        fieldSetFlags()[8] = true;
+      }
+      if (isValidValue(fields()[9], other.autotrackSessIds)) {
+        this.autotrackSessIds = data().deepCopy(fields()[9].schema(), other.autotrackSessIds);
+        fieldSetFlags()[9] = true;
+      }
+      if (isValidValue(fields()[10], other.autotrackSessSkeys)) {
+        this.autotrackSessSkeys = data().deepCopy(fields()[10].schema(), other.autotrackSessSkeys);
+        fieldSetFlags()[10] = true;
+      }
+      if (isValidValue(fields()[11], other.others)) {
+        this.others = data().deepCopy(fields()[11].schema(), other.others);
+        fieldSetFlags()[11] = true;
+      }
     }
 
     /**
@@ -335,6 +494,30 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       if (isValidValue(fields()[5], other.sessionStartDt)) {
         this.sessionStartDt = data().deepCopy(fields()[5].schema(), other.sessionStartDt);
         fieldSetFlags()[5] = true;
+      }
+      if (isValidValue(fields()[6], other.trafficSource)) {
+        this.trafficSource = data().deepCopy(fields()[6].schema(), other.trafficSource);
+        fieldSetFlags()[6] = true;
+      }
+      if (isValidValue(fields()[7], other.ubiSessIds)) {
+        this.ubiSessIds = data().deepCopy(fields()[7].schema(), other.ubiSessIds);
+        fieldSetFlags()[7] = true;
+      }
+      if (isValidValue(fields()[8], other.ubiSessSkeys)) {
+        this.ubiSessSkeys = data().deepCopy(fields()[8].schema(), other.ubiSessSkeys);
+        fieldSetFlags()[8] = true;
+      }
+      if (isValidValue(fields()[9], other.autotrackSessIds)) {
+        this.autotrackSessIds = data().deepCopy(fields()[9].schema(), other.autotrackSessIds);
+        fieldSetFlags()[9] = true;
+      }
+      if (isValidValue(fields()[10], other.autotrackSessSkeys)) {
+        this.autotrackSessSkeys = data().deepCopy(fields()[10].schema(), other.autotrackSessSkeys);
+        fieldSetFlags()[10] = true;
+      }
+      if (isValidValue(fields()[11], other.others)) {
+        this.others = data().deepCopy(fields()[11].schema(), other.others);
+        fieldSetFlags()[11] = true;
       }
     }
 
@@ -634,6 +817,244 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       return this;
     }
 
+    /**
+      * Gets the value of the 'trafficSource' field.
+      * traffic source
+      * @return The value.
+      */
+    public java.lang.String getTrafficSource() {
+      return trafficSource;
+    }
+
+    /**
+      * Sets the value of the 'trafficSource' field.
+      * traffic source
+      * @param value The value of 'trafficSource'.
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder setTrafficSource(java.lang.String value) {
+      validate(fields()[6], value);
+      this.trafficSource = value;
+      fieldSetFlags()[6] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'trafficSource' field has been set.
+      * traffic source
+      * @return True if the 'trafficSource' field has been set, false otherwise.
+      */
+    public boolean hasTrafficSource() {
+      return fieldSetFlags()[6];
+    }
+
+
+    /**
+      * Clears the value of the 'trafficSource' field.
+      * traffic source
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder clearTrafficSource() {
+      trafficSource = null;
+      fieldSetFlags()[6] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'ubiSessIds' field.
+      * @return The value.
+      */
+    public java.util.List<java.lang.String> getUbiSessIds() {
+      return ubiSessIds;
+    }
+
+    /**
+      * Sets the value of the 'ubiSessIds' field.
+      * @param value The value of 'ubiSessIds'.
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder setUbiSessIds(java.util.List<java.lang.String> value) {
+      validate(fields()[7], value);
+      this.ubiSessIds = value;
+      fieldSetFlags()[7] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'ubiSessIds' field has been set.
+      * @return True if the 'ubiSessIds' field has been set, false otherwise.
+      */
+    public boolean hasUbiSessIds() {
+      return fieldSetFlags()[7];
+    }
+
+
+    /**
+      * Clears the value of the 'ubiSessIds' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder clearUbiSessIds() {
+      ubiSessIds = null;
+      fieldSetFlags()[7] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'ubiSessSkeys' field.
+      * @return The value.
+      */
+    public java.util.List<java.lang.Long> getUbiSessSkeys() {
+      return ubiSessSkeys;
+    }
+
+    /**
+      * Sets the value of the 'ubiSessSkeys' field.
+      * @param value The value of 'ubiSessSkeys'.
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder setUbiSessSkeys(java.util.List<java.lang.Long> value) {
+      validate(fields()[8], value);
+      this.ubiSessSkeys = value;
+      fieldSetFlags()[8] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'ubiSessSkeys' field has been set.
+      * @return True if the 'ubiSessSkeys' field has been set, false otherwise.
+      */
+    public boolean hasUbiSessSkeys() {
+      return fieldSetFlags()[8];
+    }
+
+
+    /**
+      * Clears the value of the 'ubiSessSkeys' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder clearUbiSessSkeys() {
+      ubiSessSkeys = null;
+      fieldSetFlags()[8] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'autotrackSessIds' field.
+      * @return The value.
+      */
+    public java.util.List<java.lang.Long> getAutotrackSessIds() {
+      return autotrackSessIds;
+    }
+
+    /**
+      * Sets the value of the 'autotrackSessIds' field.
+      * @param value The value of 'autotrackSessIds'.
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder setAutotrackSessIds(java.util.List<java.lang.Long> value) {
+      validate(fields()[9], value);
+      this.autotrackSessIds = value;
+      fieldSetFlags()[9] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'autotrackSessIds' field has been set.
+      * @return True if the 'autotrackSessIds' field has been set, false otherwise.
+      */
+    public boolean hasAutotrackSessIds() {
+      return fieldSetFlags()[9];
+    }
+
+
+    /**
+      * Clears the value of the 'autotrackSessIds' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder clearAutotrackSessIds() {
+      autotrackSessIds = null;
+      fieldSetFlags()[9] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'autotrackSessSkeys' field.
+      * @return The value.
+      */
+    public java.util.List<java.lang.Long> getAutotrackSessSkeys() {
+      return autotrackSessSkeys;
+    }
+
+    /**
+      * Sets the value of the 'autotrackSessSkeys' field.
+      * @param value The value of 'autotrackSessSkeys'.
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder setAutotrackSessSkeys(java.util.List<java.lang.Long> value) {
+      validate(fields()[10], value);
+      this.autotrackSessSkeys = value;
+      fieldSetFlags()[10] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'autotrackSessSkeys' field has been set.
+      * @return True if the 'autotrackSessSkeys' field has been set, false otherwise.
+      */
+    public boolean hasAutotrackSessSkeys() {
+      return fieldSetFlags()[10];
+    }
+
+
+    /**
+      * Clears the value of the 'autotrackSessSkeys' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder clearAutotrackSessSkeys() {
+      autotrackSessSkeys = null;
+      fieldSetFlags()[10] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'others' field.
+      * @return The value.
+      */
+    public java.util.Map<java.lang.String,java.lang.String> getOthers() {
+      return others;
+    }
+
+    /**
+      * Sets the value of the 'others' field.
+      * @param value The value of 'others'.
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder setOthers(java.util.Map<java.lang.String,java.lang.String> value) {
+      validate(fields()[11], value);
+      this.others = value;
+      fieldSetFlags()[11] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'others' field has been set.
+      * @return True if the 'others' field has been set, false otherwise.
+      */
+    public boolean hasOthers() {
+      return fieldSetFlags()[11];
+    }
+
+
+    /**
+      * Clears the value of the 'others' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.common.model.UniSession.Builder clearOthers() {
+      others = null;
+      fieldSetFlags()[11] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public UniSession build() {
@@ -649,6 +1070,12 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
         record.absStartTimestamp = fieldSetFlags()[3] ? this.absStartTimestamp : (java.lang.Long) defaultValue(fields()[3]);
         record.absEndTimestamp = fieldSetFlags()[4] ? this.absEndTimestamp : (java.lang.Long) defaultValue(fields()[4]);
         record.sessionStartDt = fieldSetFlags()[5] ? this.sessionStartDt : (java.lang.Long) defaultValue(fields()[5]);
+        record.trafficSource = fieldSetFlags()[6] ? this.trafficSource : (java.lang.String) defaultValue(fields()[6]);
+        record.ubiSessIds = fieldSetFlags()[7] ? this.ubiSessIds : (java.util.List<java.lang.String>) defaultValue(fields()[7]);
+        record.ubiSessSkeys = fieldSetFlags()[8] ? this.ubiSessSkeys : (java.util.List<java.lang.Long>) defaultValue(fields()[8]);
+        record.autotrackSessIds = fieldSetFlags()[9] ? this.autotrackSessIds : (java.util.List<java.lang.Long>) defaultValue(fields()[9]);
+        record.autotrackSessSkeys = fieldSetFlags()[10] ? this.autotrackSessSkeys : (java.util.List<java.lang.Long>) defaultValue(fields()[10]);
+        record.others = fieldSetFlags()[11] ? this.others : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[11]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

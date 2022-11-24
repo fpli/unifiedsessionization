@@ -1,6 +1,6 @@
 package com.ebay.epic.flink.connector.kafka.serde;
 
-import com.ebay.epic.common.model.raw.RawEvent;
+import com.ebay.epic.common.model.raw.UniEvent;
 import com.ebay.epic.flink.connector.kafka.config.RheosKafkaProducerConfig;
 import io.ebay.rheos.schema.avro.SchemaRegistryAwareAvroSerializerHelper;
 import io.ebay.rheos.schema.event.RheosEvent;
@@ -71,8 +71,8 @@ public class RheosAvroKafkaSerializer<T> implements KafkaSerializer<T> {
 
     @Override
     public byte[] encodeValue(T data) {
-        if(data instanceof RawEvent){
-            return ((RawEvent)data).getRheosByteArray();
+        if(data instanceof UniEvent){
+            return ((UniEvent)data).getRheosByteArray();
         }else {
             // convert SpecificRecord to GenericRecord
             GenericRecord record = (GenericRecord) GenericData.get().deepCopy(schema, data);

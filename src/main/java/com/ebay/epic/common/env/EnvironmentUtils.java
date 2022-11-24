@@ -82,6 +82,15 @@ public class EnvironmentUtils {
     return Integer.valueOf(intVal);
   }
 
+  public static Integer getIntegerOrDefault(String key, Integer defaultValue) {
+    for (AbstractEnvironment propSource : PROP_SOURCES) {
+      if (propSource.contains(key)) {
+        return Integer.valueOf(propSource.getProperty(key));
+      }
+    }
+    return defaultValue;
+  }
+
   public static <T> T get(String key, Class<T> clazz) {
     for (AbstractEnvironment propSource : PROP_SOURCES) {
       if (propSource.contains(key)) {

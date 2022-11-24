@@ -1,13 +1,24 @@
 flink:
   app:
-    name: Unified Sessionization POC
+    name: Unified Sessionization Prod
     parallelism:
       default: 50
-      source: 50
-      pre-filter: 50
-      session: 50
-      post-filter: 20
-      sink-kafka: 20
+      source:
+        autotrack: 60
+        ubi: 200
+        utp: 80
+      pre-filter: 400
+      normalizer: 600
+      session: 600
+      post-filter:
+        autotrack: 200
+        ubi: 200
+        utp: 100
+      sink-kafka:
+        autotrack: 200
+        ubi: 200
+        utp: 100
+        session: 50
       max: 2000
     checkpoint:
       data-dir: /opt/tracking-behavior/checkpoint
@@ -17,255 +28,211 @@ flink:
       max-concurrent: 1
       tolerate-failure-number: 3
     source:
-      autotrack:
-        from-timestamp: 0
-        out-of-orderless-in-min: 3
-        idle-source-timeout-in-min: 10
-      ubi:
-        from-timestamp: 0
-        out-of-orderless-in-min: 3
-        idle-source-timeout-in-min: 10
-      utp:
-        from-timestamp: 0
-        out-of-orderless-in-min: 3
-        idle-source-timeout-in-min: 10
+      from-timestamp:
+        autotrack: 0
+        ubi: 0
+        utp: 0
+      out-of-orderless-in-min:
+        autotrack: 3
+        ubi: 3
+        utp: 3
+      idle-source-timeout-in-min:
+        autotrack: 10
+        ubi: 10
+        utp: 10
     sink:
       message-key: guid
       sampling-key: guid
       sampling-pct: 10
       allow-drop: true
       dc: rno
-      autotrack:
-        kafka:
-          topic: behavior.total.new.surfaceevent
-          subject: SessionizedEvent
-      ubi:
-        kafka:
-          topic: behavior.total.new.sojevent-poc
-          subject: behavior.sojourner.sojevent.schema
-      utp:
-        kafka:
-          topic: behavior.total.new.utpevent
-          subject: UnifiedTrackingRheosEvent
-      session:
-        kafka:
-          topic: behavior.total.new.unisession
-          subject: unisessionschema
+      kafka:
+        topic:
+          autotrack: behavior.total.new.surfaceevent
+          ubi: behavior.total.new.sojevent-poc
+          utp: behavior.total.new.utpevent
+          session: behavior.total.new.unisession
+        subject:
+          autotrack: SessionizedEvent
+          ubi: behavior.sojourner.sojevent.schema
+          utp: UnifiedTrackingRheosEvent
+          session: unisessionschema
     slot-sharing-group:
       source:
-        lvs:
-          autotrack: autotracking-source-lvs
-          ubi: sojourner-source-lvs
-          utp: marketing-tracking-sourve-lvs
-        slc:
-          autotrack: autotracking-source-slc
-          ubi: sojourner-source-slc
-          utp: marketing-tracking-sourve-slc
-        rno:
-          autotrack: autotracking-source-rno
-          ubi: sojourner-source-rno
-          utp: marketing-tracking-sourve-rno
+        autotrack: autotrack-source
+        ubi: sojourner-source
+        utp: marketing-tracking-source
       pre-filter: prefilter-operator
+      normalizer: prefilter-operator
       session-window: session-operator
       post-filter: postfilter-operator
       sink:
-        lvs:
-          autotrack: autotracking-sink-to-kafka-lvs
-          ubi: sojourner-sink-to-kafka-lvs
-          utp: marketing-tracking-sink-to-kafka-lvs
-        slc:
-          autotrack: autotracking-sink-to-kafka-slc
-          ubi: sojourner-sink-to-kafka-slc
-          utp: marketing-tracking-sink-to-kafka-slc
-        rno:
-          autotrack: autotracking-sink-to-kafka-rno
-          ubi: sojourner-sink-to-kafka-rno
-          utp: marketing-tracking-sink-to-kafka-rno
+        autotrack: autotrack-sink-to-kafka
+        ubi: sojourner-sink-to-kafka
+        utp: marketing-tracking-sink-to-kafka
         session: unisession-sink-to-kafka
     operator-name:
       source:
-        lvs:
-          autotrack: AutoTracking Source LVS
-          ubi: Sojourner Source LVS
-          utp: Marketing Tracking Source LVS
-        slc:
-          autotrack: AutoTracking Source SLC
-          ubi: Sojourner Source SLC
-          utp: Marketing Tracking Source SLC
-        rno:
-          autotrack: AutoTracking Source RNO
-          ubi: Sojourner Source RNO
-          utp: Marketing Tracking Source RNO
+        autotrack: AutoTrack Source
+        ubi: Sojourner Source
+        utp: Marketing Tracking Source
       pre-filter: PreFilter Operator
+      normalizer: Normalizer Operator
       session-window: Session Operator
       post-filter:
         autotrack: AutoTrack PostFilter Operator
         ubi: UBI PostFilter Operator
         utp: UTP PostFilter Operator
       sink:
-        lvs:
-          autotrack: AutoTracking Sink to Kafka LVS
-          ubi: Sojourner Sink to Kafka LVS
-          utp: Marketing Tracking Sink To Kafka LVS
-        slc:
-          autotrack: AutoTracking Sink to Kafka SLC
-          ubi: Sojourner Sink to Kafka SLC
-          utp: Marketing Tracking Sink To Kafka SLC
-        rno:
-          autotrack: AutoTracking Sink to Kafka RNO
-          ubi: Sojourner Sink to Kafka RNO
-          utp: Marketing Tracking Sink To Kafka RNO
+        autotrack: AutoTracking Sink to Kafka
+        ubi: Sojourner Sink to Kafka
+        utp: Marketing Tracking Sink To Kafka
         session: UniSession Sink to Kafka
     uid:
       source:
-        lvs:
-          autotrack: autotracking-source-lvs
-          ubi: sojourner-source-lvs
-          utp: marketing-tracking-sourve-lvs
-        slc:
-          autotrack: autotracking-source-slc
-          ubi: sojourner-source-slc
-          utp: marketing-tracking-sourve-slc
-        rno:
-          autotrack: autotracking-source-rno
-          ubi: sojourner-source-rno
-          utp: marketing-tracking-sourve-rno
+        autotrack: autotrack-source
+        ubi: sojourner-source
+        utp: marketing-tracking-source
       pre-filter: prefilter-operator
+      normalizer: normalizer-0perator
       session-window: session-operator
       post-filter:
         autotrack: autotrack-postFilter-operator
         ubi: ubi-postFilter-operator
         utp: utp-postFilter-operator
       sink:
-        lvs:
-          autotrack: autotracking-sink-to-kafka-lvs
-          ubi: sojourner-sink-to-kafka-lvs
-          utp: marketing-tracking-sink-to-kafka-lvs
-        slc:
-          autotrack: autotracking-sink-to-kafka-slc
-          ubi: sojourner-sink-to-kafka-slc
-          utp: marketing-tracking-sink-to-kafka-slc
-        rno:
-          autotrack: autotracking-sink-to-kafka-rno
-          ubi: sojourner-sink-to-kafka-rno
-          utp: marketing-tracking-sink-to-kafka-rno
+        autotrack: autotracking-sink-to-kafka
+        ubi: sojourner-sink-to-kafka
+        utp: marketing-tracking-sink-to-kafka
         session: unisession-sink-to-kafka
 kafka:
   consumer:
-    autotrack:
-      group-id: unified-sessionization-poc
+      group-id: unified-sessionization-prod
       topic:
-        - behavior.autotracking.native.event.sessionized
-        - behavior.autotracking.event.sessionized
+        autotrack:
+          - behavior.autotracking.native.event.sessionized
+          - behavior.autotracking.event.sessionized
+        ubi:
+          - behavior.totalv2.sojevent-nonbot-rno
+          - behavior.totalv2.sojevent-nonbot-lvs
+          - behavior.totalv2.sojevent-bot-rno
+          - behavior.totalv2.sojevent-bot-lvs
+        utp:
+          - marketing.tracking.events.total
       bootstrap-servers:
         rno:
-          - rhs-bkuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-bkuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-bkuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-bkuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-bkuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+          autotrack:
+            - rhs-bkuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
+            - rhs-bkuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
+            - rhs-bkuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
+            - rhs-bkuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
+            - rhs-bkuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+          ubi:
+            - rhs-fxuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.37.tess.io:9092
+            - rhs-fxuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.37.tess.io:9092
+            - rhs-fxuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.37.tess.io:9092
+            - rhs-fxuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.37.tess.io:9092
+            - rhs-fxuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.37.tess.io:9092
         lvs:
-          - rhs-lpuvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.27.tess.io:9092
-          - rhs-lpuvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.27.tess.io:9092
-          - rhs-lpuvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.27.tess.io:9092
-          - rhs-lpuvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.27.tess.io:9092
-          - rhs-lpuvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.27.tess.io:9092
+          autotrack:
+            - rhs-lpuvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-lpuvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-lpuvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-lpuvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-lpuvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.27.tess.io:9092
+          ubi:
+            - rhs-ravvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.38.tess.io:9092
+            - rhs-ravvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.38.tess.io:9092
+            - rhs-ravvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.38.tess.io:9092
+            - rhs-ravvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.38.tess.io:9092
+            - rhs-ravvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.38.tess.io:9092
+          utp:
+            - rhs-hcrvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-hcrvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-hcrvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-hcrvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-hcrvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.27.tess.io:9092
         slc:
-          - rhs-gpuvkiaa-kfk-slc-1.rheos-streaming-prod.svc.40.tess.io:9092
-          - rhs-gpuvkiaa-kfk-slc-2.rheos-streaming-prod.svc.40.tess.io:9092
-          - rhs-gpuvkiaa-kfk-slc-3.rheos-streaming-prod.svc.40.tess.io:9092
-          - rhs-gpuvkiaa-kfk-slc-4.rheos-streaming-prod.svc.40.tess.io:9092
-          - rhs-gpuvkiaa-kfk-slc-5.rheos-streaming-prod.svc.40.tess.io:9092
-      max-poll-records: 3000
+          autotrack:
+            - rhs-gpuvkiaa-kfk-slc-1.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-gpuvkiaa-kfk-slc-2.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-gpuvkiaa-kfk-slc-3.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-gpuvkiaa-kfk-slc-4.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-gpuvkiaa-kfk-slc-5.rheos-streaming-prod.svc.40.tess.io:9092
+          utp:
+            - rhs-ncrvkiaa-kfk-slc-1.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-ncrvkiaa-kfk-slc-2.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-ncrvkiaa-kfk-slc-3.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-ncrvkiaa-kfk-slc-4.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-ncrvkiaa-kfk-slc-5.rheos-streaming-prod.svc.40.tess.io:9092
+      max-poll-records:
+        default: 3000
       # 16MB, default value is 50MB
-      fetch-max-bytes: 16777216
+      fetch-max-bytes:
+        default: 16777216
       # 128KB, default value is 64KB
-      receive-buffer: 131072
-      fetch-max-wait-ms: 100
+      receive-buffer:
+        default: 131072
+      fetch-max-wait-ms:
+        default: 100
       # 4MB, default value is 1MB
-      max-partitions-fetch-bytes: 4194304
-      auto-offset-reset: latest
-      partition-discovery-interval-ms: 60000
-    ubi:
-      group-id: unified-sessionization-poc
-      topic:
-        - behavior.totalv2.sojevent-nonbot-rno
-        - behavior.totalv2.sojevent-nonbot-lvs
-        - behavior.totalv2.sojevent-bot-rno
-        - behavior.totalv2.sojevent-bot-lvs
-      bootstrap-servers:
-        rno:
-          - rhs-fxuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.37.tess.io:9092
-          - rhs-fxuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.37.tess.io:9092
-          - rhs-fxuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.37.tess.io:9092
-          - rhs-fxuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.37.tess.io:9092
-          - rhs-fxuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.37.tess.io:9092
-        lvs:
-          - rhs-ravvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.38.tess.io:9092
-          - rhs-ravvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.38.tess.io:9092
-          - rhs-ravvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.38.tess.io:9092
-          - rhs-ravvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.38.tess.io:9092
-          - rhs-ravvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.38.tess.io:9092
-      max-poll-records: 3000
-      # 16MB, default value is 50MB
-      fetch-max-bytes: 16777216
-      # 128KB, default value is 64KB
-      receive-buffer: 131072
-      fetch-max-wait-ms: 100
-      # 4MB, default value is 1MB
-      max-partitions-fetch-bytes: 4194304
-      auto-offset-reset: latest
-      partition-discovery-interval-ms: 60000
-    utp:
-      group-id: unified-sessionization-poc
-      topic:
-        - marketing.tracking.events.total
-      bootstrap-servers:
-        slc:
-          - rhs-ncrvkiaa-kfk-slc-1.rheos-streaming-prod.svc.40.tess.io:9092
-          - rhs-ncrvkiaa-kfk-slc-2.rheos-streaming-prod.svc.40.tess.io:9092
-          - rhs-ncrvkiaa-kfk-slc-3.rheos-streaming-prod.svc.40.tess.io:9092
-          - rhs-ncrvkiaa-kfk-slc-4.rheos-streaming-prod.svc.40.tess.io:9092
-          - rhs-ncrvkiaa-kfk-slc-5.rheos-streaming-prod.svc.40.tess.io:9092
-        lvs:
-          - rhs-hcrvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.27.tess.io:9092
-          - rhs-hcrvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.27.tess.io:9092
-          - rhs-hcrvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.27.tess.io:9092
-          - rhs-hcrvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.27.tess.io:9092
-          - rhs-hcrvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.27.tess.io:9092
-      max-poll-records: 3000
-      # 16MB, default value is 50MB
-      fetch-max-bytes: 16777216
-      # 128KB, default value is 64KB
-      receive-buffer: 131072
-      fetch-max-wait-ms: 100
-      # 4MB, default value is 1MB
-      max-partitions-fetch-bytes: 4194304
-      auto-offset-reset: latest
-      partition-discovery-interval-ms: 60000
+      max-partitions-fetch-bytes:
+        default: 4194304
+      auto-offset-reset:
+        default: latest
+      partition-discovery-interval-ms:
+        default: 60000
   # TODO after finalize the stream name and DC
   producer:
     stream: behavior.
-    producerId: unified-sessionization-poc
+    producerId: unified-sessionization-prod
     bootstrap-servers:
       rno:
-        - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-        - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-        - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-        - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-        - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
-    batch-size: 524288
-    acks: 1
-    linger-ms: 50
+        autotrack:
+          - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+        ubi:
+          - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+        utp:
+          - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+        session:
+          - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
+          - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+    batch-size:
+      default: 524288
+    acks:
+      default: 1
+    linger-ms:
+      default: 50
     # 30s
-    request-timeout-ms: 30000
-    retries: 30
-    buffer-memory: 268435456
-    compression-type: lz4
+    request-timeout-ms:
+      default: 30000
+    retries:
+      default: 30
+    buffer-memory:
+      default: 268435456
+    compression-type:
+      default: lz4
     # 2min
-    delivery-timeout-ms: 120000
+    delivery-timeout-ms:
+      default: 120000
     # 1000000 byte
-    max-request-size: 1000000
+    max-request-size:
+      default: 1000000
 
 rheos:
   registry-url: https://rheos-services.stratus.ebay.com

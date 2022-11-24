@@ -5,6 +5,7 @@ import com.ebay.epic.common.model.RheosHeader;
 import com.ebay.epic.common.model.UniSession;
 import com.ebay.epic.common.model.raw.RawUniSession;
 import com.ebay.epic.common.model.UniSessionAccumulator;
+import com.google.common.collect.Lists;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.typeutils.base.LongSerializer;
 import org.apache.flink.api.java.tuple.Tuple;
@@ -27,6 +28,12 @@ public class UniSessionWindowProcessFunction
         uniSession.setAbsStartTimestamp(ubiSessionTmp.getAbsStartTimestamp());
         uniSession.setAbsEndTimestamp(ubiSessionTmp.getAbsEndTimestamp());
         uniSession.setSessionStartDt(ubiSessionTmp.getSessionStartDt());
+        uniSession.setUbiSessIds(ubiSessionTmp.getUbiSessIds());
+        uniSession.setUbiSessSkeys(ubiSessionTmp.getUbiSessSkeys());
+        uniSession.setAutotrackSessSkeys(ubiSessionTmp.getAutotrackSessSkeys());
+        uniSession.setAutotrackSessIds(ubiSessionTmp.getAutotrackSessIds());
+        uniSession.setTrafficSource(ubiSessionTmp.getTrafficSource());
+        uniSession.setOthers(ubiSessionTmp.getOthers());
         out.collect(uniSession);
     }
 

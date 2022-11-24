@@ -3,8 +3,9 @@ package com.ebay.epic.business.metric;
 import com.ebay.epic.common.model.raw.RawEvent;
 import com.ebay.epic.common.model.raw.RawUniSession;
 import com.ebay.epic.common.model.UniSessionAccumulator;
+import com.ebay.epic.common.model.raw.UniEvent;
 
-public class TimestampMetrics implements FieldMetrics<RawEvent, UniSessionAccumulator> {
+public class TimestampMetrics implements FieldMetrics<UniEvent, UniSessionAccumulator> {
 
   @Override
   public void start(UniSessionAccumulator uniSessionAccumulator) {
@@ -13,7 +14,7 @@ public class TimestampMetrics implements FieldMetrics<RawEvent, UniSessionAccumu
   }
 
   @Override
-  public void feed(RawEvent event, UniSessionAccumulator uniSessionAccumulator) {
+  public void feed(UniEvent event, UniSessionAccumulator uniSessionAccumulator) {
     RawUniSession uniSession = uniSessionAccumulator.getUniSession();
     if (uniSession.getAbsStartTimestamp() == null) {
       uniSession.setAbsStartTimestamp(event.getEventTs());

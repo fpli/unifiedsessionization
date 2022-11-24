@@ -2,35 +2,41 @@ package com.ebay.epic.common.model.raw;
 
 import com.ebay.epic.common.constant.Constants;
 import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.utils.SojTimestamp;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.commons.lang.StringUtils;
 
+import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Data
-public class RawEvent {
+@Slf4j
+public class UniEvent {
     private String guid;
     private Long eventTs;
+    private String sessionId;
+    private Long sessionSkey;
     private EventType eventType;
-    private Integer pageId;
     private String globalSessionId = Constants.NO_SESSION_ID;
     private byte[] rheosByteArray;
     private Long ingestTimestamp;
     private Long kafkaReceivedTimestamp;
-    private Map<String, Object> utpTs;
-    private Map<String, Object> nonUtpTs;
-//    private GenericRecord genericRecord;
-    private String sessionId;
-    private Long sessionSkey;
+    private Map<String, Object> utpTs = new ConcurrentHashMap<>();
+    private Map<String, Object> nonUtpTs = new ConcurrentHashMap<>();
 
     public boolean isNewSession() {
         return Constants.NO_SESSION_ID.equals(globalSessionId);
     }
 
     public void updateGlobalSessionId() {
-        this.globalSessionId = concatTimestamp(this.guid, this.eventTs);
+        try {
+            this.globalSessionId = concatTimestamp(this.guid, this.eventTs);
+        }catch(Exception e){
+            log.error(" update globalSessionId error:{}",e);
+            log.error(" update globalSessionId error details:{}",this.toString());
+        }
     }
 
     private String concatTimestamp(String prefix, long timestamp) {

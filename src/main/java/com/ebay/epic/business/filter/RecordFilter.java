@@ -35,6 +35,7 @@ public abstract class RecordFilter<T> implements IFilter<T> {
                 }
             } catch (Exception e) {
                 log.error("{} gets exception", combinationFilter.getClass().getCanonicalName(), e);
+                log.error("{} records is: ===",t);
                 return false;
             }
         }

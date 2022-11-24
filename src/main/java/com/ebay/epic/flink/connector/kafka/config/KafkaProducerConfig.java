@@ -1,38 +1,36 @@
 package com.ebay.epic.flink.connector.kafka.config;
 
 import com.ebay.epic.common.enums.DataCenter;
-import com.ebay.epic.utils.Property;
+import com.ebay.epic.common.enums.EventType;
 import com.google.common.base.Preconditions;
-import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 
 import java.util.Properties;
 
-import static com.ebay.epic.utils.FlinkEnvUtils.*;
-import static com.ebay.epic.utils.Property.KAFKA_PRODUCER_BOOTSTRAP_SERVERS;
-import static com.ebay.epic.utils.Property.PRODUCER_ID;
+import static com.ebay.epic.utils.Property.*;
 
 @Getter
 @Setter
 public class KafkaProducerConfig extends KafkaCommonConfig {
 
-    private KafkaProducerConfig(DataCenter dc) {
-        super(dc);
+    private KafkaProducerConfig(DataCenter dc, EventType eventType, boolean isDerived) {
+        super(dc, eventType);
     }
 
-    public static KafkaProducerConfig ofDC(DataCenter dataCenter) {
+    public static KafkaProducerConfig build(DataCenter dataCenter, EventType eventType) {
         Preconditions.checkNotNull(dataCenter);
-        KafkaProducerConfig config = new KafkaProducerConfig(dataCenter);
-        return config;
+        Preconditions.checkNotNull(eventType);
+        return build(dataCenter,eventType,true);
     }
 
-    public static KafkaProducerConfig ofDC(String dataCenter) {
-        DataCenter dc = DataCenter.of(dataCenter);
-        return ofDC(dc);
+    public static KafkaProducerConfig build(DataCenter dataCenter, EventType eventType,boolean isDerived) {
+        Preconditions.checkNotNull(dataCenter);
+        Preconditions.checkNotNull(eventType);
+        KafkaProducerConfig config = new KafkaProducerConfig(dataCenter, eventType,isDerived);
+        return config;
     }
 
     @Override
@@ -40,33 +38,32 @@ public class KafkaProducerConfig extends KafkaCommonConfig {
         super.buildProperties(producerConfig);
         producerConfig.put(ConsumerConfig.GROUP_ID_CONFIG, getGroupId());
         producerConfig.put(ProducerConfig.BATCH_SIZE_CONFIG,
-                getInteger(Property.BATCH_SIZE));
+                this.getConfigManager().getIntValueNODC(BATCH_SIZE));
         producerConfig.put(ProducerConfig.REQUEST_TIMEOUT_MS_CONFIG,
-                getInteger(Property.REQUEST_TIMEOUT_MS));
+                this.getConfigManager().getIntValueNODC(REQUEST_TIMEOUT_MS));
         producerConfig.put(ProducerConfig.DELIVERY_TIMEOUT_MS_CONFIG,
-                getInteger(Property.DELIVERY_TIMEOUT_MS));
+                this.getConfigManager().getIntValueNODC(DELIVERY_TIMEOUT_MS));
         producerConfig.put(ProducerConfig.RETRIES_CONFIG,
-                getInteger(Property.REQUEST_RETRIES));
+                this.getConfigManager().getIntValueNODC(REQUEST_RETRIES));
         producerConfig.put(ProducerConfig.LINGER_MS_CONFIG,
-                getInteger(Property.LINGER_MS));
+                this.getConfigManager().getIntValueNODC(LINGER_MS));
         producerConfig.put(ProducerConfig.BUFFER_MEMORY_CONFIG,
-                getInteger(Property.BUFFER_MEMORY));
+                this.getConfigManager().getIntValueNODC(BUFFER_MEMORY));
         producerConfig.put(ProducerConfig.ACKS_CONFIG,
-                getString(Property.ACKS));
+                this.getConfigManager().getStrValueNODC(ACKS));
         producerConfig.put(ProducerConfig.COMPRESSION_TYPE_CONFIG,
-                getString(Property.COMPRESSION_TYPE));
+                this.getConfigManager().getStrValueNODC(COMPRESSION_TYPE));
         producerConfig.put(ProducerConfig.MAX_REQUEST_SIZE_CONFIG,
-                getInteger(Property.MAX_REQUEST_SIZE));
+                this.getConfigManager().getIntValueNODC(MAX_REQUEST_SIZE));
     }
 
     @Override
     public String getBrokersForDC(DataCenter dc) {
-        String propKey = KAFKA_PRODUCER_BOOTSTRAP_SERVERS + "." + dc.getValue().toLowerCase();
-        return getListString(propKey);
+        return this.getConfigManager().getBrokers(KAFKA_PRODUCER_BOOTSTRAP_SERVERS_BASE);
     }
 
     @Override
     public String getGId() {
-        return getString(PRODUCER_ID);
+        return this.getConfigManager().getStrDirect(PRODUCER_ID);
     }
 }

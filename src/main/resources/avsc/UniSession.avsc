@@ -84,7 +84,58 @@
         "long"
       ],
       "doc": "from unisession sessionStartDt"
-    }
+    },
+    {
+      "name": "trafficSource",
+      "type": [
+        "null",
+        "string"
+      ],
+      "doc": "traffic source"
+    },
+    {
+      "name": "ubiSessIds",
+      "type": [ "null",
+      {
+        "type": "array",
+        "items": "string"
+      }
+      ]
+    },
+    {
+      "name": "ubiSessSkeys",
+      "type": [ "null",
+        {
+          "type": "array",
+          "items": "long"
+        }
+      ]
 
+    },
+    {
+      "name": "autotrackSessIds",
+      "type": [ "null",
+        {
+          "type": "array",
+          "items": "long"
+        }
+      ]
+    },
+    {
+      "name": "autotrackSessSkeys",
+      "type": [ "null",
+        {
+          "type": "array",
+          "items": "long"
+        }
+      ]
+    },
+    {
+      "name": "others",
+      "type": {
+        "type": "map",
+        "values": "string"
+      }
+    }
   ]
 }

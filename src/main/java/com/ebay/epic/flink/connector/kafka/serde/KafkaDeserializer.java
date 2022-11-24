@@ -2,7 +2,9 @@ package com.ebay.epic.flink.connector.kafka.serde;
 
 public interface KafkaDeserializer<T> {
 
-  String decodeKey(byte[] data);
+    default String decodeKey(byte[] data) {
+        return null;
+    }
 
-  T decodeValue(byte[] data);
+    T decodeValue(byte[] data) throws Exception;
 }

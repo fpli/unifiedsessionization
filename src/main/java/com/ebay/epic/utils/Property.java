@@ -20,42 +20,53 @@ public class Property {
 
     // --------------------- common config property ------------------------------
     // kafka consumer
-    //autotrack
-    public static final String KAFKA_CONSUMER_TOPIC_AUTOTRACK = "kafka.consumer.autotrack.topic";
-    public static final String KAFKA_CONSUMER_GROUP_ID_AUTOTRACK = "kafka.consumer.autotrack.group-id";
-    public static final String PARTITION_DISCOVERY_INTERVAL_MS_AUTOTRACK = "kafka.consumer.autotrack.partition-discovery-interval-ms";
-    public static final String MAX_POLL_RECORDS_AUTOTRACK = "kafka.consumer.autotrack.max-poll-records";
-    public static final String RECEIVE_BUFFER_AUTOTRACK = "kafka.consumer.autotrack.receive-buffer";
-    public static final String FETCH_MAX_BYTES_AUTOTRACK = "kafka.consumer.autotrack.fetch-max-bytes";
-    public static final String FETCH_MAX_WAIT_MS_AUTOTRACK = "kafka.consumer.autotrack.fetch-max-wait-ms";
-    public static final String MAX_PARTITIONS_FETCH_BYTES_AUTOTRACK = "kafka.consumer.autotrack.max-partitions-fetch-bytes";
-    public static final String AUTO_RESET_OFFSET_AUTOTRACK = "kafka.consumer.autotrack.auto-offset-reset";
-    public static final String KAFKA_CONSUMER_BOOTSTRAP_SERVERS_AUTOTRACK = "kafka.consumer.autotrack.bootstrap-servers";
 
-    //ubi
-    public static final String KAFKA_CONSUMER_TOPIC_UBI = "kafka.consumer.ubi.topic";
-    public static final String KAFKA_CONSUMER_GROUP_ID_UBI = "kafka.consumer.ubi.group-id";
-    public static final String PARTITION_DISCOVERY_INTERVAL_MS_UBI = "kafka.consumer.ubi.partition-discovery-interval-ms";
-    public static final String MAX_POLL_RECORDS_UBI = "kafka.consumer.ubi.max-poll-records";
-    public static final String RECEIVE_BUFFER_UBI = "kafka.consumer.ubi.receive-buffer";
-    public static final String FETCH_MAX_BYTES_UBI = "kafka.consumer.ubi.fetch-max-bytes";
-    public static final String FETCH_MAX_WAIT_MS_UBI = "kafka.consumer.ubi.fetch-max-wait-ms";
-    public static final String MAX_PARTITIONS_FETCH_BYTES_UBI = "kafka.consumer.ubi.max-partitions-fetch-bytes";
-    public static final String AUTO_RESET_OFFSET_UBI = "kafka.consumer.ubi.auto-offset-reset";
-    public static final String KAFKA_CONSUMER_BOOTSTRAP_SERVERS_UBI = "kafka.consumer.ubi.bootstrap-servers";
-
-
-    //utp
-    public static final String KAFKA_CONSUMER_TOPIC_UTP = "kafka.consumer.utp.topic";
-    public static final String KAFKA_CONSUMER_GROUP_ID_UTP = "kafka.consumer.utp.group-id";
-    public static final String PARTITION_DISCOVERY_INTERVAL_MS_UTP = "kafka.consumer.utp.partition-discovery-interval-ms";
-    public static final String MAX_POLL_RECORDS_UTP = "kafka.consumer.utp.max-poll-records";
-    public static final String RECEIVE_BUFFER_UTP = "kafka.consumer.utp.receive-buffer";
-    public static final String FETCH_MAX_BYTES_UTP = "kafka.consumer.utp.fetch-max-bytes";
-    public static final String FETCH_MAX_WAIT_MS_UTP = "kafka.consumer.utp.fetch-max-wait-ms";
-    public static final String MAX_PARTITIONS_FETCH_BYTES_UTP = "kafka.consumer.utp.max-partitions-fetch-bytes";
-    public static final String AUTO_RESET_OFFSET_UTP = "kafka.consumer.utp.auto-offset-reset";
-    public static final String KAFKA_CONSUMER_BOOTSTRAP_SERVERS_UTP = "kafka.consumer.utp.bootstrap-servers";
+    public static final String KAFKA_CONSUMER_BOOTSTRAP_SERVERS_BASE = "kafka.consumer.bootstrap-servers";
+    public static final String KAFKA_CONSUMER_GROUP_ID = "kafka.consumer.group-id";
+    public static final String PARTITION_DISCOVERY_INTERVAL_MS_BASE = "kafka.consumer.partition-discovery-interval-ms";
+    public static final String MAX_POLL_RECORDS_BASE = "kafka.consumer.max-poll-records";
+    public static final String RECEIVE_BUFFER_BASE = "kafka.consumer.receive-buffer";
+    public static final String FETCH_MAX_BYTES_BASE = "kafka.consumer.fetch-max-bytes";
+    public static final String FETCH_MAX_WAIT_MS_BASE = "kafka.consumer.fetch-max-wait-ms";
+    public static final String MAX_PARTITIONS_FETCH_BYTES_BASE = "kafka.consumer.max-partitions-fetch-bytes";
+    public static final String AUTO_RESET_OFFSET_BASE = "kafka.consumer.auto-offset-reset";
+    public static final String KAFKA_CONSUMER_TOPIC_BASE = "kafka.consumer.topic";
+//    //autotrack
+//    public static final String KAFKA_CONSUMER_TOPIC_AUTOTRACK = "kafka.consumer.autotrack.topic";
+//    public static final String KAFKA_CONSUMER_GROUP_ID_AUTOTRACK = "kafka.consumer.autotrack.group-id";
+//    public static final String PARTITION_DISCOVERY_INTERVAL_MS_AUTOTRACK = "kafka.consumer.autotrack.partition-discovery-interval-ms";
+//    public static final String MAX_POLL_RECORDS_AUTOTRACK = "kafka.consumer.autotrack.max-poll-records";
+//    public static final String RECEIVE_BUFFER_AUTOTRACK = "kafka.consumer.autotrack.receive-buffer";
+//    public static final String FETCH_MAX_BYTES_AUTOTRACK = "kafka.consumer.autotrack.fetch-max-bytes";
+//    public static final String FETCH_MAX_WAIT_MS_AUTOTRACK = "kafka.consumer.autotrack.fetch-max-wait-ms";
+//    public static final String MAX_PARTITIONS_FETCH_BYTES_AUTOTRACK = "kafka.consumer.autotrack.max-partitions-fetch-bytes";
+//    public static final String AUTO_RESET_OFFSET_AUTOTRACK = "kafka.consumer.autotrack.auto-offset-reset";
+//    public static final String KAFKA_CONSUMER_BOOTSTRAP_SERVERS_AUTOTRACK = "kafka.consumer.autotrack.bootstrap-servers";
+//
+//    //ubi
+//    public static final String KAFKA_CONSUMER_TOPIC_UBI = "kafka.consumer.ubi.topic";
+//    public static final String KAFKA_CONSUMER_GROUP_ID_UBI = "kafka.consumer.ubi.group-id";
+//    public static final String PARTITION_DISCOVERY_INTERVAL_MS_UBI = "kafka.consumer.ubi.partition-discovery-interval-ms";
+//    public static final String MAX_POLL_RECORDS_UBI = "kafka.consumer.ubi.max-poll-records";
+//    public static final String RECEIVE_BUFFER_UBI = "kafka.consumer.ubi.receive-buffer";
+//    public static final String FETCH_MAX_BYTES_UBI = "kafka.consumer.ubi.fetch-max-bytes";
+//    public static final String FETCH_MAX_WAIT_MS_UBI = "kafka.consumer.ubi.fetch-max-wait-ms";
+//    public static final String MAX_PARTITIONS_FETCH_BYTES_UBI = "kafka.consumer.ubi.max-partitions-fetch-bytes";
+//    public static final String AUTO_RESET_OFFSET_UBI = "kafka.consumer.ubi.auto-offset-reset";
+//    public static final String KAFKA_CONSUMER_BOOTSTRAP_SERVERS_UBI = "kafka.consumer.ubi.bootstrap-servers";
+//
+//
+//    //utp
+//    public static final String KAFKA_CONSUMER_TOPIC_UTP = "kafka.consumer.utp.topic";
+//    public static final String KAFKA_CONSUMER_GROUP_ID_UTP = "kafka.consumer.utp.group-id";
+//    public static final String PARTITION_DISCOVERY_INTERVAL_MS_UTP = "kafka.consumer.utp.partition-discovery-interval-ms";
+//    public static final String MAX_POLL_RECORDS_UTP = "kafka.consumer.utp.max-poll-records";
+//    public static final String RECEIVE_BUFFER_UTP = "kafka.consumer.utp.receive-buffer";
+//    public static final String FETCH_MAX_BYTES_UTP = "kafka.consumer.utp.fetch-max-bytes";
+//    public static final String FETCH_MAX_WAIT_MS_UTP = "kafka.consumer.utp.fetch-max-wait-ms";
+//    public static final String MAX_PARTITIONS_FETCH_BYTES_UTP = "kafka.consumer.utp.max-partitions-fetch-bytes";
+//    public static final String AUTO_RESET_OFFSET_UTP = "kafka.consumer.utp.auto-offset-reset";
+//    public static final String KAFKA_CONSUMER_BOOTSTRAP_SERVERS_UTP = "kafka.consumer.utp.bootstrap-servers";
 
 
     // kafka producer
@@ -67,7 +78,7 @@ public class Property {
     public static final String BUFFER_MEMORY = "kafka.producer.buffer-memory";
     public static final String ACKS = "kafka.producer.acks";
     public static final String COMPRESSION_TYPE = "kafka.producer.compression-type";
-    public static final String KAFKA_PRODUCER_BOOTSTRAP_SERVERS = "kafka.producer.bootstrap-servers";
+    public static final String KAFKA_PRODUCER_BOOTSTRAP_SERVERS_BASE = "kafka.producer.bootstrap-servers";
     public static final String PRODUCER_ID = "kafka.producer.producerId";
     public static final String MAX_REQUEST_SIZE = "kafka.producer.max-request-size";
 
@@ -87,20 +98,9 @@ public class Property {
     public static final String METRIC_WINDOW_SIZE = "flink.app.metric.window-size";
 
     // flink source
-    //autotrack
-    public static final String FLINK_APP_SOURCE_FROM_TIMESTAMP_AUTOTRACK = "flink.app.source.autotrack.from-timestamp";
-    public static final String FLINK_APP_SOURCE_OUT_OF_ORDERLESS_IN_MIN_AUTOTRACK = "flink.app.source.autotrack.out-of-orderless-in-min";
-    public static final String FLINK_APP_IDLE_SOURCE_TIMEOUT_IN_MIN_AUTOTRACK = "flink.app.source.autotrack.idle-source-timeout-in-min";
-
-    //ubi
-    public static final String FLINK_APP_SOURCE_FROM_TIMESTAMP_UBI = "flink.app.source.ubi.from-timestamp";
-    public static final String FLINK_APP_SOURCE_OUT_OF_ORDERLESS_IN_MIN_UBI = "flink.app.source.ubi.out-of-orderless-in-min";
-    public static final String FLINK_APP_IDLE_SOURCE_TIMEOUT_IN_MIN_UBI = "flink.app.source.ubi.idle-source-timeout-in-min";
-
-    //utp
-    public static final String FLINK_APP_SOURCE_FROM_TIMESTAMP_UTP = "flink.app.source.utp.from-timestamp";
-    public static final String FLINK_APP_SOURCE_OUT_OF_ORDERLESS_IN_MIN_UTP = "flink.app.source.utp.out-of-orderless-in-min";
-    public static final String FLINK_APP_IDLE_SOURCE_TIMEOUT_IN_MIN_UTP = "flink.app.source.utp.idle-source-timeout-in-min";
+    public static final String FLINK_APP_SOURCE_FROM_TS_BASE="flink.app.source.from-timestamp";
+    public static final String FLINK_APP_SOURCE_OFO_BASE="flink.app.source.out-of-orderless-in-min";
+    public static final String FLINK_APP_SOURCE_TIM_BASE="flink.app.source.idle-source-timeout-in-min";
 
     // flink checkpoint
     public static final String CHECKPOINT_DATA_DIR = "flink.app.checkpoint.data-dir";
@@ -113,10 +113,11 @@ public class Property {
     // flink - parallelism
     public static final String DEFAULT_PARALLELISM = "flink.app.parallelism.default";
     public static final String SOURCE_PARALLELISM = "flink.app.parallelism.source";
-    public static final String SINK_KAFKA_PARALLELISM = "flink.app.parallelism.sink-kafka";
+    public static final String SINK_KAFKA_PARALLELISM_BASE = "flink.app.parallelism.sink-kafka";
     public static final String SESSION_PARALLELISM = "flink.app.parallelism.session";
     public static final String PARALLELISM_MAX = "flink.app.parallelism.max";
     public static final String PRE_FILTER_PARALLELISM = "flink.app.parallelism.pre-filter";
+    public static final String NORMALIZER_PARALLELISM = "flink.app.parallelism.normalizer";
     public static final String POST_FILTER_PARALLELISM = "flink.app.parallelism.post-filter";
 
     //skew detecotr param
@@ -132,102 +133,56 @@ public class Property {
 
     // ----- flink - operator name and uid------
 
+    // -----operator name-------
+
     // -----source-----
 
-    //autoTrack
-    public static final String SOURCE_OPERATOR_NAME_RNO_AUTOTRACK = "flink.app.operator-name.source.rno.autotrack";
-    public static final String SOURCE_OPERATOR_NAME_LVS_AUTOTRACK = "flink.app.operator-name.source.lvs.autotrack";
-    public static final String SOURCE_OPERATOR_NAME_SLC_AUTOTRACK = "flink.app.operator-name.source.slc.autotrack";
-
-    //ubi
-    public static final String SOURCE_OPERATOR_NAME_RNO_UBI = "flink.app.operator-name.source.rno.ubi";
-    public static final String SOURCE_OPERATOR_NAME_LVS_UBI = "flink.app.operator-name.source.lvs.ubi";
-    public static final String SOURCE_OPERATOR_NAME_SLC_UBI = "flink.app.operator-name.source.slc.ubi";
-
-    //utp
-    public static final String SOURCE_OPERATOR_NAME_RNO_UTP = "flink.app.operator-name.source.rno.utp";
-    public static final String SOURCE_OPERATOR_NAME_LVS_UTP = "flink.app.operator-name.source.lvs.utp";
-    public static final String SOURCE_OPERATOR_NAME_SLC_UTP = "flink.app.operator-name.source.slc.utp";
+    public static final String SOURCE_OPERATOR_NAME_BASE="flink.app.operator-name.source";
 
     // ----pre filter----
     public static final String PRE_FILTER_OP_NAME= "flink.app.operator-name.pre-filter";
 
+    // ----normalizer----
+    public static final String NORMALIZER_OP_NAME= "flink.app.operator-name.normalizer";
+
     // ----post filter----
-    public static final String POST_FILTER_OP_NAME_AUTOTRACK= "flink.app.operator-name.post-filter.autotrack";
-    public static final String POST_FILTER_OP_NAME_UBI= "flink.app.operator-name.post-filter.ubi";
-    public static final String POST_FILTER_OP_NAME_UTP= "flink.app.operator-name.post-filter.utp";
+    public static final String POST_FILTER_OP_NAME_BASE="flink.app.operator-name.post-filter";
+
+//    public static final String POST_FILTER_OP_NAME_AUTOTRACK= "flink.app.operator-name.post-filter.autotrack";
+//    public static final String POST_FILTER_OP_NAME_UBI= "flink.app.operator-name.post-filter.ubi";
+//    public static final String POST_FILTER_OP_NAME_UTP= "flink.app.operator-name.post-filter.utp";
 
     // -----session window----
     public static final String SESSION_WINDOR_OPERATOR_NAME= "flink.app.operator-name.session-window";
 
     // -----sink-----
 
-    //autoTrack
-    public static final String SINK_OPERATOR_NAME_RNO_AUTOTRACK = "flink.app.operator-name.sink.rno.autotrack";
-    public static final String SINK_OPERATOR_NAME_LVS_AUTOTRACK = "flink.app.operator-name.sink.lvs.autotrack";
-    public static final String SINK_OPERATOR_NAME_SLC_AUTOTRACK = "flink.app.operator-name.sink.slc.autotrack";
+    public static final String SINK_OPERATOR_NAME_BASE="flink.app.operator-name.sink";
 
-    //ubi
-    public static final String SINK_OPERATOR_NAME_RNO_UBI = "flink.app.operator-name.sink.rno.ubi";
-    public static final String SINK_OPERATOR_NAME_LVS_UBI = "flink.app.operator-name.sink.lvs.ubi";
-    public static final String SINK_OPERATOR_NAME_SLC_UBI = "flink.app.operator-name.sink.slc.ubi";
-
-    //utp
-    public static final String SINK_OPERATOR_NAME_RNO_UTP = "flink.app.operator-name.sink.rno.utp";
-    public static final String SINK_OPERATOR_NAME_LVS_UTP = "flink.app.operator-name.sink.lvs.utp";
-    public static final String SINK_OPERATOR_NAME_SLC_UTP = "flink.app.operator-name.sink.slc.utp";
-
-    //session
-
-    public static final String SINK_OPERATOR_NAME_SESSION = "flink.app.operator-name.sink.session";
     // -------uid-----------
 
     // -----source-----
-
-    //autoTrack
-    public static final String SOURCE_UID_RNO_AUTOTRACK = "flink.app.uid.source.rno.autotrack";
-    public static final String SOURCE_UID_LVS_AUTOTRACK = "flink.app.uid.source.lvs.autotrack";
-    public static final String SOURCE_UID_SLC_AUTOTRACK = "flink.app.uid.source.slc.autotrack";
-
-    //ubi
-    public static final String SOURCE_UID_RNO_UBI = "flink.app.uid.source.rno.ubi";
-    public static final String SOURCE_UID_LVS_UBI = "flink.app.uid.source.lvs.ubi";
-    public static final String SOURCE_UID_SLC_UBI = "flink.app.uid.source.slc.ubi";
-
-    //utp
-    public static final String SOURCE_UID_RNO_UTP = "flink.app.uid.source.rno.utp";
-    public static final String SOURCE_UID_LVS_UTP = "flink.app.uid.source.lvs.utp";
-    public static final String SOURCE_UID_SLC_UTP = "flink.app.uid.source.slc.utp";
-
-
+    public static final String SOURCE_UID_BASE="flink.app.uid.source";
 
     // ----pre filter----
     public static final String PRE_FILTER_OP_UID= "flink.app.uid.pre-filter";
 
+    // ----normalizer----
+    public static final String NORMALIZER_OP_UID= "flink.app.uid.normalizer";
+
     // ----post filter----
-    public static final String POST_FILTER_OP_UID_AUTOTRACK= "flink.app.uid.post-filter.autotrack";
-    public static final String POST_FILTER_OP_UID_UBI= "flink.app.uid.post-filter.ubi";
-    public static final String POST_FILTER_OP_UID_UTP= "flink.app.uid.post-filter.utp";
+
+    public static final String POST_FILTER_OP_UID_BASE="flink.app.uid.post-filter";
+
+//    public static final String POST_FILTER_OP_UID_AUTOTRACK= "flink.app.uid.post-filter.autotrack";
+//    public static final String POST_FILTER_OP_UID_UBI= "flink.app.uid.post-filter.ubi";
+//    public static final String POST_FILTER_OP_UID_UTP= "flink.app.uid.post-filter.utp";
 
     // -----session window----
     public static final String SESSION_WINDOR_UID= "flink.app.uid.session-window";
 
     // -----sink-----
-
-    //autoTrack
-    public static final String SINK_UID_RNO_AUTOTRACK = "flink.app.uid.sink.rno.autotrack";
-    public static final String SINK_UID_LVS_AUTOTRACK = "flink.app.uid.sink.lvs.autotrack";
-    public static final String SINK_UID_SLC_AUTOTRACK = "flink.app.uid.sink.slc.autotrack";
-
-    //ubi
-    public static final String SINK_UID_RNO_UBI = "flink.app.uid.sink.rno.ubi";
-    public static final String SINK_UID_LVS_UBI = "flink.app.uid.sink.lvs.ubi";
-    public static final String SINK_UID_SLC_UBI = "flink.app.uid.sink.slc.ubi";
-
-    //utp
-    public static final String SINK_UID_RNO_UTP = "flink.app.uid.sink.rno.utp";
-    public static final String SINK_UID_LVS_UTP = "flink.app.uid.sink.lvs.utp";
-    public static final String SINK_UID_SLC_UTP = "flink.app.uid.sink.slc.utp";
+    public static final String  SINK_UID_BASE="flink.app.uid.sink";
 
     //session
     public static final String SINK_UID_SESSION = "flink.app.uid.sink.session";
@@ -235,21 +190,7 @@ public class Property {
     // -------slotsharinggroup-----------
 
     // -----source-----
-
-    //autoTrack
-    public static final String SOURCE_SLOT_SHARE_GROUP_RNO_AUTOTRACK = "flink.app.slot-sharing-group.source.rno.autotrack";
-    public static final String SOURCE_SLOT_SHARE_GROUP_LVS_AUTOTRACK = "flink.app.slot-sharing-group.source.lvs.autotrack";
-    public static final String SOURCE_SLOT_SHARE_GROUP_SLC_AUTOTRACK = "flink.app.slot-sharing-group.source.slc.autotrack";
-
-    //ubi
-    public static final String SOURCE_SLOT_SHARE_GROUP_RNO_UBI = "flink.app.slot-sharing-group.source.rno.ubi";
-    public static final String SOURCE_SLOT_SHARE_GROUP_LVS_UBI = "flink.app.slot-sharing-group.source.lvs.ubi";
-    public static final String SOURCE_SLOT_SHARE_GROUP_SLC_UBI = "flink.app.slot-sharing-group.source.slc.ubi";
-
-    //utp
-    public static final String SOURCE_SLOT_SHARE_GROUP_RNO_UTP = "flink.app.slot-sharing-group.source.rno.utp";
-    public static final String SOURCE_SLOT_SHARE_GROUP_LVS_UTP = "flink.app.slot-sharing-group.source.lvs.utp";
-    public static final String SOURCE_SLOT_SHARE_GROUP_SLC_UTP = "flink.app.slot-sharing-group.source.slc.utp";
+    public static final String SOURCE_SLOT_SHARE_GROUP_BASE="flink.app.slot-sharing-group.source";
 
     // ----pre filter----
     public static final String SLIDING_WINDOW_SLOT_SHARE_GROUP= "flink.app.slot-sharing-group.pre-filter";
@@ -261,26 +202,7 @@ public class Property {
     public static final String SESSION_WINDOR_SLOT_SHARE_GROUP= "flink.app.slot-sharing-group.session-window";
 
     // -----sink-----
-
-    //autoTrack
-    public static final String SINK_SLOT_SHARE_GROUP_RNO_AUTOTRACK = "flink.app.slot-sharing-group.sink.rno.autotrack";
-    public static final String SINK_SLOT_SHARE_GROUP_LVS_AUTOTRACK = "flink.app.slot-sharing-group.sink.lvs.autotrack";
-    public static final String SINK_SLOT_SHARE_GROUP_SLC_AUTOTRACK = "flink.app.slot-sharing-group.sink.slc.autotrack";
-
-    //ubi
-    public static final String SINK_SLOT_SHARE_GROUP_RNO_UBI = "flink.app.slot-sharing-group.sink.rno.ubi";
-    public static final String SINK_SLOT_SHARE_GROUP_LVS_UBI = "flink.app.slot-sharing-group.sink.lvs.ubi";
-    public static final String SINK_SLOT_SHARE_GROUP_SLC_UBI = "flink.app.slot-sharing-group.sink.slc.ubi";
-
-    //utp
-    public static final String SINK_SLOT_SHARE_GROUP_RNO_UTP = "flink.app.slot-sharing-group.sink.rno.utp";
-    public static final String SINK_SLOT_SHARE_GROUP_LVS_UTP = "flink.app.slot-sharing-group.sink.lvs.utp";
-    public static final String SINK_SLOT_SHARE_GROUP_SLC_UTP = "flink.app.slot-sharing-group.sink.slc.utp";
-
-    //session
-
-    public static final String SINK_SLOT_SHARE_GROUP_SESSION = "flink.app.slot-sharing-group.sink.session";
-
+    public static final String SINK_SLOT_SHARE_GROUP_BASE="flink.app.slot-sharing-group.sink";
 
     // producer
 
@@ -292,14 +214,10 @@ public class Property {
     public static final String ALLOW_DROP = "flink.app.sink.allow-drop";  // is allow error message
 
     //sink topic
-    public static final String FLINK_APP_SINK_TOPIC_AUTOTRACK = "flink.app.sink.autotrack.kafka.topic";
-    public static final String FLINK_APP_SINK_TOPIC_UBI = "flink.app.sink.ubi.kafka.topic";
-    public static final String FLINK_APP_SINK_TOPIC_UTP = "flink.app.sink.utp.kafka.topic";
+    public static final String FLINK_APP_SINK_TOPIC_BASE="flink.app.sink.kafka.topic";
     public static final String FLINK_APP_SINK_TOPIC_SESSION = "flink.app.sink.session.kafka.topic";
 
-    public static final String FLINK_APP_SINK_TOPIC_SUBJECT_AUTOTRACK = "flink.app.sink.autotrack.kafka.subject";
-    public static final String FLINK_APP_SINK_TOPIC_SUBJECT_UBI = "flink.app.sink.ubi.kafka.subject";
-    public static final String FLINK_APP_SINK_TOPIC_SUBJECT_UTP = "flink.app.sink.utp.kafka.subject";
+    public static final String FLINK_APP_SINK_TOPIC_SUBJECT_BASE="flink.app.sink.kafka.subject";
     public static final String FLINK_APP_SINK_TOPIC_SUBJECT_SESSION = "flink.app.sink.session.kafka.subject";
 
 

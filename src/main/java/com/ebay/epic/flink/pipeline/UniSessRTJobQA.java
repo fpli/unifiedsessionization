@@ -19,25 +19,23 @@
 package com.ebay.epic.flink.pipeline;
 
 import com.ebay.epic.common.constant.OutputTagConstants;
-import com.ebay.epic.common.enums.DataCenter;
 import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.common.enums.SchemaSubject;
 import com.ebay.epic.common.model.UniSession;
 import com.ebay.epic.common.model.raw.RawEvent;
 import com.ebay.epic.common.model.raw.RawUniSession;
 import com.ebay.epic.common.model.raw.UniEvent;
-import com.ebay.epic.flink.connector.kafka.SourceDataStreamBuilder;
-import com.ebay.epic.flink.connector.kafka.schema.RawEventKafkaDeserializationSchemaWrapper;
-import com.ebay.epic.flink.connector.kafka.schema.RawEventUniDeserializationSchema;
-import com.ebay.epic.flink.function.*;
+import com.ebay.epic.flink.function.RawEventMapWithStateFunction;
+import com.ebay.epic.flink.function.RawUniSessionToUniSessionProcessFunction;
+import com.ebay.epic.flink.function.UniSessionAgg;
+import com.ebay.epic.flink.function.UniSessionWindowProcessFunction;
 import com.ebay.epic.flink.window.CompositeTrigger;
 import com.ebay.epic.flink.window.MidnightOpenSessionTrigger;
 import com.ebay.epic.flink.window.RawEventTimeSessionWindows;
 import com.ebay.epic.utils.FlinkEnvUtils;
 import com.ebay.epic.utils.Property;
 import lombok.val;
-import org.apache.commons.compress.archivers.sevenz.SevenZArchiveEntry;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.flink.configuration.Configuration;
+import org.apache.flink.configuration.TaskManagerOptions;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -47,52 +45,32 @@ import org.apache.flink.streaming.api.windowing.triggers.EventTimeTrigger;
 import org.apache.flink.streaming.runtime.operators.windowing.WindowOperatorHelper;
 
 import static com.ebay.epic.common.enums.DataCenter.*;
-import static com.ebay.epic.utils.FlinkEnvUtils.*;
+import static com.ebay.epic.utils.FlinkEnvUtils.getInteger;
+import static com.ebay.epic.utils.FlinkEnvUtils.getString;
 import static com.ebay.epic.utils.Property.*;
 
-public class UniSessRTJob extends FlinkBaseJob {
+public class UniSessRTJobQA extends FlinkBaseJob {
 
 
     public static void main(String[] args) throws Exception {
-        final StreamExecutionEnvironment see = streamExecutionEnvironmentBuilder(args);
+
+        final StreamExecutionEnvironment see = streamExecutionEnvironmentBuilder4Local(args);
+        see.setParallelism(8);
         see.disableOperatorChaining();
-        UniSessRTJob uniSessRTJob = new UniSessRTJob();
+        UniSessRTJobQA uniSessRTJob = new UniSessRTJobQA();
 
         // consumer
-        DataStream<RawEvent> surface = uniSessRTJob.consumerBuilder(see, EventType.AUTOTRACK, RNO);
-        DataStream<RawEvent> ubi = uniSessRTJob.consumerBuilder(see, EventType.UBI, RNO);
-        DataStream<RawEvent> utp = uniSessRTJob.consumerBuilder(see, EventType.UTP, LVS);
+        DataStream<RawEvent> ubi = uniSessRTJob.consumerBuilder(see, EventType.UBI, SLC);
 
-        // prefilter for each source
-        val rawEventPreFilterDSAT =
-                uniSessRTJob.preFilterFunctionBuilder(surface, EventType.AUTOTRACK, null);
-
-        val rawEventPreFilterDSUBI =
+        // Filter logic before normalizer
+        val rawEventPreFilterDS =
                 uniSessRTJob.preFilterFunctionBuilder(ubi, EventType.UBI, null);
-
-        val rawEventPreFilterDSUTP =
-                uniSessRTJob.preFilterFunctionBuilder(utp, EventType.UTP, null);
-
-        //Normalizer for each source
-        val rawEventNormalizerDsAT
-                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDSAT,EventType.AUTOTRACK, null);
-        val rawEventNormalizerDsUBI
-                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDSUBI,EventType.UBI, null);
-        val rawEventNormalizerDsUTP
-                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDSUTP,EventType.UTP, null);
-
-        //Union all three sources into one DataStream
-        DataStream<UniEvent> uniDs = rawEventNormalizerDsAT.union(rawEventNormalizerDsUBI)
-                .union(rawEventNormalizerDsUTP);
-
-//        // Filter logic before normalizer
-//        val rawEventPreFilterDS =
-//                uniSessRTJob.preFilterFunctionBuilder(uniDs, EventType.AUTOTRACK, null);
-//        val rawEventNormalizerDs
-//                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDS);
+        val rawEventNormalizerDs
+                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDS,EventType.UBI,null);
         // session window
         SingleOutputStreamOperator<RawUniSession> uniSessionDataStream =
-                uniDs.keyBy("guid")
+                rawEventNormalizerDs
+                        .keyBy("guid")
                         .window(RawEventTimeSessionWindows.withGapAndMaxDuration(Time.minutes(30),
                                 Time.hours(24)))
                         .trigger(CompositeTrigger.Builder.create().trigger(EventTimeTrigger.create())
@@ -116,9 +94,9 @@ public class UniSessRTJob extends FlinkBaseJob {
         DataStream<UniEvent> latedStream =
                 uniSessionDataStream.getSideOutput(OutputTagConstants.lateEventOutputTag);
 
-        DataStream<UniEvent> surfaceDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.AUTOTRACK, RNO);
+//        DataStream<UniEvent> surfaceDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.AUTOTRACK, RNO);
         DataStream<UniEvent> ubiDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.UBI, RNO);
-        DataStream<UniEvent> utpDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.UTP, RNO);
+//        DataStream<UniEvent> utpDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.UTP, RNO);
         SingleOutputStreamOperator<UniSession> uniSessionDS =
                 uniSessionDataStream
                         .process(new RawUniSessionToUniSessionProcessFunction())
@@ -126,10 +104,12 @@ public class UniSessRTJob extends FlinkBaseJob {
                         .slotSharingGroup(getString(SESSION_WINDOR_SLOT_SHARE_GROUP))
                         .name("RawUniSession to UniSession")
                         .uid("RawUniSession-to-UniSession");
-        uniSessRTJob.kafkaSinkBuilder(surfaceDS, EventType.AUTOTRACK, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiDS, EventType.UBI, RNO);
-        uniSessRTJob.kafkaSinkBuilder(utpDS, EventType.UTP, RNO);
-        uniSessRTJob.kafkaSinkBuilder(uniSessionDS, EventType.SESSION, RNO);
+        ubiDS.print().uid("testevent").slotSharingGroup("local").setParallelism(1);
+        uniSessionDS.print().uid("testsess").slotSharingGroup("local").setParallelism(1);
+//        uniSessRTJob.kafkaSinkBuilder(surfaceDS, EventType.AUTOTRACK, RNO);
+//        uniSessRTJob.kafkaSinkBuilder(ubiDS, EventType.UBI, RNO);
+//        uniSessRTJob.kafkaSinkBuilder(utpDS, EventType.UTP, RNO);
+//        uniSessRTJob.kafkaSinkBuilder(uniSessionDS, EventType.SESSION, RNO);
 
         // Submit this job
         FlinkEnvUtils.execute(see, getString(FLINK_APP_NAME));

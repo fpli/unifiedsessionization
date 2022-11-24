@@ -2,6 +2,7 @@ package com.ebay.epic.flink.connector.kafka;
 
 import com.ebay.epic.common.enums.DataCenter;
 import com.ebay.epic.common.enums.EventType;
+import com.ebay.epic.flink.connector.kafka.config.ConfigManager;
 import com.ebay.epic.flink.connector.kafka.config.FlinkKafkaSourceConfigWrapper;
 import com.ebay.epic.flink.connector.kafka.config.KafkaConsumerConfig;
 import com.ebay.epic.flink.connector.kafka.factory.FlinkKafkaConsumerFactory;
@@ -12,6 +13,7 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.KafkaDeserializationSchema;
 
 import static com.ebay.epic.utils.FlinkEnvUtils.getInteger;
+import static com.ebay.epic.utils.FlinkEnvUtils.getString;
 
 public class SourceDataStreamBuilder<T> {
 
@@ -20,43 +22,38 @@ public class SourceDataStreamBuilder<T> {
     private String operatorName;
     private String uid;
     private String slotGroup;
-    private int parallelism = getInteger(Property.SOURCE_PARALLELISM);
+    private int parallelism = getInteger(Property.DEFAULT_PARALLELISM);
     private int outOfOrderlessInMin;
     private String fromTimestamp = "0";
     private int idleSourceTimeout;
     private boolean rescaled;
     private EventType eventType;
-
-    public SourceDataStreamBuilder(StreamExecutionEnvironment environment) {
+    public static final String DELEMITER=".";
+    private ConfigManager configManager;
+    public SourceDataStreamBuilder(StreamExecutionEnvironment environment,DataCenter dc,EventType eventType) {
         this.environment = environment;
-    }
-
-    public SourceDataStreamBuilder<T> dc(DataCenter dc) {
-        this.dc = dc;
-        return this;
+        this.dc=dc;
+        this.eventType=eventType;
+        this.configManager= new ConfigManager(dc,eventType,true);
     }
 
     public SourceDataStreamBuilder<T> operatorName(String operatorName) {
-        this.operatorName = operatorName;
+        this.operatorName = configManager.getOPName(operatorName);
         return this;
     }
 
-    public SourceDataStreamBuilder<T> eventType(EventType eventType) {
-        this.eventType = eventType;
-        return this;
-    }
-    public SourceDataStreamBuilder<T> parallelism(int parallelism) {
-        this.parallelism = parallelism;
+    public SourceDataStreamBuilder<T> parallelism(String parallelism) {
+        this.parallelism = configManager.getParallelism(parallelism);
         return this;
     }
 
     public SourceDataStreamBuilder<T> uid(String uid) {
-        this.uid = uid;
+        this.uid = configManager.getOPUid(uid);
         return this;
     }
 
     public SourceDataStreamBuilder<T> slotGroup(String slotGroup) {
-        this.slotGroup = slotGroup;
+        this.slotGroup = configManager.getSlotSharingGroup(slotGroup);
         return this;
     }
 
@@ -65,18 +62,18 @@ public class SourceDataStreamBuilder<T> {
         return this;
     }
 
-    public SourceDataStreamBuilder<T> outOfOrderlessInMin(int outOfOrderlessInMin) {
-        this.outOfOrderlessInMin = outOfOrderlessInMin;
+    public SourceDataStreamBuilder<T> outOfOrderlessInMin(String outOfOrderlessInMin) {
+        this.outOfOrderlessInMin = configManager.getIntValueNODC(outOfOrderlessInMin);
         return this;
     }
 
     public SourceDataStreamBuilder<T> fromTimestamp(String fromTimestamp) {
-        this.fromTimestamp = fromTimestamp;
+        this.fromTimestamp = configManager.getStrValueNODC(fromTimestamp);
         return this;
     }
 
-    public SourceDataStreamBuilder<T> idleSourceTimeout(int idleSourceTimeout) {
-        this.idleSourceTimeout = idleSourceTimeout;
+    public SourceDataStreamBuilder<T> idleSourceTimeout(String idleSourceTimeout) {
+        this.idleSourceTimeout = configManager.getIntValueNODC(idleSourceTimeout);
         return this;
     }
 

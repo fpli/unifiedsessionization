@@ -6,6 +6,6 @@ public class EventPreFilter extends RecordFilter<RawEvent> {
     @Override
     public void initCombinationFilters() {
         addCombinationFilters(new EmptyGuidFilter());
-        addCombinationFilters(new SamplingFilter());
+//        addCombinationFilters(new SamplingFilter());
     }
 }

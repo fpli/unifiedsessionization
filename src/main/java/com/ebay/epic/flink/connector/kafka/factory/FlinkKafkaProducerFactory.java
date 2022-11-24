@@ -39,10 +39,8 @@ public class FlinkKafkaProducerFactory {
         Preconditions.checkNotNull(topic);
         Preconditions.checkNotNull(subject);
         Preconditions.checkNotNull(producerId);
-
         RheosKafkaProducerConfig rheosKafkaConfig = new RheosKafkaProducerConfig(
                 rheosServiceUrls, topic, subject, producerId, config.getProperties());
-
         return new FlinkKafkaProducer<>(topic,
                 new RheosKafkaSerializationSchema<>(rheosKafkaConfig, clazz, keys),
                 config.getProperties(),
@@ -62,18 +60,16 @@ public class FlinkKafkaProducerFactory {
     }
 
     // Rheos kafka producer
-    public  <T> FlinkKafkaProducer<T> get(Class<T> clazz,
-                                                                String rheosServiceUrls, String topic,
-                                                                String subject, String producerId, boolean allowDrop,
-                                                                String... keys) {
+    public <T> FlinkKafkaProducer<T> get(Class<T> clazz,
+                                         String rheosServiceUrls, String topic,
+                                         String subject, String producerId, boolean allowDrop,
+                                         String... keys) {
         Preconditions.checkNotNull(rheosServiceUrls);
         Preconditions.checkNotNull(topic);
         Preconditions.checkNotNull(subject);
         Preconditions.checkNotNull(producerId);
-
         RheosKafkaProducerConfig rheosKafkaConfig = new RheosKafkaProducerConfig(
                 rheosServiceUrls, topic, subject, producerId, config.getProperties());
-
         return new SojFlinkKafkaProducer<>(topic,
                 new RheosKafkaSerializationSchema<>(rheosKafkaConfig, clazz, keys),
                 config.getProperties(),

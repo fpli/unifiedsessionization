@@ -1,10 +1,11 @@
 package com.ebay.epic.business.normalizer;
 
-
 import org.apache.commons.lang3.StringUtils;
 
 public abstract class FieldNormalizer<Source, Target> implements INormalizer<Source, Target> {
-
+    public boolean accept(Source src){
+        return true;
+    }
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

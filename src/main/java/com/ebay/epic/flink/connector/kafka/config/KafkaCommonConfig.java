@@ -25,35 +25,32 @@ public abstract class KafkaCommonConfig {
     private String brokers;
     private String groupId;
     private EventType eventType;
-    public KafkaCommonConfig(DataCenter dc,EventType eventType) {
+    private ConfigManager configManager;
+
+    public KafkaCommonConfig(DataCenter dc, EventType eventType) {
+        this(dc, eventType, true);
+    }
+
+    public KafkaCommonConfig(DataCenter dc, EventType eventType, boolean isDerived) {
         this.dc = dc;
         this.eventType = eventType;
+        this.configManager = new ConfigManager(dc, eventType, isDerived);
         properties = new Properties();
-        switch (dc) {
-            case LVS:
-                brokers = (getBrokersForDC(DataCenter.LVS));
-                break;
-            case RNO:
-                brokers = (getBrokersForDC(DataCenter.RNO));
-                break;
-            case SLC:
-                brokers = (getBrokersForDC(DataCenter.SLC));
-                break;
-            default:
-                throw new IllegalStateException("Cannot find datacenter kafka bootstrap servers");
-        }
+        brokers = getBrokersForDC(dc);
+        Preconditions.checkNotNull(brokers, "Cannot find datacenter kafka bootstrap servers");
         groupId = getGId();
         Preconditions.checkState(StringUtils.isNotBlank(groupId));
         setAuthentication(properties);
         buildProperties(properties);
     }
+
     public KafkaCommonConfig(DataCenter dc) {
-        this(dc,null);
+        this(dc, null);
     }
 
-    public abstract String getBrokersForDC(DataCenter dc) ;
+    public abstract String getBrokersForDC(DataCenter dc);
 
-    public abstract String getGId() ;
+    public abstract String getGId();
 
     public void buildProperties(Properties properties) {
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, brokers);

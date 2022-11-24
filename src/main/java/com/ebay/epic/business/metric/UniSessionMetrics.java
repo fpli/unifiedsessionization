@@ -1,11 +1,11 @@
 package com.ebay.epic.business.metric;
 
-import com.ebay.epic.common.model.raw.RawEvent;
 import com.ebay.epic.common.model.UniSessionAccumulator;
+import com.ebay.epic.common.model.raw.UniEvent;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class UniSessionMetrics extends RecordMetrics<RawEvent, UniSessionAccumulator> {
+public class UniSessionMetrics extends RecordMetrics<UniEvent, UniSessionAccumulator> {
 
   private static volatile UniSessionMetrics sessionMetrics;
 
@@ -34,5 +34,6 @@ public class UniSessionMetrics extends RecordMetrics<RawEvent, UniSessionAccumul
     addFieldMetrics(new CommonMetrics());
     addFieldMetrics(new GlobalSessionIdMetrics());
     addFieldMetrics(new TimestampMetrics());
+    addFieldMetrics(new LegacySessionIdMetrics());
   }
 }
