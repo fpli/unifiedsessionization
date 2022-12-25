@@ -21,5 +21,9 @@ public class CommonNormalizer extends FieldNormalizer<RawEvent, UniEvent> {
         tar.setGlobalSessionId(src.getGlobalSessionId());
         tar.setRheosByteArray(src.getRheosByteArray());
         tar.setKafkaReceivedTimestamp(src.getKafkaReceivedTimestamp());
+        tar.setRdt(src.getRdt());
+        tar.setIframe(src.getIframe());
+        tar.setCategory(src.getCategory());
+        tar.setBotFlags(src.getBotFlags());
     }
 }

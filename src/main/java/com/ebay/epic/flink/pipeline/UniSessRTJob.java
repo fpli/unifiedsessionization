@@ -19,6 +19,7 @@
 package com.ebay.epic.flink.pipeline;
 
 import com.ebay.epic.common.constant.OutputTagConstants;
+import com.ebay.epic.common.enums.Category;
 import com.ebay.epic.common.enums.DataCenter;
 import com.ebay.epic.common.enums.EventType;
 import com.ebay.epic.common.enums.SchemaSubject;
@@ -45,8 +46,13 @@ import org.apache.flink.streaming.api.transformations.OneInputTransformation;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.triggers.EventTimeTrigger;
 import org.apache.flink.streaming.runtime.operators.windowing.WindowOperatorHelper;
+import org.apache.flink.util.OutputTag;
 
+import java.util.Arrays;
+
+import static com.ebay.epic.common.constant.OutputTagConstants.*;
 import static com.ebay.epic.common.enums.DataCenter.*;
+import static com.ebay.epic.common.enums.EventType.*;
 import static com.ebay.epic.utils.FlinkEnvUtils.*;
 import static com.ebay.epic.utils.Property.*;
 
@@ -55,44 +61,33 @@ public class UniSessRTJob extends FlinkBaseJob {
 
     public static void main(String[] args) throws Exception {
         final StreamExecutionEnvironment see = streamExecutionEnvironmentBuilder(args);
-        see.disableOperatorChaining();
         UniSessRTJob uniSessRTJob = new UniSessRTJob();
 
         // consumer
-        DataStream<RawEvent> surface = uniSessRTJob.consumerBuilder(see, EventType.AUTOTRACK, RNO);
-        DataStream<RawEvent> ubi = uniSessRTJob.consumerBuilder(see, EventType.UBI, RNO);
-        DataStream<RawEvent> utp = uniSessRTJob.consumerBuilder(see, EventType.UTP, LVS);
-
-        // prefilter for each source
-        val rawEventPreFilterDSAT =
-                uniSessRTJob.preFilterFunctionBuilder(surface, EventType.AUTOTRACK, null);
-
-        val rawEventPreFilterDSUBI =
-                uniSessRTJob.preFilterFunctionBuilder(ubi, EventType.UBI, null);
-
-        val rawEventPreFilterDSUTP =
-                uniSessRTJob.preFilterFunctionBuilder(utp, EventType.UTP, null);
-
-        //Normalizer for each source
-        val rawEventNormalizerDsAT
-                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDSAT,EventType.AUTOTRACK, null);
-        val rawEventNormalizerDsUBI
-                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDSUBI,EventType.UBI, null);
-        val rawEventNormalizerDsUTP
-                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDSUTP,EventType.UTP, null);
+        DataStream<RawEvent> surfaceWeb = uniSessRTJob.consumerBuilder(see, AUTOTRACK_WEB, RNO);
+        DataStream<RawEvent> surfaceNative = uniSessRTJob.consumerBuilder(see, AUTOTRACK_NATIVE, RNO);
+        DataStream<RawEvent> ubiBot = uniSessRTJob.consumerBuilder(see, UBI_BOT, RNO);
+        DataStream<RawEvent> ubiNonBot = uniSessRTJob.consumerBuilder(see, UBI_NONBOT, RNO);
+        DataStream<RawEvent> utpNonbot = uniSessRTJob.consumerBuilder(see, UTP_NONBOT, LVS);
 
         //Union all three sources into one DataStream
-        DataStream<UniEvent> uniDs = rawEventNormalizerDsAT.union(rawEventNormalizerDsUBI)
-                .union(rawEventNormalizerDsUTP);
+        DataStream<RawEvent> uniDs = surfaceWeb
+                .union(surfaceNative)
+                .union(ubiBot)
+                .union(ubiNonBot)
+                .union(utpNonbot);
 
-//        // Filter logic before normalizer
-//        val rawEventPreFilterDS =
-//                uniSessRTJob.preFilterFunctionBuilder(uniDs, EventType.AUTOTRACK, null);
-//        val rawEventNormalizerDs
-//                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDS);
+        // prefilter for each source
+        val rawEventPreFilterDS = uniSessRTJob.preFilterFunctionBuilder(uniDs);
+
+        //Normalizer for each source
+        // surface web
+        val rawEventNormalizerDs
+                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDS);
+
         // session window
-        SingleOutputStreamOperator<RawUniSession> uniSessionDataStream =
-                uniDs.keyBy("guid")
+        SingleOutputStreamOperator<UniSession> uniSessionDataStream =
+                rawEventNormalizerDs.keyBy("guid")
                         .window(RawEventTimeSessionWindows.withGapAndMaxDuration(Time.minutes(30),
                                 Time.hours(24)))
                         .trigger(CompositeTrigger.Builder.create().trigger(EventTimeTrigger.create())
@@ -102,34 +97,58 @@ public class UniSessRTJob extends FlinkBaseJob {
                         .aggregate(new UniSessionAgg(), new UniSessionWindowProcessFunction())
                         .setParallelism(getInteger(Property.SESSION_PARALLELISM))
                         .slotSharingGroup(getString(SESSION_WINDOR_SLOT_SHARE_GROUP))
-                        .name("Session Operator")
-                        .uid("session-operator")
+                        .name(getString(SESSION_WINDOR_OPERATOR_NAME))
+                        .uid(getString(SESSION_WINDOR_UID))
                         .setMaxParallelism(getInteger(PARALLELISM_MAX));
 
         WindowOperatorHelper.enrichWindowOperator(
-                (OneInputTransformation<UniEvent, RawUniSession>) uniSessionDataStream.getTransformation(),
+                (OneInputTransformation<UniEvent, UniSession>) uniSessionDataStream.getTransformation(),
                 new RawEventMapWithStateFunction(),
                 OutputTagConstants.mappedEventOutputTag);
 
-        DataStream<UniEvent> rawEventWithSessionId =
+        DataStream<UniEvent> uniEventDS =
                 uniSessionDataStream.getSideOutput(OutputTagConstants.mappedEventOutputTag);
         DataStream<UniEvent> latedStream =
                 uniSessionDataStream.getSideOutput(OutputTagConstants.lateEventOutputTag);
 
-        DataStream<UniEvent> surfaceDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.AUTOTRACK, RNO);
-        DataStream<UniEvent> ubiDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.UBI, RNO);
-        DataStream<UniEvent> utpDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.UTP, RNO);
-        SingleOutputStreamOperator<UniSession> uniSessionDS =
-                uniSessionDataStream
-                        .process(new RawUniSessionToUniSessionProcessFunction())
-                        .setParallelism(getInteger(Property.SESSION_PARALLELISM))
-                        .slotSharingGroup(getString(SESSION_WINDOR_SLOT_SHARE_GROUP))
-                        .name("RawUniSession to UniSession")
-                        .uid("RawUniSession-to-UniSession");
-        uniSessRTJob.kafkaSinkBuilder(surfaceDS, EventType.AUTOTRACK, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiDS, EventType.UBI, RNO);
-        uniSessRTJob.kafkaSinkBuilder(utpDS, EventType.UTP, RNO);
-        uniSessRTJob.kafkaSinkBuilder(uniSessionDS, EventType.SESSION, RNO);
+        // filter out each kind of event , surface native,web; ubi bot nonbot...etc
+
+        SingleOutputStreamOperator<UniEvent> outputStreamOperator = uniSessRTJob.uniEevntSplitFunctionBuilder
+                (uniEventDS, EventType.DEFAULT,true);
+        DataStream<UniEvent> surfaceWebDS = outputStreamOperator.getSideOutput(atWEBOutputTag);
+        DataStream<UniEvent> surfaceNativeDS = outputStreamOperator.getSideOutput(atNATIVEOutputTag);
+        DataStream<UniEvent> ubiBotDS = outputStreamOperator.getSideOutput(ubiBOTOutputTag);
+        DataStream<UniEvent> ubiNonBotDS = outputStreamOperator.getSideOutput(ubiNONBOTOutputTag);
+
+        // filter our each kinf of event based on late events
+        SingleOutputStreamOperator<UniEvent> outputStreamOperatorLate = uniSessRTJob.uniEevntSplitFunctionBuilder
+                (latedStream, DEFAULT_LATE,false);
+        DataStream<UniEvent> surfaceLateWebDS = outputStreamOperatorLate.getSideOutput(atWEBOutputTagLate);
+        DataStream<UniEvent> surfaceLateNativeDS = outputStreamOperatorLate.getSideOutput(atNATIVEOutputTagLate);
+        DataStream<UniEvent> ubiBotLateDS = outputStreamOperatorLate.getSideOutput(ubiBOTOutputTagLate);
+        DataStream<UniEvent> ubiNonLateBotDS = outputStreamOperatorLate.getSideOutput(ubiNONBOTOutputTagLate);
+
+        // filter our each kinf of event based on late events
+        SingleOutputStreamOperator<UniSession> outputStreamOperatorSess =
+                uniSessRTJob.uniSessionSplitFunctionBuilder(uniSessionDataStream, SESSION_BOT);
+        DataStream<UniSession> uniSessionNonbotDS = outputStreamOperatorSess.getSideOutput(uniSessNonbotOutputTag);
+        DataStream<UniSession> uniSessionBotDS = outputStreamOperatorSess.getSideOutput(uniSessBotOutputTag);
+
+        // noarmal event sink
+        uniSessRTJob.kafkaSinkBuilder(surfaceWebDS, AUTOTRACK_WEB, RNO);
+        uniSessRTJob.kafkaSinkBuilder(surfaceNativeDS, AUTOTRACK_NATIVE, RNO);
+        uniSessRTJob.kafkaSinkBuilder(ubiBotDS, UBI_BOT, RNO);
+        uniSessRTJob.kafkaSinkBuilder(ubiNonBotDS, UBI_NONBOT, RNO);
+
+        // unisession sink
+        uniSessRTJob.kafkaSinkBuilder(uniSessionNonbotDS, SESSION_NONBOT, RNO);
+        //        uniSessRTJob.kafkaSinkBuilder(uniSessionBotDS, SESSION_BOT, RNO);
+
+        // late event sink
+        uniSessRTJob.kafkaSinkBuilder(surfaceLateWebDS, LATE_WEB, RNO);
+        uniSessRTJob.kafkaSinkBuilder(surfaceLateNativeDS, LATE_NATIVE, RNO);
+        uniSessRTJob.kafkaSinkBuilder(ubiBotLateDS, LATE_UBI_BOT, RNO);
+        uniSessRTJob.kafkaSinkBuilder(ubiNonLateBotDS, LATE_UBI_NONBOT, RNO);
 
         // Submit this job
         FlinkEnvUtils.execute(see, getString(FLINK_APP_NAME));

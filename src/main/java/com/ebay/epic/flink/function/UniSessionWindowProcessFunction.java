@@ -1,6 +1,7 @@
 package com.ebay.epic.flink.function;
 
 import com.ebay.epic.business.metric.UniSessionMetrics;
+import com.ebay.epic.common.model.BotFlag;
 import com.ebay.epic.common.model.RheosHeader;
 import com.ebay.epic.common.model.UniSession;
 import com.ebay.epic.common.model.raw.RawUniSession;
@@ -14,26 +15,41 @@ import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
+import java.util.Arrays;
+
 public class UniSessionWindowProcessFunction
-        extends ProcessWindowFunction<UniSessionAccumulator, RawUniSession, Tuple, TimeWindow> {
+        extends ProcessWindowFunction<UniSessionAccumulator, UniSession, Tuple, TimeWindow> {
 
     private static final ValueStateDescriptor<Long> lastTimestampStateDescriptor =
             new ValueStateDescriptor("lastTimestamp", LongSerializer.INSTANCE);
 
-    private void outputSession(RawUniSession ubiSessionTmp,
-                               Collector<RawUniSession> out, boolean isOpen) {
-        RawUniSession uniSession = new RawUniSession();
-        uniSession.setGuid(ubiSessionTmp.getGuid());
-        uniSession.setGlobalSessionId(ubiSessionTmp.getGlobalSessionId());
-        uniSession.setAbsStartTimestamp(ubiSessionTmp.getAbsStartTimestamp());
-        uniSession.setAbsEndTimestamp(ubiSessionTmp.getAbsEndTimestamp());
-        uniSession.setSessionStartDt(ubiSessionTmp.getSessionStartDt());
-        uniSession.setUbiSessIds(ubiSessionTmp.getUbiSessIds());
-        uniSession.setUbiSessSkeys(ubiSessionTmp.getUbiSessSkeys());
-        uniSession.setAutotrackSessSkeys(ubiSessionTmp.getAutotrackSessSkeys());
-        uniSession.setAutotrackSessIds(ubiSessionTmp.getAutotrackSessIds());
-        uniSession.setTrafficSource(ubiSessionTmp.getTrafficSource());
-        uniSession.setOthers(ubiSessionTmp.getOthers());
+    private void outputSession(RawUniSession rawUniSession,
+                               Collector<UniSession> out, boolean isOpen) {
+        UniSession uniSession = new UniSession();
+        uniSession.setGuid(rawUniSession.getGuid());
+        uniSession.setGlobalSessionId(rawUniSession.getGlobalSessionId());
+        uniSession.setAbsStartTimestamp(rawUniSession.getAbsStartTimestamp());
+        uniSession.setAbsEndTimestamp(rawUniSession.getAbsEndTimestamp());
+        uniSession.setSessionStartDt(rawUniSession.getSessionStartDt());
+        uniSession.setUbiSessIds(Lists.newArrayList(rawUniSession.getUbiSessIds()));
+        uniSession.setUbiSessSkeys(Lists.newArrayList(rawUniSession.getUbiSessSkeys()));
+        uniSession.setAutotrackSessSkeys(Lists.newArrayList(rawUniSession.getAutotrackSessSkeys()));
+        uniSession.setAutotrackSessIds(Lists.newArrayList(rawUniSession.getAutotrackSessIds()));
+        uniSession.setTrafficSource(rawUniSession.getTrafficSource().name());
+        uniSession.setOthers(rawUniSession.getOthers());
+        uniSession.setIsOpen(isOpen);
+        RheosHeader rheosHeader = new RheosHeader();
+        rheosHeader.setEventId("DummyID");
+        rheosHeader.setEventCreateTimestamp(System.currentTimeMillis());
+        rheosHeader.setEventSentTimestamp(System.currentTimeMillis());
+        rheosHeader.setProducerId("DummyID");
+        rheosHeader.setSchemaId(-999);
+        uniSession.setRheosHeader(rheosHeader);
+        BotFlag botFlag = new BotFlag();
+        botFlag.setSurface(Arrays.asList(0));
+        botFlag.setUbi(Arrays.asList(0));
+        botFlag.setUtp(Arrays.asList(0));
+        uniSession.setBotFlag(botFlag);
         out.collect(uniSession);
     }
 
@@ -42,15 +58,12 @@ public class UniSessionWindowProcessFunction
             Tuple tuple,
             Context context,
             Iterable<UniSessionAccumulator> elements,
-            Collector<RawUniSession> out)
+            Collector<UniSession> out)
             throws Exception {
         UniSessionAccumulator sessionAccumulator = elements.iterator().next();
         endSessionEvent(sessionAccumulator);
-        if (context.currentWatermark() >= context.window().maxTimestamp()) {
-            outputSession(sessionAccumulator.getUniSession(), out, false);
-        } else {
-            outputSession(sessionAccumulator.getUniSession(), out, true);
-        }
+        boolean isOpen = context.currentWatermark() < context.window().maxTimestamp();
+        outputSession(sessionAccumulator.getUniSession(), out, isOpen);
     }
 
     private void endSessionEvent(UniSessionAccumulator sessionAccumulator) throws Exception {

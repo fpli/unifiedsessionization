@@ -1,64 +1,64 @@
 package com.ebay.epic.flink.connector.kafka;
 
-import com.ebay.epic.common.enums.DataCenter;
 import com.ebay.epic.common.enums.EventType;
 import com.ebay.epic.flink.connector.kafka.config.ConfigManager;
-import org.apache.flink.api.common.functions.RichFilterFunction;
-import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
+import org.apache.flink.streaming.api.functions.ProcessFunction;
 
 import static com.ebay.epic.utils.FlinkEnvUtils.getInteger;
 import static com.ebay.epic.utils.Property.DEFAULT_PARALLELISM;
 
-public class FlinkMapFunctionBuilder<IN, OUT> {
+public class FlinkSplitFunctionBuilder<T> {
 
-    private final DataStream<IN> dataStream;
-    private DataCenter dc;
+    private final DataStream<T> dataStream;
     private String operatorName;
     private String uid;
-    private String sinkSlotGroup;
+    private String slotGroup;
     private int parallelism = getInteger(DEFAULT_PARALLELISM);
-    private EventType eventType;
     private ConfigManager configManager;
-    private RichMapFunction<IN, OUT> richFilterFunction;
+    private ProcessFunction<T,T> processFunction;
+    private EventType eventType;
 
-    public FlinkMapFunctionBuilder(DataStream<IN> dataStream, DataCenter dc, Boolean isDrived) {
+    public FlinkSplitFunctionBuilder(DataStream<T> dataStream, EventType eventType, Boolean isDrived) {
         this.dataStream = dataStream;
-        this.dc = dc;
+        this.eventType=eventType;
         this.configManager = new ConfigManager();
         this.configManager.setDrived(isDrived);
+        this.configManager.setEventType(eventType);
     }
 
-    public FlinkMapFunctionBuilder<IN, OUT> operatorName(String operatorName) {
+
+    public FlinkSplitFunctionBuilder<T> operatorName(String operatorName) {
         this.operatorName = configManager.getOPName(operatorName);
         return this;
     }
 
-    public FlinkMapFunctionBuilder<IN, OUT> parallelism(String parallelism) {
+    public FlinkSplitFunctionBuilder<T> parallelism(String parallelism) {
         this.parallelism = configManager.getParallelism(parallelism);
         return this;
     }
 
-    public FlinkMapFunctionBuilder<IN, OUT> uid(String uid) {
+    public FlinkSplitFunctionBuilder<T> uid(String uid) {
         this.uid = configManager.getOPUid(uid);
         return this;
     }
 
-    public FlinkMapFunctionBuilder<IN, OUT> slotGroup(String slotGroup) {
-        this.sinkSlotGroup = configManager.getSlotSharingGroup(slotGroup);
+    public FlinkSplitFunctionBuilder<T> slotGroup(String slotGroup) {
+        this.slotGroup = configManager.getStrDirect(slotGroup);
         return this;
     }
 
-    public FlinkMapFunctionBuilder<IN, OUT> map(RichMapFunction<IN, OUT> mapFunction) {
-        this.richFilterFunction = mapFunction;
+    public FlinkSplitFunctionBuilder<T> process(ProcessFunction<T,T> processFunction) {
+        this.processFunction = processFunction;
         return this;
     }
 
-    public SingleOutputStreamOperator<OUT> build() {
-        return dataStream.map(richFilterFunction)
+    public SingleOutputStreamOperator<T> build() {
+        return dataStream.process(processFunction)
                 .setParallelism(parallelism)
                 .name(operatorName)
+                .slotSharingGroup(slotGroup)
                 .uid(uid);
     }
 }

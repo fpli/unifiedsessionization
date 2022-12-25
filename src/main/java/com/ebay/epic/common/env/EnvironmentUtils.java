@@ -99,4 +99,13 @@ public class EnvironmentUtils {
     }
     throw new IllegalStateException("Cannot find property " + key);
   }
+
+  public static <T> T getOrNull(String key, Class<T> clazz) {
+    for (AbstractEnvironment propSource : PROP_SOURCES) {
+      if (propSource.contains(key)) {
+        return propSource.getProperty(key, clazz);
+      }
+    }
+    return null;
+  }
 }

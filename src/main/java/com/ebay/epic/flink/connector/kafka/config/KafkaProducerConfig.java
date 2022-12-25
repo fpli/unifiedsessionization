@@ -18,6 +18,7 @@ public class KafkaProducerConfig extends KafkaCommonConfig {
 
     private KafkaProducerConfig(DataCenter dc, EventType eventType, boolean isDerived) {
         super(dc, eventType);
+
     }
 
     public static KafkaProducerConfig build(DataCenter dataCenter, EventType eventType) {
@@ -59,7 +60,7 @@ public class KafkaProducerConfig extends KafkaCommonConfig {
 
     @Override
     public String getBrokersForDC(DataCenter dc) {
-        return this.getConfigManager().getBrokers(KAFKA_PRODUCER_BOOTSTRAP_SERVERS_BASE);
+        return this.getConfigManager().getBrokersWithFN(KAFKA_PRODUCER_BOOTSTRAP_SERVERS_BASE);
     }
 
     @Override

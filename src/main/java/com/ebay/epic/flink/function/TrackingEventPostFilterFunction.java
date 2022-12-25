@@ -1,8 +1,7 @@
 package com.ebay.epic.flink.function;
 
-import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.common.model.raw.RawEvent;
 import com.ebay.epic.business.filter.EventPostFilter;
+import com.ebay.epic.common.enums.EventType;
 import com.ebay.epic.common.model.raw.UniEvent;
 import org.apache.flink.api.common.functions.RichFilterFunction;
 import org.apache.flink.configuration.Configuration;

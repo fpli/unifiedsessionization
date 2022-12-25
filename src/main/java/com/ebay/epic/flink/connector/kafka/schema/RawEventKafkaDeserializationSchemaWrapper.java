@@ -1,6 +1,7 @@
 package com.ebay.epic.flink.connector.kafka.schema;
 
 import com.ebay.epic.common.model.raw.RawEvent;
+import com.ebay.epic.utils.SojUtils;
 import org.apache.flink.api.common.serialization.DeserializationSchema;
 import org.apache.flink.api.common.serialization.DeserializationSchema.InitializationContext;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
@@ -15,11 +16,10 @@ public class RawEventKafkaDeserializationSchemaWrapper implements
 
   private Set<String> skewGuids = new HashSet<>();
   private final DeserializationSchema<RawEvent> rawEventDeserializationSchema;
-
   public RawEventKafkaDeserializationSchemaWrapper(Set<String> skewGuids,
                                                    DeserializationSchema rawEventDeserializationSchema) {
+    this(rawEventDeserializationSchema);
     this.skewGuids = skewGuids;
-    this.rawEventDeserializationSchema = rawEventDeserializationSchema;
   }
   public RawEventKafkaDeserializationSchemaWrapper(
           DeserializationSchema rawEventDeserializationSchema) {
@@ -44,6 +44,7 @@ public class RawEventKafkaDeserializationSchemaWrapper implements
       Long produceTimestamp = record.timestamp();
       RawEvent rawEvent= rawEventDeserializationSchema.deserialize(record.value());
       rawEvent.setKafkaReceivedTimestamp(produceTimestamp);
+      rawEvent.setEventType(SojUtils.getECateg(record.topic()));
       return rawEvent;
     }
   }

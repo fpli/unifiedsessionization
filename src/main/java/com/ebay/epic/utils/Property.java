@@ -119,6 +119,7 @@ public class Property {
     public static final String PRE_FILTER_PARALLELISM = "flink.app.parallelism.pre-filter";
     public static final String NORMALIZER_PARALLELISM = "flink.app.parallelism.normalizer";
     public static final String POST_FILTER_PARALLELISM = "flink.app.parallelism.post-filter";
+    public static final String SPLIT_PARALLELISM = "flink.app.parallelism.split";
 
     //skew detecotr param
     public static final String SKEW_GUID_THRESHOLD="flink.app.skew-guid.threshold";
@@ -147,6 +148,7 @@ public class Property {
 
     // ----post filter----
     public static final String POST_FILTER_OP_NAME_BASE="flink.app.operator-name.post-filter";
+    public static final String SPLIT_OP_NAME_BASE="flink.app.operator-name.split";
 
 //    public static final String POST_FILTER_OP_NAME_AUTOTRACK= "flink.app.operator-name.post-filter.autotrack";
 //    public static final String POST_FILTER_OP_NAME_UBI= "flink.app.operator-name.post-filter.ubi";
@@ -174,6 +176,8 @@ public class Property {
 
     public static final String POST_FILTER_OP_UID_BASE="flink.app.uid.post-filter";
 
+    public static final String SPLIT_OP_UID_BASE="flink.app.uid.split";
+
 //    public static final String POST_FILTER_OP_UID_AUTOTRACK= "flink.app.uid.post-filter.autotrack";
 //    public static final String POST_FILTER_OP_UID_UBI= "flink.app.uid.post-filter.ubi";
 //    public static final String POST_FILTER_OP_UID_UTP= "flink.app.uid.post-filter.utp";
@@ -193,13 +197,19 @@ public class Property {
     public static final String SOURCE_SLOT_SHARE_GROUP_BASE="flink.app.slot-sharing-group.source";
 
     // ----pre filter----
-    public static final String SLIDING_WINDOW_SLOT_SHARE_GROUP= "flink.app.slot-sharing-group.pre-filter";
+    public static final String PRE_FILTER_SLOT_SHARE_GROUP= "flink.app.slot-sharing-group.pre-filter";
 
     // ----map----
-    public static final String Map_SLOT_SHARE_GROUP= "flink.app.slot-sharing-group.map";
+    public static final String NORMALIZER_SLOT_SHARE_GROUP= "flink.app.slot-sharing-group.normalizer";
 
     // -----session window----
     public static final String SESSION_WINDOR_SLOT_SHARE_GROUP= "flink.app.slot-sharing-group.session-window";
+
+    // -----Post Filter----
+    public static final String POST_FILTER_SLOT_SHARE_GROUP= "flink.app.slot-sharing-group.post-filter";
+
+    //
+    public static final String SPLIT_SLOT_SHARE_GROUP= "flink.app.slot-sharing-group.split";
 
     // -----sink-----
     public static final String SINK_SLOT_SHARE_GROUP_BASE="flink.app.slot-sharing-group.sink";

@@ -5,7 +5,6 @@ import avro.shaded.com.google.common.base.Preconditions;
 import java.io.Serializable;
 
 public enum SchemaSubject {
-    AUTOTRACK_NATIVE("sessionizedevent"),
     AUTOTRACK("sessionizedevent"),
     UBI("behavior.sojourner.sojevent.schema"),
     UTP("marketing.tracking.events.schema"),
@@ -21,4 +20,7 @@ public enum SchemaSubject {
         return SchemaSubject.valueOf(name);
     }
 
+    public static void main(String[] args) {
+        System.out.println(SchemaSubject.valueOf(EventType.AUTOTRACK_NATIVE.getName().toUpperCase()));
+    }
 }

@@ -1,13 +1,14 @@
 package com.ebay.epic.common.model.raw;
 
 import com.ebay.epic.common.constant.Constants;
+import com.ebay.epic.common.enums.Category;
 import com.ebay.epic.common.enums.EventType;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.avro.generic.GenericRecord;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -18,13 +19,19 @@ public class UniEvent {
     private Long eventTs;
     private String sessionId;
     private Long sessionSkey;
+    private Category category;
     private EventType eventType;
     private String globalSessionId = Constants.NO_SESSION_ID;
     private byte[] rheosByteArray;
-    private Long ingestTimestamp;
-    private Long kafkaReceivedTimestamp;
+    private List<Integer> botFlags;
+    // for sessionstartdt
+    private byte rdt;
+    private Boolean iframe;
     private Map<String, Object> utpTs = new ConcurrentHashMap<>();
     private Map<String, Object> nonUtpTs = new ConcurrentHashMap<>();
+    // collect some metrics for monitor and validation
+    private Long ingestTimestamp;
+    private Long kafkaReceivedTimestamp;
 
     public boolean isNewSession() {
         return Constants.NO_SESSION_ID.equals(globalSessionId);

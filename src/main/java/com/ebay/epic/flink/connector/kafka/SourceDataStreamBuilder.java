@@ -28,7 +28,6 @@ public class SourceDataStreamBuilder<T> {
     private int idleSourceTimeout;
     private boolean rescaled;
     private EventType eventType;
-    public static final String DELEMITER=".";
     private ConfigManager configManager;
     public SourceDataStreamBuilder(StreamExecutionEnvironment environment,DataCenter dc,EventType eventType) {
         this.environment = environment;

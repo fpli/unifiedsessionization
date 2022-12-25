@@ -4,6 +4,7 @@ import com.ebay.epic.common.enums.TrafficSource;
 import lombok.Data;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -16,6 +17,7 @@ public class RawUniSession {
     private Long absStartTimestamp;
     private Long absEndTimestamp;
     private Long sessionStartDt;
+    private Long startTimestamp;
     private TrafficSource trafficSource = TrafficSource.EMPTY;
     private Long trafficSourceTs;
     private Set<String> ubiSessIds = new CopyOnWriteArraySet<>();
@@ -23,6 +25,9 @@ public class RawUniSession {
     private Set<Long> autotrackSessIds = new CopyOnWriteArraySet<>();
     private Set<Long> autotrackSessSkeys = new CopyOnWriteArraySet<>();
     private Map<String, String> others = new ConcurrentHashMap<>();
+    private Set<Integer> surfaceBotList= new CopyOnWriteArraySet<>();
+    private Set<Integer> ubiBotList= new CopyOnWriteArraySet<>();
+    private Set<Integer> sutpBotList= new CopyOnWriteArraySet<>();
 
     public RawUniSession merge(RawUniSession uniSession) {
         if (this.getAbsStartTimestamp() == null && uniSession.getAbsStartTimestamp() != null) {

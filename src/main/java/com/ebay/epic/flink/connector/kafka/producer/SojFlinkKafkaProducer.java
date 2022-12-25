@@ -37,13 +37,13 @@ public class SojFlinkKafkaProducer<T> extends FlinkKafkaProducer<T> {
       droppedMessageCounter =
           getRuntimeContext()
               .getMetricGroup()
-              .addGroup(Constants.SOJ_METRICS_GROUP)
+              .addGroup(Constants.UNIFIED_SESSION_METRICS_GROUP)
               .counter(DROPPED_MESSAGE_METRIC_NAME);
 
       droppedBatchCounter =
           getRuntimeContext()
               .getMetricGroup()
-              .addGroup(Constants.SOJ_METRICS_GROUP)
+              .addGroup(Constants.UNIFIED_SESSION_METRICS_GROUP)
               .counter(DROPPED_BATCH_METRIC_NAME);
 
       this.callback = new Callback() {
