@@ -3,6 +3,7 @@ package com.ebay.epic.flink.connector.kafka;
 import com.ebay.epic.common.enums.DataCenter;
 import com.ebay.epic.common.enums.EventType;
 import com.ebay.epic.flink.connector.kafka.config.ConfigManager;
+import com.ebay.epic.utils.Property;
 import org.apache.flink.api.common.functions.RichFilterFunction;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.streaming.api.datastream.DataStream;
@@ -19,6 +20,7 @@ public class FlinkMapFunctionBuilder<IN, OUT> {
     private String uid;
     private String sinkSlotGroup;
     private int parallelism = getInteger(DEFAULT_PARALLELISM);
+    private int maxParallelism = getInteger(Property.DEFAULT_MAX_PARALLELISM);
     private EventType eventType;
     private ConfigManager configManager;
     private RichMapFunction<IN, OUT> richFilterFunction;
@@ -59,6 +61,7 @@ public class FlinkMapFunctionBuilder<IN, OUT> {
         return dataStream.map(richFilterFunction)
                 .setParallelism(parallelism)
                 .name(operatorName)
-                .uid(uid);
+                .uid(uid)
+                .setMaxParallelism(maxParallelism);
     }
 }

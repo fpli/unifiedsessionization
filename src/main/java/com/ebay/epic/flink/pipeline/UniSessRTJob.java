@@ -99,7 +99,7 @@ public class UniSessRTJob extends FlinkBaseJob {
                         .slotSharingGroup(getString(SESSION_WINDOR_SLOT_SHARE_GROUP))
                         .name(getString(SESSION_WINDOR_OPERATOR_NAME))
                         .uid(getString(SESSION_WINDOR_UID))
-                        .setMaxParallelism(getInteger(PARALLELISM_MAX));
+                        .setMaxParallelism(getInteger(PARALLELISM_MAX_SESSION));
 
         WindowOperatorHelper.enrichWindowOperator(
                 (OneInputTransformation<UniEvent, UniSession>) uniSessionDataStream.getTransformation(),
@@ -120,7 +120,7 @@ public class UniSessRTJob extends FlinkBaseJob {
         DataStream<UniEvent> ubiBotDS = outputStreamOperator.getSideOutput(ubiBOTOutputTag);
         DataStream<UniEvent> ubiNonBotDS = outputStreamOperator.getSideOutput(ubiNONBOTOutputTag);
 
-        // filter our each kinf of event based on late events
+        // filter our each kind of event based on late events
         SingleOutputStreamOperator<UniEvent> outputStreamOperatorLate = uniSessRTJob.uniEevntSplitFunctionBuilder
                 (latedStream, DEFAULT_LATE,false);
         DataStream<UniEvent> surfaceLateWebDS = outputStreamOperatorLate.getSideOutput(atWEBOutputTagLate);

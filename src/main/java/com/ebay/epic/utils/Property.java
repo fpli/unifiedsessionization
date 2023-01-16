@@ -115,11 +115,14 @@ public class Property {
     public static final String SOURCE_PARALLELISM = "flink.app.parallelism.source";
     public static final String SINK_KAFKA_PARALLELISM_BASE = "flink.app.parallelism.sink-kafka";
     public static final String SESSION_PARALLELISM = "flink.app.parallelism.session";
-    public static final String PARALLELISM_MAX = "flink.app.parallelism.max";
+    public static final String PARALLELISM_MAX_SESSION = "flink.app.parallelism.max.session";
     public static final String PRE_FILTER_PARALLELISM = "flink.app.parallelism.pre-filter";
     public static final String NORMALIZER_PARALLELISM = "flink.app.parallelism.normalizer";
     public static final String POST_FILTER_PARALLELISM = "flink.app.parallelism.post-filter";
     public static final String SPLIT_PARALLELISM = "flink.app.parallelism.split";
+
+    //max parallelism
+    public static final String DEFAULT_MAX_PARALLELISM = "flink.app.parallelism.max.default";
 
     //skew detecotr param
     public static final String SKEW_GUID_THRESHOLD="flink.app.skew-guid.threshold";

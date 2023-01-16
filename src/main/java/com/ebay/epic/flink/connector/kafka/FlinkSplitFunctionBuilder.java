@@ -2,6 +2,7 @@ package com.ebay.epic.flink.connector.kafka;
 
 import com.ebay.epic.common.enums.EventType;
 import com.ebay.epic.flink.connector.kafka.config.ConfigManager;
+import com.ebay.epic.utils.Property;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.functions.ProcessFunction;
@@ -16,6 +17,7 @@ public class FlinkSplitFunctionBuilder<T> {
     private String uid;
     private String slotGroup;
     private int parallelism = getInteger(DEFAULT_PARALLELISM);
+    private int maxParallelism = getInteger(Property.DEFAULT_MAX_PARALLELISM);
     private ConfigManager configManager;
     private ProcessFunction<T,T> processFunction;
     private EventType eventType;
@@ -59,6 +61,7 @@ public class FlinkSplitFunctionBuilder<T> {
                 .setParallelism(parallelism)
                 .name(operatorName)
                 .slotSharingGroup(slotGroup)
-                .uid(uid);
+                .uid(uid)
+                .setMaxParallelism(maxParallelism);
     }
 }

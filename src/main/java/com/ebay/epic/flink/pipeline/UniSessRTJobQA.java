@@ -85,7 +85,7 @@ public class UniSessRTJobQA extends FlinkBaseJob {
                         .slotSharingGroup(getString(SESSION_WINDOR_SLOT_SHARE_GROUP))
                         .name(getString(SESSION_WINDOR_OPERATOR_NAME))
                         .uid(getString(SESSION_WINDOR_UID))
-                        .setMaxParallelism(getInteger(PARALLELISM_MAX));
+                        .setMaxParallelism(getInteger(PARALLELISM_MAX_SESSION));
 
         WindowOperatorHelper.enrichWindowOperator(
                 (OneInputTransformation<UniEvent, UniSession>) uniSessionDataStream.getTransformation(),

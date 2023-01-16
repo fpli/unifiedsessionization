@@ -19,6 +19,7 @@ public class FlinkKafkaSinkBuilder<T> {
     private String uid;
     private String sinkSlotGroup;
     private int parallelism = getInteger(DEFAULT_PARALLELISM);
+    private int maxParallelism = getInteger(Property.DEFAULT_MAX_PARALLELISM);
     private EventType eventType;
     private String topic;
     private String topicSubject;
@@ -103,7 +104,9 @@ public class FlinkKafkaSinkBuilder<T> {
                 .setParallelism(parallelism)
                 .slotSharingGroup(sinkSlotGroup)
                 .name(operatorName)
-                .uid(uid);
+                .uid(uid)
+                .getTransformation()
+                .setMaxParallelism(maxParallelism);
     }
 
 }

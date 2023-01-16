@@ -1,9 +1,7 @@
 package com.ebay.epic.flink.pipeline;
 
-import com.ebay.epic.common.enums.Category;
 import com.ebay.epic.common.enums.DataCenter;
 import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.common.enums.SchemaSubject;
 import com.ebay.epic.common.model.UniSession;
 import com.ebay.epic.common.model.raw.RawEvent;
 import com.ebay.epic.common.model.raw.UniEvent;
@@ -16,8 +14,6 @@ import com.ebay.epic.utils.Property;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-
-import java.util.List;
 
 import static com.ebay.epic.utils.FlinkEnvUtils.getInteger;
 import static com.ebay.epic.utils.Property.*;

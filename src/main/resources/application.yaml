@@ -12,15 +12,17 @@ flink:
       session: 1680
       split:
         default: 400
-        late: 5
-        session: 50
+        late: 400
+        session: 100
       sink-kafka:
         autotrack: 100
         ubi: 400
         utp: 100
-        session: 50
-        late: 1
-      max: 5040
+        session: 100
+        late: 400
+      max:
+        default: 1200
+        session: 5040
     checkpoint:
       data-dir: /opt/tracking-behavior/checkpoint
       interval-ms: 300000
@@ -87,9 +89,9 @@ flink:
       pre-filter: session-operator
       normalizer: session-operator
       session-window: session-operator
-      split: session-operator
+      split: sink-operator
       sink:
-        default: session-operator
+        default: sink-operator
 #        autotrack: autotrack-sink-to-kafka
 #        ubi: sojourner-sink-to-kafka
 #        utp: marketing-tracking-sink-to-kafka

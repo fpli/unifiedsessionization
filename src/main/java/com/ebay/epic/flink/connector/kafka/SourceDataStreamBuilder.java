@@ -23,6 +23,7 @@ public class SourceDataStreamBuilder<T> {
     private String uid;
     private String slotGroup;
     private int parallelism = getInteger(Property.DEFAULT_PARALLELISM);
+    private int maxParallelism = getInteger(Property.DEFAULT_MAX_PARALLELISM);
     private int outOfOrderlessInMin;
     private String fromTimestamp = "0";
     private int idleSourceTimeout;
@@ -100,7 +101,8 @@ public class SourceDataStreamBuilder<T> {
                 .setParallelism(parallelism)
                 .slotSharingGroup(slotGroup)
                 .name(operatorName)
-                .uid(uid);
+                .uid(uid)
+                .setMaxParallelism(maxParallelism);
 
         if (rescaled) {
             return dataStream.rescale();
