@@ -19,13 +19,17 @@ public class FlinkFilterFunctionBuilder<T> {
     private String uid;
     private String slotGroup;
     private int parallelism = getInteger(DEFAULT_PARALLELISM);
-    private int maxParallelism = getInteger(Property.DEFAULT_MAX_PARALLELISM);
+    private int maxParallelism = getInteger(Property.MAX_PARALLELISM_DEFAULT);
     private EventType eventType;
     private ConfigManager configManager;
     private RichFilterFunction<T> richFilterFunction;
 
     public FlinkFilterFunctionBuilder(DataStream<T> dataStream, DataCenter dc, Boolean isDrived) {
         this(dataStream, dc, EventType.DEFAULT, isDrived);
+    }
+
+    public FlinkFilterFunctionBuilder(DataStream<T> dataStream) {
+        this(dataStream, null, EventType.DEFAULT, false);
     }
 
     public FlinkFilterFunctionBuilder(DataStream<T> dataStream, DataCenter dc, EventType eventType, Boolean isDrived) {
@@ -39,12 +43,13 @@ public class FlinkFilterFunctionBuilder<T> {
 
 
     public FlinkFilterFunctionBuilder<T> operatorName(String operatorName) {
-        this.operatorName = configManager.getOPName(operatorName);
+        this.operatorName = configManager.getOPNameNODC(operatorName);
         return this;
     }
 
     public FlinkFilterFunctionBuilder<T> parallelism(String parallelism) {
-        this.parallelism = configManager.getParallelism(parallelism);
+        this.parallelism = configManager.getParallelism(parallelism,
+                configManager.constructPostFix(configManager.DEL_POINT));
         return this;
     }
 
@@ -54,7 +59,7 @@ public class FlinkFilterFunctionBuilder<T> {
     }
 
     public FlinkFilterFunctionBuilder<T> slotGroup(String slotGroup) {
-        this.slotGroup = configManager.getStrDirect(slotGroup);
+        this.slotGroup = configManager.getSlotSharingGroup(slotGroup);
         return this;
     }
 

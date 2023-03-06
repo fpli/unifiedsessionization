@@ -4,25 +4,59 @@ flink:
     parallelism:
       default: 50
       source:
-        autotrack: 60
-        ubi: 200
-        utp: 80
-      pre-filter: 400
-      normalizer: 600
-      session: 1680
+        autotrack:
+          web:
+            nonbot: 50
+          native:
+            nonbot: 10
+        ubi:
+          ubi:
+            nonbot: 400
+            bot: 400
+        utp:
+          utp:
+            nonbot: 80
+      pre-filter:
+        autotrack:
+          web:
+            nonbot: 50
+          native:
+            nonbot: 10
+        ubi:
+          ubi:
+            nonbot: 400
+            bot: 400
+        utp:
+          utp:
+            nonbot: 80
+      normalizer:
+        autotrack:
+          web:
+            nonbot: 50
+          native:
+            nonbot: 10
+        ubi:
+          ubi:
+            nonbot: 400
+            bot: 400
+        utp:
+          utp:
+            nonbot: 80
+      session: 1260
       split:
-        default: 400
-        late: 400
-        session: 100
+        default: 1260
+        late: 1260
+        session: 1260
       sink-kafka:
-        autotrack: 100
-        ubi: 400
-        utp: 100
-        session: 100
-        late: 400
+        autotrack: 1260
+        ubi: 1260
+        utp: 1260
+        session: 1260
+        late: 1260
       max:
-        default: 1200
+        default: 2400
         session: 5040
+        sink: 5040
     checkpoint:
       data-dir: /opt/tracking-behavior/checkpoint
       interval-ms: 300000
@@ -86,12 +120,18 @@ flink:
         autotrack: autotrack-source
         ubi: sojourner-source
         utp: marketing-tracking-source
-      pre-filter: session-operator
-      normalizer: session-operator
+      pre-filter:
+        autotrack: autotrack-source
+        ubi: sojourner-source
+        utp: marketing-tracking-source
+      normalizer:
+        autotrack: autotrack-source
+        ubi: sojourner-source
+        utp: marketing-tracking-source
       session-window: session-operator
-      split: sink-operator
+      split: session-operator
       sink:
-        default: sink-operator
+        default: session-operator
 #        autotrack: autotrack-sink-to-kafka
 #        ubi: sojourner-sink-to-kafka
 #        utp: marketing-tracking-sink-to-kafka
@@ -102,8 +142,14 @@ flink:
         autotrack: AutoTrack Source
         ubi: Sojourner Source
         utp: Marketing Tracking Source
-      pre-filter: PreFilter Operator
-      normalizer: Normalizer Operator
+      pre-filter:
+        autotrack: AutoTrack PreFilter Operator
+        ubi: Sojourner PreFilter Operator
+        utp: Marketing PreFilter Operator
+      normalizer:
+        autotrack: AutoTrack Normalizer Operator
+        ubi: Sojourner Normalizer Operator
+        utp: Marketing Normalizer Operator
       session-window: Session Operator
       split:
         default: Main Split Operator
@@ -120,8 +166,14 @@ flink:
         autotrack: autotrack-source
         ubi: sojourner-source
         utp: marketing-tracking-source
-      pre-filter: prefilter-operator
-      normalizer: normalizer-0perator
+      pre-filter:
+        autotrack: autotrack-prefilter-operator
+        ubi: sojourner-prefilter-operator
+        utp: marketing-tracking-prefilter-operator
+      normalizer:
+        autotrack: autotrack-normalizer-0perator
+        ubi: sojourner-normalizer-0perator
+        utp: marketing-tracking-normalizer-0perator
       session-window: session-operator
       split:
         default: main-split-operator
@@ -203,7 +255,7 @@ kafka:
             - rhs-ncrvkiaa-kfk-slc-4.rheos-streaming-prod.svc.40.tess.io:9092
             - rhs-ncrvkiaa-kfk-slc-5.rheos-streaming-prod.svc.40.tess.io:9092
       max-poll-records:
-        default: 3000
+        default: 6000
       # 16MB, default value is 50MB
       fetch-max-bytes:
         default: 16777216

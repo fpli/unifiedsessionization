@@ -20,7 +20,7 @@ public class FlinkMapFunctionBuilder<IN, OUT> {
     private String uid;
     private String sinkSlotGroup;
     private int parallelism = getInteger(DEFAULT_PARALLELISM);
-    private int maxParallelism = getInteger(Property.DEFAULT_MAX_PARALLELISM);
+    private int maxParallelism = getInteger(Property.MAX_PARALLELISM_DEFAULT);
     private EventType eventType;
     private ConfigManager configManager;
     private RichMapFunction<IN, OUT> richFilterFunction;
@@ -32,13 +32,23 @@ public class FlinkMapFunctionBuilder<IN, OUT> {
         this.configManager.setDrived(isDrived);
     }
 
+    public FlinkMapFunctionBuilder(DataStream<IN> dataStream, DataCenter dc, EventType eventType, Boolean isDrived) {
+        this.dataStream = dataStream;
+        this.dc = dc;
+        this.eventType = eventType;
+        this.configManager = new ConfigManager();
+        this.configManager.setEventType(eventType);
+        this.configManager.setDrived(isDrived);
+    }
+
     public FlinkMapFunctionBuilder<IN, OUT> operatorName(String operatorName) {
         this.operatorName = configManager.getOPName(operatorName);
         return this;
     }
 
     public FlinkMapFunctionBuilder<IN, OUT> parallelism(String parallelism) {
-        this.parallelism = configManager.getParallelism(parallelism);
+        this.parallelism = configManager.getParallelism(parallelism,
+                configManager.constructPostFix(configManager.DEL_POINT));
         return this;
     }
 

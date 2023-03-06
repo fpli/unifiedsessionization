@@ -122,7 +122,8 @@ public class Property {
     public static final String SPLIT_PARALLELISM = "flink.app.parallelism.split";
 
     //max parallelism
-    public static final String DEFAULT_MAX_PARALLELISM = "flink.app.parallelism.max.default";
+    public static final String MAX_PARALLELISM_DEFAULT = "flink.app.parallelism.max.default";
+    public static final String MAX_PARALLELISM_SINK = "flink.app.parallelism.max.sink";
 
     //skew detecotr param
     public static final String SKEW_GUID_THRESHOLD="flink.app.skew-guid.threshold";

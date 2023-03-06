@@ -65,11 +65,11 @@ public class UniSessRTJobQA extends FlinkBaseJob {
 
         // Filter logic before normalizer
         val rawEventPreFilterDS =
-                uniSessRTJob.preFilterFunctionBuilder(ubi);
+                uniSessRTJob.preFilterFunctionBuilder(ubi,EventType.UBI_NONBOT,SLC);
 
         //normalizer
         val rawEventNormalizerDs
-                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDS);
+                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDS,EventType.UBI_NONBOT,SLC);
         // session window
         SingleOutputStreamOperator<UniSession> uniSessionDataStream =
                 rawEventNormalizerDs

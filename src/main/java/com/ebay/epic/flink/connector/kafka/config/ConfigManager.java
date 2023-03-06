@@ -30,7 +30,7 @@ public class ConfigManager {
         return getValueNODC(DEL_LINE, baseName);
     }
     public String getSlotSharingGroup(String baseName) {
-        return getValue(DEL_LINE, baseName);
+        return getValueNODC(DEL_LINE, baseName);
     }
 
     public String getSlotSharingGroupNoPF(String baseName) {
@@ -71,6 +71,10 @@ public class ConfigManager {
 
     public int getParallelism(String baseName) {
         return getIntValueNODC(baseName);
+    }
+
+    public int getParallelism(String baseName,String postfix) {
+        return getIntValueNODC(baseName,postfix);
     }
 
     private String getValue(String del, String baseName) {
@@ -165,6 +169,14 @@ public class ConfigManager {
         }
     }
 
+    public Integer getIntValueNODC(String baseName,String postfix) {
+        if (!isDrived) {
+            return getInteger(baseName);
+        } else {
+            return getIntegerOrDefault(getKeyNameNODC(baseName,postfix),
+                    getIntegerOrDefault(getDefaultNameNODC(baseName), null));
+        }
+    }
     private String getKeyName(String baseName) {
         return String.join(DEL_POINT, baseName,
                 this.dataCenter.name().toLowerCase(),

@@ -17,7 +17,7 @@ public class FlinkSplitFunctionBuilder<T> {
     private String uid;
     private String slotGroup;
     private int parallelism = getInteger(DEFAULT_PARALLELISM);
-    private int maxParallelism = getInteger(Property.DEFAULT_MAX_PARALLELISM);
+    private int maxParallelism = getInteger(Property.MAX_PARALLELISM_SINK);
     private ConfigManager configManager;
     private ProcessFunction<T,T> processFunction;
     private EventType eventType;
@@ -57,7 +57,7 @@ public class FlinkSplitFunctionBuilder<T> {
     }
 
     public SingleOutputStreamOperator<T> build() {
-        return dataStream.process(processFunction)
+        return dataStream.rescale().process(processFunction)
                 .setParallelism(parallelism)
                 .name(operatorName)
                 .slotSharingGroup(slotGroup)

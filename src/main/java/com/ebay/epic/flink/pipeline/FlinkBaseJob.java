@@ -15,6 +15,8 @@ import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
+import java.awt.*;
+
 import static com.ebay.epic.utils.FlinkEnvUtils.getInteger;
 import static com.ebay.epic.utils.Property.*;
 
@@ -64,7 +66,6 @@ public abstract class FlinkBaseJob {
     }
 
     /**
-     *
      * @param dataStream
      * @param eventType
      * @param dataCenter
@@ -87,7 +88,7 @@ public abstract class FlinkBaseJob {
                                                                           EventType eventType,
                                                                           DataCenter dataCenter) {
         FlinkFilterFunctionBuilder<UniEvent> flinkFilterFunctionBuilder =
-                new FlinkFilterFunctionBuilder(dataStream, dataCenter, eventType,true);
+                new FlinkFilterFunctionBuilder(dataStream, dataCenter, eventType, true);
         return flinkFilterFunctionBuilder.filter(new TrackingEventPostFilterFunction(eventType))
                 .parallelism(POST_FILTER_PARALLELISM)
                 .operatorName(POST_FILTER_OP_NAME_BASE)
@@ -100,10 +101,10 @@ public abstract class FlinkBaseJob {
                                                                              EventType eventType,
                                                                              boolean enbaleMetrics) {
         FlinkSplitFunctionBuilder<UniEvent> flinkFilterFunctionBuilder =
-                new FlinkSplitFunctionBuilder(dataStream,eventType,true);
+                new FlinkSplitFunctionBuilder(dataStream, eventType, true);
         return flinkFilterFunctionBuilder
                 .process(new UniEventSplitProcessFunction(eventType,
-                        getInteger(Property.METRIC_WINDOW_SIZE),enbaleMetrics))
+                        getInteger(Property.METRIC_WINDOW_SIZE), enbaleMetrics))
                 .parallelism(SPLIT_PARALLELISM)
                 .operatorName(SPLIT_OP_NAME_BASE)
                 .uid(SPLIT_OP_UID_BASE)
@@ -112,9 +113,9 @@ public abstract class FlinkBaseJob {
     }
 
     public SingleOutputStreamOperator<UniSession> uniSessionSplitFunctionBuilder(DataStream<UniSession> dataStream,
-                                                                            EventType eventType) {
+                                                                                 EventType eventType) {
         FlinkSplitFunctionBuilder<UniSession> flinkFilterFunctionBuilder =
-                new FlinkSplitFunctionBuilder(dataStream,eventType,true);
+                new FlinkSplitFunctionBuilder(dataStream, eventType, true);
         return flinkFilterFunctionBuilder.process(new UniSessionSplitProcessFunction())
                 .parallelism(SPLIT_PARALLELISM)
                 .operatorName(SPLIT_OP_NAME_BASE)
@@ -125,10 +126,10 @@ public abstract class FlinkBaseJob {
 
 
     public SingleOutputStreamOperator<UniSession> postFilterSessionFunctionBuilder(DataStream<UniSession> dataStream,
-                                                                            EventType eventType,
-                                                                            DataCenter dataCenter) {
+                                                                                   EventType eventType,
+                                                                                   DataCenter dataCenter) {
         FlinkFilterFunctionBuilder<UniSession> flinkFilterFunctionBuilder =
-                new FlinkFilterFunctionBuilder(dataStream, dataCenter, eventType,true);
+                new FlinkFilterFunctionBuilder(dataStream, dataCenter, eventType, true);
         return flinkFilterFunctionBuilder.filter(new UniSessionPostFilterFunction(eventType))
                 .parallelism(POST_FILTER_PARALLELISM)
                 .operatorName(POST_FILTER_OP_NAME_BASE)
@@ -138,9 +139,23 @@ public abstract class FlinkBaseJob {
     }
 
     public SingleOutputStreamOperator<RawEvent> preFilterFunctionBuilder(DataStream<RawEvent> dataStream,
-                                                                          DataCenter dataCenter) {
+                                                                         DataCenter dataCenter) {
         FlinkFilterFunctionBuilder<RawEvent> flinkFilterFunctionBuilder =
-                new FlinkFilterFunctionBuilder(dataStream, dataCenter,false);
+                new FlinkFilterFunctionBuilder(dataStream, dataCenter, false);
+
+        return flinkFilterFunctionBuilder.filter(new TrackingEventPreFilterFunction())
+                .parallelism(PRE_FILTER_PARALLELISM)
+                .operatorName(PRE_FILTER_OP_NAME)
+                .uid(PRE_FILTER_OP_UID)
+                .slotGroup(PRE_FILTER_SLOT_SHARE_GROUP)
+                .build();
+    }
+
+    public SingleOutputStreamOperator<RawEvent> preFilterFunctionBuilder(DataStream<RawEvent> dataStream,
+                                                                         EventType eventType,
+                                                                         DataCenter dataCenter) {
+        FlinkFilterFunctionBuilder<RawEvent> flinkFilterFunctionBuilder =
+                new FlinkFilterFunctionBuilder(dataStream, dataCenter, eventType, true);
 
         return flinkFilterFunctionBuilder.filter(new TrackingEventPreFilterFunction())
                 .parallelism(PRE_FILTER_PARALLELISM)
@@ -151,13 +166,14 @@ public abstract class FlinkBaseJob {
     }
 
     public SingleOutputStreamOperator<RawEvent> preFilterFunctionBuilder(DataStream<RawEvent> dataStream) {
-      return this.preFilterFunctionBuilder(dataStream,null);
+        return this.preFilterFunctionBuilder(dataStream, null);
     }
 
     public SingleOutputStreamOperator<UniEvent> normalizerFunctionBuilder(DataStream<RawEvent> dataStream,
+                                                                          EventType eventType,
                                                                           DataCenter dataCenter) {
-        FlinkMapFunctionBuilder<RawEvent,UniEvent> flinkMapFunctionBuilder =
-                new FlinkMapFunctionBuilder(dataStream, dataCenter,false);
+        FlinkMapFunctionBuilder<RawEvent, UniEvent> flinkMapFunctionBuilder =
+                new FlinkMapFunctionBuilder(dataStream, dataCenter, eventType, true);
         return flinkMapFunctionBuilder.map(new TrackingEventMapFunction())
                 .parallelism(NORMALIZER_PARALLELISM)
                 .operatorName(NORMALIZER_OP_NAME)
@@ -166,7 +182,7 @@ public abstract class FlinkBaseJob {
                 .build();
     }
 
-    public SingleOutputStreamOperator<UniEvent> normalizerFunctionBuilder(DataStream<RawEvent> dataStream) {
-      return this.normalizerFunctionBuilder(dataStream,null);
+    public SingleOutputStreamOperator<UniEvent> normalizerFunctionBuilder(DataStream<RawEvent> dataStream, EventType eventType) {
+        return this.normalizerFunctionBuilder(dataStream, eventType,null);
     }
 }
