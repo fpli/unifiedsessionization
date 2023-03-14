@@ -153,21 +153,38 @@ public class UniSessRTJob extends FlinkBaseJob {
         DataStream<UniSession> uniSessionNonbotDS = outputStreamOperatorSess.getSideOutput(uniSessNonbotOutputTag);
         DataStream<UniSession> uniSessionBotDS = outputStreamOperatorSess.getSideOutput(uniSessBotOutputTag);
 
+        //        // normal event sink
+        //        uniSessRTJob.kafkaSinkBuilder(surfaceWebDS, AUTOTRACK_WEB, RNO);
+        //        uniSessRTJob.kafkaSinkBuilder(surfaceNativeDS, AUTOTRACK_NATIVE, RNO);
+        //        uniSessRTJob.kafkaSinkBuilder(ubiBotDS, UBI_BOT, RNO);
+        //        uniSessRTJob.kafkaSinkBuilder(ubiNonBotDS, UBI_NONBOT, RNO);
+        //
+        //        // unisession sink
+        //        uniSessRTJob.kafkaSinkBuilder(uniSessionNonbotDS, SESSION_NONBOT, RNO);
+        //        //        uniSessRTJob.kafkaSinkBuilder(uniSessionBotDS, SESSION_BOT, RNO);
+        //
+        //        // late event sink
+        //        uniSessRTJob.kafkaSinkBuilder(surfaceLateWebDS, LATE_WEB, RNO);
+        //        uniSessRTJob.kafkaSinkBuilder(surfaceLateNativeDS, LATE_NATIVE, RNO);
+        //        uniSessRTJob.kafkaSinkBuilder(ubiBotLateDS, LATE_UBI_BOT, RNO);
+        //        uniSessRTJob.kafkaSinkBuilder(ubiNonLateBotDS, LATE_UBI_NONBOT, RNO);
+
+        //Discardsink
         // normal event sink
-        uniSessRTJob.kafkaSinkBuilder(surfaceWebDS, AUTOTRACK_WEB, RNO);
-        uniSessRTJob.kafkaSinkBuilder(surfaceNativeDS, AUTOTRACK_NATIVE, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiBotDS, UBI_BOT, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiNonBotDS, UBI_NONBOT, RNO);
+        uniSessRTJob.discardSinkBuilder(surfaceWebDS, AUTOTRACK_WEB, RNO);
+        uniSessRTJob.discardSinkBuilder(surfaceNativeDS, AUTOTRACK_NATIVE, RNO);
+        uniSessRTJob.discardSinkBuilder(ubiBotDS, UBI_BOT, RNO);
+        uniSessRTJob.discardSinkBuilder(ubiNonBotDS, UBI_NONBOT, RNO);
 
         // unisession sink
-        uniSessRTJob.kafkaSinkBuilder(uniSessionNonbotDS, SESSION_NONBOT, RNO);
+        uniSessRTJob.discardSinkBuilder(uniSessionNonbotDS, SESSION_NONBOT, RNO);
         //        uniSessRTJob.kafkaSinkBuilder(uniSessionBotDS, SESSION_BOT, RNO);
 
         // late event sink
-        uniSessRTJob.kafkaSinkBuilder(surfaceLateWebDS, LATE_WEB, RNO);
-        uniSessRTJob.kafkaSinkBuilder(surfaceLateNativeDS, LATE_NATIVE, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiBotLateDS, LATE_UBI_BOT, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiNonLateBotDS, LATE_UBI_NONBOT, RNO);
+        uniSessRTJob.discardSinkBuilder(surfaceLateWebDS, LATE_WEB, RNO);
+        uniSessRTJob.discardSinkBuilder(surfaceLateNativeDS, LATE_NATIVE, RNO);
+        uniSessRTJob.discardSinkBuilder(ubiBotLateDS, LATE_UBI_BOT, RNO);
+        uniSessRTJob.discardSinkBuilder(ubiNonLateBotDS, LATE_UBI_NONBOT, RNO);
 
         // Submit this job
         FlinkEnvUtils.execute(see, getString(FLINK_APP_NAME));

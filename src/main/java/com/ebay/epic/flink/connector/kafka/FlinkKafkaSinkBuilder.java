@@ -7,6 +7,7 @@ import com.ebay.epic.flink.connector.kafka.config.KafkaProducerConfig;
 import com.ebay.epic.flink.connector.kafka.factory.FlinkKafkaProducerFactory;
 import com.ebay.epic.utils.Property;
 import org.apache.flink.streaming.api.datastream.DataStream;
+import org.apache.flink.streaming.api.functions.sink.DiscardingSink;
 
 import static com.ebay.epic.utils.FlinkEnvUtils.*;
 import static com.ebay.epic.utils.Property.*;
@@ -101,6 +102,18 @@ public class FlinkKafkaSinkBuilder<T> {
                         getString(PRODUCER_ID),
                         getBoolean(ALLOW_DROP),
                         getStringArray(FLINK_APP_SINK_MESSAGE_KEY, ",")))
+                .setParallelism(parallelism)
+                .slotSharingGroup(sinkSlotGroup)
+                .name(operatorName)
+                .uid(uid)
+                .getTransformation()
+                .setMaxParallelism(maxParallelism);
+    }
+
+    public void buildWithDiscardSink() {
+        KafkaProducerConfig config = KafkaProducerConfig.build(this.dc, this.eventType);
+        FlinkKafkaProducerFactory producerFactory = new FlinkKafkaProducerFactory(config);
+        dataStream.addSink(new DiscardingSink<>())
                 .setParallelism(parallelism)
                 .slotSharingGroup(sinkSlotGroup)
                 .name(operatorName)

@@ -84,6 +84,18 @@ public abstract class FlinkBaseJob {
                 .build();
     }
 
+    public <T> void discardSinkBuilder(DataStream<T> dataStream, EventType eventType, DataCenter dataCenter) {
+        FlinkKafkaSinkBuilder<T> flinkKafkaSinkBuilder =
+                new FlinkKafkaSinkBuilder<>(dataStream, dataCenter, eventType);
+        flinkKafkaSinkBuilder.className(dataStream.getType().getTypeClass())
+                .parallelism(SINK_KAFKA_PARALLELISM_BASE)
+                .operatorName(SINK_OPERATOR_NAME_BASE)
+                .topic(FLINK_APP_SINK_TOPIC_BASE)
+                .topicSubject(FLINK_APP_SINK_TOPIC_SUBJECT_BASE)
+                .uid(SINK_UID_BASE)
+                .slotGroup(SINK_SLOT_SHARE_GROUP_BASE)
+                .buildWithDiscardSink();
+    }
     public SingleOutputStreamOperator<UniEvent> postFilterFunctionBuilder(DataStream<UniEvent> dataStream,
                                                                           EventType eventType,
                                                                           DataCenter dataCenter) {
