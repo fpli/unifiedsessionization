@@ -6,12 +6,10 @@ import com.ebay.epic.flink.connector.kafka.config.ConfigManager;
 import com.ebay.epic.flink.connector.kafka.config.KafkaProducerConfig;
 import com.ebay.epic.flink.connector.kafka.factory.FlinkKafkaProducerFactory;
 import com.ebay.epic.utils.Property;
-import com.google.common.base.Preconditions;
 import org.apache.flink.streaming.api.datastream.DataStream;
-import org.apache.flink.streaming.connectors.kafka.KafkaDeserializationSchema;
+import org.apache.flink.streaming.api.functions.sink.DiscardingSink;
 
 import static com.ebay.epic.utils.FlinkEnvUtils.*;
-import static com.ebay.epic.utils.FlinkEnvUtils.getStringArray;
 import static com.ebay.epic.utils.Property.*;
 
 public class FlinkKafkaSinkBuilder<T> {
@@ -22,16 +20,19 @@ public class FlinkKafkaSinkBuilder<T> {
     private String uid;
     private String sinkSlotGroup;
     private int parallelism = getInteger(DEFAULT_PARALLELISM);
+    private int maxParallelism = getInteger(MAX_PARALLELISM_SINK);
     private EventType eventType;
     private String topic;
     private String topicSubject;
     private Class<T> className;
     private ConfigManager configManager;
+
     public FlinkKafkaSinkBuilder(DataStream<T> dataStream, DataCenter dc, EventType eventType) {
         this.dataStream = dataStream;
-        this.dc=dc;
-        this.eventType=eventType;
-        this.configManager = new ConfigManager(dc,eventType,true);
+        this.dc = dc;
+        this.eventType = eventType;
+        this.configManager = new ConfigManager(dc, eventType, true);
+
     }
 
     public FlinkKafkaSinkBuilder<T> operatorName(String operatorName) {
@@ -50,17 +51,38 @@ public class FlinkKafkaSinkBuilder<T> {
     }
 
     public FlinkKafkaSinkBuilder<T> topic(String topic) {
-        this.topic = configManager.getStrValueNODC(topic);
+        this.topic = configManager.getTopic(topic, configManager.constructPostFix(configManager.DEL_POINT));
         return this;
     }
 
     public FlinkKafkaSinkBuilder<T> topicSubject(String topicSubject) {
-        this.topicSubject = configManager.getStrValueNODC(topicSubject);
+        switch (this.eventType) {
+            case LATE_NATIVE: {
+                this.topicSubject = configManager.getTopicSubjectOR(topicSubject, EventType.AUTOTRACK_NATIVE);
+                break;
+            }
+            case LATE_WEB: {
+                this.topicSubject = configManager.getTopicSubjectOR(topicSubject, EventType.AUTOTRACK_WEB);
+                break;
+            }
+            case LATE_UBI_BOT: {
+                this.topicSubject = configManager.getTopicSubjectOR(topicSubject, EventType.UBI_BOT);
+                break;
+            }
+            case LATE_UBI_NONBOT: {
+                this.topicSubject = configManager.getTopicSubjectOR(topicSubject, EventType.UBI_NONBOT);
+                break;
+            }
+            default: {
+                this.topicSubject = configManager.getTopicSubject(topicSubject);
+                break;
+            }
+        }
         return this;
     }
 
     public FlinkKafkaSinkBuilder<T> slotGroup(String slotGroup) {
-        this.sinkSlotGroup = configManager.getSlotSharingGroup(slotGroup);
+        this.sinkSlotGroup = configManager.getSlotSharingGroupNoPF(slotGroup);
         return this;
     }
 
@@ -70,7 +92,7 @@ public class FlinkKafkaSinkBuilder<T> {
     }
 
     public void build() {
-        KafkaProducerConfig config = KafkaProducerConfig.build(this.dc,this.eventType);
+        KafkaProducerConfig config = KafkaProducerConfig.build(this.dc, this.eventType);
         FlinkKafkaProducerFactory producerFactory = new FlinkKafkaProducerFactory(config);
         dataStream.addSink(producerFactory.get(
                         className,
@@ -83,6 +105,21 @@ public class FlinkKafkaSinkBuilder<T> {
                 .setParallelism(parallelism)
                 .slotSharingGroup(sinkSlotGroup)
                 .name(operatorName)
-                .uid(uid);
+                .uid(uid)
+                .getTransformation()
+                .setMaxParallelism(maxParallelism);
     }
+
+    public void buildWithDiscardSink() {
+        KafkaProducerConfig config = KafkaProducerConfig.build(this.dc, this.eventType);
+        FlinkKafkaProducerFactory producerFactory = new FlinkKafkaProducerFactory(config);
+        dataStream.addSink(new DiscardingSink<>())
+                .setParallelism(parallelism)
+                .slotSharingGroup(sinkSlotGroup)
+                .name(operatorName)
+                .uid(uid)
+                .getTransformation()
+                .setMaxParallelism(maxParallelism);
+    }
+
 }

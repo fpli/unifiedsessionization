@@ -23,18 +23,19 @@ public class SourceDataStreamBuilder<T> {
     private String uid;
     private String slotGroup;
     private int parallelism = getInteger(Property.DEFAULT_PARALLELISM);
+    private int maxParallelism = getInteger(Property.MAX_PARALLELISM_DEFAULT);
     private int outOfOrderlessInMin;
     private String fromTimestamp = "0";
     private int idleSourceTimeout;
     private boolean rescaled;
     private EventType eventType;
-    public static final String DELEMITER=".";
     private ConfigManager configManager;
-    public SourceDataStreamBuilder(StreamExecutionEnvironment environment,DataCenter dc,EventType eventType) {
+
+    public SourceDataStreamBuilder(StreamExecutionEnvironment environment, DataCenter dc, EventType eventType) {
         this.environment = environment;
-        this.dc=dc;
-        this.eventType=eventType;
-        this.configManager= new ConfigManager(dc,eventType,true);
+        this.dc = dc;
+        this.eventType = eventType;
+        this.configManager = new ConfigManager(dc, eventType, true);
     }
 
     public SourceDataStreamBuilder<T> operatorName(String operatorName) {
@@ -43,7 +44,8 @@ public class SourceDataStreamBuilder<T> {
     }
 
     public SourceDataStreamBuilder<T> parallelism(String parallelism) {
-        this.parallelism = configManager.getParallelism(parallelism);
+        this.parallelism = configManager.getParallelism(parallelism,
+                configManager.constructPostFix(configManager.DEL_POINT));
         return this;
     }
 
@@ -91,7 +93,7 @@ public class SourceDataStreamBuilder<T> {
                                String operatorName, int parallelism, String uid, String slotGroup,
                                boolean rescaled) {
         Preconditions.checkNotNull(dc);
-        KafkaConsumerConfig config = KafkaConsumerConfig.build(dc,this.eventType);
+        KafkaConsumerConfig config = KafkaConsumerConfig.build(dc, this.eventType);
         FlinkKafkaSourceConfigWrapper configWrapper = new FlinkKafkaSourceConfigWrapper(
                 config, outOfOrderlessInMin, idleSourceTimeout, fromTimestamp);
         FlinkKafkaConsumerFactory factory = new FlinkKafkaConsumerFactory(configWrapper);
@@ -101,7 +103,8 @@ public class SourceDataStreamBuilder<T> {
                 .setParallelism(parallelism)
                 .slotSharingGroup(slotGroup)
                 .name(operatorName)
-                .uid(uid);
+                .uid(uid)
+                .setMaxParallelism(maxParallelism);
 
         if (rescaled) {
             return dataStream.rescale();

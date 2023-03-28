@@ -5,6 +5,8 @@ import com.ebay.epic.common.model.raw.RawEvent;
 import io.ebay.rheos.schema.event.RheosEvent;
 import org.apache.avro.generic.GenericRecord;
 
+import java.util.ArrayList;
+
 public class UtpRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> {
 
     public UtpRheosKafkaDeserializer(String schemaRegistryUrl) {
@@ -16,8 +18,10 @@ public class UtpRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         RawEvent rawEvent = new RawEvent();
         rawEvent.setGuid(genericRecord.get("guid") == null ? null : genericRecord.get("guid").toString());
         rawEvent.setEventTs(Long.valueOf(genericRecord.get("producerEventTs").toString()));
-        rawEvent.setEventType(EventType.UTP);
         rawEvent.setRheosByteArray(rheosEvent.toBytes());
+        rawEvent.setIframe(false);
+        rawEvent.setRdt((byte)0);
+        rawEvent.setBotFlags(new ArrayList<>());
         return rawEvent;
     }
 }

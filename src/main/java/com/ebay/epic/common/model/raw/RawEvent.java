@@ -1,12 +1,13 @@
 package com.ebay.epic.common.model.raw;
 
 import com.ebay.epic.common.constant.Constants;
+import com.ebay.epic.common.enums.Category;
 import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.utils.SojTimestamp;
 import lombok.Data;
-import org.apache.avro.generic.GenericRecord;
 import org.apache.commons.lang.StringUtils;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Data
@@ -15,6 +16,9 @@ public class RawEvent {
     private Long eventTs;
     private EventType eventType;
     private Integer pageId;
+    private Category category;
+    private byte rdt;
+    private Boolean iframe;
     private String globalSessionId = Constants.NO_SESSION_ID;
     private byte[] rheosByteArray;
     private Long ingestTimestamp;
@@ -24,7 +28,7 @@ public class RawEvent {
 //    private GenericRecord genericRecord;
     private String sessionId;
     private Long sessionSkey;
-
+    private List<Integer> botFlags;
     public boolean isNewSession() {
         return Constants.NO_SESSION_ID.equals(globalSessionId);
     }

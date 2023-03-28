@@ -131,11 +131,58 @@
       ]
     },
     {
+      "name": "botFlag",
+      "type": {
+        "type": "record",
+        "name": "BotFlag",
+        "fields": [
+          {
+            "name": "surface",
+            "type": [
+              "null",
+              {
+                "type": "array",
+                "items": "int"
+              }
+            ]
+          },
+          {
+            "name": "ubi",
+            "type": [
+              "null",
+              {
+                "type": "array",
+                "items": "int"
+              }
+            ]
+          },
+          {
+            "name": "utp",
+            "type": [
+              "null",
+              {
+                "type": "array",
+                "items": "int"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
       "name": "others",
       "type": {
         "type": "map",
         "values": "string"
       }
+    },
+    {
+      "name": "isOpen",
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "doc": "to identify open or end"
     }
   ]
 }

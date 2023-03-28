@@ -35,5 +35,6 @@ public class UniSessionMetrics extends RecordMetrics<UniEvent, UniSessionAccumul
     addFieldMetrics(new GlobalSessionIdMetrics());
     addFieldMetrics(new TimestampMetrics());
     addFieldMetrics(new LegacySessionIdMetrics());
+    addFieldMetrics(new BotFlagMetrics());
   }
 }

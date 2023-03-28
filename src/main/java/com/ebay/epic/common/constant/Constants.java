@@ -5,7 +5,14 @@ import java.util.TimeZone;
 public class Constants {
 
     // flink metrics
-    public static final String SOJ_METRICS_GROUP = "unified_tracking";
+    // first level metric name
+    public static final String UNIFIED_SESSION_METRICS_GROUP = "unified_sessionization";
+    // second level metric name
+    public static final String SURFACE_WEB_METRICS_GROUP = "surface_web";
+    public static final String SURFACE_NATIVE_METRICS_GROUP = "surface_native";
+    public static final String SOJ_BOT_METRICS_GROUP = "soj_bot";
+    public static final String SOJ_NONBOT_METRICS_GROUP = "soj_nonbot";
+    public static final String UTP_NONBOT_METRICS_GROUP = "utp_nonbot";
 
     // flied delimiter
     public static final String FIELD_DELIM = "\007";
@@ -37,5 +44,6 @@ public class Constants {
     public static final long MILSECOFDAY = 86400000L; // 24 * 3600 * 1000 * 1000
     public static final long MILSECOFDAYMINUS1 = 86400000L - 1L; // 24 * 3600 * 1000 * 1000
     public static final int MILLI2MICRO = 1000;
+
 }
 

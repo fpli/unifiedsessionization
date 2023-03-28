@@ -1,9 +1,25 @@
 package com.ebay.epic.utils;
 
+import com.ebay.epic.common.enums.Category;
+import com.ebay.epic.common.enums.EventType;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
+import static com.ebay.epic.common.enums.EventType.*;
 
 public class SojUtils {
 
+    private static Map<String, EventType> categoryMap = new ConcurrentHashMap<>();
+
+    static {
+        categoryMap.put("autotracking.native",AUTOTRACK_NATIVE);
+        categoryMap.put("autotracking.event",AUTOTRACK_WEB);
+        categoryMap.put("sojevent-nonbot",UBI_NONBOT);
+        categoryMap.put("sojevent-bot",UBI_BOT);
+        categoryMap.put("marketing.tracking",UTP_NONBOT);
+    }
     public static String extractNVP(String payloadValue, String PayloadKey, String keyDelimiter, String valueDelimiter) {
         if (payloadValue == null || PayloadKey == null) {
             return null;
@@ -76,5 +92,14 @@ public class SojUtils {
             }
         }
         return decoded.toString();
+    }
+
+    public static EventType getECateg(String topicName){
+       for(Map.Entry<String,EventType> entry: categoryMap.entrySet()){
+           if(topicName.contains(entry.getKey())){
+               return entry.getValue();
+           }
+       }
+       return null;
     }
 }

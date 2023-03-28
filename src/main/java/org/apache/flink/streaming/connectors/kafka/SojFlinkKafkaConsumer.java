@@ -1,6 +1,7 @@
 package org.apache.flink.streaming.connectors.kafka;
 
 import org.apache.flink.api.common.serialization.DeserializationSchema;
+import org.apache.flink.api.common.serialization.RuntimeContextInitializationContextAdapters;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.connectors.kafka.internals.KafkaDeserializationSchemaWrapper;
 
@@ -12,6 +13,7 @@ import java.util.Properties;
  * This is a temporary hack to avoid an issue in Flink 1.11.0 (https://issues.apache.org/jira/browse/FLINK-19750).
  * When upgrading to Flink 1.12+, this should not be used.
  */
+@Deprecated
 public class SojFlinkKafkaConsumer<T> extends FlinkKafkaConsumer<T> {
 
     /**
@@ -69,7 +71,8 @@ public class SojFlinkKafkaConsumer<T> extends FlinkKafkaConsumer<T> {
     public void open(Configuration configuration) throws Exception {
         super.open(configuration);
         if (getRestoredState() != null) {
-            this.deserializer.open(() -> getRuntimeContext().getMetricGroup().addGroup("user"));
+            this.deserializer.open( RuntimeContextInitializationContextAdapters.deserializationAdapter(
+                    getRuntimeContext(), metricGroup -> metricGroup.addGroup("user")));
         }
     }
 }

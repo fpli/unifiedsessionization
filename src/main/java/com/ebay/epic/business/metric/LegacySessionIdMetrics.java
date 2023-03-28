@@ -20,10 +20,10 @@ public class LegacySessionIdMetrics implements FieldMetrics<UniEvent, UniSession
   @Override
   public void feed(UniEvent event, UniSessionAccumulator uniSessionAccumulator) {
     RawUniSession rawUniSession = uniSessionAccumulator.getUniSession();
-    if(event.getEventType()== EventType.AUTOTRACK){
+    if(event.getEventType()== EventType.AUTOTRACK_WEB||event.getEventType()== EventType.AUTOTRACK_NATIVE){
       rawUniSession.getAutotrackSessIds().add(Long.valueOf(event.getSessionId()));
       rawUniSession.getAutotrackSessSkeys().add(event.getSessionSkey());
-    }else if(event.getEventType()==EventType.UBI){
+    }else if(event.getEventType()==EventType.UBI_BOT||event.getEventType()==EventType.UBI_NONBOT){
       rawUniSession.getUbiSessIds().add(event.getSessionId());
       rawUniSession.getUbiSessSkeys().add(event.getSessionSkey());
     }

@@ -4,22 +4,59 @@ flink:
     parallelism:
       default: 50
       source:
-        autotrack: 60
-        ubi: 200
-        utp: 80
-      pre-filter: 400
-      normalizer: 600
-      session: 600
-      post-filter:
-        autotrack: 200
-        ubi: 200
-        utp: 100
+        autotrack:
+          web:
+            nonbot: 50
+          native:
+            nonbot: 10
+        ubi:
+          ubi:
+            nonbot: 400
+            bot: 400
+        utp:
+          utp:
+            nonbot: 80
+      pre-filter:
+        autotrack:
+          web:
+            nonbot: 50
+          native:
+            nonbot: 10
+        ubi:
+          ubi:
+            nonbot: 400
+            bot: 400
+        utp:
+          utp:
+            nonbot: 80
+      normalizer:
+        autotrack:
+          web:
+            nonbot: 50
+          native:
+            nonbot: 10
+        ubi:
+          ubi:
+            nonbot: 400
+            bot: 400
+        utp:
+          utp:
+            nonbot: 80
+      session: 1260
+      split:
+        default: 1260
+        late: 1260
+        session: 1260
       sink-kafka:
-        autotrack: 200
-        ubi: 200
-        utp: 100
-        session: 50
-      max: 2000
+        autotrack: 1260
+        ubi: 1260
+        utp: 1260
+        session: 1260
+        late: 1260
+      max:
+        default: 2400
+        session: 5040
+        sink: 5040
     checkpoint:
       data-dir: /opt/tracking-behavior/checkpoint
       interval-ms: 300000
@@ -48,77 +85,129 @@ flink:
       dc: rno
       kafka:
         topic:
-          autotrack: behavior.total.new.surfaceevent
-          ubi: behavior.total.new.sojevent-poc
-          utp: behavior.total.new.utpevent
-          session: behavior.total.new.unisession
+          autotrack:
+            web:
+              nonbot: behavior.unified.surface.event.sessionized-rno
+            native:
+              nonbot: behavior.unified.surface.native.event.sessionized-rno
+          ubi:
+            ubi:
+              bot: behavior.unified.sojourner.bot.sojevent-rno
+              nonbot: behavior.unified.sojourner.nonbot.sojevent-rno
+          utp:
+            utp:
+              nonbot: behavior.total.new.utpevent
+          late:
+              web:
+                nonbot: behavior.unified.surface.late.event.web-rno
+              native:
+                nonbot: behavior.unified.surface.late.event.native-rno
+              ubi:
+                bot: behavior.unified.sojourner.bot.late.sojevent-rno
+                nonbot: behavior.unified.sojourner.nonbot.late.sojevent-rno
+          session:
+            session:
+              nonbot: behavior.unified.sojourner.nonbot.unisession-rno
         subject:
           autotrack: SessionizedEvent
           ubi: behavior.sojourner.sojevent.schema
           utp: UnifiedTrackingRheosEvent
           session: unisessionschema
+    metric:
+      window-size: 70000
     slot-sharing-group:
       source:
         autotrack: autotrack-source
         ubi: sojourner-source
         utp: marketing-tracking-source
-      pre-filter: prefilter-operator
-      normalizer: prefilter-operator
+      pre-filter:
+        autotrack: autotrack-source
+        ubi: sojourner-source
+        utp: marketing-tracking-source
+      normalizer:
+        autotrack: autotrack-source
+        ubi: sojourner-source
+        utp: marketing-tracking-source
       session-window: session-operator
-      post-filter: postfilter-operator
+      split: session-operator
       sink:
-        autotrack: autotrack-sink-to-kafka
-        ubi: sojourner-sink-to-kafka
-        utp: marketing-tracking-sink-to-kafka
-        session: unisession-sink-to-kafka
+        default: session-operator
+#        autotrack: autotrack-sink-to-kafka
+#        ubi: sojourner-sink-to-kafka
+#        utp: marketing-tracking-sink-to-kafka
+#        late: late-event-sink-to-kafka
+#        session: unisession-sink-to-kafka
     operator-name:
       source:
         autotrack: AutoTrack Source
         ubi: Sojourner Source
         utp: Marketing Tracking Source
-      pre-filter: PreFilter Operator
-      normalizer: Normalizer Operator
+      pre-filter:
+        autotrack: AutoTrack PreFilter Operator
+        ubi: Sojourner PreFilter Operator
+        utp: Marketing PreFilter Operator
+      normalizer:
+        autotrack: AutoTrack Normalizer Operator
+        ubi: Sojourner Normalizer Operator
+        utp: Marketing Normalizer Operator
       session-window: Session Operator
-      post-filter:
-        autotrack: AutoTrack PostFilter Operator
-        ubi: UBI PostFilter Operator
-        utp: UTP PostFilter Operator
+      split:
+        default: Main Split Operator
+        late: Late Split Operator
+        session: Session Split Operator
       sink:
         autotrack: AutoTracking Sink to Kafka
         ubi: Sojourner Sink to Kafka
         utp: Marketing Tracking Sink To Kafka
         session: UniSession Sink to Kafka
+        late: Late Event Sink to Kafka
     uid:
       source:
         autotrack: autotrack-source
         ubi: sojourner-source
         utp: marketing-tracking-source
-      pre-filter: prefilter-operator
-      normalizer: normalizer-0perator
+      pre-filter:
+        autotrack: autotrack-prefilter-operator
+        ubi: sojourner-prefilter-operator
+        utp: marketing-tracking-prefilter-operator
+      normalizer:
+        autotrack: autotrack-normalizer-0perator
+        ubi: sojourner-normalizer-0perator
+        utp: marketing-tracking-normalizer-0perator
       session-window: session-operator
-      post-filter:
-        autotrack: autotrack-postFilter-operator
-        ubi: ubi-postFilter-operator
-        utp: utp-postFilter-operator
+      split:
+        default: main-split-operator
+        late: late-split-operator
+        session: session-split-operator
       sink:
         autotrack: autotracking-sink-to-kafka
         ubi: sojourner-sink-to-kafka
         utp: marketing-tracking-sink-to-kafka
         session: unisession-sink-to-kafka
+        late: late-event-sink-to-kafka
 kafka:
   consumer:
       group-id: unified-sessionization-prod
       topic:
         autotrack:
-          - behavior.autotracking.native.event.sessionized
-          - behavior.autotracking.event.sessionized
+          web:
+            nonbot:
+              - behavior.autotracking.native.event.sessionized
+          native:
+            nonbot:
+              - behavior.autotracking.event.sessionized
         ubi:
-          - behavior.totalv2.sojevent-nonbot-rno
-          - behavior.totalv2.sojevent-nonbot-lvs
-          - behavior.totalv2.sojevent-bot-rno
-          - behavior.totalv2.sojevent-bot-lvs
+          ubi:
+            nonbot:
+              - behavior.totalv2.sojevent-nonbot-rno
+              - behavior.totalv2.sojevent-nonbot-lvs
+            bot:
+              - behavior.totalv2.sojevent-bot-rno
+              - behavior.totalv2.sojevent-bot-lvs
         utp:
-          - marketing.tracking.events.total
+          utp:
+            nonbot:
+              - marketing.tracking.events.total
       bootstrap-servers:
         rno:
           autotrack:
@@ -166,7 +255,7 @@ kafka:
             - rhs-ncrvkiaa-kfk-slc-4.rheos-streaming-prod.svc.40.tess.io:9092
             - rhs-ncrvkiaa-kfk-slc-5.rheos-streaming-prod.svc.40.tess.io:9092
       max-poll-records:
-        default: 3000
+        default: 6000
       # 16MB, default value is 50MB
       fetch-max-bytes:
         default: 16777216
@@ -189,29 +278,84 @@ kafka:
     bootstrap-servers:
       rno:
         autotrack:
-          - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+          web:
+            nonbot:
+              - rhs-xfcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+          native:
+            nonbot:
+              - rhs-xfcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
         ubi:
-          - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+          ubi:
+            nonbot:
+              - rhs-ddcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+            bot:
+              - rhs-necwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-necwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-necwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-necwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-necwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
         utp:
-          - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+          utp:
+            nonbot:
+              - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+        late:
+          web:
+            nonbot:
+              - rhs-xfcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+          native:
+            nonbot:
+              - rhs-xfcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-xfcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+          ubi:
+            nonbot:
+              - rhs-ddcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+            bot:
+              - rhs-necwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-necwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-necwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-necwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-necwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
         session:
-          - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-          - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+          session:
+            bot:
+              - rhs-ddcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+            nonbot:
+              - rhs-ddcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
     batch-size:
       default: 524288
     acks:

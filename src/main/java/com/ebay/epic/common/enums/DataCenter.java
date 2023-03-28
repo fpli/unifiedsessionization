@@ -10,7 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 public enum DataCenter {
   RNO("RNO"),
   SLC("SLC"),
-  LVS("LVS");
+  LVS("LVS"),
+  DEFAULT("");
 
   private final String value;
 

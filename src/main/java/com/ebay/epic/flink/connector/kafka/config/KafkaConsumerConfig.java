@@ -53,7 +53,7 @@ public class KafkaConsumerConfig extends KafkaCommonConfig {
                 RoundRobinAssignor.class.getName());
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,
                 this.getConfigManager().getStrValueNODC(AUTO_RESET_OFFSET_BASE));
-        // for new added partitions
+        // for auto-detection on the new added partitions
         properties.put("flink.partition-discovery.interval-millis",
                 this.getConfigManager().getIntValueNODC(PARTITION_DISCOVERY_INTERVAL_MS_BASE));
     }

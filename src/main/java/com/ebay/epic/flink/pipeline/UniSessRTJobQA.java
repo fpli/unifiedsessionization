@@ -19,6 +19,7 @@
 package com.ebay.epic.flink.pipeline;
 
 import com.ebay.epic.common.constant.OutputTagConstants;
+import com.ebay.epic.common.enums.Category;
 import com.ebay.epic.common.enums.EventType;
 import com.ebay.epic.common.model.UniSession;
 import com.ebay.epic.common.model.raw.RawEvent;
@@ -60,15 +61,17 @@ public class UniSessRTJobQA extends FlinkBaseJob {
         UniSessRTJobQA uniSessRTJob = new UniSessRTJobQA();
 
         // consumer
-        DataStream<RawEvent> ubi = uniSessRTJob.consumerBuilder(see, EventType.UBI, SLC);
+        DataStream<RawEvent> ubi = uniSessRTJob.consumerBuilder(see, EventType.UBI_NONBOT, SLC);
 
         // Filter logic before normalizer
         val rawEventPreFilterDS =
-                uniSessRTJob.preFilterFunctionBuilder(ubi, EventType.UBI, null);
+                uniSessRTJob.preFilterFunctionBuilder(ubi,EventType.UBI_NONBOT,SLC);
+
+        //normalizer
         val rawEventNormalizerDs
-                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDS,EventType.UBI,null);
+                = uniSessRTJob.normalizerFunctionBuilder(rawEventPreFilterDS,EventType.UBI_NONBOT,SLC);
         // session window
-        SingleOutputStreamOperator<RawUniSession> uniSessionDataStream =
+        SingleOutputStreamOperator<UniSession> uniSessionDataStream =
                 rawEventNormalizerDs
                         .keyBy("guid")
                         .window(RawEventTimeSessionWindows.withGapAndMaxDuration(Time.minutes(30),
@@ -80,12 +83,12 @@ public class UniSessRTJobQA extends FlinkBaseJob {
                         .aggregate(new UniSessionAgg(), new UniSessionWindowProcessFunction())
                         .setParallelism(getInteger(Property.SESSION_PARALLELISM))
                         .slotSharingGroup(getString(SESSION_WINDOR_SLOT_SHARE_GROUP))
-                        .name("Session Operator")
-                        .uid("session-operator")
-                        .setMaxParallelism(getInteger(PARALLELISM_MAX));
+                        .name(getString(SESSION_WINDOR_OPERATOR_NAME))
+                        .uid(getString(SESSION_WINDOR_UID))
+                        .setMaxParallelism(getInteger(PARALLELISM_MAX_SESSION));
 
         WindowOperatorHelper.enrichWindowOperator(
-                (OneInputTransformation<UniEvent, RawUniSession>) uniSessionDataStream.getTransformation(),
+                (OneInputTransformation<UniEvent, UniSession>) uniSessionDataStream.getTransformation(),
                 new RawEventMapWithStateFunction(),
                 OutputTagConstants.mappedEventOutputTag);
 
@@ -95,17 +98,11 @@ public class UniSessRTJobQA extends FlinkBaseJob {
                 uniSessionDataStream.getSideOutput(OutputTagConstants.lateEventOutputTag);
 
 //        DataStream<UniEvent> surfaceDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.AUTOTRACK, RNO);
-        DataStream<UniEvent> ubiDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.UBI, RNO);
+        DataStream<UniEvent> ubiDS = uniSessRTJob.postFilterFunctionBuilder
+                (rawEventWithSessionId, EventType.UBI_NONBOT, RNO);
 //        DataStream<UniEvent> utpDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.UTP, RNO);
-        SingleOutputStreamOperator<UniSession> uniSessionDS =
-                uniSessionDataStream
-                        .process(new RawUniSessionToUniSessionProcessFunction())
-                        .setParallelism(getInteger(Property.SESSION_PARALLELISM))
-                        .slotSharingGroup(getString(SESSION_WINDOR_SLOT_SHARE_GROUP))
-                        .name("RawUniSession to UniSession")
-                        .uid("RawUniSession-to-UniSession");
         ubiDS.print().uid("testevent").slotSharingGroup("local").setParallelism(1);
-        uniSessionDS.print().uid("testsess").slotSharingGroup("local").setParallelism(1);
+        uniSessionDataStream.print().uid("testsess").slotSharingGroup("local").setParallelism(1);
 //        uniSessRTJob.kafkaSinkBuilder(surfaceDS, EventType.AUTOTRACK, RNO);
 //        uniSessRTJob.kafkaSinkBuilder(ubiDS, EventType.UBI, RNO);
 //        uniSessRTJob.kafkaSinkBuilder(utpDS, EventType.UTP, RNO);

@@ -3,6 +3,7 @@ package com.ebay.epic.flink.connector.kafka;
 import com.ebay.epic.common.enums.DataCenter;
 import com.ebay.epic.common.enums.EventType;
 import com.ebay.epic.flink.connector.kafka.config.ConfigManager;
+import com.ebay.epic.utils.Property;
 import org.apache.flink.api.common.functions.RichFilterFunction;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
@@ -18,37 +19,47 @@ public class FlinkFilterFunctionBuilder<T> {
     private String uid;
     private String slotGroup;
     private int parallelism = getInteger(DEFAULT_PARALLELISM);
+    private int maxParallelism = getInteger(Property.MAX_PARALLELISM_DEFAULT);
     private EventType eventType;
-    public static final String DELEMITER = ".";
     private ConfigManager configManager;
     private RichFilterFunction<T> richFilterFunction;
-    private Boolean isDrived;
+
+    public FlinkFilterFunctionBuilder(DataStream<T> dataStream, DataCenter dc, Boolean isDrived) {
+        this(dataStream, dc, EventType.DEFAULT, isDrived);
+    }
+
+    public FlinkFilterFunctionBuilder(DataStream<T> dataStream) {
+        this(dataStream, null, EventType.DEFAULT, false);
+    }
 
     public FlinkFilterFunctionBuilder(DataStream<T> dataStream, DataCenter dc, EventType eventType, Boolean isDrived) {
         this.dataStream = dataStream;
         this.dc = dc;
         this.eventType = eventType;
-        this.configManager = new ConfigManager(eventType);
+        this.configManager = new ConfigManager();
+        this.configManager.setEventType(eventType);
         this.configManager.setDrived(isDrived);
     }
 
+
     public FlinkFilterFunctionBuilder<T> operatorName(String operatorName) {
-        this.operatorName = configManager.getStrValueNODC(operatorName) +" " +this.eventType.getValue();
+        this.operatorName = configManager.getOPNameNODC(operatorName);
         return this;
     }
 
     public FlinkFilterFunctionBuilder<T> parallelism(String parallelism) {
-        this.parallelism = configManager.getParallelism(parallelism);
+        this.parallelism = configManager.getParallelism(parallelism,
+                configManager.constructPostFix(configManager.DEL_POINT));
         return this;
     }
 
     public FlinkFilterFunctionBuilder<T> uid(String uid) {
-        this.uid = configManager.getStrValueNODC(uid)+" " +this.eventType.getValue();
+        this.uid = configManager.getOPUid(uid);
         return this;
     }
 
     public FlinkFilterFunctionBuilder<T> slotGroup(String slotGroup) {
-        this.slotGroup = configManager.getSlotSharingGroup(slotGroup) ;
+        this.slotGroup = configManager.getSlotSharingGroup(slotGroup);
         return this;
     }
 
@@ -62,6 +73,7 @@ public class FlinkFilterFunctionBuilder<T> {
                 .setParallelism(parallelism)
                 .name(operatorName)
                 .slotSharingGroup(slotGroup)
-                .uid(uid);
+                .uid(uid)
+                .setMaxParallelism(maxParallelism);
     }
 }
