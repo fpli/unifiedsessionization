@@ -49,6 +49,9 @@ public class RawUniSession {
         this.autotrackSessIds.addAll(uniSession.getAutotrackSessIds());
         this.ubiSessSkeys.addAll(uniSession.getUbiSessSkeys());
         this.autotrackSessSkeys.addAll(uniSession.getAutotrackSessSkeys());
+        this.surfaceBotList.addAll(uniSession.getSurfaceBotList());
+        this.ubiBotList.addAll(uniSession.getUbiBotList());
+        this.sutpBotList.addAll(uniSession.getSutpBotList());
         if (this.trafficSourceTs == null || (uniSession.getTrafficSourceTs() != null
                 && this.trafficSourceTs > uniSession.getTrafficSourceTs()))
         {
