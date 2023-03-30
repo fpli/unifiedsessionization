@@ -46,9 +46,9 @@ public class UniSessionWindowProcessFunction
         rheosHeader.setSchemaId(-999);
         uniSession.setRheosHeader(rheosHeader);
         BotFlag botFlag = new BotFlag();
-        botFlag.setSurface(Arrays.asList(0));
-        botFlag.setUbi(Arrays.asList(0));
-        botFlag.setUtp(Arrays.asList(0));
+        botFlag.setSurface(Lists.newArrayList(rawUniSession.getSurfaceBotList()));
+        botFlag.setUbi(Lists.newArrayList(rawUniSession.getUbiBotList()));
+        botFlag.setUtp(Lists.newArrayList(rawUniSession.getSutpBotList()));
         uniSession.setBotFlag(botFlag);
         out.collect(uniSession);
     }

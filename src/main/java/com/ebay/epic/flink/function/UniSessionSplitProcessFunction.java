@@ -26,7 +26,9 @@ public class UniSessionSplitProcessFunction extends ProcessFunction<UniSession,U
         &&t.getBotFlag().getUtp().size()==1&&t.getBotFlag().getUtp().contains(0)){
             return EventType.SESSION_NONBOT.getFullName();
         }else{
-            return EventType.SESSION_BOT.getFullName();
+            return EventType.SESSION_NONBOT.getFullName();
+            // TODO need to enable bot detection and make some enhancement
+            //            return EventType.SESSION_BOT.getFullName();
         }
     }
 }
