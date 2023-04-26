@@ -27,8 +27,8 @@ import com.ebay.epic.soj.flink.function.*;
 import com.ebay.epic.soj.flink.window.CompositeTrigger;
 import com.ebay.epic.soj.flink.window.MidnightOpenSessionTrigger;
 import com.ebay.epic.soj.flink.window.RawEventTimeSessionWindows;
-import com.ebay.epic.soj.utils.FlinkEnvUtils;
-import com.ebay.epic.soj.utils.Property;
+import com.ebay.epic.soj.flink.utils.FlinkEnvUtils;
+import com.ebay.epic.soj.common.utils.Property;
 import lombok.val;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
@@ -41,8 +41,8 @@ import org.apache.flink.streaming.runtime.operators.windowing.WindowOperatorHelp
 import static com.ebay.epic.soj.common.constant.OutputTagConstants.*;
 import static com.ebay.epic.soj.common.enums.DataCenter.*;
 import static com.ebay.epic.soj.common.enums.EventType.*;
-import static com.ebay.epic.soj.common.utils.FlinkEnvUtils.*;
-import static com.ebay.epic.utils.Property.*;
+import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.*;
+import static com.ebay.epic.soj.common.utils.Property.*;
 
 public class UniSessRTJob extends FlinkBaseJob {
 

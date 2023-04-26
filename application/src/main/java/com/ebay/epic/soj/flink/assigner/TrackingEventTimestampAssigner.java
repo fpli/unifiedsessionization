@@ -1,6 +1,6 @@
 package com.ebay.epic.soj.flink.assigner;
 
-import com.ebay.epic.utils.TimestampFieldExtractor;
+import com.ebay.epic.soj.common.utils.TimestampFieldExtractor;
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;
 import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;

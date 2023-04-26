@@ -1,11 +1,11 @@
 package com.ebay.epic.soj.flink.function;
 
-import com.ebay.epic.business.metric.UniSessionMetrics;
-import com.ebay.epic.common.model.BotFlag;
-import com.ebay.epic.common.model.RheosHeader;
-import com.ebay.epic.common.model.UniSession;
-import com.ebay.epic.common.model.raw.RawUniSession;
-import com.ebay.epic.common.model.UniSessionAccumulator;
+import com.ebay.epic.soj.business.metric.UniSessionMetrics;
+import com.ebay.epic.soj.common.model.BotFlag;
+import com.ebay.epic.soj.common.model.RheosHeader;
+import com.ebay.epic.soj.common.model.UniSession;
+import com.ebay.epic.soj.common.model.raw.RawUniSession;
+import com.ebay.epic.soj.common.model.UniSessionAccumulator;
 import com.google.common.collect.Lists;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.typeutils.base.LongSerializer;

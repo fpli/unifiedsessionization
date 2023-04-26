@@ -1,9 +1,9 @@
 package com.ebay.epic.soj.business.metric;
 
-import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.common.model.UniSessionAccumulator;
-import com.ebay.epic.common.model.raw.RawUniSession;
-import com.ebay.epic.common.model.raw.UniEvent;
+import com.ebay.epic.soj.common.enums.EventType;
+import com.ebay.epic.soj.common.model.UniSessionAccumulator;
+import com.ebay.epic.soj.common.model.raw.RawUniSession;
+import com.ebay.epic.soj.common.model.raw.UniEvent;
 
 import java.util.concurrent.CopyOnWriteArraySet;
 

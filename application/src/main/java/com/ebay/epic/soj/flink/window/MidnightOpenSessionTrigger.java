@@ -1,6 +1,6 @@
 package com.ebay.epic.soj.flink.window;
 
-import com.ebay.epic.common.DateTimeUtils;
+import com.ebay.epic.soj.common.utils.DateTimeUtils;
 import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.triggers.Trigger;
 import org.apache.flink.streaming.api.windowing.triggers.TriggerResult;

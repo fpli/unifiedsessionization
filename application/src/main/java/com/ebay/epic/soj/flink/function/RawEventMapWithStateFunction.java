@@ -1,8 +1,8 @@
 package com.ebay.epic.soj.flink.function;
 
-import com.ebay.epic.common.model.UniSessionAccumulator;
-import com.ebay.epic.common.model.raw.RawUniSession;
-import com.ebay.epic.common.model.raw.UniEvent;
+import com.ebay.epic.soj.common.model.UniSessionAccumulator;
+import com.ebay.epic.soj.common.model.raw.RawUniSession;
+import com.ebay.epic.soj.common.model.raw.UniEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.streaming.runtime.operators.windowing.MapWithStateFunction;
 

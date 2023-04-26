@@ -1,6 +1,6 @@
 package com.ebay.epic.soj.business.filter;
 
-import com.ebay.epic.common.model.raw.RawEvent;
+import com.ebay.epic.soj.common.model.raw.RawEvent;
 
 public class EventPreFilter extends RecordFilter<RawEvent> {
     @Override

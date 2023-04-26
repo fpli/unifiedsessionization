@@ -1,7 +1,7 @@
 {
   "type": "record",
   "name": "SojEvent",
-  "namespace": "com.ebay.epic.soj.model",
+  "namespace": "com.ebay.epic.soj.common.model",
   "doc": " tags not included but in UbiEvent: current_impr_id, source_impr_id, staticPageType, reservedForFuture, eventAttr, oldSessionSkey, seqNum, sessionStartDt, sojDataDt, version",
   "fields": [
     {

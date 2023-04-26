@@ -1,6 +1,6 @@
 package com.ebay.epic.soj.flink.connector.kafka.serde;
 
-import com.ebay.epic.common.model.raw.RawEvent;
+import com.ebay.epic.soj.common.model.raw.RawEvent;
 import io.ebay.rheos.schema.event.RheosEvent;
 import org.apache.avro.generic.GenericRecord;
 

@@ -14,8 +14,8 @@ import org.apache.avro.message.SchemaStore;
 /**  tags not included but in UbiEvent: current_impr_id, source_impr_id, staticPageType, reservedForFuture, eventAttr, oldSessionSkey, seqNum, sessionStartDt, sojDataDt, version */
 @org.apache.avro.specific.AvroGenerated
 public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3793072800094201003L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SojEvent\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"doc\":\" tags not included but in UbiEvent: current_impr_id, source_impr_id, staticPageType, reservedForFuture, eventAttr, oldSessionSkey, seqNum, sessionStartDt, sojDataDt, version\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},\"doc\":\"Rheos header\"},{\"name\":\"guid\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"eventTimestamp\",\"type\":\"long\",\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from timestamp, publish time\"},{\"name\":\"eventCaptureTime\",\"type\":[\"null\",\"long\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=mobile specific, map from mtsts, used for mobile case\"},{\"name\":\"requestCorrelationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=request correlation id, map from tag rq\"},{\"name\":\"cguid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=correlation guid, map from tag n\"},{\"name\":\"sid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=Sojourner key for source id\"},{\"name\":\"pageId\",\"type\":[\"null\",\"int\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag p\"},{\"name\":\"pageName\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"pageFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag pgf\"},{\"name\":\"eventFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from efam of pulsar event, event family\"},{\"name\":\"eventAction\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from eactn of pulsar event, event action\"},{\"name\":\"userId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag u/bu\"},{\"name\":\"clickId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=Click Id, map from tag c\"},{\"name\":\"siteId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=Site ID, map from tag t\"},{\"name\":\"sessionId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag snid\"},{\"name\":\"seqNum\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag snsq\"},{\"name\":\"ciid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"siid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rdt\",\"type\":[\"null\",\"int\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=1 indicates that the command redirected to another URL\"},{\"name\":\"regu\",\"type\":[\"null\",\"int\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=indicating that this is a registered user, map from tag regU\"},{\"name\":\"iframe\",\"type\":[\"null\",\"boolean\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag _ifrm\"},{\"name\":\"refererHash\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag r\"},{\"name\":\"sqr\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=search keyword, map from tag sQr\"},{\"name\":\"itemId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag itm/item\"},{\"name\":\"flags\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag flgs\"},{\"name\":\"urlQueryString\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag Referer\"},{\"name\":\"webServer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=web server, map from Server\"},{\"name\":\"cookies\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag ck/C\"},{\"name\":\"bot\",\"type\":[\"null\",\"int\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag bott\"},{\"name\":\"clientIP\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"remoteIP\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag RemoteIP\"},{\"name\":\"agentInfo\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag Agent\"},{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=application ID, map from tag app\"},{\"name\":\"appVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=application version, map from mav\"},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=operation system version, map from osv\"},{\"name\":\"trafficSource\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from trffc_src\"},{\"name\":\"cobrand\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from cbrnd\"},{\"name\":\"deviceFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_d\"},{\"name\":\"deviceType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_dc\"},{\"name\":\"browserVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_bv\"},{\"name\":\"browserFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_bf\"},{\"name\":\"osFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_os\"},{\"name\":\"enrichedOsVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_osv\"},{\"name\":\"applicationPayload\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}},{\"name\":\"rlogid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"CAL request log id\",\"default\":null,\"avro.java.string\":\"String\"},{\"name\":\"clientData\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"},\"doc\":\"Includes ForwardFor, ContentLength, Script, Server, Encoding, TMachine, TStamp, TName, TStatus, TDuration, TPayload\"},{\"name\":\"ingestTime\",\"type\":[\"null\",\"long\"]},{\"name\":\"sessionSkey\",\"type\":[\"null\",\"long\"]},{\"name\":\"sessionStartDt\",\"type\":[\"null\",\"long\"]},{\"name\":\"sojDataDt\",\"type\":[\"null\",\"long\"]},{\"name\":\"version\",\"type\":[\"null\",\"int\"]},{\"name\":\"staticPageType\",\"type","\":[\"null\",\"int\"]},{\"name\":\"reservedForFuture\",\"type\":[\"null\",\"int\"]},{\"name\":\"eventAttr\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"currentImprId\",\"type\":[\"null\",\"long\"]},{\"name\":\"sourceImprId\",\"type\":[\"null\",\"long\"]},{\"name\":\"oldSessionSkey\",\"type\":[\"null\",\"long\"]},{\"name\":\"partialValidPage\",\"type\":[\"null\",\"boolean\"]},{\"name\":\"botFlags\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}],\"default\":null},{\"name\":\"icfBinary\",\"type\":[\"null\",\"long\"]},{\"name\":\"eventCnt\",\"type\":[\"null\",\"long\"]},{\"name\":\"referrer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"forwardedFor\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rv\",\"type\":[\"null\",\"boolean\"]},{\"name\":\"sojHeader\",\"type\":[\"null\",{\"type\":\"map\",\"values\":\"bytes\",\"avro.java.string\":\"String\"}],\"default\":null}]}");
+  private static final long serialVersionUID = -4823588692887035646L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SojEvent\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"doc\":\" tags not included but in UbiEvent: current_impr_id, source_impr_id, staticPageType, reservedForFuture, eventAttr, oldSessionSkey, seqNum, sessionStartDt, sojDataDt, version\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},\"doc\":\"Rheos header\"},{\"name\":\"guid\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"eventTimestamp\",\"type\":\"long\",\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from timestamp, publish time\"},{\"name\":\"eventCaptureTime\",\"type\":[\"null\",\"long\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=mobile specific, map from mtsts, used for mobile case\"},{\"name\":\"requestCorrelationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=request correlation id, map from tag rq\"},{\"name\":\"cguid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=correlation guid, map from tag n\"},{\"name\":\"sid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=Sojourner key for source id\"},{\"name\":\"pageId\",\"type\":[\"null\",\"int\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag p\"},{\"name\":\"pageName\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"pageFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag pgf\"},{\"name\":\"eventFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from efam of pulsar event, event family\"},{\"name\":\"eventAction\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from eactn of pulsar event, event action\"},{\"name\":\"userId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag u/bu\"},{\"name\":\"clickId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=Click Id, map from tag c\"},{\"name\":\"siteId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=Site ID, map from tag t\"},{\"name\":\"sessionId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag snid\"},{\"name\":\"seqNum\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag snsq\"},{\"name\":\"ciid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"siid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rdt\",\"type\":[\"null\",\"int\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=1 indicates that the command redirected to another URL\"},{\"name\":\"regu\",\"type\":[\"null\",\"int\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=indicating that this is a registered user, map from tag regU\"},{\"name\":\"iframe\",\"type\":[\"null\",\"boolean\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag _ifrm\"},{\"name\":\"refererHash\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag r\"},{\"name\":\"sqr\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=search keyword, map from tag sQr\"},{\"name\":\"itemId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag itm/item\"},{\"name\":\"flags\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag flgs\"},{\"name\":\"urlQueryString\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag Referer\"},{\"name\":\"webServer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=web server, map from Server\"},{\"name\":\"cookies\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag ck/C\"},{\"name\":\"bot\",\"type\":[\"null\",\"int\"],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag bott\"},{\"name\":\"clientIP\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"remoteIP\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag RemoteIP\"},{\"name\":\"agentInfo\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from tag Agent\"},{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=application ID, map from tag app\"},{\"name\":\"appVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=application version, map from mav\"},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=operation system version, map from osv\"},{\"name\":\"trafficSource\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from trffc_src\"},{\"name\":\"cobrand\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from cbrnd\"},{\"name\":\"deviceFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_d\"},{\"name\":\"deviceType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_dc\"},{\"name\":\"browserVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_bv\"},{\"name\":\"browserFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_bf\"},{\"name\":\"osFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_os\"},{\"name\":\"enrichedOsVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"dataClassification=Internal|isEncrypted=false|description=map from dd_osv\"},{\"name\":\"applicationPayload\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}},{\"name\":\"rlogid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"CAL request log id\",\"default\":null,\"avro.java.string\":\"String\"},{\"name\":\"clientData\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"},\"doc\":\"Includes ForwardFor, ContentLength, Script, Server, Encoding, TMachine, TStamp, TName, TStatus, TDuration, TPayload\"},{\"name\":\"ingestTime\",\"type\":[\"null\",\"long\"]},{\"name\":\"sessionSkey\",\"type\":[\"null\",\"long\"]},{\"name\":\"sessionStartDt\",\"type\":[\"null\",\"long\"]},{\"name\":\"sojDataDt\",\"type\":[\"null\",\"long\"]},{\"name\":\"version\",\"type\":[\"null\",\"int\"]},{\"name\":\"staticPageType\",\"","type\":[\"null\",\"int\"]},{\"name\":\"reservedForFuture\",\"type\":[\"null\",\"int\"]},{\"name\":\"eventAttr\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"currentImprId\",\"type\":[\"null\",\"long\"]},{\"name\":\"sourceImprId\",\"type\":[\"null\",\"long\"]},{\"name\":\"oldSessionSkey\",\"type\":[\"null\",\"long\"]},{\"name\":\"partialValidPage\",\"type\":[\"null\",\"boolean\"]},{\"name\":\"botFlags\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}],\"default\":null},{\"name\":\"icfBinary\",\"type\":[\"null\",\"long\"]},{\"name\":\"eventCnt\",\"type\":[\"null\",\"long\"]},{\"name\":\"referrer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"forwardedFor\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"rv\",\"type\":[\"null\",\"boolean\"]},{\"name\":\"sojHeader\",\"type\":[\"null\",{\"type\":\"map\",\"values\":\"bytes\",\"avro.java.string\":\"String\"}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -54,111 +54,111 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
 
   /** Rheos header */
   @Deprecated public com.ebay.epic.soj.common.model.RheosHeader rheosHeader;
-  @Deprecated public String guid;
+  @Deprecated public java.lang.String guid;
   /** dataClassification=Internal|isEncrypted=false|description=map from timestamp, publish time */
   @Deprecated public long eventTimestamp;
   /** dataClassification=Internal|isEncrypted=false|description=mobile specific, map from mtsts, used for mobile case */
-  @Deprecated public Long eventCaptureTime;
+  @Deprecated public java.lang.Long eventCaptureTime;
   /** dataClassification=Internal|isEncrypted=false|description=request correlation id, map from tag rq */
-  @Deprecated public String requestCorrelationId;
+  @Deprecated public java.lang.String requestCorrelationId;
   /** dataClassification=Internal|isEncrypted=false|description=correlation guid, map from tag n */
-  @Deprecated public String cguid;
+  @Deprecated public java.lang.String cguid;
   /** dataClassification=Internal|isEncrypted=false|description=Sojourner key for source id */
-  @Deprecated public String sid;
+  @Deprecated public java.lang.String sid;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag p */
-  @Deprecated public Integer pageId;
-  @Deprecated public String pageName;
+  @Deprecated public java.lang.Integer pageId;
+  @Deprecated public java.lang.String pageName;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag pgf */
-  @Deprecated public String pageFamily;
+  @Deprecated public java.lang.String pageFamily;
   /** dataClassification=Internal|isEncrypted=false|description=map from efam of pulsar event, event family */
-  @Deprecated public String eventFamily;
+  @Deprecated public java.lang.String eventFamily;
   /** dataClassification=Internal|isEncrypted=false|description=map from eactn of pulsar event, event action */
-  @Deprecated public String eventAction;
+  @Deprecated public java.lang.String eventAction;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag u/bu */
-  @Deprecated public String userId;
+  @Deprecated public java.lang.String userId;
   /** dataClassification=Internal|isEncrypted=false|description=Click Id, map from tag c */
-  @Deprecated public String clickId;
+  @Deprecated public java.lang.String clickId;
   /** dataClassification=Internal|isEncrypted=false|description=Site ID, map from tag t */
-  @Deprecated public String siteId;
+  @Deprecated public java.lang.String siteId;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag snid */
-  @Deprecated public String sessionId;
+  @Deprecated public java.lang.String sessionId;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag snsq */
-  @Deprecated public String seqNum;
-  @Deprecated public String ciid;
-  @Deprecated public String siid;
+  @Deprecated public java.lang.String seqNum;
+  @Deprecated public java.lang.String ciid;
+  @Deprecated public java.lang.String siid;
   /** dataClassification=Internal|isEncrypted=false|description=1 indicates that the command redirected to another URL */
-  @Deprecated public Integer rdt;
+  @Deprecated public java.lang.Integer rdt;
   /** dataClassification=Internal|isEncrypted=false|description=indicating that this is a registered user, map from tag regU */
-  @Deprecated public Integer regu;
+  @Deprecated public java.lang.Integer regu;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag _ifrm */
-  @Deprecated public Boolean iframe;
+  @Deprecated public java.lang.Boolean iframe;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag r */
-  @Deprecated public String refererHash;
+  @Deprecated public java.lang.String refererHash;
   /** dataClassification=Internal|isEncrypted=false|description=search keyword, map from tag sQr */
-  @Deprecated public String sqr;
+  @Deprecated public java.lang.String sqr;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag itm/item */
-  @Deprecated public String itemId;
+  @Deprecated public java.lang.String itemId;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag flgs */
-  @Deprecated public String flags;
+  @Deprecated public java.lang.String flags;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag Referer */
-  @Deprecated public String urlQueryString;
+  @Deprecated public java.lang.String urlQueryString;
   /** dataClassification=Internal|isEncrypted=false|description=web server, map from Server */
-  @Deprecated public String webServer;
+  @Deprecated public java.lang.String webServer;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag ck/C */
-  @Deprecated public String cookies;
+  @Deprecated public java.lang.String cookies;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag bott */
-  @Deprecated public Integer bot;
-  @Deprecated public String clientIP;
+  @Deprecated public java.lang.Integer bot;
+  @Deprecated public java.lang.String clientIP;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag RemoteIP */
-  @Deprecated public String remoteIP;
+  @Deprecated public java.lang.String remoteIP;
   /** dataClassification=Internal|isEncrypted=false|description=map from tag Agent */
-  @Deprecated public String agentInfo;
+  @Deprecated public java.lang.String agentInfo;
   /** dataClassification=Internal|isEncrypted=false|description=application ID, map from tag app */
-  @Deprecated public String appId;
+  @Deprecated public java.lang.String appId;
   /** dataClassification=Internal|isEncrypted=false|description=application version, map from mav */
-  @Deprecated public String appVersion;
+  @Deprecated public java.lang.String appVersion;
   /** dataClassification=Internal|isEncrypted=false|description=operation system version, map from osv */
-  @Deprecated public String osVersion;
+  @Deprecated public java.lang.String osVersion;
   /** dataClassification=Internal|isEncrypted=false|description=map from trffc_src */
-  @Deprecated public String trafficSource;
+  @Deprecated public java.lang.String trafficSource;
   /** dataClassification=Internal|isEncrypted=false|description=map from cbrnd */
-  @Deprecated public String cobrand;
+  @Deprecated public java.lang.String cobrand;
   /** dataClassification=Internal|isEncrypted=false|description=map from dd_d */
-  @Deprecated public String deviceFamily;
+  @Deprecated public java.lang.String deviceFamily;
   /** dataClassification=Internal|isEncrypted=false|description=map from dd_dc */
-  @Deprecated public String deviceType;
+  @Deprecated public java.lang.String deviceType;
   /** dataClassification=Internal|isEncrypted=false|description=map from dd_bv */
-  @Deprecated public String browserVersion;
+  @Deprecated public java.lang.String browserVersion;
   /** dataClassification=Internal|isEncrypted=false|description=map from dd_bf */
-  @Deprecated public String browserFamily;
+  @Deprecated public java.lang.String browserFamily;
   /** dataClassification=Internal|isEncrypted=false|description=map from dd_os */
-  @Deprecated public String osFamily;
+  @Deprecated public java.lang.String osFamily;
   /** dataClassification=Internal|isEncrypted=false|description=map from dd_osv */
-  @Deprecated public String enrichedOsVersion;
-  @Deprecated public java.util.Map<String, String> applicationPayload;
+  @Deprecated public java.lang.String enrichedOsVersion;
+  @Deprecated public java.util.Map<java.lang.String,java.lang.String> applicationPayload;
   /** CAL request log id */
-  @Deprecated public String rlogid;
+  @Deprecated public java.lang.String rlogid;
   /** Includes ForwardFor, ContentLength, Script, Server, Encoding, TMachine, TStamp, TName, TStatus, TDuration, TPayload */
-  @Deprecated public java.util.Map<String, String> clientData;
-  @Deprecated public Long ingestTime;
-  @Deprecated public Long sessionSkey;
-  @Deprecated public Long sessionStartDt;
-  @Deprecated public Long sojDataDt;
-  @Deprecated public Integer version;
-  @Deprecated public Integer staticPageType;
-  @Deprecated public Integer reservedForFuture;
-  @Deprecated public String eventAttr;
-  @Deprecated public Long currentImprId;
-  @Deprecated public Long sourceImprId;
-  @Deprecated public Long oldSessionSkey;
-  @Deprecated public Boolean partialValidPage;
-  @Deprecated public java.util.List<Integer> botFlags;
-  @Deprecated public Long icfBinary;
-  @Deprecated public Long eventCnt;
-  @Deprecated public String referrer;
-  @Deprecated public String forwardedFor;
-  @Deprecated public Boolean rv;
-  @Deprecated public java.util.Map<String,java.nio.ByteBuffer> sojHeader;
+  @Deprecated public java.util.Map<java.lang.String,java.lang.String> clientData;
+  @Deprecated public java.lang.Long ingestTime;
+  @Deprecated public java.lang.Long sessionSkey;
+  @Deprecated public java.lang.Long sessionStartDt;
+  @Deprecated public java.lang.Long sojDataDt;
+  @Deprecated public java.lang.Integer version;
+  @Deprecated public java.lang.Integer staticPageType;
+  @Deprecated public java.lang.Integer reservedForFuture;
+  @Deprecated public java.lang.String eventAttr;
+  @Deprecated public java.lang.Long currentImprId;
+  @Deprecated public java.lang.Long sourceImprId;
+  @Deprecated public java.lang.Long oldSessionSkey;
+  @Deprecated public java.lang.Boolean partialValidPage;
+  @Deprecated public java.util.List<java.lang.Integer> botFlags;
+  @Deprecated public java.lang.Long icfBinary;
+  @Deprecated public java.lang.Long eventCnt;
+  @Deprecated public java.lang.String referrer;
+  @Deprecated public java.lang.String forwardedFor;
+  @Deprecated public java.lang.Boolean rv;
+  @Deprecated public java.util.Map<java.lang.String,java.nio.ByteBuffer> sojHeader;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -236,7 +236,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * @param rv The new value for rv
    * @param sojHeader The new value for sojHeader
    */
-  public SojEvent(com.ebay.epic.soj.common.model.RheosHeader rheosHeader, String guid, Long eventTimestamp, Long eventCaptureTime, String requestCorrelationId, String cguid, String sid, Integer pageId, String pageName, String pageFamily, String eventFamily, String eventAction, String userId, String clickId, String siteId, String sessionId, String seqNum, String ciid, String siid, Integer rdt, Integer regu, Boolean iframe, String refererHash, String sqr, String itemId, String flags, String urlQueryString, String webServer, String cookies, Integer bot, String clientIP, String remoteIP, String agentInfo, String appId, String appVersion, String osVersion, String trafficSource, String cobrand, String deviceFamily, String deviceType, String browserVersion, String browserFamily, String osFamily, String enrichedOsVersion, java.util.Map<String, String> applicationPayload, String rlogid, java.util.Map<String, String> clientData, Long ingestTime, Long sessionSkey, Long sessionStartDt, Long sojDataDt, Integer version, Integer staticPageType, Integer reservedForFuture, String eventAttr, Long currentImprId, Long sourceImprId, Long oldSessionSkey, Boolean partialValidPage, java.util.List<Integer> botFlags, Long icfBinary, Long eventCnt, String referrer, String forwardedFor, Boolean rv, java.util.Map<String,java.nio.ByteBuffer> sojHeader) {
+  public SojEvent(com.ebay.epic.soj.common.model.RheosHeader rheosHeader, java.lang.String guid, java.lang.Long eventTimestamp, java.lang.Long eventCaptureTime, java.lang.String requestCorrelationId, java.lang.String cguid, java.lang.String sid, java.lang.Integer pageId, java.lang.String pageName, java.lang.String pageFamily, java.lang.String eventFamily, java.lang.String eventAction, java.lang.String userId, java.lang.String clickId, java.lang.String siteId, java.lang.String sessionId, java.lang.String seqNum, java.lang.String ciid, java.lang.String siid, java.lang.Integer rdt, java.lang.Integer regu, java.lang.Boolean iframe, java.lang.String refererHash, java.lang.String sqr, java.lang.String itemId, java.lang.String flags, java.lang.String urlQueryString, java.lang.String webServer, java.lang.String cookies, java.lang.Integer bot, java.lang.String clientIP, java.lang.String remoteIP, java.lang.String agentInfo, java.lang.String appId, java.lang.String appVersion, java.lang.String osVersion, java.lang.String trafficSource, java.lang.String cobrand, java.lang.String deviceFamily, java.lang.String deviceType, java.lang.String browserVersion, java.lang.String browserFamily, java.lang.String osFamily, java.lang.String enrichedOsVersion, java.util.Map<java.lang.String,java.lang.String> applicationPayload, java.lang.String rlogid, java.util.Map<java.lang.String,java.lang.String> clientData, java.lang.Long ingestTime, java.lang.Long sessionSkey, java.lang.Long sessionStartDt, java.lang.Long sojDataDt, java.lang.Integer version, java.lang.Integer staticPageType, java.lang.Integer reservedForFuture, java.lang.String eventAttr, java.lang.Long currentImprId, java.lang.Long sourceImprId, java.lang.Long oldSessionSkey, java.lang.Boolean partialValidPage, java.util.List<java.lang.Integer> botFlags, java.lang.Long icfBinary, java.lang.Long eventCnt, java.lang.String referrer, java.lang.String forwardedFor, java.lang.Boolean rv, java.util.Map<java.lang.String,java.nio.ByteBuffer> sojHeader) {
     this.rheosHeader = rheosHeader;
     this.guid = guid;
     this.eventTimestamp = eventTimestamp;
@@ -307,7 +307,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return rheosHeader;
     case 1: return guid;
@@ -381,74 +381,74 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: rheosHeader = (com.ebay.epic.soj.common.model.RheosHeader)value$; break;
-    case 1: guid = (String)value$; break;
-    case 2: eventTimestamp = (Long)value$; break;
-    case 3: eventCaptureTime = (Long)value$; break;
-    case 4: requestCorrelationId = (String)value$; break;
-    case 5: cguid = (String)value$; break;
-    case 6: sid = (String)value$; break;
-    case 7: pageId = (Integer)value$; break;
-    case 8: pageName = (String)value$; break;
-    case 9: pageFamily = (String)value$; break;
-    case 10: eventFamily = (String)value$; break;
-    case 11: eventAction = (String)value$; break;
-    case 12: userId = (String)value$; break;
-    case 13: clickId = (String)value$; break;
-    case 14: siteId = (String)value$; break;
-    case 15: sessionId = (String)value$; break;
-    case 16: seqNum = (String)value$; break;
-    case 17: ciid = (String)value$; break;
-    case 18: siid = (String)value$; break;
-    case 19: rdt = (Integer)value$; break;
-    case 20: regu = (Integer)value$; break;
-    case 21: iframe = (Boolean)value$; break;
-    case 22: refererHash = (String)value$; break;
-    case 23: sqr = (String)value$; break;
-    case 24: itemId = (String)value$; break;
-    case 25: flags = (String)value$; break;
-    case 26: urlQueryString = (String)value$; break;
-    case 27: webServer = (String)value$; break;
-    case 28: cookies = (String)value$; break;
-    case 29: bot = (Integer)value$; break;
-    case 30: clientIP = (String)value$; break;
-    case 31: remoteIP = (String)value$; break;
-    case 32: agentInfo = (String)value$; break;
-    case 33: appId = (String)value$; break;
-    case 34: appVersion = (String)value$; break;
-    case 35: osVersion = (String)value$; break;
-    case 36: trafficSource = (String)value$; break;
-    case 37: cobrand = (String)value$; break;
-    case 38: deviceFamily = (String)value$; break;
-    case 39: deviceType = (String)value$; break;
-    case 40: browserVersion = (String)value$; break;
-    case 41: browserFamily = (String)value$; break;
-    case 42: osFamily = (String)value$; break;
-    case 43: enrichedOsVersion = (String)value$; break;
-    case 44: applicationPayload = (java.util.Map<String, String>)value$; break;
-    case 45: rlogid = (String)value$; break;
-    case 46: clientData = (java.util.Map<String, String>)value$; break;
-    case 47: ingestTime = (Long)value$; break;
-    case 48: sessionSkey = (Long)value$; break;
-    case 49: sessionStartDt = (Long)value$; break;
-    case 50: sojDataDt = (Long)value$; break;
-    case 51: version = (Integer)value$; break;
-    case 52: staticPageType = (Integer)value$; break;
-    case 53: reservedForFuture = (Integer)value$; break;
-    case 54: eventAttr = (String)value$; break;
-    case 55: currentImprId = (Long)value$; break;
-    case 56: sourceImprId = (Long)value$; break;
-    case 57: oldSessionSkey = (Long)value$; break;
-    case 58: partialValidPage = (Boolean)value$; break;
-    case 59: botFlags = (java.util.List<Integer>)value$; break;
-    case 60: icfBinary = (Long)value$; break;
-    case 61: eventCnt = (Long)value$; break;
-    case 62: referrer = (String)value$; break;
-    case 63: forwardedFor = (String)value$; break;
-    case 64: rv = (Boolean)value$; break;
-    case 65: sojHeader = (java.util.Map<String,java.nio.ByteBuffer>)value$; break;
+    case 1: guid = (java.lang.String)value$; break;
+    case 2: eventTimestamp = (java.lang.Long)value$; break;
+    case 3: eventCaptureTime = (java.lang.Long)value$; break;
+    case 4: requestCorrelationId = (java.lang.String)value$; break;
+    case 5: cguid = (java.lang.String)value$; break;
+    case 6: sid = (java.lang.String)value$; break;
+    case 7: pageId = (java.lang.Integer)value$; break;
+    case 8: pageName = (java.lang.String)value$; break;
+    case 9: pageFamily = (java.lang.String)value$; break;
+    case 10: eventFamily = (java.lang.String)value$; break;
+    case 11: eventAction = (java.lang.String)value$; break;
+    case 12: userId = (java.lang.String)value$; break;
+    case 13: clickId = (java.lang.String)value$; break;
+    case 14: siteId = (java.lang.String)value$; break;
+    case 15: sessionId = (java.lang.String)value$; break;
+    case 16: seqNum = (java.lang.String)value$; break;
+    case 17: ciid = (java.lang.String)value$; break;
+    case 18: siid = (java.lang.String)value$; break;
+    case 19: rdt = (java.lang.Integer)value$; break;
+    case 20: regu = (java.lang.Integer)value$; break;
+    case 21: iframe = (java.lang.Boolean)value$; break;
+    case 22: refererHash = (java.lang.String)value$; break;
+    case 23: sqr = (java.lang.String)value$; break;
+    case 24: itemId = (java.lang.String)value$; break;
+    case 25: flags = (java.lang.String)value$; break;
+    case 26: urlQueryString = (java.lang.String)value$; break;
+    case 27: webServer = (java.lang.String)value$; break;
+    case 28: cookies = (java.lang.String)value$; break;
+    case 29: bot = (java.lang.Integer)value$; break;
+    case 30: clientIP = (java.lang.String)value$; break;
+    case 31: remoteIP = (java.lang.String)value$; break;
+    case 32: agentInfo = (java.lang.String)value$; break;
+    case 33: appId = (java.lang.String)value$; break;
+    case 34: appVersion = (java.lang.String)value$; break;
+    case 35: osVersion = (java.lang.String)value$; break;
+    case 36: trafficSource = (java.lang.String)value$; break;
+    case 37: cobrand = (java.lang.String)value$; break;
+    case 38: deviceFamily = (java.lang.String)value$; break;
+    case 39: deviceType = (java.lang.String)value$; break;
+    case 40: browserVersion = (java.lang.String)value$; break;
+    case 41: browserFamily = (java.lang.String)value$; break;
+    case 42: osFamily = (java.lang.String)value$; break;
+    case 43: enrichedOsVersion = (java.lang.String)value$; break;
+    case 44: applicationPayload = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
+    case 45: rlogid = (java.lang.String)value$; break;
+    case 46: clientData = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
+    case 47: ingestTime = (java.lang.Long)value$; break;
+    case 48: sessionSkey = (java.lang.Long)value$; break;
+    case 49: sessionStartDt = (java.lang.Long)value$; break;
+    case 50: sojDataDt = (java.lang.Long)value$; break;
+    case 51: version = (java.lang.Integer)value$; break;
+    case 52: staticPageType = (java.lang.Integer)value$; break;
+    case 53: reservedForFuture = (java.lang.Integer)value$; break;
+    case 54: eventAttr = (java.lang.String)value$; break;
+    case 55: currentImprId = (java.lang.Long)value$; break;
+    case 56: sourceImprId = (java.lang.Long)value$; break;
+    case 57: oldSessionSkey = (java.lang.Long)value$; break;
+    case 58: partialValidPage = (java.lang.Boolean)value$; break;
+    case 59: botFlags = (java.util.List<java.lang.Integer>)value$; break;
+    case 60: icfBinary = (java.lang.Long)value$; break;
+    case 61: eventCnt = (java.lang.Long)value$; break;
+    case 62: referrer = (java.lang.String)value$; break;
+    case 63: forwardedFor = (java.lang.String)value$; break;
+    case 64: rv = (java.lang.Boolean)value$; break;
+    case 65: sojHeader = (java.util.Map<java.lang.String,java.nio.ByteBuffer>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -474,7 +474,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'guid' field.
    * @return The value of the 'guid' field.
    */
-  public String getGuid() {
+  public java.lang.String getGuid() {
     return guid;
   }
 
@@ -482,7 +482,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'guid' field.
    * @param value the value to set.
    */
-  public void setGuid(String value) {
+  public void setGuid(java.lang.String value) {
     this.guid = value;
   }
 
@@ -490,7 +490,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'eventTimestamp' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from timestamp, publish time
    */
-  public Long getEventTimestamp() {
+  public java.lang.Long getEventTimestamp() {
     return eventTimestamp;
   }
 
@@ -499,7 +499,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from timestamp, publish time
    * @param value the value to set.
    */
-  public void setEventTimestamp(Long value) {
+  public void setEventTimestamp(java.lang.Long value) {
     this.eventTimestamp = value;
   }
 
@@ -507,7 +507,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'eventCaptureTime' field.
    * @return dataClassification=Internal|isEncrypted=false|description=mobile specific, map from mtsts, used for mobile case
    */
-  public Long getEventCaptureTime() {
+  public java.lang.Long getEventCaptureTime() {
     return eventCaptureTime;
   }
 
@@ -516,7 +516,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=mobile specific, map from mtsts, used for mobile case
    * @param value the value to set.
    */
-  public void setEventCaptureTime(Long value) {
+  public void setEventCaptureTime(java.lang.Long value) {
     this.eventCaptureTime = value;
   }
 
@@ -524,7 +524,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'requestCorrelationId' field.
    * @return dataClassification=Internal|isEncrypted=false|description=request correlation id, map from tag rq
    */
-  public String getRequestCorrelationId() {
+  public java.lang.String getRequestCorrelationId() {
     return requestCorrelationId;
   }
 
@@ -533,7 +533,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=request correlation id, map from tag rq
    * @param value the value to set.
    */
-  public void setRequestCorrelationId(String value) {
+  public void setRequestCorrelationId(java.lang.String value) {
     this.requestCorrelationId = value;
   }
 
@@ -541,7 +541,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'cguid' field.
    * @return dataClassification=Internal|isEncrypted=false|description=correlation guid, map from tag n
    */
-  public String getCguid() {
+  public java.lang.String getCguid() {
     return cguid;
   }
 
@@ -550,7 +550,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=correlation guid, map from tag n
    * @param value the value to set.
    */
-  public void setCguid(String value) {
+  public void setCguid(java.lang.String value) {
     this.cguid = value;
   }
 
@@ -558,7 +558,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'sid' field.
    * @return dataClassification=Internal|isEncrypted=false|description=Sojourner key for source id
    */
-  public String getSid() {
+  public java.lang.String getSid() {
     return sid;
   }
 
@@ -567,7 +567,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=Sojourner key for source id
    * @param value the value to set.
    */
-  public void setSid(String value) {
+  public void setSid(java.lang.String value) {
     this.sid = value;
   }
 
@@ -575,7 +575,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'pageId' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag p
    */
-  public Integer getPageId() {
+  public java.lang.Integer getPageId() {
     return pageId;
   }
 
@@ -584,7 +584,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag p
    * @param value the value to set.
    */
-  public void setPageId(Integer value) {
+  public void setPageId(java.lang.Integer value) {
     this.pageId = value;
   }
 
@@ -592,7 +592,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'pageName' field.
    * @return The value of the 'pageName' field.
    */
-  public String getPageName() {
+  public java.lang.String getPageName() {
     return pageName;
   }
 
@@ -600,7 +600,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'pageName' field.
    * @param value the value to set.
    */
-  public void setPageName(String value) {
+  public void setPageName(java.lang.String value) {
     this.pageName = value;
   }
 
@@ -608,7 +608,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'pageFamily' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag pgf
    */
-  public String getPageFamily() {
+  public java.lang.String getPageFamily() {
     return pageFamily;
   }
 
@@ -617,7 +617,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag pgf
    * @param value the value to set.
    */
-  public void setPageFamily(String value) {
+  public void setPageFamily(java.lang.String value) {
     this.pageFamily = value;
   }
 
@@ -625,7 +625,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'eventFamily' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from efam of pulsar event, event family
    */
-  public String getEventFamily() {
+  public java.lang.String getEventFamily() {
     return eventFamily;
   }
 
@@ -634,7 +634,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from efam of pulsar event, event family
    * @param value the value to set.
    */
-  public void setEventFamily(String value) {
+  public void setEventFamily(java.lang.String value) {
     this.eventFamily = value;
   }
 
@@ -642,7 +642,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'eventAction' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from eactn of pulsar event, event action
    */
-  public String getEventAction() {
+  public java.lang.String getEventAction() {
     return eventAction;
   }
 
@@ -651,7 +651,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from eactn of pulsar event, event action
    * @param value the value to set.
    */
-  public void setEventAction(String value) {
+  public void setEventAction(java.lang.String value) {
     this.eventAction = value;
   }
 
@@ -659,7 +659,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'userId' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag u/bu
    */
-  public String getUserId() {
+  public java.lang.String getUserId() {
     return userId;
   }
 
@@ -668,7 +668,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag u/bu
    * @param value the value to set.
    */
-  public void setUserId(String value) {
+  public void setUserId(java.lang.String value) {
     this.userId = value;
   }
 
@@ -676,7 +676,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'clickId' field.
    * @return dataClassification=Internal|isEncrypted=false|description=Click Id, map from tag c
    */
-  public String getClickId() {
+  public java.lang.String getClickId() {
     return clickId;
   }
 
@@ -685,7 +685,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=Click Id, map from tag c
    * @param value the value to set.
    */
-  public void setClickId(String value) {
+  public void setClickId(java.lang.String value) {
     this.clickId = value;
   }
 
@@ -693,7 +693,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'siteId' field.
    * @return dataClassification=Internal|isEncrypted=false|description=Site ID, map from tag t
    */
-  public String getSiteId() {
+  public java.lang.String getSiteId() {
     return siteId;
   }
 
@@ -702,7 +702,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=Site ID, map from tag t
    * @param value the value to set.
    */
-  public void setSiteId(String value) {
+  public void setSiteId(java.lang.String value) {
     this.siteId = value;
   }
 
@@ -710,7 +710,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'sessionId' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag snid
    */
-  public String getSessionId() {
+  public java.lang.String getSessionId() {
     return sessionId;
   }
 
@@ -719,7 +719,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag snid
    * @param value the value to set.
    */
-  public void setSessionId(String value) {
+  public void setSessionId(java.lang.String value) {
     this.sessionId = value;
   }
 
@@ -727,7 +727,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'seqNum' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag snsq
    */
-  public String getSeqNum() {
+  public java.lang.String getSeqNum() {
     return seqNum;
   }
 
@@ -736,7 +736,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag snsq
    * @param value the value to set.
    */
-  public void setSeqNum(String value) {
+  public void setSeqNum(java.lang.String value) {
     this.seqNum = value;
   }
 
@@ -744,7 +744,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'ciid' field.
    * @return The value of the 'ciid' field.
    */
-  public String getCiid() {
+  public java.lang.String getCiid() {
     return ciid;
   }
 
@@ -752,7 +752,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'ciid' field.
    * @param value the value to set.
    */
-  public void setCiid(String value) {
+  public void setCiid(java.lang.String value) {
     this.ciid = value;
   }
 
@@ -760,7 +760,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'siid' field.
    * @return The value of the 'siid' field.
    */
-  public String getSiid() {
+  public java.lang.String getSiid() {
     return siid;
   }
 
@@ -768,7 +768,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'siid' field.
    * @param value the value to set.
    */
-  public void setSiid(String value) {
+  public void setSiid(java.lang.String value) {
     this.siid = value;
   }
 
@@ -776,7 +776,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'rdt' field.
    * @return dataClassification=Internal|isEncrypted=false|description=1 indicates that the command redirected to another URL
    */
-  public Integer getRdt() {
+  public java.lang.Integer getRdt() {
     return rdt;
   }
 
@@ -785,7 +785,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=1 indicates that the command redirected to another URL
    * @param value the value to set.
    */
-  public void setRdt(Integer value) {
+  public void setRdt(java.lang.Integer value) {
     this.rdt = value;
   }
 
@@ -793,7 +793,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'regu' field.
    * @return dataClassification=Internal|isEncrypted=false|description=indicating that this is a registered user, map from tag regU
    */
-  public Integer getRegu() {
+  public java.lang.Integer getRegu() {
     return regu;
   }
 
@@ -802,7 +802,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=indicating that this is a registered user, map from tag regU
    * @param value the value to set.
    */
-  public void setRegu(Integer value) {
+  public void setRegu(java.lang.Integer value) {
     this.regu = value;
   }
 
@@ -810,7 +810,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'iframe' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag _ifrm
    */
-  public Boolean getIframe() {
+  public java.lang.Boolean getIframe() {
     return iframe;
   }
 
@@ -819,7 +819,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag _ifrm
    * @param value the value to set.
    */
-  public void setIframe(Boolean value) {
+  public void setIframe(java.lang.Boolean value) {
     this.iframe = value;
   }
 
@@ -827,7 +827,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'refererHash' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag r
    */
-  public String getRefererHash() {
+  public java.lang.String getRefererHash() {
     return refererHash;
   }
 
@@ -836,7 +836,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag r
    * @param value the value to set.
    */
-  public void setRefererHash(String value) {
+  public void setRefererHash(java.lang.String value) {
     this.refererHash = value;
   }
 
@@ -844,7 +844,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'sqr' field.
    * @return dataClassification=Internal|isEncrypted=false|description=search keyword, map from tag sQr
    */
-  public String getSqr() {
+  public java.lang.String getSqr() {
     return sqr;
   }
 
@@ -853,7 +853,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=search keyword, map from tag sQr
    * @param value the value to set.
    */
-  public void setSqr(String value) {
+  public void setSqr(java.lang.String value) {
     this.sqr = value;
   }
 
@@ -861,7 +861,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'itemId' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag itm/item
    */
-  public String getItemId() {
+  public java.lang.String getItemId() {
     return itemId;
   }
 
@@ -870,7 +870,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag itm/item
    * @param value the value to set.
    */
-  public void setItemId(String value) {
+  public void setItemId(java.lang.String value) {
     this.itemId = value;
   }
 
@@ -878,7 +878,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'flags' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag flgs
    */
-  public String getFlags() {
+  public java.lang.String getFlags() {
     return flags;
   }
 
@@ -887,7 +887,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag flgs
    * @param value the value to set.
    */
-  public void setFlags(String value) {
+  public void setFlags(java.lang.String value) {
     this.flags = value;
   }
 
@@ -895,7 +895,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'urlQueryString' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag Referer
    */
-  public String getUrlQueryString() {
+  public java.lang.String getUrlQueryString() {
     return urlQueryString;
   }
 
@@ -904,7 +904,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag Referer
    * @param value the value to set.
    */
-  public void setUrlQueryString(String value) {
+  public void setUrlQueryString(java.lang.String value) {
     this.urlQueryString = value;
   }
 
@@ -912,7 +912,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'webServer' field.
    * @return dataClassification=Internal|isEncrypted=false|description=web server, map from Server
    */
-  public String getWebServer() {
+  public java.lang.String getWebServer() {
     return webServer;
   }
 
@@ -921,7 +921,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=web server, map from Server
    * @param value the value to set.
    */
-  public void setWebServer(String value) {
+  public void setWebServer(java.lang.String value) {
     this.webServer = value;
   }
 
@@ -929,7 +929,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'cookies' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag ck/C
    */
-  public String getCookies() {
+  public java.lang.String getCookies() {
     return cookies;
   }
 
@@ -938,7 +938,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag ck/C
    * @param value the value to set.
    */
-  public void setCookies(String value) {
+  public void setCookies(java.lang.String value) {
     this.cookies = value;
   }
 
@@ -946,7 +946,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'bot' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag bott
    */
-  public Integer getBot() {
+  public java.lang.Integer getBot() {
     return bot;
   }
 
@@ -955,7 +955,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag bott
    * @param value the value to set.
    */
-  public void setBot(Integer value) {
+  public void setBot(java.lang.Integer value) {
     this.bot = value;
   }
 
@@ -963,7 +963,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'clientIP' field.
    * @return The value of the 'clientIP' field.
    */
-  public String getClientIP() {
+  public java.lang.String getClientIP() {
     return clientIP;
   }
 
@@ -971,7 +971,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'clientIP' field.
    * @param value the value to set.
    */
-  public void setClientIP(String value) {
+  public void setClientIP(java.lang.String value) {
     this.clientIP = value;
   }
 
@@ -979,7 +979,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'remoteIP' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag RemoteIP
    */
-  public String getRemoteIP() {
+  public java.lang.String getRemoteIP() {
     return remoteIP;
   }
 
@@ -988,7 +988,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag RemoteIP
    * @param value the value to set.
    */
-  public void setRemoteIP(String value) {
+  public void setRemoteIP(java.lang.String value) {
     this.remoteIP = value;
   }
 
@@ -996,7 +996,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'agentInfo' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from tag Agent
    */
-  public String getAgentInfo() {
+  public java.lang.String getAgentInfo() {
     return agentInfo;
   }
 
@@ -1005,7 +1005,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from tag Agent
    * @param value the value to set.
    */
-  public void setAgentInfo(String value) {
+  public void setAgentInfo(java.lang.String value) {
     this.agentInfo = value;
   }
 
@@ -1013,7 +1013,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'appId' field.
    * @return dataClassification=Internal|isEncrypted=false|description=application ID, map from tag app
    */
-  public String getAppId() {
+  public java.lang.String getAppId() {
     return appId;
   }
 
@@ -1022,7 +1022,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=application ID, map from tag app
    * @param value the value to set.
    */
-  public void setAppId(String value) {
+  public void setAppId(java.lang.String value) {
     this.appId = value;
   }
 
@@ -1030,7 +1030,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'appVersion' field.
    * @return dataClassification=Internal|isEncrypted=false|description=application version, map from mav
    */
-  public String getAppVersion() {
+  public java.lang.String getAppVersion() {
     return appVersion;
   }
 
@@ -1039,7 +1039,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=application version, map from mav
    * @param value the value to set.
    */
-  public void setAppVersion(String value) {
+  public void setAppVersion(java.lang.String value) {
     this.appVersion = value;
   }
 
@@ -1047,7 +1047,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'osVersion' field.
    * @return dataClassification=Internal|isEncrypted=false|description=operation system version, map from osv
    */
-  public String getOsVersion() {
+  public java.lang.String getOsVersion() {
     return osVersion;
   }
 
@@ -1056,7 +1056,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=operation system version, map from osv
    * @param value the value to set.
    */
-  public void setOsVersion(String value) {
+  public void setOsVersion(java.lang.String value) {
     this.osVersion = value;
   }
 
@@ -1064,7 +1064,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'trafficSource' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from trffc_src
    */
-  public String getTrafficSource() {
+  public java.lang.String getTrafficSource() {
     return trafficSource;
   }
 
@@ -1073,7 +1073,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from trffc_src
    * @param value the value to set.
    */
-  public void setTrafficSource(String value) {
+  public void setTrafficSource(java.lang.String value) {
     this.trafficSource = value;
   }
 
@@ -1081,7 +1081,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'cobrand' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from cbrnd
    */
-  public String getCobrand() {
+  public java.lang.String getCobrand() {
     return cobrand;
   }
 
@@ -1090,7 +1090,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from cbrnd
    * @param value the value to set.
    */
-  public void setCobrand(String value) {
+  public void setCobrand(java.lang.String value) {
     this.cobrand = value;
   }
 
@@ -1098,7 +1098,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'deviceFamily' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from dd_d
    */
-  public String getDeviceFamily() {
+  public java.lang.String getDeviceFamily() {
     return deviceFamily;
   }
 
@@ -1107,7 +1107,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from dd_d
    * @param value the value to set.
    */
-  public void setDeviceFamily(String value) {
+  public void setDeviceFamily(java.lang.String value) {
     this.deviceFamily = value;
   }
 
@@ -1115,7 +1115,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'deviceType' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from dd_dc
    */
-  public String getDeviceType() {
+  public java.lang.String getDeviceType() {
     return deviceType;
   }
 
@@ -1124,7 +1124,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from dd_dc
    * @param value the value to set.
    */
-  public void setDeviceType(String value) {
+  public void setDeviceType(java.lang.String value) {
     this.deviceType = value;
   }
 
@@ -1132,7 +1132,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'browserVersion' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from dd_bv
    */
-  public String getBrowserVersion() {
+  public java.lang.String getBrowserVersion() {
     return browserVersion;
   }
 
@@ -1141,7 +1141,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from dd_bv
    * @param value the value to set.
    */
-  public void setBrowserVersion(String value) {
+  public void setBrowserVersion(java.lang.String value) {
     this.browserVersion = value;
   }
 
@@ -1149,7 +1149,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'browserFamily' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from dd_bf
    */
-  public String getBrowserFamily() {
+  public java.lang.String getBrowserFamily() {
     return browserFamily;
   }
 
@@ -1158,7 +1158,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from dd_bf
    * @param value the value to set.
    */
-  public void setBrowserFamily(String value) {
+  public void setBrowserFamily(java.lang.String value) {
     this.browserFamily = value;
   }
 
@@ -1166,7 +1166,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'osFamily' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from dd_os
    */
-  public String getOsFamily() {
+  public java.lang.String getOsFamily() {
     return osFamily;
   }
 
@@ -1175,7 +1175,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from dd_os
    * @param value the value to set.
    */
-  public void setOsFamily(String value) {
+  public void setOsFamily(java.lang.String value) {
     this.osFamily = value;
   }
 
@@ -1183,7 +1183,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'enrichedOsVersion' field.
    * @return dataClassification=Internal|isEncrypted=false|description=map from dd_osv
    */
-  public String getEnrichedOsVersion() {
+  public java.lang.String getEnrichedOsVersion() {
     return enrichedOsVersion;
   }
 
@@ -1192,7 +1192,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * dataClassification=Internal|isEncrypted=false|description=map from dd_osv
    * @param value the value to set.
    */
-  public void setEnrichedOsVersion(String value) {
+  public void setEnrichedOsVersion(java.lang.String value) {
     this.enrichedOsVersion = value;
   }
 
@@ -1200,7 +1200,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'applicationPayload' field.
    * @return The value of the 'applicationPayload' field.
    */
-  public java.util.Map<String, String> getApplicationPayload() {
+  public java.util.Map<java.lang.String,java.lang.String> getApplicationPayload() {
     return applicationPayload;
   }
 
@@ -1208,7 +1208,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'applicationPayload' field.
    * @param value the value to set.
    */
-  public void setApplicationPayload(java.util.Map<String, String> value) {
+  public void setApplicationPayload(java.util.Map<java.lang.String,java.lang.String> value) {
     this.applicationPayload = value;
   }
 
@@ -1216,7 +1216,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'rlogid' field.
    * @return CAL request log id
    */
-  public String getRlogid() {
+  public java.lang.String getRlogid() {
     return rlogid;
   }
 
@@ -1225,7 +1225,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * CAL request log id
    * @param value the value to set.
    */
-  public void setRlogid(String value) {
+  public void setRlogid(java.lang.String value) {
     this.rlogid = value;
   }
 
@@ -1233,7 +1233,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'clientData' field.
    * @return Includes ForwardFor, ContentLength, Script, Server, Encoding, TMachine, TStamp, TName, TStatus, TDuration, TPayload
    */
-  public java.util.Map<String, String> getClientData() {
+  public java.util.Map<java.lang.String,java.lang.String> getClientData() {
     return clientData;
   }
 
@@ -1242,7 +1242,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Includes ForwardFor, ContentLength, Script, Server, Encoding, TMachine, TStamp, TName, TStatus, TDuration, TPayload
    * @param value the value to set.
    */
-  public void setClientData(java.util.Map<String, String> value) {
+  public void setClientData(java.util.Map<java.lang.String,java.lang.String> value) {
     this.clientData = value;
   }
 
@@ -1250,7 +1250,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'ingestTime' field.
    * @return The value of the 'ingestTime' field.
    */
-  public Long getIngestTime() {
+  public java.lang.Long getIngestTime() {
     return ingestTime;
   }
 
@@ -1258,7 +1258,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'ingestTime' field.
    * @param value the value to set.
    */
-  public void setIngestTime(Long value) {
+  public void setIngestTime(java.lang.Long value) {
     this.ingestTime = value;
   }
 
@@ -1266,7 +1266,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'sessionSkey' field.
    * @return The value of the 'sessionSkey' field.
    */
-  public Long getSessionSkey() {
+  public java.lang.Long getSessionSkey() {
     return sessionSkey;
   }
 
@@ -1274,7 +1274,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'sessionSkey' field.
    * @param value the value to set.
    */
-  public void setSessionSkey(Long value) {
+  public void setSessionSkey(java.lang.Long value) {
     this.sessionSkey = value;
   }
 
@@ -1282,7 +1282,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'sessionStartDt' field.
    * @return The value of the 'sessionStartDt' field.
    */
-  public Long getSessionStartDt() {
+  public java.lang.Long getSessionStartDt() {
     return sessionStartDt;
   }
 
@@ -1290,7 +1290,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'sessionStartDt' field.
    * @param value the value to set.
    */
-  public void setSessionStartDt(Long value) {
+  public void setSessionStartDt(java.lang.Long value) {
     this.sessionStartDt = value;
   }
 
@@ -1298,7 +1298,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'sojDataDt' field.
    * @return The value of the 'sojDataDt' field.
    */
-  public Long getSojDataDt() {
+  public java.lang.Long getSojDataDt() {
     return sojDataDt;
   }
 
@@ -1306,7 +1306,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'sojDataDt' field.
    * @param value the value to set.
    */
-  public void setSojDataDt(Long value) {
+  public void setSojDataDt(java.lang.Long value) {
     this.sojDataDt = value;
   }
 
@@ -1314,7 +1314,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'version' field.
    * @return The value of the 'version' field.
    */
-  public Integer getVersion() {
+  public java.lang.Integer getVersion() {
     return version;
   }
 
@@ -1322,7 +1322,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'version' field.
    * @param value the value to set.
    */
-  public void setVersion(Integer value) {
+  public void setVersion(java.lang.Integer value) {
     this.version = value;
   }
 
@@ -1330,7 +1330,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'staticPageType' field.
    * @return The value of the 'staticPageType' field.
    */
-  public Integer getStaticPageType() {
+  public java.lang.Integer getStaticPageType() {
     return staticPageType;
   }
 
@@ -1338,7 +1338,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'staticPageType' field.
    * @param value the value to set.
    */
-  public void setStaticPageType(Integer value) {
+  public void setStaticPageType(java.lang.Integer value) {
     this.staticPageType = value;
   }
 
@@ -1346,7 +1346,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'reservedForFuture' field.
    * @return The value of the 'reservedForFuture' field.
    */
-  public Integer getReservedForFuture() {
+  public java.lang.Integer getReservedForFuture() {
     return reservedForFuture;
   }
 
@@ -1354,7 +1354,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'reservedForFuture' field.
    * @param value the value to set.
    */
-  public void setReservedForFuture(Integer value) {
+  public void setReservedForFuture(java.lang.Integer value) {
     this.reservedForFuture = value;
   }
 
@@ -1362,7 +1362,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'eventAttr' field.
    * @return The value of the 'eventAttr' field.
    */
-  public String getEventAttr() {
+  public java.lang.String getEventAttr() {
     return eventAttr;
   }
 
@@ -1370,7 +1370,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'eventAttr' field.
    * @param value the value to set.
    */
-  public void setEventAttr(String value) {
+  public void setEventAttr(java.lang.String value) {
     this.eventAttr = value;
   }
 
@@ -1378,7 +1378,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'currentImprId' field.
    * @return The value of the 'currentImprId' field.
    */
-  public Long getCurrentImprId() {
+  public java.lang.Long getCurrentImprId() {
     return currentImprId;
   }
 
@@ -1386,7 +1386,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'currentImprId' field.
    * @param value the value to set.
    */
-  public void setCurrentImprId(Long value) {
+  public void setCurrentImprId(java.lang.Long value) {
     this.currentImprId = value;
   }
 
@@ -1394,7 +1394,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'sourceImprId' field.
    * @return The value of the 'sourceImprId' field.
    */
-  public Long getSourceImprId() {
+  public java.lang.Long getSourceImprId() {
     return sourceImprId;
   }
 
@@ -1402,7 +1402,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'sourceImprId' field.
    * @param value the value to set.
    */
-  public void setSourceImprId(Long value) {
+  public void setSourceImprId(java.lang.Long value) {
     this.sourceImprId = value;
   }
 
@@ -1410,7 +1410,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'oldSessionSkey' field.
    * @return The value of the 'oldSessionSkey' field.
    */
-  public Long getOldSessionSkey() {
+  public java.lang.Long getOldSessionSkey() {
     return oldSessionSkey;
   }
 
@@ -1418,7 +1418,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'oldSessionSkey' field.
    * @param value the value to set.
    */
-  public void setOldSessionSkey(Long value) {
+  public void setOldSessionSkey(java.lang.Long value) {
     this.oldSessionSkey = value;
   }
 
@@ -1426,7 +1426,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'partialValidPage' field.
    * @return The value of the 'partialValidPage' field.
    */
-  public Boolean getPartialValidPage() {
+  public java.lang.Boolean getPartialValidPage() {
     return partialValidPage;
   }
 
@@ -1434,7 +1434,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'partialValidPage' field.
    * @param value the value to set.
    */
-  public void setPartialValidPage(Boolean value) {
+  public void setPartialValidPage(java.lang.Boolean value) {
     this.partialValidPage = value;
   }
 
@@ -1442,7 +1442,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'botFlags' field.
    * @return The value of the 'botFlags' field.
    */
-  public java.util.List<Integer> getBotFlags() {
+  public java.util.List<java.lang.Integer> getBotFlags() {
     return botFlags;
   }
 
@@ -1450,7 +1450,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'botFlags' field.
    * @param value the value to set.
    */
-  public void setBotFlags(java.util.List<Integer> value) {
+  public void setBotFlags(java.util.List<java.lang.Integer> value) {
     this.botFlags = value;
   }
 
@@ -1458,7 +1458,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'icfBinary' field.
    * @return The value of the 'icfBinary' field.
    */
-  public Long getIcfBinary() {
+  public java.lang.Long getIcfBinary() {
     return icfBinary;
   }
 
@@ -1466,7 +1466,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'icfBinary' field.
    * @param value the value to set.
    */
-  public void setIcfBinary(Long value) {
+  public void setIcfBinary(java.lang.Long value) {
     this.icfBinary = value;
   }
 
@@ -1474,7 +1474,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'eventCnt' field.
    * @return The value of the 'eventCnt' field.
    */
-  public Long getEventCnt() {
+  public java.lang.Long getEventCnt() {
     return eventCnt;
   }
 
@@ -1482,7 +1482,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'eventCnt' field.
    * @param value the value to set.
    */
-  public void setEventCnt(Long value) {
+  public void setEventCnt(java.lang.Long value) {
     this.eventCnt = value;
   }
 
@@ -1490,7 +1490,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'referrer' field.
    * @return The value of the 'referrer' field.
    */
-  public String getReferrer() {
+  public java.lang.String getReferrer() {
     return referrer;
   }
 
@@ -1498,7 +1498,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'referrer' field.
    * @param value the value to set.
    */
-  public void setReferrer(String value) {
+  public void setReferrer(java.lang.String value) {
     this.referrer = value;
   }
 
@@ -1506,7 +1506,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'forwardedFor' field.
    * @return The value of the 'forwardedFor' field.
    */
-  public String getForwardedFor() {
+  public java.lang.String getForwardedFor() {
     return forwardedFor;
   }
 
@@ -1514,7 +1514,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'forwardedFor' field.
    * @param value the value to set.
    */
-  public void setForwardedFor(String value) {
+  public void setForwardedFor(java.lang.String value) {
     this.forwardedFor = value;
   }
 
@@ -1522,7 +1522,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'rv' field.
    * @return The value of the 'rv' field.
    */
-  public Boolean getRv() {
+  public java.lang.Boolean getRv() {
     return rv;
   }
 
@@ -1530,7 +1530,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'rv' field.
    * @param value the value to set.
    */
-  public void setRv(Boolean value) {
+  public void setRv(java.lang.Boolean value) {
     this.rv = value;
   }
 
@@ -1538,7 +1538,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'sojHeader' field.
    * @return The value of the 'sojHeader' field.
    */
-  public java.util.Map<String,java.nio.ByteBuffer> getSojHeader() {
+  public java.util.Map<java.lang.String,java.nio.ByteBuffer> getSojHeader() {
     return sojHeader;
   }
 
@@ -1546,7 +1546,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'sojHeader' field.
    * @param value the value to set.
    */
-  public void setSojHeader(java.util.Map<String,java.nio.ByteBuffer> value) {
+  public void setSojHeader(java.util.Map<java.lang.String,java.nio.ByteBuffer> value) {
     this.sojHeader = value;
   }
 
@@ -1585,111 +1585,111 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
     /** Rheos header */
     private com.ebay.epic.soj.common.model.RheosHeader rheosHeader;
     private com.ebay.epic.soj.common.model.RheosHeader.Builder rheosHeaderBuilder;
-    private String guid;
+    private java.lang.String guid;
     /** dataClassification=Internal|isEncrypted=false|description=map from timestamp, publish time */
     private long eventTimestamp;
     /** dataClassification=Internal|isEncrypted=false|description=mobile specific, map from mtsts, used for mobile case */
-    private Long eventCaptureTime;
+    private java.lang.Long eventCaptureTime;
     /** dataClassification=Internal|isEncrypted=false|description=request correlation id, map from tag rq */
-    private String requestCorrelationId;
+    private java.lang.String requestCorrelationId;
     /** dataClassification=Internal|isEncrypted=false|description=correlation guid, map from tag n */
-    private String cguid;
+    private java.lang.String cguid;
     /** dataClassification=Internal|isEncrypted=false|description=Sojourner key for source id */
-    private String sid;
+    private java.lang.String sid;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag p */
-    private Integer pageId;
-    private String pageName;
+    private java.lang.Integer pageId;
+    private java.lang.String pageName;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag pgf */
-    private String pageFamily;
+    private java.lang.String pageFamily;
     /** dataClassification=Internal|isEncrypted=false|description=map from efam of pulsar event, event family */
-    private String eventFamily;
+    private java.lang.String eventFamily;
     /** dataClassification=Internal|isEncrypted=false|description=map from eactn of pulsar event, event action */
-    private String eventAction;
+    private java.lang.String eventAction;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag u/bu */
-    private String userId;
+    private java.lang.String userId;
     /** dataClassification=Internal|isEncrypted=false|description=Click Id, map from tag c */
-    private String clickId;
+    private java.lang.String clickId;
     /** dataClassification=Internal|isEncrypted=false|description=Site ID, map from tag t */
-    private String siteId;
+    private java.lang.String siteId;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag snid */
-    private String sessionId;
+    private java.lang.String sessionId;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag snsq */
-    private String seqNum;
-    private String ciid;
-    private String siid;
+    private java.lang.String seqNum;
+    private java.lang.String ciid;
+    private java.lang.String siid;
     /** dataClassification=Internal|isEncrypted=false|description=1 indicates that the command redirected to another URL */
-    private Integer rdt;
+    private java.lang.Integer rdt;
     /** dataClassification=Internal|isEncrypted=false|description=indicating that this is a registered user, map from tag regU */
-    private Integer regu;
+    private java.lang.Integer regu;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag _ifrm */
-    private Boolean iframe;
+    private java.lang.Boolean iframe;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag r */
-    private String refererHash;
+    private java.lang.String refererHash;
     /** dataClassification=Internal|isEncrypted=false|description=search keyword, map from tag sQr */
-    private String sqr;
+    private java.lang.String sqr;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag itm/item */
-    private String itemId;
+    private java.lang.String itemId;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag flgs */
-    private String flags;
+    private java.lang.String flags;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag Referer */
-    private String urlQueryString;
+    private java.lang.String urlQueryString;
     /** dataClassification=Internal|isEncrypted=false|description=web server, map from Server */
-    private String webServer;
+    private java.lang.String webServer;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag ck/C */
-    private String cookies;
+    private java.lang.String cookies;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag bott */
-    private Integer bot;
-    private String clientIP;
+    private java.lang.Integer bot;
+    private java.lang.String clientIP;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag RemoteIP */
-    private String remoteIP;
+    private java.lang.String remoteIP;
     /** dataClassification=Internal|isEncrypted=false|description=map from tag Agent */
-    private String agentInfo;
+    private java.lang.String agentInfo;
     /** dataClassification=Internal|isEncrypted=false|description=application ID, map from tag app */
-    private String appId;
+    private java.lang.String appId;
     /** dataClassification=Internal|isEncrypted=false|description=application version, map from mav */
-    private String appVersion;
+    private java.lang.String appVersion;
     /** dataClassification=Internal|isEncrypted=false|description=operation system version, map from osv */
-    private String osVersion;
+    private java.lang.String osVersion;
     /** dataClassification=Internal|isEncrypted=false|description=map from trffc_src */
-    private String trafficSource;
+    private java.lang.String trafficSource;
     /** dataClassification=Internal|isEncrypted=false|description=map from cbrnd */
-    private String cobrand;
+    private java.lang.String cobrand;
     /** dataClassification=Internal|isEncrypted=false|description=map from dd_d */
-    private String deviceFamily;
+    private java.lang.String deviceFamily;
     /** dataClassification=Internal|isEncrypted=false|description=map from dd_dc */
-    private String deviceType;
+    private java.lang.String deviceType;
     /** dataClassification=Internal|isEncrypted=false|description=map from dd_bv */
-    private String browserVersion;
+    private java.lang.String browserVersion;
     /** dataClassification=Internal|isEncrypted=false|description=map from dd_bf */
-    private String browserFamily;
+    private java.lang.String browserFamily;
     /** dataClassification=Internal|isEncrypted=false|description=map from dd_os */
-    private String osFamily;
+    private java.lang.String osFamily;
     /** dataClassification=Internal|isEncrypted=false|description=map from dd_osv */
-    private String enrichedOsVersion;
-    private java.util.Map<String, String> applicationPayload;
+    private java.lang.String enrichedOsVersion;
+    private java.util.Map<java.lang.String,java.lang.String> applicationPayload;
     /** CAL request log id */
-    private String rlogid;
+    private java.lang.String rlogid;
     /** Includes ForwardFor, ContentLength, Script, Server, Encoding, TMachine, TStamp, TName, TStatus, TDuration, TPayload */
-    private java.util.Map<String, String> clientData;
-    private Long ingestTime;
-    private Long sessionSkey;
-    private Long sessionStartDt;
-    private Long sojDataDt;
-    private Integer version;
-    private Integer staticPageType;
-    private Integer reservedForFuture;
-    private String eventAttr;
-    private Long currentImprId;
-    private Long sourceImprId;
-    private Long oldSessionSkey;
-    private Boolean partialValidPage;
-    private java.util.List<Integer> botFlags;
-    private Long icfBinary;
-    private Long eventCnt;
-    private String referrer;
-    private String forwardedFor;
-    private Boolean rv;
-    private java.util.Map<String,java.nio.ByteBuffer> sojHeader;
+    private java.util.Map<java.lang.String,java.lang.String> clientData;
+    private java.lang.Long ingestTime;
+    private java.lang.Long sessionSkey;
+    private java.lang.Long sessionStartDt;
+    private java.lang.Long sojDataDt;
+    private java.lang.Integer version;
+    private java.lang.Integer staticPageType;
+    private java.lang.Integer reservedForFuture;
+    private java.lang.String eventAttr;
+    private java.lang.Long currentImprId;
+    private java.lang.Long sourceImprId;
+    private java.lang.Long oldSessionSkey;
+    private java.lang.Boolean partialValidPage;
+    private java.util.List<java.lang.Integer> botFlags;
+    private java.lang.Long icfBinary;
+    private java.lang.Long eventCnt;
+    private java.lang.String referrer;
+    private java.lang.String forwardedFor;
+    private java.lang.Boolean rv;
+    private java.util.Map<java.lang.String,java.nio.ByteBuffer> sojHeader;
 
     /** Creates a new Builder */
     private Builder() {
@@ -2329,7 +2329,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'guid' field.
       * @return The value.
       */
-    public String getGuid() {
+    public java.lang.String getGuid() {
       return guid;
     }
 
@@ -2338,7 +2338,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'guid'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setGuid(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setGuid(java.lang.String value) {
       validate(fields()[1], value);
       this.guid = value;
       fieldSetFlags()[1] = true;
@@ -2369,7 +2369,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from timestamp, publish time
       * @return The value.
       */
-    public Long getEventTimestamp() {
+    public java.lang.Long getEventTimestamp() {
       return eventTimestamp;
     }
 
@@ -2411,7 +2411,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=mobile specific, map from mtsts, used for mobile case
       * @return The value.
       */
-    public Long getEventCaptureTime() {
+    public java.lang.Long getEventCaptureTime() {
       return eventCaptureTime;
     }
 
@@ -2421,7 +2421,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'eventCaptureTime'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setEventCaptureTime(Long value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setEventCaptureTime(java.lang.Long value) {
       validate(fields()[3], value);
       this.eventCaptureTime = value;
       fieldSetFlags()[3] = true;
@@ -2454,7 +2454,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=request correlation id, map from tag rq
       * @return The value.
       */
-    public String getRequestCorrelationId() {
+    public java.lang.String getRequestCorrelationId() {
       return requestCorrelationId;
     }
 
@@ -2464,7 +2464,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'requestCorrelationId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setRequestCorrelationId(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setRequestCorrelationId(java.lang.String value) {
       validate(fields()[4], value);
       this.requestCorrelationId = value;
       fieldSetFlags()[4] = true;
@@ -2497,7 +2497,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=correlation guid, map from tag n
       * @return The value.
       */
-    public String getCguid() {
+    public java.lang.String getCguid() {
       return cguid;
     }
 
@@ -2507,7 +2507,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'cguid'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setCguid(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setCguid(java.lang.String value) {
       validate(fields()[5], value);
       this.cguid = value;
       fieldSetFlags()[5] = true;
@@ -2540,7 +2540,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=Sojourner key for source id
       * @return The value.
       */
-    public String getSid() {
+    public java.lang.String getSid() {
       return sid;
     }
 
@@ -2550,7 +2550,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'sid'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setSid(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setSid(java.lang.String value) {
       validate(fields()[6], value);
       this.sid = value;
       fieldSetFlags()[6] = true;
@@ -2583,7 +2583,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag p
       * @return The value.
       */
-    public Integer getPageId() {
+    public java.lang.Integer getPageId() {
       return pageId;
     }
 
@@ -2593,7 +2593,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'pageId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setPageId(Integer value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setPageId(java.lang.Integer value) {
       validate(fields()[7], value);
       this.pageId = value;
       fieldSetFlags()[7] = true;
@@ -2625,7 +2625,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'pageName' field.
       * @return The value.
       */
-    public String getPageName() {
+    public java.lang.String getPageName() {
       return pageName;
     }
 
@@ -2634,7 +2634,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'pageName'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setPageName(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setPageName(java.lang.String value) {
       validate(fields()[8], value);
       this.pageName = value;
       fieldSetFlags()[8] = true;
@@ -2665,7 +2665,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag pgf
       * @return The value.
       */
-    public String getPageFamily() {
+    public java.lang.String getPageFamily() {
       return pageFamily;
     }
 
@@ -2675,7 +2675,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'pageFamily'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setPageFamily(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setPageFamily(java.lang.String value) {
       validate(fields()[9], value);
       this.pageFamily = value;
       fieldSetFlags()[9] = true;
@@ -2708,7 +2708,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from efam of pulsar event, event family
       * @return The value.
       */
-    public String getEventFamily() {
+    public java.lang.String getEventFamily() {
       return eventFamily;
     }
 
@@ -2718,7 +2718,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'eventFamily'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setEventFamily(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setEventFamily(java.lang.String value) {
       validate(fields()[10], value);
       this.eventFamily = value;
       fieldSetFlags()[10] = true;
@@ -2751,7 +2751,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from eactn of pulsar event, event action
       * @return The value.
       */
-    public String getEventAction() {
+    public java.lang.String getEventAction() {
       return eventAction;
     }
 
@@ -2761,7 +2761,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'eventAction'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setEventAction(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setEventAction(java.lang.String value) {
       validate(fields()[11], value);
       this.eventAction = value;
       fieldSetFlags()[11] = true;
@@ -2794,7 +2794,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag u/bu
       * @return The value.
       */
-    public String getUserId() {
+    public java.lang.String getUserId() {
       return userId;
     }
 
@@ -2804,7 +2804,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'userId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setUserId(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setUserId(java.lang.String value) {
       validate(fields()[12], value);
       this.userId = value;
       fieldSetFlags()[12] = true;
@@ -2837,7 +2837,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=Click Id, map from tag c
       * @return The value.
       */
-    public String getClickId() {
+    public java.lang.String getClickId() {
       return clickId;
     }
 
@@ -2847,7 +2847,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'clickId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setClickId(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setClickId(java.lang.String value) {
       validate(fields()[13], value);
       this.clickId = value;
       fieldSetFlags()[13] = true;
@@ -2880,7 +2880,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=Site ID, map from tag t
       * @return The value.
       */
-    public String getSiteId() {
+    public java.lang.String getSiteId() {
       return siteId;
     }
 
@@ -2890,7 +2890,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'siteId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setSiteId(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setSiteId(java.lang.String value) {
       validate(fields()[14], value);
       this.siteId = value;
       fieldSetFlags()[14] = true;
@@ -2923,7 +2923,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag snid
       * @return The value.
       */
-    public String getSessionId() {
+    public java.lang.String getSessionId() {
       return sessionId;
     }
 
@@ -2933,7 +2933,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'sessionId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setSessionId(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setSessionId(java.lang.String value) {
       validate(fields()[15], value);
       this.sessionId = value;
       fieldSetFlags()[15] = true;
@@ -2966,7 +2966,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag snsq
       * @return The value.
       */
-    public String getSeqNum() {
+    public java.lang.String getSeqNum() {
       return seqNum;
     }
 
@@ -2976,7 +2976,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'seqNum'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setSeqNum(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setSeqNum(java.lang.String value) {
       validate(fields()[16], value);
       this.seqNum = value;
       fieldSetFlags()[16] = true;
@@ -3008,7 +3008,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'ciid' field.
       * @return The value.
       */
-    public String getCiid() {
+    public java.lang.String getCiid() {
       return ciid;
     }
 
@@ -3017,7 +3017,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'ciid'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setCiid(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setCiid(java.lang.String value) {
       validate(fields()[17], value);
       this.ciid = value;
       fieldSetFlags()[17] = true;
@@ -3047,7 +3047,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'siid' field.
       * @return The value.
       */
-    public String getSiid() {
+    public java.lang.String getSiid() {
       return siid;
     }
 
@@ -3056,7 +3056,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'siid'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setSiid(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setSiid(java.lang.String value) {
       validate(fields()[18], value);
       this.siid = value;
       fieldSetFlags()[18] = true;
@@ -3087,7 +3087,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=1 indicates that the command redirected to another URL
       * @return The value.
       */
-    public Integer getRdt() {
+    public java.lang.Integer getRdt() {
       return rdt;
     }
 
@@ -3097,7 +3097,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'rdt'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setRdt(Integer value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setRdt(java.lang.Integer value) {
       validate(fields()[19], value);
       this.rdt = value;
       fieldSetFlags()[19] = true;
@@ -3130,7 +3130,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=indicating that this is a registered user, map from tag regU
       * @return The value.
       */
-    public Integer getRegu() {
+    public java.lang.Integer getRegu() {
       return regu;
     }
 
@@ -3140,7 +3140,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'regu'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setRegu(Integer value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setRegu(java.lang.Integer value) {
       validate(fields()[20], value);
       this.regu = value;
       fieldSetFlags()[20] = true;
@@ -3173,7 +3173,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag _ifrm
       * @return The value.
       */
-    public Boolean getIframe() {
+    public java.lang.Boolean getIframe() {
       return iframe;
     }
 
@@ -3183,7 +3183,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'iframe'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setIframe(Boolean value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setIframe(java.lang.Boolean value) {
       validate(fields()[21], value);
       this.iframe = value;
       fieldSetFlags()[21] = true;
@@ -3216,7 +3216,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag r
       * @return The value.
       */
-    public String getRefererHash() {
+    public java.lang.String getRefererHash() {
       return refererHash;
     }
 
@@ -3226,7 +3226,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'refererHash'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setRefererHash(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setRefererHash(java.lang.String value) {
       validate(fields()[22], value);
       this.refererHash = value;
       fieldSetFlags()[22] = true;
@@ -3259,7 +3259,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=search keyword, map from tag sQr
       * @return The value.
       */
-    public String getSqr() {
+    public java.lang.String getSqr() {
       return sqr;
     }
 
@@ -3269,7 +3269,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'sqr'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setSqr(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setSqr(java.lang.String value) {
       validate(fields()[23], value);
       this.sqr = value;
       fieldSetFlags()[23] = true;
@@ -3302,7 +3302,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag itm/item
       * @return The value.
       */
-    public String getItemId() {
+    public java.lang.String getItemId() {
       return itemId;
     }
 
@@ -3312,7 +3312,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'itemId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setItemId(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setItemId(java.lang.String value) {
       validate(fields()[24], value);
       this.itemId = value;
       fieldSetFlags()[24] = true;
@@ -3345,7 +3345,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag flgs
       * @return The value.
       */
-    public String getFlags() {
+    public java.lang.String getFlags() {
       return flags;
     }
 
@@ -3355,7 +3355,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'flags'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setFlags(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setFlags(java.lang.String value) {
       validate(fields()[25], value);
       this.flags = value;
       fieldSetFlags()[25] = true;
@@ -3388,7 +3388,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag Referer
       * @return The value.
       */
-    public String getUrlQueryString() {
+    public java.lang.String getUrlQueryString() {
       return urlQueryString;
     }
 
@@ -3398,7 +3398,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'urlQueryString'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setUrlQueryString(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setUrlQueryString(java.lang.String value) {
       validate(fields()[26], value);
       this.urlQueryString = value;
       fieldSetFlags()[26] = true;
@@ -3431,7 +3431,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=web server, map from Server
       * @return The value.
       */
-    public String getWebServer() {
+    public java.lang.String getWebServer() {
       return webServer;
     }
 
@@ -3441,7 +3441,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'webServer'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setWebServer(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setWebServer(java.lang.String value) {
       validate(fields()[27], value);
       this.webServer = value;
       fieldSetFlags()[27] = true;
@@ -3474,7 +3474,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag ck/C
       * @return The value.
       */
-    public String getCookies() {
+    public java.lang.String getCookies() {
       return cookies;
     }
 
@@ -3484,7 +3484,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'cookies'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setCookies(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setCookies(java.lang.String value) {
       validate(fields()[28], value);
       this.cookies = value;
       fieldSetFlags()[28] = true;
@@ -3517,7 +3517,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag bott
       * @return The value.
       */
-    public Integer getBot() {
+    public java.lang.Integer getBot() {
       return bot;
     }
 
@@ -3527,7 +3527,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'bot'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setBot(Integer value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setBot(java.lang.Integer value) {
       validate(fields()[29], value);
       this.bot = value;
       fieldSetFlags()[29] = true;
@@ -3559,7 +3559,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'clientIP' field.
       * @return The value.
       */
-    public String getClientIP() {
+    public java.lang.String getClientIP() {
       return clientIP;
     }
 
@@ -3568,7 +3568,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'clientIP'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setClientIP(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setClientIP(java.lang.String value) {
       validate(fields()[30], value);
       this.clientIP = value;
       fieldSetFlags()[30] = true;
@@ -3599,7 +3599,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag RemoteIP
       * @return The value.
       */
-    public String getRemoteIP() {
+    public java.lang.String getRemoteIP() {
       return remoteIP;
     }
 
@@ -3609,7 +3609,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'remoteIP'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setRemoteIP(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setRemoteIP(java.lang.String value) {
       validate(fields()[31], value);
       this.remoteIP = value;
       fieldSetFlags()[31] = true;
@@ -3642,7 +3642,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from tag Agent
       * @return The value.
       */
-    public String getAgentInfo() {
+    public java.lang.String getAgentInfo() {
       return agentInfo;
     }
 
@@ -3652,7 +3652,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'agentInfo'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setAgentInfo(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setAgentInfo(java.lang.String value) {
       validate(fields()[32], value);
       this.agentInfo = value;
       fieldSetFlags()[32] = true;
@@ -3685,7 +3685,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=application ID, map from tag app
       * @return The value.
       */
-    public String getAppId() {
+    public java.lang.String getAppId() {
       return appId;
     }
 
@@ -3695,7 +3695,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'appId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setAppId(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setAppId(java.lang.String value) {
       validate(fields()[33], value);
       this.appId = value;
       fieldSetFlags()[33] = true;
@@ -3728,7 +3728,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=application version, map from mav
       * @return The value.
       */
-    public String getAppVersion() {
+    public java.lang.String getAppVersion() {
       return appVersion;
     }
 
@@ -3738,7 +3738,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'appVersion'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setAppVersion(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setAppVersion(java.lang.String value) {
       validate(fields()[34], value);
       this.appVersion = value;
       fieldSetFlags()[34] = true;
@@ -3771,7 +3771,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=operation system version, map from osv
       * @return The value.
       */
-    public String getOsVersion() {
+    public java.lang.String getOsVersion() {
       return osVersion;
     }
 
@@ -3781,7 +3781,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'osVersion'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setOsVersion(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setOsVersion(java.lang.String value) {
       validate(fields()[35], value);
       this.osVersion = value;
       fieldSetFlags()[35] = true;
@@ -3814,7 +3814,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from trffc_src
       * @return The value.
       */
-    public String getTrafficSource() {
+    public java.lang.String getTrafficSource() {
       return trafficSource;
     }
 
@@ -3824,7 +3824,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'trafficSource'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setTrafficSource(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setTrafficSource(java.lang.String value) {
       validate(fields()[36], value);
       this.trafficSource = value;
       fieldSetFlags()[36] = true;
@@ -3857,7 +3857,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from cbrnd
       * @return The value.
       */
-    public String getCobrand() {
+    public java.lang.String getCobrand() {
       return cobrand;
     }
 
@@ -3867,7 +3867,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'cobrand'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setCobrand(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setCobrand(java.lang.String value) {
       validate(fields()[37], value);
       this.cobrand = value;
       fieldSetFlags()[37] = true;
@@ -3900,7 +3900,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from dd_d
       * @return The value.
       */
-    public String getDeviceFamily() {
+    public java.lang.String getDeviceFamily() {
       return deviceFamily;
     }
 
@@ -3910,7 +3910,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'deviceFamily'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setDeviceFamily(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setDeviceFamily(java.lang.String value) {
       validate(fields()[38], value);
       this.deviceFamily = value;
       fieldSetFlags()[38] = true;
@@ -3943,7 +3943,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from dd_dc
       * @return The value.
       */
-    public String getDeviceType() {
+    public java.lang.String getDeviceType() {
       return deviceType;
     }
 
@@ -3953,7 +3953,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'deviceType'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setDeviceType(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setDeviceType(java.lang.String value) {
       validate(fields()[39], value);
       this.deviceType = value;
       fieldSetFlags()[39] = true;
@@ -3986,7 +3986,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from dd_bv
       * @return The value.
       */
-    public String getBrowserVersion() {
+    public java.lang.String getBrowserVersion() {
       return browserVersion;
     }
 
@@ -3996,7 +3996,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'browserVersion'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setBrowserVersion(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setBrowserVersion(java.lang.String value) {
       validate(fields()[40], value);
       this.browserVersion = value;
       fieldSetFlags()[40] = true;
@@ -4029,7 +4029,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from dd_bf
       * @return The value.
       */
-    public String getBrowserFamily() {
+    public java.lang.String getBrowserFamily() {
       return browserFamily;
     }
 
@@ -4039,7 +4039,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'browserFamily'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setBrowserFamily(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setBrowserFamily(java.lang.String value) {
       validate(fields()[41], value);
       this.browserFamily = value;
       fieldSetFlags()[41] = true;
@@ -4072,7 +4072,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from dd_os
       * @return The value.
       */
-    public String getOsFamily() {
+    public java.lang.String getOsFamily() {
       return osFamily;
     }
 
@@ -4082,7 +4082,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'osFamily'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setOsFamily(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setOsFamily(java.lang.String value) {
       validate(fields()[42], value);
       this.osFamily = value;
       fieldSetFlags()[42] = true;
@@ -4115,7 +4115,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * dataClassification=Internal|isEncrypted=false|description=map from dd_osv
       * @return The value.
       */
-    public String getEnrichedOsVersion() {
+    public java.lang.String getEnrichedOsVersion() {
       return enrichedOsVersion;
     }
 
@@ -4125,7 +4125,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'enrichedOsVersion'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setEnrichedOsVersion(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setEnrichedOsVersion(java.lang.String value) {
       validate(fields()[43], value);
       this.enrichedOsVersion = value;
       fieldSetFlags()[43] = true;
@@ -4157,7 +4157,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'applicationPayload' field.
       * @return The value.
       */
-    public java.util.Map<String, String> getApplicationPayload() {
+    public java.util.Map<java.lang.String,java.lang.String> getApplicationPayload() {
       return applicationPayload;
     }
 
@@ -4166,7 +4166,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'applicationPayload'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setApplicationPayload(java.util.Map<String, String> value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setApplicationPayload(java.util.Map<java.lang.String,java.lang.String> value) {
       validate(fields()[44], value);
       this.applicationPayload = value;
       fieldSetFlags()[44] = true;
@@ -4197,7 +4197,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * CAL request log id
       * @return The value.
       */
-    public String getRlogid() {
+    public java.lang.String getRlogid() {
       return rlogid;
     }
 
@@ -4207,7 +4207,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'rlogid'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setRlogid(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setRlogid(java.lang.String value) {
       validate(fields()[45], value);
       this.rlogid = value;
       fieldSetFlags()[45] = true;
@@ -4240,7 +4240,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Includes ForwardFor, ContentLength, Script, Server, Encoding, TMachine, TStamp, TName, TStatus, TDuration, TPayload
       * @return The value.
       */
-    public java.util.Map<String, String> getClientData() {
+    public java.util.Map<java.lang.String,java.lang.String> getClientData() {
       return clientData;
     }
 
@@ -4250,7 +4250,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'clientData'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setClientData(java.util.Map<String, String> value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setClientData(java.util.Map<java.lang.String,java.lang.String> value) {
       validate(fields()[46], value);
       this.clientData = value;
       fieldSetFlags()[46] = true;
@@ -4282,7 +4282,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'ingestTime' field.
       * @return The value.
       */
-    public Long getIngestTime() {
+    public java.lang.Long getIngestTime() {
       return ingestTime;
     }
 
@@ -4291,7 +4291,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'ingestTime'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setIngestTime(Long value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setIngestTime(java.lang.Long value) {
       validate(fields()[47], value);
       this.ingestTime = value;
       fieldSetFlags()[47] = true;
@@ -4321,7 +4321,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'sessionSkey' field.
       * @return The value.
       */
-    public Long getSessionSkey() {
+    public java.lang.Long getSessionSkey() {
       return sessionSkey;
     }
 
@@ -4330,7 +4330,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'sessionSkey'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setSessionSkey(Long value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setSessionSkey(java.lang.Long value) {
       validate(fields()[48], value);
       this.sessionSkey = value;
       fieldSetFlags()[48] = true;
@@ -4360,7 +4360,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'sessionStartDt' field.
       * @return The value.
       */
-    public Long getSessionStartDt() {
+    public java.lang.Long getSessionStartDt() {
       return sessionStartDt;
     }
 
@@ -4369,7 +4369,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'sessionStartDt'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setSessionStartDt(Long value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setSessionStartDt(java.lang.Long value) {
       validate(fields()[49], value);
       this.sessionStartDt = value;
       fieldSetFlags()[49] = true;
@@ -4399,7 +4399,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'sojDataDt' field.
       * @return The value.
       */
-    public Long getSojDataDt() {
+    public java.lang.Long getSojDataDt() {
       return sojDataDt;
     }
 
@@ -4408,7 +4408,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'sojDataDt'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setSojDataDt(Long value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setSojDataDt(java.lang.Long value) {
       validate(fields()[50], value);
       this.sojDataDt = value;
       fieldSetFlags()[50] = true;
@@ -4438,7 +4438,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'version' field.
       * @return The value.
       */
-    public Integer getVersion() {
+    public java.lang.Integer getVersion() {
       return version;
     }
 
@@ -4447,7 +4447,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'version'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setVersion(Integer value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setVersion(java.lang.Integer value) {
       validate(fields()[51], value);
       this.version = value;
       fieldSetFlags()[51] = true;
@@ -4477,7 +4477,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'staticPageType' field.
       * @return The value.
       */
-    public Integer getStaticPageType() {
+    public java.lang.Integer getStaticPageType() {
       return staticPageType;
     }
 
@@ -4486,7 +4486,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'staticPageType'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setStaticPageType(Integer value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setStaticPageType(java.lang.Integer value) {
       validate(fields()[52], value);
       this.staticPageType = value;
       fieldSetFlags()[52] = true;
@@ -4516,7 +4516,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'reservedForFuture' field.
       * @return The value.
       */
-    public Integer getReservedForFuture() {
+    public java.lang.Integer getReservedForFuture() {
       return reservedForFuture;
     }
 
@@ -4525,7 +4525,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'reservedForFuture'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setReservedForFuture(Integer value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setReservedForFuture(java.lang.Integer value) {
       validate(fields()[53], value);
       this.reservedForFuture = value;
       fieldSetFlags()[53] = true;
@@ -4555,7 +4555,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'eventAttr' field.
       * @return The value.
       */
-    public String getEventAttr() {
+    public java.lang.String getEventAttr() {
       return eventAttr;
     }
 
@@ -4564,7 +4564,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'eventAttr'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setEventAttr(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setEventAttr(java.lang.String value) {
       validate(fields()[54], value);
       this.eventAttr = value;
       fieldSetFlags()[54] = true;
@@ -4594,7 +4594,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'currentImprId' field.
       * @return The value.
       */
-    public Long getCurrentImprId() {
+    public java.lang.Long getCurrentImprId() {
       return currentImprId;
     }
 
@@ -4603,7 +4603,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'currentImprId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setCurrentImprId(Long value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setCurrentImprId(java.lang.Long value) {
       validate(fields()[55], value);
       this.currentImprId = value;
       fieldSetFlags()[55] = true;
@@ -4633,7 +4633,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'sourceImprId' field.
       * @return The value.
       */
-    public Long getSourceImprId() {
+    public java.lang.Long getSourceImprId() {
       return sourceImprId;
     }
 
@@ -4642,7 +4642,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'sourceImprId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setSourceImprId(Long value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setSourceImprId(java.lang.Long value) {
       validate(fields()[56], value);
       this.sourceImprId = value;
       fieldSetFlags()[56] = true;
@@ -4672,7 +4672,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'oldSessionSkey' field.
       * @return The value.
       */
-    public Long getOldSessionSkey() {
+    public java.lang.Long getOldSessionSkey() {
       return oldSessionSkey;
     }
 
@@ -4681,7 +4681,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'oldSessionSkey'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setOldSessionSkey(Long value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setOldSessionSkey(java.lang.Long value) {
       validate(fields()[57], value);
       this.oldSessionSkey = value;
       fieldSetFlags()[57] = true;
@@ -4711,7 +4711,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'partialValidPage' field.
       * @return The value.
       */
-    public Boolean getPartialValidPage() {
+    public java.lang.Boolean getPartialValidPage() {
       return partialValidPage;
     }
 
@@ -4720,7 +4720,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'partialValidPage'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setPartialValidPage(Boolean value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setPartialValidPage(java.lang.Boolean value) {
       validate(fields()[58], value);
       this.partialValidPage = value;
       fieldSetFlags()[58] = true;
@@ -4750,7 +4750,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'botFlags' field.
       * @return The value.
       */
-    public java.util.List<Integer> getBotFlags() {
+    public java.util.List<java.lang.Integer> getBotFlags() {
       return botFlags;
     }
 
@@ -4759,7 +4759,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'botFlags'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setBotFlags(java.util.List<Integer> value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setBotFlags(java.util.List<java.lang.Integer> value) {
       validate(fields()[59], value);
       this.botFlags = value;
       fieldSetFlags()[59] = true;
@@ -4789,7 +4789,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'icfBinary' field.
       * @return The value.
       */
-    public Long getIcfBinary() {
+    public java.lang.Long getIcfBinary() {
       return icfBinary;
     }
 
@@ -4798,7 +4798,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'icfBinary'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setIcfBinary(Long value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setIcfBinary(java.lang.Long value) {
       validate(fields()[60], value);
       this.icfBinary = value;
       fieldSetFlags()[60] = true;
@@ -4828,7 +4828,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'eventCnt' field.
       * @return The value.
       */
-    public Long getEventCnt() {
+    public java.lang.Long getEventCnt() {
       return eventCnt;
     }
 
@@ -4837,7 +4837,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'eventCnt'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setEventCnt(Long value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setEventCnt(java.lang.Long value) {
       validate(fields()[61], value);
       this.eventCnt = value;
       fieldSetFlags()[61] = true;
@@ -4867,7 +4867,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'referrer' field.
       * @return The value.
       */
-    public String getReferrer() {
+    public java.lang.String getReferrer() {
       return referrer;
     }
 
@@ -4876,7 +4876,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'referrer'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setReferrer(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setReferrer(java.lang.String value) {
       validate(fields()[62], value);
       this.referrer = value;
       fieldSetFlags()[62] = true;
@@ -4906,7 +4906,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'forwardedFor' field.
       * @return The value.
       */
-    public String getForwardedFor() {
+    public java.lang.String getForwardedFor() {
       return forwardedFor;
     }
 
@@ -4915,7 +4915,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'forwardedFor'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setForwardedFor(String value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setForwardedFor(java.lang.String value) {
       validate(fields()[63], value);
       this.forwardedFor = value;
       fieldSetFlags()[63] = true;
@@ -4945,7 +4945,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'rv' field.
       * @return The value.
       */
-    public Boolean getRv() {
+    public java.lang.Boolean getRv() {
       return rv;
     }
 
@@ -4954,7 +4954,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'rv'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setRv(Boolean value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setRv(java.lang.Boolean value) {
       validate(fields()[64], value);
       this.rv = value;
       fieldSetFlags()[64] = true;
@@ -4984,7 +4984,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'sojHeader' field.
       * @return The value.
       */
-    public java.util.Map<String,java.nio.ByteBuffer> getSojHeader() {
+    public java.util.Map<java.lang.String,java.nio.ByteBuffer> getSojHeader() {
       return sojHeader;
     }
 
@@ -4993,7 +4993,7 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'sojHeader'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SojEvent.Builder setSojHeader(java.util.Map<String,java.nio.ByteBuffer> value) {
+    public com.ebay.epic.soj.common.model.SojEvent.Builder setSojHeader(java.util.Map<java.lang.String,java.nio.ByteBuffer> value) {
       validate(fields()[65], value);
       this.sojHeader = value;
       fieldSetFlags()[65] = true;
@@ -5029,73 +5029,73 @@ public class SojEvent extends org.apache.avro.specific.SpecificRecordBase implem
         } else {
           record.rheosHeader = fieldSetFlags()[0] ? this.rheosHeader : (com.ebay.epic.soj.common.model.RheosHeader) defaultValue(fields()[0]);
         }
-        record.guid = fieldSetFlags()[1] ? this.guid : (String) defaultValue(fields()[1]);
-        record.eventTimestamp = fieldSetFlags()[2] ? this.eventTimestamp : (Long) defaultValue(fields()[2]);
-        record.eventCaptureTime = fieldSetFlags()[3] ? this.eventCaptureTime : (Long) defaultValue(fields()[3]);
-        record.requestCorrelationId = fieldSetFlags()[4] ? this.requestCorrelationId : (String) defaultValue(fields()[4]);
-        record.cguid = fieldSetFlags()[5] ? this.cguid : (String) defaultValue(fields()[5]);
-        record.sid = fieldSetFlags()[6] ? this.sid : (String) defaultValue(fields()[6]);
-        record.pageId = fieldSetFlags()[7] ? this.pageId : (Integer) defaultValue(fields()[7]);
-        record.pageName = fieldSetFlags()[8] ? this.pageName : (String) defaultValue(fields()[8]);
-        record.pageFamily = fieldSetFlags()[9] ? this.pageFamily : (String) defaultValue(fields()[9]);
-        record.eventFamily = fieldSetFlags()[10] ? this.eventFamily : (String) defaultValue(fields()[10]);
-        record.eventAction = fieldSetFlags()[11] ? this.eventAction : (String) defaultValue(fields()[11]);
-        record.userId = fieldSetFlags()[12] ? this.userId : (String) defaultValue(fields()[12]);
-        record.clickId = fieldSetFlags()[13] ? this.clickId : (String) defaultValue(fields()[13]);
-        record.siteId = fieldSetFlags()[14] ? this.siteId : (String) defaultValue(fields()[14]);
-        record.sessionId = fieldSetFlags()[15] ? this.sessionId : (String) defaultValue(fields()[15]);
-        record.seqNum = fieldSetFlags()[16] ? this.seqNum : (String) defaultValue(fields()[16]);
-        record.ciid = fieldSetFlags()[17] ? this.ciid : (String) defaultValue(fields()[17]);
-        record.siid = fieldSetFlags()[18] ? this.siid : (String) defaultValue(fields()[18]);
-        record.rdt = fieldSetFlags()[19] ? this.rdt : (Integer) defaultValue(fields()[19]);
-        record.regu = fieldSetFlags()[20] ? this.regu : (Integer) defaultValue(fields()[20]);
-        record.iframe = fieldSetFlags()[21] ? this.iframe : (Boolean) defaultValue(fields()[21]);
-        record.refererHash = fieldSetFlags()[22] ? this.refererHash : (String) defaultValue(fields()[22]);
-        record.sqr = fieldSetFlags()[23] ? this.sqr : (String) defaultValue(fields()[23]);
-        record.itemId = fieldSetFlags()[24] ? this.itemId : (String) defaultValue(fields()[24]);
-        record.flags = fieldSetFlags()[25] ? this.flags : (String) defaultValue(fields()[25]);
-        record.urlQueryString = fieldSetFlags()[26] ? this.urlQueryString : (String) defaultValue(fields()[26]);
-        record.webServer = fieldSetFlags()[27] ? this.webServer : (String) defaultValue(fields()[27]);
-        record.cookies = fieldSetFlags()[28] ? this.cookies : (String) defaultValue(fields()[28]);
-        record.bot = fieldSetFlags()[29] ? this.bot : (Integer) defaultValue(fields()[29]);
-        record.clientIP = fieldSetFlags()[30] ? this.clientIP : (String) defaultValue(fields()[30]);
-        record.remoteIP = fieldSetFlags()[31] ? this.remoteIP : (String) defaultValue(fields()[31]);
-        record.agentInfo = fieldSetFlags()[32] ? this.agentInfo : (String) defaultValue(fields()[32]);
-        record.appId = fieldSetFlags()[33] ? this.appId : (String) defaultValue(fields()[33]);
-        record.appVersion = fieldSetFlags()[34] ? this.appVersion : (String) defaultValue(fields()[34]);
-        record.osVersion = fieldSetFlags()[35] ? this.osVersion : (String) defaultValue(fields()[35]);
-        record.trafficSource = fieldSetFlags()[36] ? this.trafficSource : (String) defaultValue(fields()[36]);
-        record.cobrand = fieldSetFlags()[37] ? this.cobrand : (String) defaultValue(fields()[37]);
-        record.deviceFamily = fieldSetFlags()[38] ? this.deviceFamily : (String) defaultValue(fields()[38]);
-        record.deviceType = fieldSetFlags()[39] ? this.deviceType : (String) defaultValue(fields()[39]);
-        record.browserVersion = fieldSetFlags()[40] ? this.browserVersion : (String) defaultValue(fields()[40]);
-        record.browserFamily = fieldSetFlags()[41] ? this.browserFamily : (String) defaultValue(fields()[41]);
-        record.osFamily = fieldSetFlags()[42] ? this.osFamily : (String) defaultValue(fields()[42]);
-        record.enrichedOsVersion = fieldSetFlags()[43] ? this.enrichedOsVersion : (String) defaultValue(fields()[43]);
-        record.applicationPayload = fieldSetFlags()[44] ? this.applicationPayload : (java.util.Map<String, String>) defaultValue(fields()[44]);
-        record.rlogid = fieldSetFlags()[45] ? this.rlogid : (String) defaultValue(fields()[45]);
-        record.clientData = fieldSetFlags()[46] ? this.clientData : (java.util.Map<String, String>) defaultValue(fields()[46]);
-        record.ingestTime = fieldSetFlags()[47] ? this.ingestTime : (Long) defaultValue(fields()[47]);
-        record.sessionSkey = fieldSetFlags()[48] ? this.sessionSkey : (Long) defaultValue(fields()[48]);
-        record.sessionStartDt = fieldSetFlags()[49] ? this.sessionStartDt : (Long) defaultValue(fields()[49]);
-        record.sojDataDt = fieldSetFlags()[50] ? this.sojDataDt : (Long) defaultValue(fields()[50]);
-        record.version = fieldSetFlags()[51] ? this.version : (Integer) defaultValue(fields()[51]);
-        record.staticPageType = fieldSetFlags()[52] ? this.staticPageType : (Integer) defaultValue(fields()[52]);
-        record.reservedForFuture = fieldSetFlags()[53] ? this.reservedForFuture : (Integer) defaultValue(fields()[53]);
-        record.eventAttr = fieldSetFlags()[54] ? this.eventAttr : (String) defaultValue(fields()[54]);
-        record.currentImprId = fieldSetFlags()[55] ? this.currentImprId : (Long) defaultValue(fields()[55]);
-        record.sourceImprId = fieldSetFlags()[56] ? this.sourceImprId : (Long) defaultValue(fields()[56]);
-        record.oldSessionSkey = fieldSetFlags()[57] ? this.oldSessionSkey : (Long) defaultValue(fields()[57]);
-        record.partialValidPage = fieldSetFlags()[58] ? this.partialValidPage : (Boolean) defaultValue(fields()[58]);
-        record.botFlags = fieldSetFlags()[59] ? this.botFlags : (java.util.List<Integer>) defaultValue(fields()[59]);
-        record.icfBinary = fieldSetFlags()[60] ? this.icfBinary : (Long) defaultValue(fields()[60]);
-        record.eventCnt = fieldSetFlags()[61] ? this.eventCnt : (Long) defaultValue(fields()[61]);
-        record.referrer = fieldSetFlags()[62] ? this.referrer : (String) defaultValue(fields()[62]);
-        record.forwardedFor = fieldSetFlags()[63] ? this.forwardedFor : (String) defaultValue(fields()[63]);
-        record.rv = fieldSetFlags()[64] ? this.rv : (Boolean) defaultValue(fields()[64]);
-        record.sojHeader = fieldSetFlags()[65] ? this.sojHeader : (java.util.Map<String,java.nio.ByteBuffer>) defaultValue(fields()[65]);
+        record.guid = fieldSetFlags()[1] ? this.guid : (java.lang.String) defaultValue(fields()[1]);
+        record.eventTimestamp = fieldSetFlags()[2] ? this.eventTimestamp : (java.lang.Long) defaultValue(fields()[2]);
+        record.eventCaptureTime = fieldSetFlags()[3] ? this.eventCaptureTime : (java.lang.Long) defaultValue(fields()[3]);
+        record.requestCorrelationId = fieldSetFlags()[4] ? this.requestCorrelationId : (java.lang.String) defaultValue(fields()[4]);
+        record.cguid = fieldSetFlags()[5] ? this.cguid : (java.lang.String) defaultValue(fields()[5]);
+        record.sid = fieldSetFlags()[6] ? this.sid : (java.lang.String) defaultValue(fields()[6]);
+        record.pageId = fieldSetFlags()[7] ? this.pageId : (java.lang.Integer) defaultValue(fields()[7]);
+        record.pageName = fieldSetFlags()[8] ? this.pageName : (java.lang.String) defaultValue(fields()[8]);
+        record.pageFamily = fieldSetFlags()[9] ? this.pageFamily : (java.lang.String) defaultValue(fields()[9]);
+        record.eventFamily = fieldSetFlags()[10] ? this.eventFamily : (java.lang.String) defaultValue(fields()[10]);
+        record.eventAction = fieldSetFlags()[11] ? this.eventAction : (java.lang.String) defaultValue(fields()[11]);
+        record.userId = fieldSetFlags()[12] ? this.userId : (java.lang.String) defaultValue(fields()[12]);
+        record.clickId = fieldSetFlags()[13] ? this.clickId : (java.lang.String) defaultValue(fields()[13]);
+        record.siteId = fieldSetFlags()[14] ? this.siteId : (java.lang.String) defaultValue(fields()[14]);
+        record.sessionId = fieldSetFlags()[15] ? this.sessionId : (java.lang.String) defaultValue(fields()[15]);
+        record.seqNum = fieldSetFlags()[16] ? this.seqNum : (java.lang.String) defaultValue(fields()[16]);
+        record.ciid = fieldSetFlags()[17] ? this.ciid : (java.lang.String) defaultValue(fields()[17]);
+        record.siid = fieldSetFlags()[18] ? this.siid : (java.lang.String) defaultValue(fields()[18]);
+        record.rdt = fieldSetFlags()[19] ? this.rdt : (java.lang.Integer) defaultValue(fields()[19]);
+        record.regu = fieldSetFlags()[20] ? this.regu : (java.lang.Integer) defaultValue(fields()[20]);
+        record.iframe = fieldSetFlags()[21] ? this.iframe : (java.lang.Boolean) defaultValue(fields()[21]);
+        record.refererHash = fieldSetFlags()[22] ? this.refererHash : (java.lang.String) defaultValue(fields()[22]);
+        record.sqr = fieldSetFlags()[23] ? this.sqr : (java.lang.String) defaultValue(fields()[23]);
+        record.itemId = fieldSetFlags()[24] ? this.itemId : (java.lang.String) defaultValue(fields()[24]);
+        record.flags = fieldSetFlags()[25] ? this.flags : (java.lang.String) defaultValue(fields()[25]);
+        record.urlQueryString = fieldSetFlags()[26] ? this.urlQueryString : (java.lang.String) defaultValue(fields()[26]);
+        record.webServer = fieldSetFlags()[27] ? this.webServer : (java.lang.String) defaultValue(fields()[27]);
+        record.cookies = fieldSetFlags()[28] ? this.cookies : (java.lang.String) defaultValue(fields()[28]);
+        record.bot = fieldSetFlags()[29] ? this.bot : (java.lang.Integer) defaultValue(fields()[29]);
+        record.clientIP = fieldSetFlags()[30] ? this.clientIP : (java.lang.String) defaultValue(fields()[30]);
+        record.remoteIP = fieldSetFlags()[31] ? this.remoteIP : (java.lang.String) defaultValue(fields()[31]);
+        record.agentInfo = fieldSetFlags()[32] ? this.agentInfo : (java.lang.String) defaultValue(fields()[32]);
+        record.appId = fieldSetFlags()[33] ? this.appId : (java.lang.String) defaultValue(fields()[33]);
+        record.appVersion = fieldSetFlags()[34] ? this.appVersion : (java.lang.String) defaultValue(fields()[34]);
+        record.osVersion = fieldSetFlags()[35] ? this.osVersion : (java.lang.String) defaultValue(fields()[35]);
+        record.trafficSource = fieldSetFlags()[36] ? this.trafficSource : (java.lang.String) defaultValue(fields()[36]);
+        record.cobrand = fieldSetFlags()[37] ? this.cobrand : (java.lang.String) defaultValue(fields()[37]);
+        record.deviceFamily = fieldSetFlags()[38] ? this.deviceFamily : (java.lang.String) defaultValue(fields()[38]);
+        record.deviceType = fieldSetFlags()[39] ? this.deviceType : (java.lang.String) defaultValue(fields()[39]);
+        record.browserVersion = fieldSetFlags()[40] ? this.browserVersion : (java.lang.String) defaultValue(fields()[40]);
+        record.browserFamily = fieldSetFlags()[41] ? this.browserFamily : (java.lang.String) defaultValue(fields()[41]);
+        record.osFamily = fieldSetFlags()[42] ? this.osFamily : (java.lang.String) defaultValue(fields()[42]);
+        record.enrichedOsVersion = fieldSetFlags()[43] ? this.enrichedOsVersion : (java.lang.String) defaultValue(fields()[43]);
+        record.applicationPayload = fieldSetFlags()[44] ? this.applicationPayload : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[44]);
+        record.rlogid = fieldSetFlags()[45] ? this.rlogid : (java.lang.String) defaultValue(fields()[45]);
+        record.clientData = fieldSetFlags()[46] ? this.clientData : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[46]);
+        record.ingestTime = fieldSetFlags()[47] ? this.ingestTime : (java.lang.Long) defaultValue(fields()[47]);
+        record.sessionSkey = fieldSetFlags()[48] ? this.sessionSkey : (java.lang.Long) defaultValue(fields()[48]);
+        record.sessionStartDt = fieldSetFlags()[49] ? this.sessionStartDt : (java.lang.Long) defaultValue(fields()[49]);
+        record.sojDataDt = fieldSetFlags()[50] ? this.sojDataDt : (java.lang.Long) defaultValue(fields()[50]);
+        record.version = fieldSetFlags()[51] ? this.version : (java.lang.Integer) defaultValue(fields()[51]);
+        record.staticPageType = fieldSetFlags()[52] ? this.staticPageType : (java.lang.Integer) defaultValue(fields()[52]);
+        record.reservedForFuture = fieldSetFlags()[53] ? this.reservedForFuture : (java.lang.Integer) defaultValue(fields()[53]);
+        record.eventAttr = fieldSetFlags()[54] ? this.eventAttr : (java.lang.String) defaultValue(fields()[54]);
+        record.currentImprId = fieldSetFlags()[55] ? this.currentImprId : (java.lang.Long) defaultValue(fields()[55]);
+        record.sourceImprId = fieldSetFlags()[56] ? this.sourceImprId : (java.lang.Long) defaultValue(fields()[56]);
+        record.oldSessionSkey = fieldSetFlags()[57] ? this.oldSessionSkey : (java.lang.Long) defaultValue(fields()[57]);
+        record.partialValidPage = fieldSetFlags()[58] ? this.partialValidPage : (java.lang.Boolean) defaultValue(fields()[58]);
+        record.botFlags = fieldSetFlags()[59] ? this.botFlags : (java.util.List<java.lang.Integer>) defaultValue(fields()[59]);
+        record.icfBinary = fieldSetFlags()[60] ? this.icfBinary : (java.lang.Long) defaultValue(fields()[60]);
+        record.eventCnt = fieldSetFlags()[61] ? this.eventCnt : (java.lang.Long) defaultValue(fields()[61]);
+        record.referrer = fieldSetFlags()[62] ? this.referrer : (java.lang.String) defaultValue(fields()[62]);
+        record.forwardedFor = fieldSetFlags()[63] ? this.forwardedFor : (java.lang.String) defaultValue(fields()[63]);
+        record.rv = fieldSetFlags()[64] ? this.rv : (java.lang.Boolean) defaultValue(fields()[64]);
+        record.sojHeader = fieldSetFlags()[65] ? this.sojHeader : (java.util.Map<java.lang.String,java.nio.ByteBuffer>) defaultValue(fields()[65]);
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

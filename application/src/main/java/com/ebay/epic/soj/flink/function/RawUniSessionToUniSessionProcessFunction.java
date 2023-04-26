@@ -1,8 +1,8 @@
 package com.ebay.epic.soj.flink.function;
 
-import com.ebay.epic.common.model.RheosHeader;
-import com.ebay.epic.common.model.UniSession;
-import com.ebay.epic.common.model.raw.RawUniSession;
+import com.ebay.epic.soj.common.model.RheosHeader;
+import com.ebay.epic.soj.common.model.UniSession;
+import com.ebay.epic.soj.common.model.raw.RawUniSession;
 import com.google.common.collect.Lists;
 import org.apache.flink.streaming.api.functions.ProcessFunction;
 import org.apache.flink.util.Collector;

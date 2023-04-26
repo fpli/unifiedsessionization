@@ -1,19 +1,18 @@
 package com.ebay.epic.soj.flink.connector.kafka;
 
-import com.ebay.epic.common.enums.DataCenter;
-import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.flink.connector.kafka.config.ConfigManager;
-import com.ebay.epic.flink.connector.kafka.config.FlinkKafkaSourceConfigWrapper;
-import com.ebay.epic.flink.connector.kafka.config.KafkaConsumerConfig;
-import com.ebay.epic.flink.connector.kafka.factory.FlinkKafkaConsumerFactory;
-import com.ebay.epic.utils.Property;
+import com.ebay.epic.soj.common.enums.DataCenter;
+import com.ebay.epic.soj.common.enums.EventType;
+import com.ebay.epic.soj.common.utils.Property;
+import com.ebay.epic.soj.flink.connector.kafka.config.ConfigManager;
+import com.ebay.epic.soj.flink.connector.kafka.config.FlinkKafkaSourceConfigWrapper;
+import com.ebay.epic.soj.flink.connector.kafka.config.KafkaConsumerConfig;
+import com.ebay.epic.soj.flink.connector.kafka.factory.FlinkKafkaConsumerFactory;
 import com.google.common.base.Preconditions;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.KafkaDeserializationSchema;
 
-import static com.ebay.epic.utils.FlinkEnvUtils.getInteger;
-import static com.ebay.epic.utils.FlinkEnvUtils.getString;
+import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.getInteger;
 
 public class SourceDataStreamBuilder<T> {
 

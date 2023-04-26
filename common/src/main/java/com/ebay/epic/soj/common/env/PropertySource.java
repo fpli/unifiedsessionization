@@ -1,6 +1,6 @@
 package com.ebay.epic.soj.common.env;
 
-import com.ebay.epic.utils.Property;
+import com.ebay.epic.soj.common.utils.Property;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,7 +10,7 @@ import com.google.common.collect.Maps;
 import java.io.InputStream;
 import java.util.Map;
 
-import static com.ebay.epic.utils.Property.*;
+import static com.ebay.epic.soj.common.utils.Property.*;
 
 public class PropertySource extends AbstractEnvironment {
 

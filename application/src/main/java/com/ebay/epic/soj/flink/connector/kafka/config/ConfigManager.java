@@ -1,14 +1,14 @@
 package com.ebay.epic.soj.flink.connector.kafka.config;
 
-import com.ebay.epic.common.enums.DataCenter;
-import com.ebay.epic.common.enums.EventType;
+import com.ebay.epic.soj.common.enums.DataCenter;
+import com.ebay.epic.soj.common.enums.EventType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
-import static com.ebay.epic.utils.FlinkEnvUtils.*;
+import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.*;
 
 @Data
 @RequiredArgsConstructor

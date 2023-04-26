@@ -13,7 +13,7 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Context extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -5302579171841346328L;
+  private static final long serialVersionUID = 3895528300858658370L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Context\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"version\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"os\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"utcOffset\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"clientIp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userLang\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenDPI\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"deviceInfo\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"MobileDeviceContext\",\"fields\":[{\"name\":\"formFactor\",\"type\":[\"null\",{\"type\":\"enum\",\"name\":\"FormFactor\",\"symbols\":[\"phone\",\"tablet\",\"watch\",\"desktop\"]}],\"default\":null},{\"name\":\"manufacturer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"model\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkCarrier\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkConnectionType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"theme\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"countryId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"others\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
@@ -51,18 +51,18 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
     return DECODER.decode(b);
   }
 
-  @Deprecated public String appId;
-  @Deprecated public String version;
-  @Deprecated public String os;
-  @Deprecated public String utcOffset;
-  @Deprecated public String clientIp;
-  @Deprecated public String userLang;
-  @Deprecated public String userAgent;
-  @Deprecated public Long screenWidth;
-  @Deprecated public Long screenHeight;
-  @Deprecated public Long screenDPI;
+  @Deprecated public java.lang.String appId;
+  @Deprecated public java.lang.String version;
+  @Deprecated public java.lang.String os;
+  @Deprecated public java.lang.String utcOffset;
+  @Deprecated public java.lang.String clientIp;
+  @Deprecated public java.lang.String userLang;
+  @Deprecated public java.lang.String userAgent;
+  @Deprecated public java.lang.Long screenWidth;
+  @Deprecated public java.lang.Long screenHeight;
+  @Deprecated public java.lang.Long screenDPI;
   @Deprecated public com.ebay.epic.soj.common.model.MobileDeviceContext deviceInfo;
-  @Deprecated public java.util.Map<String, String> others;
+  @Deprecated public java.util.Map<java.lang.String,java.lang.String> others;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -86,7 +86,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param deviceInfo The new value for deviceInfo
    * @param others The new value for others
    */
-  public Context(String appId, String version, String os, String utcOffset, String clientIp, String userLang, String userAgent, Long screenWidth, Long screenHeight, Long screenDPI, com.ebay.epic.soj.common.model.MobileDeviceContext deviceInfo, java.util.Map<String, String> others) {
+  public Context(java.lang.String appId, java.lang.String version, java.lang.String os, java.lang.String utcOffset, java.lang.String clientIp, java.lang.String userLang, java.lang.String userAgent, java.lang.Long screenWidth, java.lang.Long screenHeight, java.lang.Long screenDPI, com.ebay.epic.soj.common.model.MobileDeviceContext deviceInfo, java.util.Map<java.lang.String,java.lang.String> others) {
     this.appId = appId;
     this.version = version;
     this.os = os;
@@ -103,7 +103,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return appId;
     case 1: return version;
@@ -123,20 +123,20 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: appId = (String)value$; break;
-    case 1: version = (String)value$; break;
-    case 2: os = (String)value$; break;
-    case 3: utcOffset = (String)value$; break;
-    case 4: clientIp = (String)value$; break;
-    case 5: userLang = (String)value$; break;
-    case 6: userAgent = (String)value$; break;
-    case 7: screenWidth = (Long)value$; break;
-    case 8: screenHeight = (Long)value$; break;
-    case 9: screenDPI = (Long)value$; break;
+    case 0: appId = (java.lang.String)value$; break;
+    case 1: version = (java.lang.String)value$; break;
+    case 2: os = (java.lang.String)value$; break;
+    case 3: utcOffset = (java.lang.String)value$; break;
+    case 4: clientIp = (java.lang.String)value$; break;
+    case 5: userLang = (java.lang.String)value$; break;
+    case 6: userAgent = (java.lang.String)value$; break;
+    case 7: screenWidth = (java.lang.Long)value$; break;
+    case 8: screenHeight = (java.lang.Long)value$; break;
+    case 9: screenDPI = (java.lang.Long)value$; break;
     case 10: deviceInfo = (com.ebay.epic.soj.common.model.MobileDeviceContext)value$; break;
-    case 11: others = (java.util.Map<String, String>)value$; break;
+    case 11: others = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -145,7 +145,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'appId' field.
    * @return The value of the 'appId' field.
    */
-  public String getAppId() {
+  public java.lang.String getAppId() {
     return appId;
   }
 
@@ -153,7 +153,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'appId' field.
    * @param value the value to set.
    */
-  public void setAppId(String value) {
+  public void setAppId(java.lang.String value) {
     this.appId = value;
   }
 
@@ -161,7 +161,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'version' field.
    * @return The value of the 'version' field.
    */
-  public String getVersion() {
+  public java.lang.String getVersion() {
     return version;
   }
 
@@ -169,7 +169,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'version' field.
    * @param value the value to set.
    */
-  public void setVersion(String value) {
+  public void setVersion(java.lang.String value) {
     this.version = value;
   }
 
@@ -177,7 +177,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'os' field.
    * @return The value of the 'os' field.
    */
-  public String getOs() {
+  public java.lang.String getOs() {
     return os;
   }
 
@@ -185,7 +185,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'os' field.
    * @param value the value to set.
    */
-  public void setOs(String value) {
+  public void setOs(java.lang.String value) {
     this.os = value;
   }
 
@@ -193,7 +193,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'utcOffset' field.
    * @return The value of the 'utcOffset' field.
    */
-  public String getUtcOffset() {
+  public java.lang.String getUtcOffset() {
     return utcOffset;
   }
 
@@ -201,7 +201,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'utcOffset' field.
    * @param value the value to set.
    */
-  public void setUtcOffset(String value) {
+  public void setUtcOffset(java.lang.String value) {
     this.utcOffset = value;
   }
 
@@ -209,7 +209,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'clientIp' field.
    * @return The value of the 'clientIp' field.
    */
-  public String getClientIp() {
+  public java.lang.String getClientIp() {
     return clientIp;
   }
 
@@ -217,7 +217,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'clientIp' field.
    * @param value the value to set.
    */
-  public void setClientIp(String value) {
+  public void setClientIp(java.lang.String value) {
     this.clientIp = value;
   }
 
@@ -225,7 +225,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'userLang' field.
    * @return The value of the 'userLang' field.
    */
-  public String getUserLang() {
+  public java.lang.String getUserLang() {
     return userLang;
   }
 
@@ -233,7 +233,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'userLang' field.
    * @param value the value to set.
    */
-  public void setUserLang(String value) {
+  public void setUserLang(java.lang.String value) {
     this.userLang = value;
   }
 
@@ -241,7 +241,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'userAgent' field.
    * @return The value of the 'userAgent' field.
    */
-  public String getUserAgent() {
+  public java.lang.String getUserAgent() {
     return userAgent;
   }
 
@@ -249,7 +249,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'userAgent' field.
    * @param value the value to set.
    */
-  public void setUserAgent(String value) {
+  public void setUserAgent(java.lang.String value) {
     this.userAgent = value;
   }
 
@@ -257,7 +257,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'screenWidth' field.
    * @return The value of the 'screenWidth' field.
    */
-  public Long getScreenWidth() {
+  public java.lang.Long getScreenWidth() {
     return screenWidth;
   }
 
@@ -265,7 +265,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'screenWidth' field.
    * @param value the value to set.
    */
-  public void setScreenWidth(Long value) {
+  public void setScreenWidth(java.lang.Long value) {
     this.screenWidth = value;
   }
 
@@ -273,7 +273,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'screenHeight' field.
    * @return The value of the 'screenHeight' field.
    */
-  public Long getScreenHeight() {
+  public java.lang.Long getScreenHeight() {
     return screenHeight;
   }
 
@@ -281,7 +281,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'screenHeight' field.
    * @param value the value to set.
    */
-  public void setScreenHeight(Long value) {
+  public void setScreenHeight(java.lang.Long value) {
     this.screenHeight = value;
   }
 
@@ -289,7 +289,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'screenDPI' field.
    * @return The value of the 'screenDPI' field.
    */
-  public Long getScreenDPI() {
+  public java.lang.Long getScreenDPI() {
     return screenDPI;
   }
 
@@ -297,7 +297,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'screenDPI' field.
    * @param value the value to set.
    */
-  public void setScreenDPI(Long value) {
+  public void setScreenDPI(java.lang.Long value) {
     this.screenDPI = value;
   }
 
@@ -321,7 +321,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'others' field.
    * @return The value of the 'others' field.
    */
-  public java.util.Map<String, String> getOthers() {
+  public java.util.Map<java.lang.String,java.lang.String> getOthers() {
     return others;
   }
 
@@ -329,7 +329,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'others' field.
    * @param value the value to set.
    */
-  public void setOthers(java.util.Map<String, String> value) {
+  public void setOthers(java.util.Map<java.lang.String,java.lang.String> value) {
     this.others = value;
   }
 
@@ -365,19 +365,19 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Context>
     implements org.apache.avro.data.RecordBuilder<Context> {
 
-    private String appId;
-    private String version;
-    private String os;
-    private String utcOffset;
-    private String clientIp;
-    private String userLang;
-    private String userAgent;
-    private Long screenWidth;
-    private Long screenHeight;
-    private Long screenDPI;
+    private java.lang.String appId;
+    private java.lang.String version;
+    private java.lang.String os;
+    private java.lang.String utcOffset;
+    private java.lang.String clientIp;
+    private java.lang.String userLang;
+    private java.lang.String userAgent;
+    private java.lang.Long screenWidth;
+    private java.lang.Long screenHeight;
+    private java.lang.Long screenDPI;
     private com.ebay.epic.soj.common.model.MobileDeviceContext deviceInfo;
     private com.ebay.epic.soj.common.model.MobileDeviceContext.Builder deviceInfoBuilder;
-    private java.util.Map<String, String> others;
+    private java.util.Map<java.lang.String,java.lang.String> others;
 
     /** Creates a new Builder */
     private Builder() {
@@ -504,7 +504,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'appId' field.
       * @return The value.
       */
-    public String getAppId() {
+    public java.lang.String getAppId() {
       return appId;
     }
 
@@ -513,7 +513,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'appId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Context.Builder setAppId(String value) {
+    public com.ebay.epic.soj.common.model.Context.Builder setAppId(java.lang.String value) {
       validate(fields()[0], value);
       this.appId = value;
       fieldSetFlags()[0] = true;
@@ -543,7 +543,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'version' field.
       * @return The value.
       */
-    public String getVersion() {
+    public java.lang.String getVersion() {
       return version;
     }
 
@@ -552,7 +552,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'version'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Context.Builder setVersion(String value) {
+    public com.ebay.epic.soj.common.model.Context.Builder setVersion(java.lang.String value) {
       validate(fields()[1], value);
       this.version = value;
       fieldSetFlags()[1] = true;
@@ -582,7 +582,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'os' field.
       * @return The value.
       */
-    public String getOs() {
+    public java.lang.String getOs() {
       return os;
     }
 
@@ -591,7 +591,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'os'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Context.Builder setOs(String value) {
+    public com.ebay.epic.soj.common.model.Context.Builder setOs(java.lang.String value) {
       validate(fields()[2], value);
       this.os = value;
       fieldSetFlags()[2] = true;
@@ -621,7 +621,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'utcOffset' field.
       * @return The value.
       */
-    public String getUtcOffset() {
+    public java.lang.String getUtcOffset() {
       return utcOffset;
     }
 
@@ -630,7 +630,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'utcOffset'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Context.Builder setUtcOffset(String value) {
+    public com.ebay.epic.soj.common.model.Context.Builder setUtcOffset(java.lang.String value) {
       validate(fields()[3], value);
       this.utcOffset = value;
       fieldSetFlags()[3] = true;
@@ -660,7 +660,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'clientIp' field.
       * @return The value.
       */
-    public String getClientIp() {
+    public java.lang.String getClientIp() {
       return clientIp;
     }
 
@@ -669,7 +669,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'clientIp'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Context.Builder setClientIp(String value) {
+    public com.ebay.epic.soj.common.model.Context.Builder setClientIp(java.lang.String value) {
       validate(fields()[4], value);
       this.clientIp = value;
       fieldSetFlags()[4] = true;
@@ -699,7 +699,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'userLang' field.
       * @return The value.
       */
-    public String getUserLang() {
+    public java.lang.String getUserLang() {
       return userLang;
     }
 
@@ -708,7 +708,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'userLang'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Context.Builder setUserLang(String value) {
+    public com.ebay.epic.soj.common.model.Context.Builder setUserLang(java.lang.String value) {
       validate(fields()[5], value);
       this.userLang = value;
       fieldSetFlags()[5] = true;
@@ -738,7 +738,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'userAgent' field.
       * @return The value.
       */
-    public String getUserAgent() {
+    public java.lang.String getUserAgent() {
       return userAgent;
     }
 
@@ -747,7 +747,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'userAgent'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Context.Builder setUserAgent(String value) {
+    public com.ebay.epic.soj.common.model.Context.Builder setUserAgent(java.lang.String value) {
       validate(fields()[6], value);
       this.userAgent = value;
       fieldSetFlags()[6] = true;
@@ -777,7 +777,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'screenWidth' field.
       * @return The value.
       */
-    public Long getScreenWidth() {
+    public java.lang.Long getScreenWidth() {
       return screenWidth;
     }
 
@@ -786,7 +786,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'screenWidth'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Context.Builder setScreenWidth(Long value) {
+    public com.ebay.epic.soj.common.model.Context.Builder setScreenWidth(java.lang.Long value) {
       validate(fields()[7], value);
       this.screenWidth = value;
       fieldSetFlags()[7] = true;
@@ -816,7 +816,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'screenHeight' field.
       * @return The value.
       */
-    public Long getScreenHeight() {
+    public java.lang.Long getScreenHeight() {
       return screenHeight;
     }
 
@@ -825,7 +825,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'screenHeight'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Context.Builder setScreenHeight(Long value) {
+    public com.ebay.epic.soj.common.model.Context.Builder setScreenHeight(java.lang.Long value) {
       validate(fields()[8], value);
       this.screenHeight = value;
       fieldSetFlags()[8] = true;
@@ -855,7 +855,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'screenDPI' field.
       * @return The value.
       */
-    public Long getScreenDPI() {
+    public java.lang.Long getScreenDPI() {
       return screenDPI;
     }
 
@@ -864,7 +864,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'screenDPI'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Context.Builder setScreenDPI(Long value) {
+    public com.ebay.epic.soj.common.model.Context.Builder setScreenDPI(java.lang.Long value) {
       validate(fields()[9], value);
       this.screenDPI = value;
       fieldSetFlags()[9] = true;
@@ -968,7 +968,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'others' field.
       * @return The value.
       */
-    public java.util.Map<String, String> getOthers() {
+    public java.util.Map<java.lang.String,java.lang.String> getOthers() {
       return others;
     }
 
@@ -977,7 +977,7 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'others'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Context.Builder setOthers(java.util.Map<String, String> value) {
+    public com.ebay.epic.soj.common.model.Context.Builder setOthers(java.util.Map<java.lang.String,java.lang.String> value) {
       validate(fields()[11], value);
       this.others = value;
       fieldSetFlags()[11] = true;
@@ -1008,24 +1008,24 @@ public class Context extends org.apache.avro.specific.SpecificRecordBase impleme
     public Context build() {
       try {
         Context record = new Context();
-        record.appId = fieldSetFlags()[0] ? this.appId : (String) defaultValue(fields()[0]);
-        record.version = fieldSetFlags()[1] ? this.version : (String) defaultValue(fields()[1]);
-        record.os = fieldSetFlags()[2] ? this.os : (String) defaultValue(fields()[2]);
-        record.utcOffset = fieldSetFlags()[3] ? this.utcOffset : (String) defaultValue(fields()[3]);
-        record.clientIp = fieldSetFlags()[4] ? this.clientIp : (String) defaultValue(fields()[4]);
-        record.userLang = fieldSetFlags()[5] ? this.userLang : (String) defaultValue(fields()[5]);
-        record.userAgent = fieldSetFlags()[6] ? this.userAgent : (String) defaultValue(fields()[6]);
-        record.screenWidth = fieldSetFlags()[7] ? this.screenWidth : (Long) defaultValue(fields()[7]);
-        record.screenHeight = fieldSetFlags()[8] ? this.screenHeight : (Long) defaultValue(fields()[8]);
-        record.screenDPI = fieldSetFlags()[9] ? this.screenDPI : (Long) defaultValue(fields()[9]);
+        record.appId = fieldSetFlags()[0] ? this.appId : (java.lang.String) defaultValue(fields()[0]);
+        record.version = fieldSetFlags()[1] ? this.version : (java.lang.String) defaultValue(fields()[1]);
+        record.os = fieldSetFlags()[2] ? this.os : (java.lang.String) defaultValue(fields()[2]);
+        record.utcOffset = fieldSetFlags()[3] ? this.utcOffset : (java.lang.String) defaultValue(fields()[3]);
+        record.clientIp = fieldSetFlags()[4] ? this.clientIp : (java.lang.String) defaultValue(fields()[4]);
+        record.userLang = fieldSetFlags()[5] ? this.userLang : (java.lang.String) defaultValue(fields()[5]);
+        record.userAgent = fieldSetFlags()[6] ? this.userAgent : (java.lang.String) defaultValue(fields()[6]);
+        record.screenWidth = fieldSetFlags()[7] ? this.screenWidth : (java.lang.Long) defaultValue(fields()[7]);
+        record.screenHeight = fieldSetFlags()[8] ? this.screenHeight : (java.lang.Long) defaultValue(fields()[8]);
+        record.screenDPI = fieldSetFlags()[9] ? this.screenDPI : (java.lang.Long) defaultValue(fields()[9]);
         if (deviceInfoBuilder != null) {
           record.deviceInfo = this.deviceInfoBuilder.build();
         } else {
           record.deviceInfo = fieldSetFlags()[10] ? this.deviceInfo : (com.ebay.epic.soj.common.model.MobileDeviceContext) defaultValue(fields()[10]);
         }
-        record.others = fieldSetFlags()[11] ? this.others : (java.util.Map<String, String>) defaultValue(fields()[11]);
+        record.others = fieldSetFlags()[11] ? this.others : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[11]);
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

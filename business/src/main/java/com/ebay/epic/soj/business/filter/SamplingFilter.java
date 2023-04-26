@@ -1,13 +1,10 @@
 package com.ebay.epic.soj.business.filter;
 
-import com.ebay.epic.common.model.raw.RawEvent;
-import com.ebay.epic.utils.Property;
-import com.ebay.epic.utils.SOJSampleHash;
+import com.ebay.epic.soj.common.model.raw.RawEvent;
+import com.ebay.epic.soj.common.utils.SOJSampleHash;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;
-
-import static com.ebay.epic.utils.FlinkEnvUtils.*;
 
 public class SamplingFilter extends CombinationFilter<RawEvent> {
     public static final int MOD_VALUE = 1000;
@@ -16,9 +13,9 @@ public class SamplingFilter extends CombinationFilter<RawEvent> {
     public final String[] samplingKeys;
     public final float samplingPct;
 
-    public SamplingFilter() {
-        samplingKeys = getStringArray(Property.FLINK_APP_SINK_SAMPLING_KEY, ",");
-        samplingPct = getFloat(Property.FLINK_APP_SINK_SAMPLING_PCT);
+    public SamplingFilter(String[] samplingKeys, float samplingPct) {
+        this.samplingKeys = samplingKeys;
+        this.samplingPct = samplingPct;
     }
 
     @Override

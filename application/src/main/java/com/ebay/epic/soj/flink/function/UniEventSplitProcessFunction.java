@@ -2,10 +2,10 @@ package com.ebay.epic.soj.flink.function;
 
 import com.codahale.metrics.Histogram;
 import com.codahale.metrics.SlidingWindowReservoir;
-import com.ebay.epic.common.constant.Constants;
-import com.ebay.epic.common.constant.OutputTagConstants;
-import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.common.model.raw.UniEvent;
+import com.ebay.epic.soj.common.constant.Constants;
+import com.ebay.epic.soj.common.constant.OutputTagConstants;
+import com.ebay.epic.soj.common.enums.EventType;
+import com.ebay.epic.soj.common.model.raw.UniEvent;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.dropwizard.metrics.DropwizardHistogramWrapper;
 import org.apache.flink.streaming.api.functions.ProcessFunction;

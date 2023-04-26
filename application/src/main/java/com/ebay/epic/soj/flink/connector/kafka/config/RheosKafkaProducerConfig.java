@@ -1,6 +1,6 @@
 package com.ebay.epic.soj.flink.connector.kafka.config;
 
-import com.ebay.epic.utils.Property;
+import com.ebay.epic.soj.common.utils.Property;
 import io.ebay.rheos.kafka.client.StreamConnectorConfig;
 import lombok.AllArgsConstructor;
 import lombok.Data;

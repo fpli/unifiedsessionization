@@ -1,15 +1,15 @@
 package com.ebay.epic.soj.flink.connector.kafka;
 
-import com.ebay.epic.common.enums.DataCenter;
-import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.flink.connector.kafka.config.ConfigManager;
-import com.ebay.epic.utils.Property;
+import com.ebay.epic.soj.common.enums.DataCenter;
+import com.ebay.epic.soj.common.enums.EventType;
+import com.ebay.epic.soj.flink.connector.kafka.config.ConfigManager;
+import com.ebay.epic.soj.common.utils.Property;
 import org.apache.flink.api.common.functions.RichFilterFunction;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 
-import static com.ebay.epic.utils.FlinkEnvUtils.getInteger;
-import static com.ebay.epic.utils.Property.DEFAULT_PARALLELISM;
+import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.getInteger;
+import static com.ebay.epic.soj.common.utils.Property.DEFAULT_PARALLELISM;
 
 public class FlinkFilterFunctionBuilder<T> {
 

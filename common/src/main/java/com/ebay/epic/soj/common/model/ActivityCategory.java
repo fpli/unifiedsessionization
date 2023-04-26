@@ -8,6 +8,6 @@ package com.ebay.epic.soj.common.model;
 @org.apache.avro.specific.AvroGenerated
 public enum ActivityCategory {
   Impression, Click  ;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"ActivityCategory\",\"namespace\":\"com.ebay.epic.common.model\",\"symbols\":[\"Impression\",\"Click\"]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"enum\",\"name\":\"ActivityCategory\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"symbols\":[\"Impression\",\"Click\"]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 }

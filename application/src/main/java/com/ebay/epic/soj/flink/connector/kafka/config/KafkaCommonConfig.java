@@ -2,8 +2,8 @@ package com.ebay.epic.soj.flink.connector.kafka.config;
 
 import com.ebay.epic.soj.common.enums.DataCenter;
 import com.ebay.epic.soj.common.enums.EventType;
-import com.ebay.epic.utils.FlinkEnvUtils;
-import com.ebay.epic.utils.Property;
+import com.ebay.epic.soj.flink.utils.FlinkEnvUtils;
+import com.ebay.epic.soj.common.utils.Property;
 import com.google.common.base.Preconditions;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
@@ -12,8 +12,8 @@ import org.apache.kafka.common.config.SaslConfigs;
 
 import java.util.Properties;
 
-import static com.ebay.epic.utils.FlinkEnvUtils.getString;
-import static com.ebay.epic.utils.Property.*;
+import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.getString;
+import static com.ebay.epic.soj.common.utils.Property.*;
 
 @Data
 public abstract class KafkaCommonConfig {

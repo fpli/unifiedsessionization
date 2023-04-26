@@ -1,7 +1,7 @@
 package com.ebay.epic.soj.flink.connector.kafka.config;
 
-import com.ebay.epic.common.enums.DataCenter;
-import com.ebay.epic.common.enums.EventType;
+import com.ebay.epic.soj.common.enums.DataCenter;
+import com.ebay.epic.soj.common.enums.EventType;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -10,7 +10,7 @@ import org.apache.kafka.clients.consumer.RoundRobinAssignor;
 import java.util.List;
 import java.util.Properties;
 
-import static com.ebay.epic.utils.Property.*;
+import static com.ebay.epic.soj.common.utils.Property.*;
 
 @Getter
 @Setter

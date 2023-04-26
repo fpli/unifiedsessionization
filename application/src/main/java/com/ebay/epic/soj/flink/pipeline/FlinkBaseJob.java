@@ -5,18 +5,18 @@ import com.ebay.epic.soj.common.enums.EventType;
 import com.ebay.epic.soj.common.model.UniSession;
 import com.ebay.epic.soj.common.model.raw.RawEvent;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
-import com.ebay.epic.flink.connector.kafka.*;
-import com.ebay.epic.flink.connector.kafka.schema.RawEventKafkaDeserializationSchemaWrapper;
-import com.ebay.epic.flink.connector.kafka.schema.RawEventUniDeserializationSchema;
-import com.ebay.epic.flink.function.*;
-import com.ebay.epic.utils.FlinkEnvUtils;
-import com.ebay.epic.utils.Property;
+import com.ebay.epic.soj.flink.connector.kafka.*;
+import com.ebay.epic.soj.flink.connector.kafka.schema.RawEventKafkaDeserializationSchemaWrapper;
+import com.ebay.epic.soj.flink.connector.kafka.schema.RawEventUniDeserializationSchema;
+import com.ebay.epic.soj.flink.function.*;
+import com.ebay.epic.soj.flink.utils.FlinkEnvUtils;
+import com.ebay.epic.soj.common.utils.Property;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 
-import static com.ebay.epic.utils.FlinkEnvUtils.getInteger;
-import static com.ebay.epic.utils.Property.*;
+import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.getInteger;
+import static com.ebay.epic.soj.common.utils.Property.*;
 
 public abstract class FlinkBaseJob {
 

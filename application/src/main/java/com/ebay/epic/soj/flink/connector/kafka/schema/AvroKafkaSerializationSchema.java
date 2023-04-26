@@ -1,7 +1,7 @@
 package com.ebay.epic.soj.flink.connector.kafka.schema;
 
-import com.ebay.epic.flink.connector.kafka.serde.AvroKafkaSerializer;
-import com.ebay.epic.flink.connector.kafka.serde.KafkaSerializer;
+import com.ebay.epic.soj.flink.connector.kafka.serde.AvroKafkaSerializer;
+import com.ebay.epic.soj.flink.connector.kafka.serde.KafkaSerializer;
 import org.apache.avro.specific.SpecificRecord;
 import org.apache.flink.streaming.connectors.kafka.KafkaSerializationSchema;
 import org.apache.kafka.clients.producer.ProducerRecord;

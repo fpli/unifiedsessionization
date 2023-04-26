@@ -1,9 +1,8 @@
 package com.ebay.epic.soj.flink.function;
 
-import com.ebay.epic.business.metric.UniSessionMetrics;
-import com.ebay.epic.common.model.raw.RawEvent;
-import com.ebay.epic.common.model.UniSessionAccumulator;
-import com.ebay.epic.common.model.raw.UniEvent;
+import com.ebay.epic.soj.business.metric.UniSessionMetrics;
+import com.ebay.epic.soj.common.model.UniSessionAccumulator;
+import com.ebay.epic.soj.common.model.raw.UniEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.functions.AggregateFunction;
 

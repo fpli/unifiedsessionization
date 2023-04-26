@@ -1,9 +1,9 @@
 package com.ebay.epic.soj.flink.function;
 
-import com.ebay.epic.business.filter.SessionPostFilter;
-import com.ebay.epic.common.enums.Category;
-import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.common.model.UniSession;
+import com.ebay.epic.soj.business.filter.SessionPostFilter;
+import com.ebay.epic.soj.common.enums.Category;
+import com.ebay.epic.soj.common.enums.EventType;
+import com.ebay.epic.soj.common.model.UniSession;
 import org.apache.flink.api.common.functions.RichFilterFunction;
 import org.apache.flink.configuration.Configuration;
 

@@ -1,7 +1,7 @@
 package com.ebay.epic.soj.flink.connector.kafka.serde;
 
-import com.ebay.epic.common.model.raw.UniEvent;
-import com.ebay.epic.flink.connector.kafka.config.RheosKafkaProducerConfig;
+import com.ebay.epic.soj.common.model.raw.UniEvent;
+import com.ebay.epic.soj.flink.connector.kafka.config.RheosKafkaProducerConfig;
 import io.ebay.rheos.schema.avro.SchemaRegistryAwareAvroSerializerHelper;
 import io.ebay.rheos.schema.event.RheosEvent;
 import lombok.extern.slf4j.Slf4j;

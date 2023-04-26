@@ -1,6 +1,6 @@
 package com.ebay.epic.soj.flink.connector.kafka.producer;
 
-import com.ebay.epic.common.constant.Constants;
+import com.ebay.epic.soj.common.constant.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.metrics.Counter;

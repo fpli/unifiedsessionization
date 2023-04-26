@@ -1,16 +1,16 @@
 package com.ebay.epic.soj.flink.connector.kafka;
 
-import com.ebay.epic.common.enums.DataCenter;
-import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.flink.connector.kafka.config.ConfigManager;
-import com.ebay.epic.flink.connector.kafka.config.KafkaProducerConfig;
-import com.ebay.epic.flink.connector.kafka.factory.FlinkKafkaProducerFactory;
-import com.ebay.epic.utils.Property;
+import com.ebay.epic.soj.common.enums.DataCenter;
+import com.ebay.epic.soj.common.enums.EventType;
+import com.ebay.epic.soj.flink.connector.kafka.config.ConfigManager;
+import com.ebay.epic.soj.flink.connector.kafka.config.KafkaProducerConfig;
+import com.ebay.epic.soj.flink.connector.kafka.factory.FlinkKafkaProducerFactory;
+import com.ebay.epic.soj.common.utils.Property;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.functions.sink.DiscardingSink;
 
-import static com.ebay.epic.utils.FlinkEnvUtils.*;
-import static com.ebay.epic.utils.Property.*;
+import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.*;
+import static com.ebay.epic.soj.common.utils.Property.*;
 
 public class FlinkKafkaSinkBuilder<T> {
 

@@ -1,7 +1,7 @@
 package com.ebay.epic.soj.business.normalizer;
 
-import com.ebay.epic.common.model.raw.RawEvent;
-import com.ebay.epic.common.model.raw.UniEvent;
+import com.ebay.epic.soj.common.model.raw.RawEvent;
+import com.ebay.epic.soj.common.model.raw.UniEvent;
 
 public class UniEventNormalizer extends RecordNormalizer<RawEvent, UniEvent> {
 

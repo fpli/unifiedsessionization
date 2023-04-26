@@ -13,7 +13,7 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class BotFlag extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4202215627867657829L;
+  private static final long serialVersionUID = -6476025529410901172L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"BotFlag\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"surface\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]},{\"name\":\"ubi\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]},{\"name\":\"utp\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
@@ -51,9 +51,9 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.util.List<Integer> surface;
-  @Deprecated public java.util.List<Integer> ubi;
-  @Deprecated public java.util.List<Integer> utp;
+  @Deprecated public java.util.List<java.lang.Integer> surface;
+  @Deprecated public java.util.List<java.lang.Integer> ubi;
+  @Deprecated public java.util.List<java.lang.Integer> utp;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -68,7 +68,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
    * @param ubi The new value for ubi
    * @param utp The new value for utp
    */
-  public BotFlag(java.util.List<Integer> surface, java.util.List<Integer> ubi, java.util.List<Integer> utp) {
+  public BotFlag(java.util.List<java.lang.Integer> surface, java.util.List<java.lang.Integer> ubi, java.util.List<java.lang.Integer> utp) {
     this.surface = surface;
     this.ubi = ubi;
     this.utp = utp;
@@ -76,7 +76,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return surface;
     case 1: return ubi;
@@ -87,11 +87,11 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: surface = (java.util.List<Integer>)value$; break;
-    case 1: ubi = (java.util.List<Integer>)value$; break;
-    case 2: utp = (java.util.List<Integer>)value$; break;
+    case 0: surface = (java.util.List<java.lang.Integer>)value$; break;
+    case 1: ubi = (java.util.List<java.lang.Integer>)value$; break;
+    case 2: utp = (java.util.List<java.lang.Integer>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -100,7 +100,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'surface' field.
    * @return The value of the 'surface' field.
    */
-  public java.util.List<Integer> getSurface() {
+  public java.util.List<java.lang.Integer> getSurface() {
     return surface;
   }
 
@@ -108,7 +108,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'surface' field.
    * @param value the value to set.
    */
-  public void setSurface(java.util.List<Integer> value) {
+  public void setSurface(java.util.List<java.lang.Integer> value) {
     this.surface = value;
   }
 
@@ -116,7 +116,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'ubi' field.
    * @return The value of the 'ubi' field.
    */
-  public java.util.List<Integer> getUbi() {
+  public java.util.List<java.lang.Integer> getUbi() {
     return ubi;
   }
 
@@ -124,7 +124,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'ubi' field.
    * @param value the value to set.
    */
-  public void setUbi(java.util.List<Integer> value) {
+  public void setUbi(java.util.List<java.lang.Integer> value) {
     this.ubi = value;
   }
 
@@ -132,7 +132,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
    * Gets the value of the 'utp' field.
    * @return The value of the 'utp' field.
    */
-  public java.util.List<Integer> getUtp() {
+  public java.util.List<java.lang.Integer> getUtp() {
     return utp;
   }
 
@@ -140,7 +140,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
    * Sets the value of the 'utp' field.
    * @param value the value to set.
    */
-  public void setUtp(java.util.List<Integer> value) {
+  public void setUtp(java.util.List<java.lang.Integer> value) {
     this.utp = value;
   }
 
@@ -176,9 +176,9 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<BotFlag>
     implements org.apache.avro.data.RecordBuilder<BotFlag> {
 
-    private java.util.List<Integer> surface;
-    private java.util.List<Integer> ubi;
-    private java.util.List<Integer> utp;
+    private java.util.List<java.lang.Integer> surface;
+    private java.util.List<java.lang.Integer> ubi;
+    private java.util.List<java.lang.Integer> utp;
 
     /** Creates a new Builder */
     private Builder() {
@@ -229,7 +229,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'surface' field.
       * @return The value.
       */
-    public java.util.List<Integer> getSurface() {
+    public java.util.List<java.lang.Integer> getSurface() {
       return surface;
     }
 
@@ -238,7 +238,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'surface'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.BotFlag.Builder setSurface(java.util.List<Integer> value) {
+    public com.ebay.epic.soj.common.model.BotFlag.Builder setSurface(java.util.List<java.lang.Integer> value) {
       validate(fields()[0], value);
       this.surface = value;
       fieldSetFlags()[0] = true;
@@ -268,7 +268,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'ubi' field.
       * @return The value.
       */
-    public java.util.List<Integer> getUbi() {
+    public java.util.List<java.lang.Integer> getUbi() {
       return ubi;
     }
 
@@ -277,7 +277,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'ubi'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.BotFlag.Builder setUbi(java.util.List<Integer> value) {
+    public com.ebay.epic.soj.common.model.BotFlag.Builder setUbi(java.util.List<java.lang.Integer> value) {
       validate(fields()[1], value);
       this.ubi = value;
       fieldSetFlags()[1] = true;
@@ -307,7 +307,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
       * Gets the value of the 'utp' field.
       * @return The value.
       */
-    public java.util.List<Integer> getUtp() {
+    public java.util.List<java.lang.Integer> getUtp() {
       return utp;
     }
 
@@ -316,7 +316,7 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
       * @param value The value of 'utp'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.BotFlag.Builder setUtp(java.util.List<Integer> value) {
+    public com.ebay.epic.soj.common.model.BotFlag.Builder setUtp(java.util.List<java.lang.Integer> value) {
       validate(fields()[2], value);
       this.utp = value;
       fieldSetFlags()[2] = true;
@@ -347,11 +347,11 @@ public class BotFlag extends org.apache.avro.specific.SpecificRecordBase impleme
     public BotFlag build() {
       try {
         BotFlag record = new BotFlag();
-        record.surface = fieldSetFlags()[0] ? this.surface : (java.util.List<Integer>) defaultValue(fields()[0]);
-        record.ubi = fieldSetFlags()[1] ? this.ubi : (java.util.List<Integer>) defaultValue(fields()[1]);
-        record.utp = fieldSetFlags()[2] ? this.utp : (java.util.List<Integer>) defaultValue(fields()[2]);
+        record.surface = fieldSetFlags()[0] ? this.surface : (java.util.List<java.lang.Integer>) defaultValue(fields()[0]);
+        record.ubi = fieldSetFlags()[1] ? this.ubi : (java.util.List<java.lang.Integer>) defaultValue(fields()[1]);
+        record.utp = fieldSetFlags()[2] ? this.utp : (java.util.List<java.lang.Integer>) defaultValue(fields()[2]);
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

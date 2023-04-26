@@ -1,17 +1,17 @@
 package com.ebay.epic.soj.common.constant;
 
-import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.common.model.UniSession;
-import com.ebay.epic.common.model.raw.RawEvent;
-import com.ebay.epic.common.model.raw.RawUniSession;
-import com.ebay.epic.common.model.raw.UniEvent;
+import com.ebay.epic.soj.common.enums.EventType;
+import com.ebay.epic.soj.common.model.UniSession;
+import com.ebay.epic.soj.common.model.raw.RawEvent;
+import com.ebay.epic.soj.common.model.raw.RawUniSession;
+import com.ebay.epic.soj.common.model.raw.UniEvent;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.util.OutputTag;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static com.ebay.epic.common.enums.EventType.*;
+import static com.ebay.epic.soj.common.enums.EventType.*;
 
 public class OutputTagConstants {
 

@@ -1,12 +1,11 @@
 package com.ebay.epic.soj.flink.connector.kafka.factory;
 
-import com.ebay.epic.flink.assigner.TrackingEventTimestampAssigner;
-import com.ebay.epic.flink.connector.kafka.config.FlinkKafkaSourceConfigWrapper;
+import com.ebay.epic.soj.flink.assigner.TrackingEventTimestampAssigner;
+import com.ebay.epic.soj.flink.connector.kafka.config.FlinkKafkaSourceConfigWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.streaming.connectors.kafka.KafkaDeserializationSchema;
-import org.apache.flink.streaming.connectors.kafka.SojFlinkKafkaConsumer;
 
 import java.time.Duration;
 

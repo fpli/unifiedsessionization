@@ -13,7 +13,7 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3755318486941106272L;
+  private static final long serialVersionUID = 4572183204565265317L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"AutoTrackEvent\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userId\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"siteId\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"eventFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"agentVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"context\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Context\",\"fields\":[{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"version\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"os\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"utcOffset\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"clientIp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userLang\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenDPI\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"deviceInfo\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"MobileDeviceContext\",\"fields\":[{\"name\":\"formFactor\",\"type\":[\"null\",{\"type\":\"enum\",\"name\":\"FormFactor\",\"symbols\":[\"phone\",\"tablet\",\"watch\",\"desktop\"]}],\"default\":null},{\"name\":\"manufacturer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"model\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkCarrier\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkConnectionType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"theme\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"countryId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"others\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"trackable\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Trackable\",\"fields\":[{\"name\":\"trackableId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"parentTrackableId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"instanceId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"correlationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"activity\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Activity\",\"fields\":[{\"name\":\"timestamp\",\"type\":\"long\"},{\"name\":\"duration\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"ratio\",\"type\":[\"null\",\"double\"],\"default\":null},{\"name\":\"viewportWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"viewportHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"category\",\"type\":{\"type\":\"enum\",\"name\":\"ActivityCategory\",\"symbols\":[\"Impression\",\"Click\"]}},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"referer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"details\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
@@ -51,11 +51,11 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
     return DECODER.decode(b);
   }
 
-  @Deprecated public String guid;
-  @Deprecated public Long userId;
-  @Deprecated public Integer siteId;
-  @Deprecated public String eventFamily;
-  @Deprecated public String agentVersion;
+  @Deprecated public java.lang.String guid;
+  @Deprecated public java.lang.Long userId;
+  @Deprecated public java.lang.Integer siteId;
+  @Deprecated public java.lang.String eventFamily;
+  @Deprecated public java.lang.String agentVersion;
   @Deprecated public com.ebay.epic.soj.common.model.Context context;
   @Deprecated public com.ebay.epic.soj.common.model.Trackable trackable;
   @Deprecated public com.ebay.epic.soj.common.model.Activity activity;
@@ -78,7 +78,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * @param trackable The new value for trackable
    * @param activity The new value for activity
    */
-  public AutoTrackEvent(String guid, Long userId, Integer siteId, String eventFamily, String agentVersion, com.ebay.epic.soj.common.model.Context context, com.ebay.epic.soj.common.model.Trackable trackable, com.ebay.epic.soj.common.model.Activity activity) {
+  public AutoTrackEvent(java.lang.String guid, java.lang.Long userId, java.lang.Integer siteId, java.lang.String eventFamily, java.lang.String agentVersion, com.ebay.epic.soj.common.model.Context context, com.ebay.epic.soj.common.model.Trackable trackable, com.ebay.epic.soj.common.model.Activity activity) {
     this.guid = guid;
     this.userId = userId;
     this.siteId = siteId;
@@ -91,7 +91,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return guid;
     case 1: return userId;
@@ -107,13 +107,13 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: guid = (String)value$; break;
-    case 1: userId = (Long)value$; break;
-    case 2: siteId = (Integer)value$; break;
-    case 3: eventFamily = (String)value$; break;
-    case 4: agentVersion = (String)value$; break;
+    case 0: guid = (java.lang.String)value$; break;
+    case 1: userId = (java.lang.Long)value$; break;
+    case 2: siteId = (java.lang.Integer)value$; break;
+    case 3: eventFamily = (java.lang.String)value$; break;
+    case 4: agentVersion = (java.lang.String)value$; break;
     case 5: context = (com.ebay.epic.soj.common.model.Context)value$; break;
     case 6: trackable = (com.ebay.epic.soj.common.model.Trackable)value$; break;
     case 7: activity = (com.ebay.epic.soj.common.model.Activity)value$; break;
@@ -125,7 +125,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Gets the value of the 'guid' field.
    * @return The value of the 'guid' field.
    */
-  public String getGuid() {
+  public java.lang.String getGuid() {
     return guid;
   }
 
@@ -133,7 +133,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Sets the value of the 'guid' field.
    * @param value the value to set.
    */
-  public void setGuid(String value) {
+  public void setGuid(java.lang.String value) {
     this.guid = value;
   }
 
@@ -141,7 +141,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Gets the value of the 'userId' field.
    * @return The value of the 'userId' field.
    */
-  public Long getUserId() {
+  public java.lang.Long getUserId() {
     return userId;
   }
 
@@ -149,7 +149,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Sets the value of the 'userId' field.
    * @param value the value to set.
    */
-  public void setUserId(Long value) {
+  public void setUserId(java.lang.Long value) {
     this.userId = value;
   }
 
@@ -157,7 +157,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Gets the value of the 'siteId' field.
    * @return The value of the 'siteId' field.
    */
-  public Integer getSiteId() {
+  public java.lang.Integer getSiteId() {
     return siteId;
   }
 
@@ -165,7 +165,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Sets the value of the 'siteId' field.
    * @param value the value to set.
    */
-  public void setSiteId(Integer value) {
+  public void setSiteId(java.lang.Integer value) {
     this.siteId = value;
   }
 
@@ -173,7 +173,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Gets the value of the 'eventFamily' field.
    * @return The value of the 'eventFamily' field.
    */
-  public String getEventFamily() {
+  public java.lang.String getEventFamily() {
     return eventFamily;
   }
 
@@ -181,7 +181,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Sets the value of the 'eventFamily' field.
    * @param value the value to set.
    */
-  public void setEventFamily(String value) {
+  public void setEventFamily(java.lang.String value) {
     this.eventFamily = value;
   }
 
@@ -189,7 +189,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Gets the value of the 'agentVersion' field.
    * @return The value of the 'agentVersion' field.
    */
-  public String getAgentVersion() {
+  public java.lang.String getAgentVersion() {
     return agentVersion;
   }
 
@@ -197,7 +197,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
    * Sets the value of the 'agentVersion' field.
    * @param value the value to set.
    */
-  public void setAgentVersion(String value) {
+  public void setAgentVersion(java.lang.String value) {
     this.agentVersion = value;
   }
 
@@ -281,11 +281,11 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<AutoTrackEvent>
     implements org.apache.avro.data.RecordBuilder<AutoTrackEvent> {
 
-    private String guid;
-    private Long userId;
-    private Integer siteId;
-    private String eventFamily;
-    private String agentVersion;
+    private java.lang.String guid;
+    private java.lang.Long userId;
+    private java.lang.Integer siteId;
+    private java.lang.String eventFamily;
+    private java.lang.String agentVersion;
     private com.ebay.epic.soj.common.model.Context context;
     private com.ebay.epic.soj.common.model.Context.Builder contextBuilder;
     private com.ebay.epic.soj.common.model.Trackable trackable;
@@ -394,7 +394,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Gets the value of the 'guid' field.
       * @return The value.
       */
-    public String getGuid() {
+    public java.lang.String getGuid() {
       return guid;
     }
 
@@ -403,7 +403,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'guid'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.AutoTrackEvent.Builder setGuid(String value) {
+    public com.ebay.epic.soj.common.model.AutoTrackEvent.Builder setGuid(java.lang.String value) {
       validate(fields()[0], value);
       this.guid = value;
       fieldSetFlags()[0] = true;
@@ -433,7 +433,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Gets the value of the 'userId' field.
       * @return The value.
       */
-    public Long getUserId() {
+    public java.lang.Long getUserId() {
       return userId;
     }
 
@@ -442,7 +442,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'userId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.AutoTrackEvent.Builder setUserId(Long value) {
+    public com.ebay.epic.soj.common.model.AutoTrackEvent.Builder setUserId(java.lang.Long value) {
       validate(fields()[1], value);
       this.userId = value;
       fieldSetFlags()[1] = true;
@@ -472,7 +472,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Gets the value of the 'siteId' field.
       * @return The value.
       */
-    public Integer getSiteId() {
+    public java.lang.Integer getSiteId() {
       return siteId;
     }
 
@@ -481,7 +481,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'siteId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.AutoTrackEvent.Builder setSiteId(Integer value) {
+    public com.ebay.epic.soj.common.model.AutoTrackEvent.Builder setSiteId(java.lang.Integer value) {
       validate(fields()[2], value);
       this.siteId = value;
       fieldSetFlags()[2] = true;
@@ -511,7 +511,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Gets the value of the 'eventFamily' field.
       * @return The value.
       */
-    public String getEventFamily() {
+    public java.lang.String getEventFamily() {
       return eventFamily;
     }
 
@@ -520,7 +520,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'eventFamily'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.AutoTrackEvent.Builder setEventFamily(String value) {
+    public com.ebay.epic.soj.common.model.AutoTrackEvent.Builder setEventFamily(java.lang.String value) {
       validate(fields()[3], value);
       this.eventFamily = value;
       fieldSetFlags()[3] = true;
@@ -550,7 +550,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * Gets the value of the 'agentVersion' field.
       * @return The value.
       */
-    public String getAgentVersion() {
+    public java.lang.String getAgentVersion() {
       return agentVersion;
     }
 
@@ -559,7 +559,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'agentVersion'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.AutoTrackEvent.Builder setAgentVersion(String value) {
+    public com.ebay.epic.soj.common.model.AutoTrackEvent.Builder setAgentVersion(java.lang.String value) {
       validate(fields()[4], value);
       this.agentVersion = value;
       fieldSetFlags()[4] = true;
@@ -812,11 +812,11 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
     public AutoTrackEvent build() {
       try {
         AutoTrackEvent record = new AutoTrackEvent();
-        record.guid = fieldSetFlags()[0] ? this.guid : (String) defaultValue(fields()[0]);
-        record.userId = fieldSetFlags()[1] ? this.userId : (Long) defaultValue(fields()[1]);
-        record.siteId = fieldSetFlags()[2] ? this.siteId : (Integer) defaultValue(fields()[2]);
-        record.eventFamily = fieldSetFlags()[3] ? this.eventFamily : (String) defaultValue(fields()[3]);
-        record.agentVersion = fieldSetFlags()[4] ? this.agentVersion : (String) defaultValue(fields()[4]);
+        record.guid = fieldSetFlags()[0] ? this.guid : (java.lang.String) defaultValue(fields()[0]);
+        record.userId = fieldSetFlags()[1] ? this.userId : (java.lang.Long) defaultValue(fields()[1]);
+        record.siteId = fieldSetFlags()[2] ? this.siteId : (java.lang.Integer) defaultValue(fields()[2]);
+        record.eventFamily = fieldSetFlags()[3] ? this.eventFamily : (java.lang.String) defaultValue(fields()[3]);
+        record.agentVersion = fieldSetFlags()[4] ? this.agentVersion : (java.lang.String) defaultValue(fields()[4]);
         if (contextBuilder != null) {
           record.context = this.contextBuilder.build();
         } else {
@@ -833,7 +833,7 @@ public class AutoTrackEvent extends org.apache.avro.specific.SpecificRecordBase 
           record.activity = fieldSetFlags()[7] ? this.activity : (com.ebay.epic.soj.common.model.Activity) defaultValue(fields()[7]);
         }
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

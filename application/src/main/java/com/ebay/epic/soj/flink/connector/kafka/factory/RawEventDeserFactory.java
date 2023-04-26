@@ -1,10 +1,10 @@
 package com.ebay.epic.soj.flink.connector.kafka.factory;
 
-import com.ebay.epic.common.enums.SchemaSubject;
-import com.ebay.epic.flink.connector.kafka.serde.AutoTrackRheosKafkaDeserializer;
-import com.ebay.epic.flink.connector.kafka.serde.RheosKafkaDeserializer;
-import com.ebay.epic.flink.connector.kafka.serde.UbiRheosKafkaDeserializer;
-import com.ebay.epic.flink.connector.kafka.serde.UtpRheosKafkaDeserializer;
+import com.ebay.epic.soj.common.enums.SchemaSubject;
+import com.ebay.epic.soj.flink.connector.kafka.serde.AutoTrackRheosKafkaDeserializer;
+import com.ebay.epic.soj.flink.connector.kafka.serde.RheosKafkaDeserializer;
+import com.ebay.epic.soj.flink.connector.kafka.serde.UbiRheosKafkaDeserializer;
+import com.ebay.epic.soj.flink.connector.kafka.serde.UtpRheosKafkaDeserializer;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,8 +1,8 @@
 package com.ebay.epic.soj.business.normalizer;
 
-import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.common.model.raw.RawEvent;
-import com.ebay.epic.common.model.raw.UniEvent;
+import com.ebay.epic.soj.common.enums.EventType;
+import com.ebay.epic.soj.common.model.raw.RawEvent;
+import com.ebay.epic.soj.common.model.raw.UniEvent;
 import com.google.common.collect.Sets;
 import org.apache.avro.generic.GenericRecord;
 

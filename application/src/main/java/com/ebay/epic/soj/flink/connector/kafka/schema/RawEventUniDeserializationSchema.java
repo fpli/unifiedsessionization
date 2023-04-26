@@ -1,20 +1,14 @@
 package com.ebay.epic.soj.flink.connector.kafka.schema;
 
-import com.ebay.epic.common.constant.Constants;
-import com.ebay.epic.common.enums.SchemaSubject;
-import com.ebay.epic.common.model.raw.RawEvent;
-import com.ebay.epic.flink.connector.kafka.factory.RawEventDeserFactory;
-import com.ebay.epic.flink.connector.kafka.factory.RheosEventSerdeFactory;
+import com.ebay.epic.soj.common.constant.Constants;
+import com.ebay.epic.soj.common.enums.SchemaSubject;
+import com.ebay.epic.soj.common.model.raw.RawEvent;
+import com.ebay.epic.soj.flink.connector.kafka.factory.RawEventDeserFactory;
 import com.google.common.collect.Sets;
-import io.ebay.rheos.schema.event.RheosEvent;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.avro.generic.GenericRecord;
 import org.apache.flink.api.common.serialization.DeserializationSchema;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.metrics.Counter;
-import org.joda.time.DateTimeZone;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 
 import java.io.IOException;
 import java.util.Date;

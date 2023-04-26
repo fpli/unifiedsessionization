@@ -13,7 +13,7 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 5678620597477478347L;
+  private static final long serialVersionUID = 3967943958389718056L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"SessionizedEvent\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}},{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"sessionId\",\"type\":\"long\"},{\"name\":\"sessionStartDt\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"userId\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"siteId\",\"type\":[\"null\",\"int\"],\"default\":null},{\"name\":\"agentVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"context\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Context\",\"fields\":[{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"version\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"os\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"utcOffset\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"clientIp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userLang\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"screenDPI\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"deviceInfo\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"MobileDeviceContext\",\"fields\":[{\"name\":\"formFactor\",\"type\":[\"null\",{\"type\":\"enum\",\"name\":\"FormFactor\",\"symbols\":[\"phone\",\"tablet\",\"watch\",\"desktop\"]}],\"default\":null},{\"name\":\"manufacturer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"model\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkCarrier\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkConnectionType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"theme\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"countryId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"others\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"trackable\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Trackable\",\"fields\":[{\"name\":\"trackableId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"parentTrackableId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"instanceId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"correlationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null},{\"name\":\"activity\",\"type\":[\"null\",{\"type\":\"record\",\"name\":\"Activity\",\"fields\":[{\"name\":\"timestamp\",\"type\":\"long\"},{\"name\":\"duration\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"ratio\",\"type\":[\"null\",\"double\"],\"default\":null},{\"name\":\"viewportWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"viewportHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"category\",\"type\":{\"type\":\"enum\",\"name\":\"ActivityCategory\",\"symbols\":[\"Impression\",\"Click\"]}},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"referer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"details\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
@@ -52,12 +52,12 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
   }
 
   @Deprecated public com.ebay.epic.soj.common.model.RheosHeader rheosHeader;
-  @Deprecated public String guid;
+  @Deprecated public java.lang.String guid;
   @Deprecated public long sessionId;
-  @Deprecated public String sessionStartDt;
-  @Deprecated public Long userId;
-  @Deprecated public Integer siteId;
-  @Deprecated public String agentVersion;
+  @Deprecated public java.lang.String sessionStartDt;
+  @Deprecated public java.lang.Long userId;
+  @Deprecated public java.lang.Integer siteId;
+  @Deprecated public java.lang.String agentVersion;
   @Deprecated public com.ebay.epic.soj.common.model.Context context;
   @Deprecated public com.ebay.epic.soj.common.model.Trackable trackable;
   @Deprecated public com.ebay.epic.soj.common.model.Activity activity;
@@ -82,7 +82,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * @param trackable The new value for trackable
    * @param activity The new value for activity
    */
-  public SessionizedEvent(com.ebay.epic.soj.common.model.RheosHeader rheosHeader, String guid, Long sessionId, String sessionStartDt, Long userId, Integer siteId, String agentVersion, com.ebay.epic.soj.common.model.Context context, com.ebay.epic.soj.common.model.Trackable trackable, com.ebay.epic.soj.common.model.Activity activity) {
+  public SessionizedEvent(com.ebay.epic.soj.common.model.RheosHeader rheosHeader, java.lang.String guid, java.lang.Long sessionId, java.lang.String sessionStartDt, java.lang.Long userId, java.lang.Integer siteId, java.lang.String agentVersion, com.ebay.epic.soj.common.model.Context context, com.ebay.epic.soj.common.model.Trackable trackable, com.ebay.epic.soj.common.model.Activity activity) {
     this.rheosHeader = rheosHeader;
     this.guid = guid;
     this.sessionId = sessionId;
@@ -97,7 +97,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return rheosHeader;
     case 1: return guid;
@@ -115,15 +115,15 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: rheosHeader = (com.ebay.epic.soj.common.model.RheosHeader)value$; break;
-    case 1: guid = (String)value$; break;
-    case 2: sessionId = (Long)value$; break;
-    case 3: sessionStartDt = (String)value$; break;
-    case 4: userId = (Long)value$; break;
-    case 5: siteId = (Integer)value$; break;
-    case 6: agentVersion = (String)value$; break;
+    case 1: guid = (java.lang.String)value$; break;
+    case 2: sessionId = (java.lang.Long)value$; break;
+    case 3: sessionStartDt = (java.lang.String)value$; break;
+    case 4: userId = (java.lang.Long)value$; break;
+    case 5: siteId = (java.lang.Integer)value$; break;
+    case 6: agentVersion = (java.lang.String)value$; break;
     case 7: context = (com.ebay.epic.soj.common.model.Context)value$; break;
     case 8: trackable = (com.ebay.epic.soj.common.model.Trackable)value$; break;
     case 9: activity = (com.ebay.epic.soj.common.model.Activity)value$; break;
@@ -151,7 +151,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Gets the value of the 'guid' field.
    * @return The value of the 'guid' field.
    */
-  public String getGuid() {
+  public java.lang.String getGuid() {
     return guid;
   }
 
@@ -159,7 +159,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Sets the value of the 'guid' field.
    * @param value the value to set.
    */
-  public void setGuid(String value) {
+  public void setGuid(java.lang.String value) {
     this.guid = value;
   }
 
@@ -167,7 +167,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Gets the value of the 'sessionId' field.
    * @return The value of the 'sessionId' field.
    */
-  public Long getSessionId() {
+  public java.lang.Long getSessionId() {
     return sessionId;
   }
 
@@ -175,7 +175,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Sets the value of the 'sessionId' field.
    * @param value the value to set.
    */
-  public void setSessionId(Long value) {
+  public void setSessionId(java.lang.Long value) {
     this.sessionId = value;
   }
 
@@ -183,7 +183,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Gets the value of the 'sessionStartDt' field.
    * @return The value of the 'sessionStartDt' field.
    */
-  public String getSessionStartDt() {
+  public java.lang.String getSessionStartDt() {
     return sessionStartDt;
   }
 
@@ -191,7 +191,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Sets the value of the 'sessionStartDt' field.
    * @param value the value to set.
    */
-  public void setSessionStartDt(String value) {
+  public void setSessionStartDt(java.lang.String value) {
     this.sessionStartDt = value;
   }
 
@@ -199,7 +199,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Gets the value of the 'userId' field.
    * @return The value of the 'userId' field.
    */
-  public Long getUserId() {
+  public java.lang.Long getUserId() {
     return userId;
   }
 
@@ -207,7 +207,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Sets the value of the 'userId' field.
    * @param value the value to set.
    */
-  public void setUserId(Long value) {
+  public void setUserId(java.lang.Long value) {
     this.userId = value;
   }
 
@@ -215,7 +215,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Gets the value of the 'siteId' field.
    * @return The value of the 'siteId' field.
    */
-  public Integer getSiteId() {
+  public java.lang.Integer getSiteId() {
     return siteId;
   }
 
@@ -223,7 +223,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Sets the value of the 'siteId' field.
    * @param value the value to set.
    */
-  public void setSiteId(Integer value) {
+  public void setSiteId(java.lang.Integer value) {
     this.siteId = value;
   }
 
@@ -231,7 +231,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Gets the value of the 'agentVersion' field.
    * @return The value of the 'agentVersion' field.
    */
-  public String getAgentVersion() {
+  public java.lang.String getAgentVersion() {
     return agentVersion;
   }
 
@@ -239,7 +239,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
    * Sets the value of the 'agentVersion' field.
    * @param value the value to set.
    */
-  public void setAgentVersion(String value) {
+  public void setAgentVersion(java.lang.String value) {
     this.agentVersion = value;
   }
 
@@ -325,12 +325,12 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
 
     private com.ebay.epic.soj.common.model.RheosHeader rheosHeader;
     private com.ebay.epic.soj.common.model.RheosHeader.Builder rheosHeaderBuilder;
-    private String guid;
+    private java.lang.String guid;
     private long sessionId;
-    private String sessionStartDt;
-    private Long userId;
-    private Integer siteId;
-    private String agentVersion;
+    private java.lang.String sessionStartDt;
+    private java.lang.Long userId;
+    private java.lang.Integer siteId;
+    private java.lang.String agentVersion;
     private com.ebay.epic.soj.common.model.Context context;
     private com.ebay.epic.soj.common.model.Context.Builder contextBuilder;
     private com.ebay.epic.soj.common.model.Trackable trackable;
@@ -533,7 +533,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Gets the value of the 'guid' field.
       * @return The value.
       */
-    public String getGuid() {
+    public java.lang.String getGuid() {
       return guid;
     }
 
@@ -542,7 +542,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'guid'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SessionizedEvent.Builder setGuid(String value) {
+    public com.ebay.epic.soj.common.model.SessionizedEvent.Builder setGuid(java.lang.String value) {
       validate(fields()[1], value);
       this.guid = value;
       fieldSetFlags()[1] = true;
@@ -572,7 +572,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Gets the value of the 'sessionId' field.
       * @return The value.
       */
-    public Long getSessionId() {
+    public java.lang.Long getSessionId() {
       return sessionId;
     }
 
@@ -610,7 +610,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Gets the value of the 'sessionStartDt' field.
       * @return The value.
       */
-    public String getSessionStartDt() {
+    public java.lang.String getSessionStartDt() {
       return sessionStartDt;
     }
 
@@ -619,7 +619,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'sessionStartDt'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SessionizedEvent.Builder setSessionStartDt(String value) {
+    public com.ebay.epic.soj.common.model.SessionizedEvent.Builder setSessionStartDt(java.lang.String value) {
       validate(fields()[3], value);
       this.sessionStartDt = value;
       fieldSetFlags()[3] = true;
@@ -649,7 +649,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Gets the value of the 'userId' field.
       * @return The value.
       */
-    public Long getUserId() {
+    public java.lang.Long getUserId() {
       return userId;
     }
 
@@ -658,7 +658,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'userId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SessionizedEvent.Builder setUserId(Long value) {
+    public com.ebay.epic.soj.common.model.SessionizedEvent.Builder setUserId(java.lang.Long value) {
       validate(fields()[4], value);
       this.userId = value;
       fieldSetFlags()[4] = true;
@@ -688,7 +688,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Gets the value of the 'siteId' field.
       * @return The value.
       */
-    public Integer getSiteId() {
+    public java.lang.Integer getSiteId() {
       return siteId;
     }
 
@@ -697,7 +697,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'siteId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SessionizedEvent.Builder setSiteId(Integer value) {
+    public com.ebay.epic.soj.common.model.SessionizedEvent.Builder setSiteId(java.lang.Integer value) {
       validate(fields()[5], value);
       this.siteId = value;
       fieldSetFlags()[5] = true;
@@ -727,7 +727,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
       * Gets the value of the 'agentVersion' field.
       * @return The value.
       */
-    public String getAgentVersion() {
+    public java.lang.String getAgentVersion() {
       return agentVersion;
     }
 
@@ -736,7 +736,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
       * @param value The value of 'agentVersion'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.SessionizedEvent.Builder setAgentVersion(String value) {
+    public com.ebay.epic.soj.common.model.SessionizedEvent.Builder setAgentVersion(java.lang.String value) {
       validate(fields()[6], value);
       this.agentVersion = value;
       fieldSetFlags()[6] = true;
@@ -994,12 +994,12 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
         } else {
           record.rheosHeader = fieldSetFlags()[0] ? this.rheosHeader : (com.ebay.epic.soj.common.model.RheosHeader) defaultValue(fields()[0]);
         }
-        record.guid = fieldSetFlags()[1] ? this.guid : (String) defaultValue(fields()[1]);
-        record.sessionId = fieldSetFlags()[2] ? this.sessionId : (Long) defaultValue(fields()[2]);
-        record.sessionStartDt = fieldSetFlags()[3] ? this.sessionStartDt : (String) defaultValue(fields()[3]);
-        record.userId = fieldSetFlags()[4] ? this.userId : (Long) defaultValue(fields()[4]);
-        record.siteId = fieldSetFlags()[5] ? this.siteId : (Integer) defaultValue(fields()[5]);
-        record.agentVersion = fieldSetFlags()[6] ? this.agentVersion : (String) defaultValue(fields()[6]);
+        record.guid = fieldSetFlags()[1] ? this.guid : (java.lang.String) defaultValue(fields()[1]);
+        record.sessionId = fieldSetFlags()[2] ? this.sessionId : (java.lang.Long) defaultValue(fields()[2]);
+        record.sessionStartDt = fieldSetFlags()[3] ? this.sessionStartDt : (java.lang.String) defaultValue(fields()[3]);
+        record.userId = fieldSetFlags()[4] ? this.userId : (java.lang.Long) defaultValue(fields()[4]);
+        record.siteId = fieldSetFlags()[5] ? this.siteId : (java.lang.Integer) defaultValue(fields()[5]);
+        record.agentVersion = fieldSetFlags()[6] ? this.agentVersion : (java.lang.String) defaultValue(fields()[6]);
         if (contextBuilder != null) {
           record.context = this.contextBuilder.build();
         } else {
@@ -1016,7 +1016,7 @@ public class SessionizedEvent extends org.apache.avro.specific.SpecificRecordBas
           record.activity = fieldSetFlags()[9] ? this.activity : (com.ebay.epic.soj.common.model.Activity) defaultValue(fields()[9]);
         }
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

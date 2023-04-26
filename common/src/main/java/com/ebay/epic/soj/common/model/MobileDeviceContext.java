@@ -13,7 +13,7 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -7375714149340428841L;
+  private static final long serialVersionUID = 5517904706552629400L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"MobileDeviceContext\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"formFactor\",\"type\":[\"null\",{\"type\":\"enum\",\"name\":\"FormFactor\",\"symbols\":[\"phone\",\"tablet\",\"watch\",\"desktop\"]}],\"default\":null},{\"name\":\"manufacturer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"model\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkCarrier\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"networkConnectionType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"theme\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"countryId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
@@ -52,13 +52,13 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
   }
 
   @Deprecated public com.ebay.epic.soj.common.model.FormFactor formFactor;
-  @Deprecated public String manufacturer;
-  @Deprecated public String osVersion;
-  @Deprecated public String model;
-  @Deprecated public String networkCarrier;
-  @Deprecated public String networkConnectionType;
-  @Deprecated public String theme;
-  @Deprecated public String countryId;
+  @Deprecated public java.lang.String manufacturer;
+  @Deprecated public java.lang.String osVersion;
+  @Deprecated public java.lang.String model;
+  @Deprecated public java.lang.String networkCarrier;
+  @Deprecated public java.lang.String networkConnectionType;
+  @Deprecated public java.lang.String theme;
+  @Deprecated public java.lang.String countryId;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -78,7 +78,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * @param theme The new value for theme
    * @param countryId The new value for countryId
    */
-  public MobileDeviceContext(com.ebay.epic.soj.common.model.FormFactor formFactor, String manufacturer, String osVersion, String model, String networkCarrier, String networkConnectionType, String theme, String countryId) {
+  public MobileDeviceContext(com.ebay.epic.soj.common.model.FormFactor formFactor, java.lang.String manufacturer, java.lang.String osVersion, java.lang.String model, java.lang.String networkCarrier, java.lang.String networkConnectionType, java.lang.String theme, java.lang.String countryId) {
     this.formFactor = formFactor;
     this.manufacturer = manufacturer;
     this.osVersion = osVersion;
@@ -91,7 +91,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return formFactor;
     case 1: return manufacturer;
@@ -107,16 +107,16 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: formFactor = (com.ebay.epic.soj.common.model.FormFactor)value$; break;
-    case 1: manufacturer = (String)value$; break;
-    case 2: osVersion = (String)value$; break;
-    case 3: model = (String)value$; break;
-    case 4: networkCarrier = (String)value$; break;
-    case 5: networkConnectionType = (String)value$; break;
-    case 6: theme = (String)value$; break;
-    case 7: countryId = (String)value$; break;
+    case 1: manufacturer = (java.lang.String)value$; break;
+    case 2: osVersion = (java.lang.String)value$; break;
+    case 3: model = (java.lang.String)value$; break;
+    case 4: networkCarrier = (java.lang.String)value$; break;
+    case 5: networkConnectionType = (java.lang.String)value$; break;
+    case 6: theme = (java.lang.String)value$; break;
+    case 7: countryId = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -141,7 +141,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Gets the value of the 'manufacturer' field.
    * @return The value of the 'manufacturer' field.
    */
-  public String getManufacturer() {
+  public java.lang.String getManufacturer() {
     return manufacturer;
   }
 
@@ -149,7 +149,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Sets the value of the 'manufacturer' field.
    * @param value the value to set.
    */
-  public void setManufacturer(String value) {
+  public void setManufacturer(java.lang.String value) {
     this.manufacturer = value;
   }
 
@@ -157,7 +157,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Gets the value of the 'osVersion' field.
    * @return The value of the 'osVersion' field.
    */
-  public String getOsVersion() {
+  public java.lang.String getOsVersion() {
     return osVersion;
   }
 
@@ -165,7 +165,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Sets the value of the 'osVersion' field.
    * @param value the value to set.
    */
-  public void setOsVersion(String value) {
+  public void setOsVersion(java.lang.String value) {
     this.osVersion = value;
   }
 
@@ -173,7 +173,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Gets the value of the 'model' field.
    * @return The value of the 'model' field.
    */
-  public String getModel() {
+  public java.lang.String getModel() {
     return model;
   }
 
@@ -181,7 +181,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Sets the value of the 'model' field.
    * @param value the value to set.
    */
-  public void setModel(String value) {
+  public void setModel(java.lang.String value) {
     this.model = value;
   }
 
@@ -189,7 +189,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Gets the value of the 'networkCarrier' field.
    * @return The value of the 'networkCarrier' field.
    */
-  public String getNetworkCarrier() {
+  public java.lang.String getNetworkCarrier() {
     return networkCarrier;
   }
 
@@ -197,7 +197,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Sets the value of the 'networkCarrier' field.
    * @param value the value to set.
    */
-  public void setNetworkCarrier(String value) {
+  public void setNetworkCarrier(java.lang.String value) {
     this.networkCarrier = value;
   }
 
@@ -205,7 +205,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Gets the value of the 'networkConnectionType' field.
    * @return The value of the 'networkConnectionType' field.
    */
-  public String getNetworkConnectionType() {
+  public java.lang.String getNetworkConnectionType() {
     return networkConnectionType;
   }
 
@@ -213,7 +213,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Sets the value of the 'networkConnectionType' field.
    * @param value the value to set.
    */
-  public void setNetworkConnectionType(String value) {
+  public void setNetworkConnectionType(java.lang.String value) {
     this.networkConnectionType = value;
   }
 
@@ -221,7 +221,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Gets the value of the 'theme' field.
    * @return The value of the 'theme' field.
    */
-  public String getTheme() {
+  public java.lang.String getTheme() {
     return theme;
   }
 
@@ -229,7 +229,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Sets the value of the 'theme' field.
    * @param value the value to set.
    */
-  public void setTheme(String value) {
+  public void setTheme(java.lang.String value) {
     this.theme = value;
   }
 
@@ -237,7 +237,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Gets the value of the 'countryId' field.
    * @return The value of the 'countryId' field.
    */
-  public String getCountryId() {
+  public java.lang.String getCountryId() {
     return countryId;
   }
 
@@ -245,7 +245,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
    * Sets the value of the 'countryId' field.
    * @param value the value to set.
    */
-  public void setCountryId(String value) {
+  public void setCountryId(java.lang.String value) {
     this.countryId = value;
   }
 
@@ -282,13 +282,13 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
     implements org.apache.avro.data.RecordBuilder<MobileDeviceContext> {
 
     private com.ebay.epic.soj.common.model.FormFactor formFactor;
-    private String manufacturer;
-    private String osVersion;
-    private String model;
-    private String networkCarrier;
-    private String networkConnectionType;
-    private String theme;
-    private String countryId;
+    private java.lang.String manufacturer;
+    private java.lang.String osVersion;
+    private java.lang.String model;
+    private java.lang.String networkCarrier;
+    private java.lang.String networkConnectionType;
+    private java.lang.String theme;
+    private java.lang.String countryId;
 
     /** Creates a new Builder */
     private Builder() {
@@ -418,7 +418,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * Gets the value of the 'manufacturer' field.
       * @return The value.
       */
-    public String getManufacturer() {
+    public java.lang.String getManufacturer() {
       return manufacturer;
     }
 
@@ -427,7 +427,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * @param value The value of 'manufacturer'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setManufacturer(String value) {
+    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setManufacturer(java.lang.String value) {
       validate(fields()[1], value);
       this.manufacturer = value;
       fieldSetFlags()[1] = true;
@@ -457,7 +457,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * Gets the value of the 'osVersion' field.
       * @return The value.
       */
-    public String getOsVersion() {
+    public java.lang.String getOsVersion() {
       return osVersion;
     }
 
@@ -466,7 +466,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * @param value The value of 'osVersion'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setOsVersion(String value) {
+    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setOsVersion(java.lang.String value) {
       validate(fields()[2], value);
       this.osVersion = value;
       fieldSetFlags()[2] = true;
@@ -496,7 +496,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * Gets the value of the 'model' field.
       * @return The value.
       */
-    public String getModel() {
+    public java.lang.String getModel() {
       return model;
     }
 
@@ -505,7 +505,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * @param value The value of 'model'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setModel(String value) {
+    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setModel(java.lang.String value) {
       validate(fields()[3], value);
       this.model = value;
       fieldSetFlags()[3] = true;
@@ -535,7 +535,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * Gets the value of the 'networkCarrier' field.
       * @return The value.
       */
-    public String getNetworkCarrier() {
+    public java.lang.String getNetworkCarrier() {
       return networkCarrier;
     }
 
@@ -544,7 +544,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * @param value The value of 'networkCarrier'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setNetworkCarrier(String value) {
+    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setNetworkCarrier(java.lang.String value) {
       validate(fields()[4], value);
       this.networkCarrier = value;
       fieldSetFlags()[4] = true;
@@ -574,7 +574,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * Gets the value of the 'networkConnectionType' field.
       * @return The value.
       */
-    public String getNetworkConnectionType() {
+    public java.lang.String getNetworkConnectionType() {
       return networkConnectionType;
     }
 
@@ -583,7 +583,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * @param value The value of 'networkConnectionType'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setNetworkConnectionType(String value) {
+    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setNetworkConnectionType(java.lang.String value) {
       validate(fields()[5], value);
       this.networkConnectionType = value;
       fieldSetFlags()[5] = true;
@@ -613,7 +613,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * Gets the value of the 'theme' field.
       * @return The value.
       */
-    public String getTheme() {
+    public java.lang.String getTheme() {
       return theme;
     }
 
@@ -622,7 +622,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * @param value The value of 'theme'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setTheme(String value) {
+    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setTheme(java.lang.String value) {
       validate(fields()[6], value);
       this.theme = value;
       fieldSetFlags()[6] = true;
@@ -652,7 +652,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * Gets the value of the 'countryId' field.
       * @return The value.
       */
-    public String getCountryId() {
+    public java.lang.String getCountryId() {
       return countryId;
     }
 
@@ -661,7 +661,7 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       * @param value The value of 'countryId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setCountryId(String value) {
+    public com.ebay.epic.soj.common.model.MobileDeviceContext.Builder setCountryId(java.lang.String value) {
       validate(fields()[7], value);
       this.countryId = value;
       fieldSetFlags()[7] = true;
@@ -693,15 +693,15 @@ public class MobileDeviceContext extends org.apache.avro.specific.SpecificRecord
       try {
         MobileDeviceContext record = new MobileDeviceContext();
         record.formFactor = fieldSetFlags()[0] ? this.formFactor : (com.ebay.epic.soj.common.model.FormFactor) defaultValue(fields()[0]);
-        record.manufacturer = fieldSetFlags()[1] ? this.manufacturer : (String) defaultValue(fields()[1]);
-        record.osVersion = fieldSetFlags()[2] ? this.osVersion : (String) defaultValue(fields()[2]);
-        record.model = fieldSetFlags()[3] ? this.model : (String) defaultValue(fields()[3]);
-        record.networkCarrier = fieldSetFlags()[4] ? this.networkCarrier : (String) defaultValue(fields()[4]);
-        record.networkConnectionType = fieldSetFlags()[5] ? this.networkConnectionType : (String) defaultValue(fields()[5]);
-        record.theme = fieldSetFlags()[6] ? this.theme : (String) defaultValue(fields()[6]);
-        record.countryId = fieldSetFlags()[7] ? this.countryId : (String) defaultValue(fields()[7]);
+        record.manufacturer = fieldSetFlags()[1] ? this.manufacturer : (java.lang.String) defaultValue(fields()[1]);
+        record.osVersion = fieldSetFlags()[2] ? this.osVersion : (java.lang.String) defaultValue(fields()[2]);
+        record.model = fieldSetFlags()[3] ? this.model : (java.lang.String) defaultValue(fields()[3]);
+        record.networkCarrier = fieldSetFlags()[4] ? this.networkCarrier : (java.lang.String) defaultValue(fields()[4]);
+        record.networkConnectionType = fieldSetFlags()[5] ? this.networkConnectionType : (java.lang.String) defaultValue(fields()[5]);
+        record.theme = fieldSetFlags()[6] ? this.theme : (java.lang.String) defaultValue(fields()[6]);
+        record.countryId = fieldSetFlags()[7] ? this.countryId : (java.lang.String) defaultValue(fields()[7]);
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

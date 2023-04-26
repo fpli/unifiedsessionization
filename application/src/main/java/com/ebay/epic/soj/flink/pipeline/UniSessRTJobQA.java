@@ -18,19 +18,19 @@
 
 package com.ebay.epic.soj.flink.pipeline;
 
-import com.ebay.epic.common.constant.OutputTagConstants;
-import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.common.model.UniSession;
-import com.ebay.epic.common.model.raw.RawEvent;
-import com.ebay.epic.common.model.raw.UniEvent;
-import com.ebay.epic.flink.function.RawEventMapWithStateFunction;
-import com.ebay.epic.flink.function.UniSessionAgg;
-import com.ebay.epic.flink.function.UniSessionWindowProcessFunction;
-import com.ebay.epic.flink.window.CompositeTrigger;
-import com.ebay.epic.flink.window.MidnightOpenSessionTrigger;
-import com.ebay.epic.flink.window.RawEventTimeSessionWindows;
-import com.ebay.epic.utils.FlinkEnvUtils;
-import com.ebay.epic.utils.Property;
+import com.ebay.epic.soj.common.constant.OutputTagConstants;
+import com.ebay.epic.soj.common.enums.EventType;
+import com.ebay.epic.soj.common.model.UniSession;
+import com.ebay.epic.soj.common.model.raw.RawEvent;
+import com.ebay.epic.soj.common.model.raw.UniEvent;
+import com.ebay.epic.soj.flink.function.RawEventMapWithStateFunction;
+import com.ebay.epic.soj.flink.function.UniSessionAgg;
+import com.ebay.epic.soj.flink.function.UniSessionWindowProcessFunction;
+import com.ebay.epic.soj.flink.window.CompositeTrigger;
+import com.ebay.epic.soj.flink.window.MidnightOpenSessionTrigger;
+import com.ebay.epic.soj.flink.window.RawEventTimeSessionWindows;
+import com.ebay.epic.soj.flink.utils.FlinkEnvUtils;
+import com.ebay.epic.soj.common.utils.Property;
 import lombok.val;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
@@ -40,10 +40,10 @@ import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.triggers.EventTimeTrigger;
 import org.apache.flink.streaming.runtime.operators.windowing.WindowOperatorHelper;
 
-import static com.ebay.epic.common.enums.DataCenter.*;
-import static com.ebay.epic.utils.FlinkEnvUtils.getInteger;
-import static com.ebay.epic.utils.FlinkEnvUtils.getString;
-import static com.ebay.epic.utils.Property.*;
+import static com.ebay.epic.soj.common.enums.DataCenter.*;
+import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.getInteger;
+import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.getString;
+import static com.ebay.epic.soj.common.utils.Property.*;
 
 public class UniSessRTJobQA extends FlinkBaseJob {
 

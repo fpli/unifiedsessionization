@@ -13,7 +13,7 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Activity extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 6222888764303614089L;
+  private static final long serialVersionUID = 4434455897564038002L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Activity\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"timestamp\",\"type\":\"long\"},{\"name\":\"duration\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"ratio\",\"type\":[\"null\",\"double\"],\"default\":null},{\"name\":\"viewportWidth\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"viewportHeight\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"category\",\"type\":{\"type\":\"enum\",\"name\":\"ActivityCategory\",\"symbols\":[\"Impression\",\"Click\"]}},{\"name\":\"type\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"referer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"details\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\"}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
@@ -52,14 +52,14 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
   }
 
   @Deprecated public long timestamp;
-  @Deprecated public Long duration;
-  @Deprecated public Double ratio;
-  @Deprecated public Long viewportWidth;
-  @Deprecated public Long viewportHeight;
+  @Deprecated public java.lang.Long duration;
+  @Deprecated public java.lang.Double ratio;
+  @Deprecated public java.lang.Long viewportWidth;
+  @Deprecated public java.lang.Long viewportHeight;
   @Deprecated public com.ebay.epic.soj.common.model.ActivityCategory category;
-  @Deprecated public String type;
-  @Deprecated public String referer;
-  @Deprecated public java.util.Map<String, String> details;
+  @Deprecated public java.lang.String type;
+  @Deprecated public java.lang.String referer;
+  @Deprecated public java.util.Map<java.lang.String,java.lang.String> details;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -80,7 +80,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * @param referer The new value for referer
    * @param details The new value for details
    */
-  public Activity(Long timestamp, Long duration, Double ratio, Long viewportWidth, Long viewportHeight, com.ebay.epic.soj.common.model.ActivityCategory category, String type, String referer, java.util.Map<String, String> details) {
+  public Activity(java.lang.Long timestamp, java.lang.Long duration, java.lang.Double ratio, java.lang.Long viewportWidth, java.lang.Long viewportHeight, com.ebay.epic.soj.common.model.ActivityCategory category, java.lang.String type, java.lang.String referer, java.util.Map<java.lang.String,java.lang.String> details) {
     this.timestamp = timestamp;
     this.duration = duration;
     this.ratio = ratio;
@@ -94,7 +94,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return timestamp;
     case 1: return duration;
@@ -111,17 +111,17 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: timestamp = (Long)value$; break;
-    case 1: duration = (Long)value$; break;
-    case 2: ratio = (Double)value$; break;
-    case 3: viewportWidth = (Long)value$; break;
-    case 4: viewportHeight = (Long)value$; break;
+    case 0: timestamp = (java.lang.Long)value$; break;
+    case 1: duration = (java.lang.Long)value$; break;
+    case 2: ratio = (java.lang.Double)value$; break;
+    case 3: viewportWidth = (java.lang.Long)value$; break;
+    case 4: viewportHeight = (java.lang.Long)value$; break;
     case 5: category = (com.ebay.epic.soj.common.model.ActivityCategory)value$; break;
-    case 6: type = (String)value$; break;
-    case 7: referer = (String)value$; break;
-    case 8: details = (java.util.Map<String, String>)value$; break;
+    case 6: type = (java.lang.String)value$; break;
+    case 7: referer = (java.lang.String)value$; break;
+    case 8: details = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -130,7 +130,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'timestamp' field.
    * @return The value of the 'timestamp' field.
    */
-  public Long getTimestamp() {
+  public java.lang.Long getTimestamp() {
     return timestamp;
   }
 
@@ -138,7 +138,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'timestamp' field.
    * @param value the value to set.
    */
-  public void setTimestamp(Long value) {
+  public void setTimestamp(java.lang.Long value) {
     this.timestamp = value;
   }
 
@@ -146,7 +146,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'duration' field.
    * @return The value of the 'duration' field.
    */
-  public Long getDuration() {
+  public java.lang.Long getDuration() {
     return duration;
   }
 
@@ -154,7 +154,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'duration' field.
    * @param value the value to set.
    */
-  public void setDuration(Long value) {
+  public void setDuration(java.lang.Long value) {
     this.duration = value;
   }
 
@@ -162,7 +162,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'ratio' field.
    * @return The value of the 'ratio' field.
    */
-  public Double getRatio() {
+  public java.lang.Double getRatio() {
     return ratio;
   }
 
@@ -170,7 +170,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'ratio' field.
    * @param value the value to set.
    */
-  public void setRatio(Double value) {
+  public void setRatio(java.lang.Double value) {
     this.ratio = value;
   }
 
@@ -178,7 +178,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'viewportWidth' field.
    * @return The value of the 'viewportWidth' field.
    */
-  public Long getViewportWidth() {
+  public java.lang.Long getViewportWidth() {
     return viewportWidth;
   }
 
@@ -186,7 +186,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'viewportWidth' field.
    * @param value the value to set.
    */
-  public void setViewportWidth(Long value) {
+  public void setViewportWidth(java.lang.Long value) {
     this.viewportWidth = value;
   }
 
@@ -194,7 +194,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'viewportHeight' field.
    * @return The value of the 'viewportHeight' field.
    */
-  public Long getViewportHeight() {
+  public java.lang.Long getViewportHeight() {
     return viewportHeight;
   }
 
@@ -202,7 +202,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'viewportHeight' field.
    * @param value the value to set.
    */
-  public void setViewportHeight(Long value) {
+  public void setViewportHeight(java.lang.Long value) {
     this.viewportHeight = value;
   }
 
@@ -226,7 +226,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'type' field.
    * @return The value of the 'type' field.
    */
-  public String getType() {
+  public java.lang.String getType() {
     return type;
   }
 
@@ -234,7 +234,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'type' field.
    * @param value the value to set.
    */
-  public void setType(String value) {
+  public void setType(java.lang.String value) {
     this.type = value;
   }
 
@@ -242,7 +242,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'referer' field.
    * @return The value of the 'referer' field.
    */
-  public String getReferer() {
+  public java.lang.String getReferer() {
     return referer;
   }
 
@@ -250,7 +250,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'referer' field.
    * @param value the value to set.
    */
-  public void setReferer(String value) {
+  public void setReferer(java.lang.String value) {
     this.referer = value;
   }
 
@@ -258,7 +258,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'details' field.
    * @return The value of the 'details' field.
    */
-  public java.util.Map<String, String> getDetails() {
+  public java.util.Map<java.lang.String,java.lang.String> getDetails() {
     return details;
   }
 
@@ -266,7 +266,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'details' field.
    * @param value the value to set.
    */
-  public void setDetails(java.util.Map<String, String> value) {
+  public void setDetails(java.util.Map<java.lang.String,java.lang.String> value) {
     this.details = value;
   }
 
@@ -303,14 +303,14 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
     implements org.apache.avro.data.RecordBuilder<Activity> {
 
     private long timestamp;
-    private Long duration;
-    private Double ratio;
-    private Long viewportWidth;
-    private Long viewportHeight;
+    private java.lang.Long duration;
+    private java.lang.Double ratio;
+    private java.lang.Long viewportWidth;
+    private java.lang.Long viewportHeight;
     private com.ebay.epic.soj.common.model.ActivityCategory category;
-    private String type;
-    private String referer;
-    private java.util.Map<String, String> details;
+    private java.lang.String type;
+    private java.lang.String referer;
+    private java.util.Map<java.lang.String,java.lang.String> details;
 
     /** Creates a new Builder */
     private Builder() {
@@ -409,7 +409,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'timestamp' field.
       * @return The value.
       */
-    public Long getTimestamp() {
+    public java.lang.Long getTimestamp() {
       return timestamp;
     }
 
@@ -447,7 +447,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'duration' field.
       * @return The value.
       */
-    public Long getDuration() {
+    public java.lang.Long getDuration() {
       return duration;
     }
 
@@ -456,7 +456,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'duration'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Activity.Builder setDuration(Long value) {
+    public com.ebay.epic.soj.common.model.Activity.Builder setDuration(java.lang.Long value) {
       validate(fields()[1], value);
       this.duration = value;
       fieldSetFlags()[1] = true;
@@ -486,7 +486,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'ratio' field.
       * @return The value.
       */
-    public Double getRatio() {
+    public java.lang.Double getRatio() {
       return ratio;
     }
 
@@ -495,7 +495,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'ratio'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Activity.Builder setRatio(Double value) {
+    public com.ebay.epic.soj.common.model.Activity.Builder setRatio(java.lang.Double value) {
       validate(fields()[2], value);
       this.ratio = value;
       fieldSetFlags()[2] = true;
@@ -525,7 +525,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'viewportWidth' field.
       * @return The value.
       */
-    public Long getViewportWidth() {
+    public java.lang.Long getViewportWidth() {
       return viewportWidth;
     }
 
@@ -534,7 +534,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'viewportWidth'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Activity.Builder setViewportWidth(Long value) {
+    public com.ebay.epic.soj.common.model.Activity.Builder setViewportWidth(java.lang.Long value) {
       validate(fields()[3], value);
       this.viewportWidth = value;
       fieldSetFlags()[3] = true;
@@ -564,7 +564,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'viewportHeight' field.
       * @return The value.
       */
-    public Long getViewportHeight() {
+    public java.lang.Long getViewportHeight() {
       return viewportHeight;
     }
 
@@ -573,7 +573,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'viewportHeight'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Activity.Builder setViewportHeight(Long value) {
+    public com.ebay.epic.soj.common.model.Activity.Builder setViewportHeight(java.lang.Long value) {
       validate(fields()[4], value);
       this.viewportHeight = value;
       fieldSetFlags()[4] = true;
@@ -642,7 +642,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'type' field.
       * @return The value.
       */
-    public String getType() {
+    public java.lang.String getType() {
       return type;
     }
 
@@ -651,7 +651,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'type'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Activity.Builder setType(String value) {
+    public com.ebay.epic.soj.common.model.Activity.Builder setType(java.lang.String value) {
       validate(fields()[6], value);
       this.type = value;
       fieldSetFlags()[6] = true;
@@ -681,7 +681,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'referer' field.
       * @return The value.
       */
-    public String getReferer() {
+    public java.lang.String getReferer() {
       return referer;
     }
 
@@ -690,7 +690,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'referer'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Activity.Builder setReferer(String value) {
+    public com.ebay.epic.soj.common.model.Activity.Builder setReferer(java.lang.String value) {
       validate(fields()[7], value);
       this.referer = value;
       fieldSetFlags()[7] = true;
@@ -720,7 +720,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'details' field.
       * @return The value.
       */
-    public java.util.Map<String, String> getDetails() {
+    public java.util.Map<java.lang.String,java.lang.String> getDetails() {
       return details;
     }
 
@@ -729,7 +729,7 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'details'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Activity.Builder setDetails(java.util.Map<String, String> value) {
+    public com.ebay.epic.soj.common.model.Activity.Builder setDetails(java.util.Map<java.lang.String,java.lang.String> value) {
       validate(fields()[8], value);
       this.details = value;
       fieldSetFlags()[8] = true;
@@ -760,17 +760,17 @@ public class Activity extends org.apache.avro.specific.SpecificRecordBase implem
     public Activity build() {
       try {
         Activity record = new Activity();
-        record.timestamp = fieldSetFlags()[0] ? this.timestamp : (Long) defaultValue(fields()[0]);
-        record.duration = fieldSetFlags()[1] ? this.duration : (Long) defaultValue(fields()[1]);
-        record.ratio = fieldSetFlags()[2] ? this.ratio : (Double) defaultValue(fields()[2]);
-        record.viewportWidth = fieldSetFlags()[3] ? this.viewportWidth : (Long) defaultValue(fields()[3]);
-        record.viewportHeight = fieldSetFlags()[4] ? this.viewportHeight : (Long) defaultValue(fields()[4]);
+        record.timestamp = fieldSetFlags()[0] ? this.timestamp : (java.lang.Long) defaultValue(fields()[0]);
+        record.duration = fieldSetFlags()[1] ? this.duration : (java.lang.Long) defaultValue(fields()[1]);
+        record.ratio = fieldSetFlags()[2] ? this.ratio : (java.lang.Double) defaultValue(fields()[2]);
+        record.viewportWidth = fieldSetFlags()[3] ? this.viewportWidth : (java.lang.Long) defaultValue(fields()[3]);
+        record.viewportHeight = fieldSetFlags()[4] ? this.viewportHeight : (java.lang.Long) defaultValue(fields()[4]);
         record.category = fieldSetFlags()[5] ? this.category : (com.ebay.epic.soj.common.model.ActivityCategory) defaultValue(fields()[5]);
-        record.type = fieldSetFlags()[6] ? this.type : (String) defaultValue(fields()[6]);
-        record.referer = fieldSetFlags()[7] ? this.referer : (String) defaultValue(fields()[7]);
-        record.details = fieldSetFlags()[8] ? this.details : (java.util.Map<String, String>) defaultValue(fields()[8]);
+        record.type = fieldSetFlags()[6] ? this.type : (java.lang.String) defaultValue(fields()[6]);
+        record.referer = fieldSetFlags()[7] ? this.referer : (java.lang.String) defaultValue(fields()[7]);
+        record.details = fieldSetFlags()[8] ? this.details : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[8]);
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

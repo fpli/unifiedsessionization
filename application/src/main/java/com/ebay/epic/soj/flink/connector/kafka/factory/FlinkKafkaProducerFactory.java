@@ -1,10 +1,10 @@
 package com.ebay.epic.soj.flink.connector.kafka.factory;
 
-import com.ebay.epic.flink.connector.kafka.config.KafkaProducerConfig;
-import com.ebay.epic.flink.connector.kafka.config.RheosKafkaProducerConfig;
-import com.ebay.epic.flink.connector.kafka.producer.SojFlinkKafkaProducer;
-import com.ebay.epic.flink.connector.kafka.schema.AvroKafkaSerializationSchema;
-import com.ebay.epic.flink.connector.kafka.schema.RheosKafkaSerializationSchema;
+import com.ebay.epic.soj.flink.connector.kafka.config.KafkaProducerConfig;
+import com.ebay.epic.soj.flink.connector.kafka.config.RheosKafkaProducerConfig;
+import com.ebay.epic.soj.flink.connector.kafka.producer.SojFlinkKafkaProducer;
+import com.ebay.epic.soj.flink.connector.kafka.schema.AvroKafkaSerializationSchema;
+import com.ebay.epic.soj.flink.connector.kafka.schema.RheosKafkaSerializationSchema;
 import com.google.common.base.Preconditions;
 import org.apache.avro.specific.SpecificRecord;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaProducer;

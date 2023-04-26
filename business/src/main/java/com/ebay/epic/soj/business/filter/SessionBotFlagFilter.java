@@ -1,7 +1,7 @@
 package com.ebay.epic.soj.business.filter;
 
-import com.ebay.epic.common.enums.EventType;
-import com.ebay.epic.common.model.UniSession;
+import com.ebay.epic.soj.common.enums.EventType;
+import com.ebay.epic.soj.common.model.UniSession;
 
 public class SessionBotFlagFilter extends CombinationFilter<UniSession> {
 

@@ -13,7 +13,7 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 5185858844994419854L;
+  private static final long serialVersionUID = -6141218842520316847L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"RheosHeader\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
@@ -54,8 +54,8 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
   @Deprecated public long eventCreateTimestamp;
   @Deprecated public long eventSentTimestamp;
   @Deprecated public int schemaId;
-  @Deprecated public String eventId;
-  @Deprecated public String producerId;
+  @Deprecated public java.lang.String eventId;
+  @Deprecated public java.lang.String producerId;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -72,7 +72,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * @param eventId The new value for eventId
    * @param producerId The new value for producerId
    */
-  public RheosHeader(Long eventCreateTimestamp, Long eventSentTimestamp, Integer schemaId, String eventId, String producerId) {
+  public RheosHeader(java.lang.Long eventCreateTimestamp, java.lang.Long eventSentTimestamp, java.lang.Integer schemaId, java.lang.String eventId, java.lang.String producerId) {
     this.eventCreateTimestamp = eventCreateTimestamp;
     this.eventSentTimestamp = eventSentTimestamp;
     this.schemaId = schemaId;
@@ -82,7 +82,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return eventCreateTimestamp;
     case 1: return eventSentTimestamp;
@@ -95,13 +95,13 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: eventCreateTimestamp = (Long)value$; break;
-    case 1: eventSentTimestamp = (Long)value$; break;
-    case 2: schemaId = (Integer)value$; break;
-    case 3: eventId = (String)value$; break;
-    case 4: producerId = (String)value$; break;
+    case 0: eventCreateTimestamp = (java.lang.Long)value$; break;
+    case 1: eventSentTimestamp = (java.lang.Long)value$; break;
+    case 2: schemaId = (java.lang.Integer)value$; break;
+    case 3: eventId = (java.lang.String)value$; break;
+    case 4: producerId = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -110,7 +110,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'eventCreateTimestamp' field.
    * @return The value of the 'eventCreateTimestamp' field.
    */
-  public Long getEventCreateTimestamp() {
+  public java.lang.Long getEventCreateTimestamp() {
     return eventCreateTimestamp;
   }
 
@@ -118,7 +118,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'eventCreateTimestamp' field.
    * @param value the value to set.
    */
-  public void setEventCreateTimestamp(Long value) {
+  public void setEventCreateTimestamp(java.lang.Long value) {
     this.eventCreateTimestamp = value;
   }
 
@@ -126,7 +126,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'eventSentTimestamp' field.
    * @return The value of the 'eventSentTimestamp' field.
    */
-  public Long getEventSentTimestamp() {
+  public java.lang.Long getEventSentTimestamp() {
     return eventSentTimestamp;
   }
 
@@ -134,7 +134,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'eventSentTimestamp' field.
    * @param value the value to set.
    */
-  public void setEventSentTimestamp(Long value) {
+  public void setEventSentTimestamp(java.lang.Long value) {
     this.eventSentTimestamp = value;
   }
 
@@ -142,7 +142,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'schemaId' field.
    * @return The value of the 'schemaId' field.
    */
-  public Integer getSchemaId() {
+  public java.lang.Integer getSchemaId() {
     return schemaId;
   }
 
@@ -150,7 +150,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'schemaId' field.
    * @param value the value to set.
    */
-  public void setSchemaId(Integer value) {
+  public void setSchemaId(java.lang.Integer value) {
     this.schemaId = value;
   }
 
@@ -158,7 +158,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'eventId' field.
    * @return The value of the 'eventId' field.
    */
-  public String getEventId() {
+  public java.lang.String getEventId() {
     return eventId;
   }
 
@@ -166,7 +166,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'eventId' field.
    * @param value the value to set.
    */
-  public void setEventId(String value) {
+  public void setEventId(java.lang.String value) {
     this.eventId = value;
   }
 
@@ -174,7 +174,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'producerId' field.
    * @return The value of the 'producerId' field.
    */
-  public String getProducerId() {
+  public java.lang.String getProducerId() {
     return producerId;
   }
 
@@ -182,7 +182,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'producerId' field.
    * @param value the value to set.
    */
-  public void setProducerId(String value) {
+  public void setProducerId(java.lang.String value) {
     this.producerId = value;
   }
 
@@ -221,8 +221,8 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
     private long eventCreateTimestamp;
     private long eventSentTimestamp;
     private int schemaId;
-    private String eventId;
-    private String producerId;
+    private java.lang.String eventId;
+    private java.lang.String producerId;
 
     /** Creates a new Builder */
     private Builder() {
@@ -289,7 +289,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'eventCreateTimestamp' field.
       * @return The value.
       */
-    public Long getEventCreateTimestamp() {
+    public java.lang.Long getEventCreateTimestamp() {
       return eventCreateTimestamp;
     }
 
@@ -327,7 +327,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'eventSentTimestamp' field.
       * @return The value.
       */
-    public Long getEventSentTimestamp() {
+    public java.lang.Long getEventSentTimestamp() {
       return eventSentTimestamp;
     }
 
@@ -365,7 +365,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'schemaId' field.
       * @return The value.
       */
-    public Integer getSchemaId() {
+    public java.lang.Integer getSchemaId() {
       return schemaId;
     }
 
@@ -403,7 +403,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'eventId' field.
       * @return The value.
       */
-    public String getEventId() {
+    public java.lang.String getEventId() {
       return eventId;
     }
 
@@ -412,7 +412,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'eventId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.RheosHeader.Builder setEventId(String value) {
+    public com.ebay.epic.soj.common.model.RheosHeader.Builder setEventId(java.lang.String value) {
       validate(fields()[3], value);
       this.eventId = value;
       fieldSetFlags()[3] = true;
@@ -442,7 +442,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'producerId' field.
       * @return The value.
       */
-    public String getProducerId() {
+    public java.lang.String getProducerId() {
       return producerId;
     }
 
@@ -451,7 +451,7 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'producerId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.RheosHeader.Builder setProducerId(String value) {
+    public com.ebay.epic.soj.common.model.RheosHeader.Builder setProducerId(java.lang.String value) {
       validate(fields()[4], value);
       this.producerId = value;
       fieldSetFlags()[4] = true;
@@ -482,13 +482,13 @@ public class RheosHeader extends org.apache.avro.specific.SpecificRecordBase imp
     public RheosHeader build() {
       try {
         RheosHeader record = new RheosHeader();
-        record.eventCreateTimestamp = fieldSetFlags()[0] ? this.eventCreateTimestamp : (Long) defaultValue(fields()[0]);
-        record.eventSentTimestamp = fieldSetFlags()[1] ? this.eventSentTimestamp : (Long) defaultValue(fields()[1]);
-        record.schemaId = fieldSetFlags()[2] ? this.schemaId : (Integer) defaultValue(fields()[2]);
-        record.eventId = fieldSetFlags()[3] ? this.eventId : (String) defaultValue(fields()[3]);
-        record.producerId = fieldSetFlags()[4] ? this.producerId : (String) defaultValue(fields()[4]);
+        record.eventCreateTimestamp = fieldSetFlags()[0] ? this.eventCreateTimestamp : (java.lang.Long) defaultValue(fields()[0]);
+        record.eventSentTimestamp = fieldSetFlags()[1] ? this.eventSentTimestamp : (java.lang.Long) defaultValue(fields()[1]);
+        record.schemaId = fieldSetFlags()[2] ? this.schemaId : (java.lang.Integer) defaultValue(fields()[2]);
+        record.eventId = fieldSetFlags()[3] ? this.eventId : (java.lang.String) defaultValue(fields()[3]);
+        record.producerId = fieldSetFlags()[4] ? this.producerId : (java.lang.String) defaultValue(fields()[4]);
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

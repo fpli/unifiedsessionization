@@ -1,15 +1,12 @@
 package com.ebay.epic.soj.flink.connector.kafka.schema;
 
-import com.ebay.epic.common.constant.KafkaMessageHeaders;
-import com.ebay.epic.flink.connector.kafka.config.RheosKafkaProducerConfig;
-import com.ebay.epic.flink.connector.kafka.serde.KafkaSerializer;
-import com.ebay.epic.flink.connector.kafka.serde.RheosAvroKafkaSerializer;
+import com.ebay.epic.soj.common.constant.KafkaMessageHeaders;
+import com.ebay.epic.soj.flink.connector.kafka.config.RheosKafkaProducerConfig;
+import com.ebay.epic.soj.flink.connector.kafka.serde.KafkaSerializer;
+import com.ebay.epic.soj.flink.connector.kafka.serde.RheosAvroKafkaSerializer;
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
-import com.google.common.primitives.Ints;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.avro.specific.SpecificRecord;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.streaming.connectors.kafka.KafkaSerializationSchema;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.header.Header;
@@ -50,7 +47,7 @@ public class RheosKafkaSerializationSchema<T> implements KafkaSerializationSchem
             log.error("Get field[{}] value error", KafkaMessageHeaders.GLOBAL_SESSION_ID, e);
         }
         Header gSessionIdHeader = new RecordHeader(KafkaMessageHeaders.GLOBAL_SESSION_ID,
-                StringUtils.getBytes(globalSessionId, Charsets.UTF_8) );
+                globalSessionId.getBytes(Charsets.UTF_8));
         return new ProducerRecord<>(
                 rheosKafkaConfig.getTopic(),
                 null,
