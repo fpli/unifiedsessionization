@@ -7,6 +7,7 @@ import com.ebay.epic.soj.flink.connector.kafka.serde.RheosAvroKafkaSerializer;
 import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.flink.streaming.connectors.kafka.KafkaSerializationSchema;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.header.Header;
@@ -47,7 +48,7 @@ public class RheosKafkaSerializationSchema<T> implements KafkaSerializationSchem
             log.error("Get field[{}] value error", KafkaMessageHeaders.GLOBAL_SESSION_ID, e);
         }
         Header gSessionIdHeader = new RecordHeader(KafkaMessageHeaders.GLOBAL_SESSION_ID,
-                globalSessionId.getBytes(Charsets.UTF_8));
+                StringUtils.getBytes(globalSessionId,Charsets.UTF_8));
         return new ProducerRecord<>(
                 rheosKafkaConfig.getTopic(),
                 null,
