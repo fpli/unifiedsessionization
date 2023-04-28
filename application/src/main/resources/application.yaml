@@ -212,7 +212,7 @@ kafka:
         rno:
           autotrack:
             - rhs-bkuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-            - rhs-bkuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
+            - rhs-bkuvkiaa-kfk-rno-2.rheos-slstreaming-prod.svc.26.tess.io:9092
             - rhs-bkuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
             - rhs-bkuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
             - rhs-bkuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092

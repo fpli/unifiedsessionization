@@ -18,7 +18,7 @@
 
 package com.ebay.epic.soj.flink.pipeline;
 
-import com.ebay.epic.soj.common.constant.OutputTagConstants;
+import com.ebay.epic.soj.flink.constant.OutputTagConstants;
 import com.ebay.epic.soj.common.enums.EventType;
 import com.ebay.epic.soj.common.model.UniSession;
 import com.ebay.epic.soj.common.model.raw.RawEvent;
@@ -38,7 +38,7 @@ import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.triggers.EventTimeTrigger;
 import org.apache.flink.streaming.runtime.operators.windowing.WindowOperatorHelper;
 
-import static com.ebay.epic.soj.common.constant.OutputTagConstants.*;
+import static com.ebay.epic.soj.flink.constant.OutputTagConstants.*;
 import static com.ebay.epic.soj.common.enums.DataCenter.*;
 import static com.ebay.epic.soj.common.enums.EventType.*;
 import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.*;

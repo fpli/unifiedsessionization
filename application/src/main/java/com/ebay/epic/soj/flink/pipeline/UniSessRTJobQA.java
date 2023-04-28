@@ -18,7 +18,7 @@
 
 package com.ebay.epic.soj.flink.pipeline;
 
-import com.ebay.epic.soj.common.constant.OutputTagConstants;
+import com.ebay.epic.soj.flink.constant.OutputTagConstants;
 import com.ebay.epic.soj.common.enums.EventType;
 import com.ebay.epic.soj.common.model.UniSession;
 import com.ebay.epic.soj.common.model.raw.RawEvent;
@@ -41,6 +41,9 @@ import org.apache.flink.streaming.api.windowing.triggers.EventTimeTrigger;
 import org.apache.flink.streaming.runtime.operators.windowing.WindowOperatorHelper;
 
 import static com.ebay.epic.soj.common.enums.DataCenter.*;
+import static com.ebay.epic.soj.common.enums.EventType.SESSION_BOT;
+import static com.ebay.epic.soj.flink.constant.OutputTagConstants.*;
+import static com.ebay.epic.soj.flink.constant.OutputTagConstants.uniSessBotOutputTag;
 import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.getInteger;
 import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.getString;
 import static com.ebay.epic.soj.common.utils.Property.*;
@@ -93,11 +96,20 @@ public class UniSessRTJobQA extends FlinkBaseJob {
                 uniSessionDataStream.getSideOutput(OutputTagConstants.lateEventOutputTag);
 
 //        DataStream<UniEvent> surfaceDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.AUTOTRACK, RNO);
-        DataStream<UniEvent> ubiDS = uniSessRTJob.postFilterFunctionBuilder
-                (rawEventWithSessionId, EventType.UBI_NONBOT, RNO);
+        SingleOutputStreamOperator<UniEvent> outputStreamOperator  = uniSessRTJob.uniEevntSplitFunctionBuilder
+                (rawEventWithSessionId, EventType.DEFAULT,true);
+        DataStream<UniEvent> ubiBotDS = outputStreamOperator.getSideOutput(ubiBOTOutputTag);
+        DataStream<UniEvent> ubiNonBotDS = outputStreamOperator.getSideOutput(ubiNONBOTOutputTag);
 //        DataStream<UniEvent> utpDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.UTP, RNO);
-        ubiDS.print().uid("testevent").slotSharingGroup("local").setParallelism(1);
-        uniSessionDataStream.print().uid("testsess").slotSharingGroup("local").setParallelism(1);
+        ubiBotDS.print().uid("testevent").slotSharingGroup("local").setParallelism(1);
+        ubiNonBotDS.print().uid("testeventbot").slotSharingGroup("local").setParallelism(1);
+
+        // filter our each kind of event based on late events
+        SingleOutputStreamOperator<UniSession> outputStreamOperatorSess =
+                uniSessRTJob.uniSessionSplitFunctionBuilder(uniSessionDataStream, SESSION_BOT);
+        DataStream<UniSession> uniSessionNonbotDS = outputStreamOperatorSess.getSideOutput(uniSessNonbotOutputTag);
+        DataStream<UniSession> uniSessionBotDS = outputStreamOperatorSess.getSideOutput(uniSessBotOutputTag);
+        uniSessionNonbotDS.print().uid("testsess").slotSharingGroup("local").setParallelism(1);
 //        uniSessRTJob.kafkaSinkBuilder(surfaceDS, EventType.AUTOTRACK, RNO);
 //        uniSessRTJob.kafkaSinkBuilder(ubiDS, EventType.UBI, RNO);
 //        uniSessRTJob.kafkaSinkBuilder(utpDS, EventType.UTP, RNO);

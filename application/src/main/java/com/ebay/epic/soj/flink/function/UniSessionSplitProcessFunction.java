@@ -1,16 +1,10 @@
 package com.ebay.epic.soj.flink.function;
 
-import com.ebay.epic.soj.common.constant.OutputTagConstants;
 import com.ebay.epic.soj.common.enums.EventType;
 import com.ebay.epic.soj.common.model.UniSession;
+import com.ebay.epic.soj.flink.constant.OutputTagConstants;
 import org.apache.flink.streaming.api.functions.ProcessFunction;
 import org.apache.flink.util.Collector;
-import org.apache.flink.util.OutputTag;
-import org.apache.flink.util.Preconditions;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class UniSessionSplitProcessFunction extends ProcessFunction<UniSession,UniSession> {
 

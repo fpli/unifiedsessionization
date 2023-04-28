@@ -1,4 +1,4 @@
-package com.ebay.epic.soj.common.utils;
+package com.ebay.epic.soj.flink.utils;
 
 import org.apache.flink.streaming.api.windowing.time.Time;
 

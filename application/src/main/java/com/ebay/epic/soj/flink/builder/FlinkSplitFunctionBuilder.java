@@ -1,4 +1,4 @@
-package com.ebay.epic.soj.flink.connector.kafka;
+package com.ebay.epic.soj.flink.builder;
 
 import com.ebay.epic.soj.common.enums.EventType;
 import com.ebay.epic.soj.common.utils.Property;

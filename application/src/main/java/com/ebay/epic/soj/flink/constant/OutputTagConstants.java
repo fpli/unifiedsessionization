@@ -1,8 +1,6 @@
-package com.ebay.epic.soj.common.constant;
+package com.ebay.epic.soj.flink.constant;
 
-import com.ebay.epic.soj.common.enums.EventType;
 import com.ebay.epic.soj.common.model.UniSession;
-import com.ebay.epic.soj.common.model.raw.RawEvent;
 import com.ebay.epic.soj.common.model.raw.RawUniSession;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
 import org.apache.flink.api.common.typeinfo.TypeInformation;

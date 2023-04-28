@@ -3,7 +3,7 @@ package com.ebay.epic.soj.flink.function;
 import com.codahale.metrics.Histogram;
 import com.codahale.metrics.SlidingWindowReservoir;
 import com.ebay.epic.soj.common.constant.Constants;
-import com.ebay.epic.soj.common.constant.OutputTagConstants;
+import com.ebay.epic.soj.flink.constant.OutputTagConstants;
 import com.ebay.epic.soj.common.enums.EventType;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
 import org.apache.flink.configuration.Configuration;

@@ -5,7 +5,7 @@ import com.ebay.epic.soj.common.enums.EventType;
 import com.ebay.epic.soj.common.model.UniSession;
 import com.ebay.epic.soj.common.model.raw.RawEvent;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
-import com.ebay.epic.soj.flink.connector.kafka.*;
+import com.ebay.epic.soj.flink.builder.*;
 import com.ebay.epic.soj.flink.connector.kafka.schema.RawEventKafkaDeserializationSchemaWrapper;
 import com.ebay.epic.soj.flink.connector.kafka.schema.RawEventUniDeserializationSchema;
 import com.ebay.epic.soj.flink.function.*;
