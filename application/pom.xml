@@ -13,11 +13,6 @@
     <packaging>jar</packaging>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>com.ebay.sojourner</groupId>-->
-<!--            <artifactId>sojourner-flink-lib</artifactId>-->
-<!--            <version>${project.version}</version>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.ebay.epic.soj</groupId>
             <artifactId>unified-business</artifactId>
@@ -51,70 +46,20 @@
             <scope>test</scope>
             <classifier>tests</classifier>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-metrics-dropwizard</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-java</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-streaming-java_${scala.binary.version}</artifactId>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; runtime-web dependency is need to start web UI from IDE &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-runtime-web_${scala.binary.version}</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-statebackend-rocksdb_${scala.binary.version}</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-metrics-dropwizard</artifactId>-->
-<!--        </dependency>-->
-
-        <!-- Add connector dependencies here. They must be in the default scope (compile). -->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-avro</artifactId>-->
-<!--        </dependency>-->
-        <!-- flink hadoop connector -->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-connector-filesystem_${scala.binary.version}</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-statebackend-rocksdb_${scala.binary.version}</artifactId>
+        </dependency>
 
         <!-- rheos jdk dependencies-->
         <dependency>
             <groupId>io.ebay.rheos</groupId>
             <artifactId>rheos-client_JDK-1.8</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-parquet_${scala.binary.version}</artifactId>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.parquet</groupId>
             <artifactId>parquet-avro</artifactId>
         </dependency>
-
-        <!-- hadoop dependency -->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.hadoop</groupId>-->
-<!--            <artifactId>hadoop-common</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.hadoop</groupId>-->
-<!--            <artifactId>hadoop-hdfs</artifactId>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>org.apache.flink</groupId>

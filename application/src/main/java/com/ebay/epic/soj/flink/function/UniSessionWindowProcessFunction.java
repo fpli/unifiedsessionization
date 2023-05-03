@@ -35,7 +35,7 @@ public class UniSessionWindowProcessFunction
         uniSession.setUbiSessSkeys(Lists.newArrayList(rawUniSession.getUbiSessSkeys()));
         uniSession.setAutotrackSessSkeys(Lists.newArrayList(rawUniSession.getAutotrackSessSkeys()));
         uniSession.setAutotrackSessIds(Lists.newArrayList(rawUniSession.getAutotrackSessIds()));
-        uniSession.setTrafficSource(rawUniSession.getTrafficSource().name());
+        uniSession.setTrafficSource(rawUniSession.getTrafficSourceDtl());
         uniSession.setOthers(rawUniSession.getOthers());
         uniSession.setIsOpen(isOpen);
         RheosHeader rheosHeader = new RheosHeader();

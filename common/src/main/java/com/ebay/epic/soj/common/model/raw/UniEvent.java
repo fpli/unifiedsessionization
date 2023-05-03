@@ -33,6 +33,12 @@ public class UniEvent {
     private Long ingestTimestamp;
     private Long kafkaReceivedTimestamp;
 
+    // for traffic source
+    private String referer;
+    private Map<String,String> payload;
+    private String pageUrl;
+    private String experience;
+
     public boolean isNewSession() {
         return Constants.NO_SESSION_ID.equals(globalSessionId);
     }

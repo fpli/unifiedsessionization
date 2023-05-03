@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class UniSession extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3255654477134515343L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UniSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},\"doc\":\"Rheos header\"},{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession guid\"},{\"name\":\"globalSessionId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from unisession globalSessionId\"},{\"name\":\"absStartTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absStartTimestamp\"},{\"name\":\"absEndTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absEndTimestamp\"},{\"name\":\"sessionStartDt\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession sessionStartDt\"},{\"name\":\"trafficSource\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"traffic source\"},{\"name\":\"ubiSessIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},{\"name\":\"ubiSessSkeys\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"autotrackSessIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"autotrackSessSkeys\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"botFlag\",\"type\":{\"type\":\"record\",\"name\":\"BotFlag\",\"fields\":[{\"name\":\"surface\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]},{\"name\":\"ubi\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]},{\"name\":\"utp\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]}]}},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}},{\"name\":\"isOpen\",\"type\":[\"null\",\"boolean\"],\"doc\":\"to identify open or end\"}]}");
+  private static final long serialVersionUID = -4781616025470869053L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UniSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},\"doc\":\"Rheos header\"},{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession guid\"},{\"name\":\"globalSessionId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from unisession globalSessionId\"},{\"name\":\"absStartTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absStartTimestamp\"},{\"name\":\"absEndTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absEndTimestamp\"},{\"name\":\"sessionStartDt\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession sessionStartDt\"},{\"name\":\"trafficSource\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\",\"default\":{}}],\"doc\":\"\"},{\"name\":\"ubiSessIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},{\"name\":\"ubiSessSkeys\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"autotrackSessIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"autotrackSessSkeys\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"botFlag\",\"type\":{\"type\":\"record\",\"name\":\"BotFlag\",\"fields\":[{\"name\":\"surface\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]},{\"name\":\"ubi\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]},{\"name\":\"utp\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]}]}},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}},{\"name\":\"isOpen\",\"type\":[\"null\",\"boolean\"],\"doc\":\"to identify open or end\"},{\"name\":\"userId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"firstAppId\",\"type\":[\"null\",\"int\"],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"cobrand\",\"type\":[\"null\",\"int\"],\"doc\":\"from ubisession \",\"default\":null},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"experience\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"experienceLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"experienceLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"clavSessions\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ClavSession\",\"fields\":[{\"name\":\"session_skey\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"site_id\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"boolean\"},{\"name\":\"valid_page_count\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"start_page_id\",\"type\":\"int\"},{\"name\":\"exit_page_id\",\"type\":\"int\"},{\"name\":\"start_timestamp\",\"type\":\"long\"},{\"name\":\"exit_timestamp\",\"type\":\"long\"},{\"name\":\"gr_count\",\"type\":\"int\"},{\"name\":\"gr1_count\",\"type\":\"int\"},{\"name\":\"homepage_count\",\"type\":\"int\"},{\"name\":\"vi_count\",\"type\":\"int\"},{\"name\":\"signin_count\",\"type\":\"int\"},{\"name\":\"myebay_count\",\"type\":\"int\"},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}}],\"doc\":\"from ubisession\",\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -54,25 +54,41 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
   /** Rheos header */
   @Deprecated public com.ebay.epic.soj.common.model.RheosHeader rheosHeader;
   /** from ubisession guid */
-  @Deprecated public String guid;
+  @Deprecated public java.lang.String guid;
   /** from unisession globalSessionId */
-  @Deprecated public String globalSessionId;
+  @Deprecated public java.lang.String globalSessionId;
   /** from unisession absStartTimestamp */
-  @Deprecated public Long absStartTimestamp;
+  @Deprecated public java.lang.Long absStartTimestamp;
   /** from unisession absEndTimestamp */
-  @Deprecated public Long absEndTimestamp;
+  @Deprecated public java.lang.Long absEndTimestamp;
   /** from unisession sessionStartDt */
-  @Deprecated public Long sessionStartDt;
-  /** traffic source */
-  @Deprecated public String trafficSource;
-  @Deprecated public java.util.List<String> ubiSessIds;
-  @Deprecated public java.util.List<Long> ubiSessSkeys;
-  @Deprecated public java.util.List<Long> autotrackSessIds;
-  @Deprecated public java.util.List<Long> autotrackSessSkeys;
+  @Deprecated public java.lang.Long sessionStartDt;
+  /**  */
+  @Deprecated public java.util.Map<java.lang.String,java.lang.String> trafficSource;
+  @Deprecated public java.util.List<java.lang.String> ubiSessIds;
+  @Deprecated public java.util.List<java.lang.Long> ubiSessSkeys;
+  @Deprecated public java.util.List<java.lang.Long> autotrackSessIds;
+  @Deprecated public java.util.List<java.lang.Long> autotrackSessSkeys;
   @Deprecated public com.ebay.epic.soj.common.model.BotFlag botFlag;
-  @Deprecated public java.util.Map<String, String> others;
+  @Deprecated public java.util.Map<java.lang.String,java.lang.String> others;
   /** to identify open or end */
-  @Deprecated public Boolean isOpen;
+  @Deprecated public java.lang.Boolean isOpen;
+  /** from ubisession */
+  @Deprecated public java.lang.String userId;
+  /** from ubisession */
+  @Deprecated public java.lang.Integer firstAppId;
+  /** from ubisession  */
+  @Deprecated public java.lang.Integer cobrand;
+  /** from ubisession */
+  @Deprecated public java.lang.String userAgent;
+  /** from ubisession */
+  @Deprecated public java.lang.String experience;
+  /** from ubisession */
+  @Deprecated public java.lang.String experienceLevel1;
+  /** from ubisession */
+  @Deprecated public java.lang.String experienceLevel2;
+  /** from ubisession */
+  @Deprecated public java.util.List<com.ebay.epic.soj.common.model.ClavSession> clavSessions;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -89,7 +105,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * @param absStartTimestamp from unisession absStartTimestamp
    * @param absEndTimestamp from unisession absEndTimestamp
    * @param sessionStartDt from unisession sessionStartDt
-   * @param trafficSource traffic source
+   * @param trafficSource 
    * @param ubiSessIds The new value for ubiSessIds
    * @param ubiSessSkeys The new value for ubiSessSkeys
    * @param autotrackSessIds The new value for autotrackSessIds
@@ -97,8 +113,16 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * @param botFlag The new value for botFlag
    * @param others The new value for others
    * @param isOpen to identify open or end
+   * @param userId from ubisession
+   * @param firstAppId from ubisession
+   * @param cobrand from ubisession 
+   * @param userAgent from ubisession
+   * @param experience from ubisession
+   * @param experienceLevel1 from ubisession
+   * @param experienceLevel2 from ubisession
+   * @param clavSessions from ubisession
    */
-  public UniSession(com.ebay.epic.soj.common.model.RheosHeader rheosHeader, String guid, String globalSessionId, Long absStartTimestamp, Long absEndTimestamp, Long sessionStartDt, String trafficSource, java.util.List<String> ubiSessIds, java.util.List<Long> ubiSessSkeys, java.util.List<Long> autotrackSessIds, java.util.List<Long> autotrackSessSkeys, com.ebay.epic.soj.common.model.BotFlag botFlag, java.util.Map<String, String> others, Boolean isOpen) {
+  public UniSession(com.ebay.epic.soj.common.model.RheosHeader rheosHeader, java.lang.String guid, java.lang.String globalSessionId, java.lang.Long absStartTimestamp, java.lang.Long absEndTimestamp, java.lang.Long sessionStartDt, java.util.Map<java.lang.String,java.lang.String> trafficSource, java.util.List<java.lang.String> ubiSessIds, java.util.List<java.lang.Long> ubiSessSkeys, java.util.List<java.lang.Long> autotrackSessIds, java.util.List<java.lang.Long> autotrackSessSkeys, com.ebay.epic.soj.common.model.BotFlag botFlag, java.util.Map<java.lang.String,java.lang.String> others, java.lang.Boolean isOpen, java.lang.String userId, java.lang.Integer firstAppId, java.lang.Integer cobrand, java.lang.String userAgent, java.lang.String experience, java.lang.String experienceLevel1, java.lang.String experienceLevel2, java.util.List<com.ebay.epic.soj.common.model.ClavSession> clavSessions) {
     this.rheosHeader = rheosHeader;
     this.guid = guid;
     this.globalSessionId = globalSessionId;
@@ -113,11 +137,19 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
     this.botFlag = botFlag;
     this.others = others;
     this.isOpen = isOpen;
+    this.userId = userId;
+    this.firstAppId = firstAppId;
+    this.cobrand = cobrand;
+    this.userAgent = userAgent;
+    this.experience = experience;
+    this.experienceLevel1 = experienceLevel1;
+    this.experienceLevel2 = experienceLevel2;
+    this.clavSessions = clavSessions;
   }
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return rheosHeader;
     case 1: return guid;
@@ -133,28 +165,44 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
     case 11: return botFlag;
     case 12: return others;
     case 13: return isOpen;
+    case 14: return userId;
+    case 15: return firstAppId;
+    case 16: return cobrand;
+    case 17: return userAgent;
+    case 18: return experience;
+    case 19: return experienceLevel1;
+    case 20: return experienceLevel2;
+    case 21: return clavSessions;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: rheosHeader = (com.ebay.epic.soj.common.model.RheosHeader)value$; break;
-    case 1: guid = (String)value$; break;
-    case 2: globalSessionId = (String)value$; break;
-    case 3: absStartTimestamp = (Long)value$; break;
-    case 4: absEndTimestamp = (Long)value$; break;
-    case 5: sessionStartDt = (Long)value$; break;
-    case 6: trafficSource = (String)value$; break;
-    case 7: ubiSessIds = (java.util.List<String>)value$; break;
-    case 8: ubiSessSkeys = (java.util.List<Long>)value$; break;
-    case 9: autotrackSessIds = (java.util.List<Long>)value$; break;
-    case 10: autotrackSessSkeys = (java.util.List<Long>)value$; break;
+    case 1: guid = (java.lang.String)value$; break;
+    case 2: globalSessionId = (java.lang.String)value$; break;
+    case 3: absStartTimestamp = (java.lang.Long)value$; break;
+    case 4: absEndTimestamp = (java.lang.Long)value$; break;
+    case 5: sessionStartDt = (java.lang.Long)value$; break;
+    case 6: trafficSource = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
+    case 7: ubiSessIds = (java.util.List<java.lang.String>)value$; break;
+    case 8: ubiSessSkeys = (java.util.List<java.lang.Long>)value$; break;
+    case 9: autotrackSessIds = (java.util.List<java.lang.Long>)value$; break;
+    case 10: autotrackSessSkeys = (java.util.List<java.lang.Long>)value$; break;
     case 11: botFlag = (com.ebay.epic.soj.common.model.BotFlag)value$; break;
-    case 12: others = (java.util.Map<String, String>)value$; break;
-    case 13: isOpen = (Boolean)value$; break;
+    case 12: others = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
+    case 13: isOpen = (java.lang.Boolean)value$; break;
+    case 14: userId = (java.lang.String)value$; break;
+    case 15: firstAppId = (java.lang.Integer)value$; break;
+    case 16: cobrand = (java.lang.Integer)value$; break;
+    case 17: userAgent = (java.lang.String)value$; break;
+    case 18: experience = (java.lang.String)value$; break;
+    case 19: experienceLevel1 = (java.lang.String)value$; break;
+    case 20: experienceLevel2 = (java.lang.String)value$; break;
+    case 21: clavSessions = (java.util.List<com.ebay.epic.soj.common.model.ClavSession>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -180,7 +228,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'guid' field.
    * @return from ubisession guid
    */
-  public String getGuid() {
+  public java.lang.String getGuid() {
     return guid;
   }
 
@@ -189,7 +237,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * from ubisession guid
    * @param value the value to set.
    */
-  public void setGuid(String value) {
+  public void setGuid(java.lang.String value) {
     this.guid = value;
   }
 
@@ -197,7 +245,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'globalSessionId' field.
    * @return from unisession globalSessionId
    */
-  public String getGlobalSessionId() {
+  public java.lang.String getGlobalSessionId() {
     return globalSessionId;
   }
 
@@ -206,7 +254,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * from unisession globalSessionId
    * @param value the value to set.
    */
-  public void setGlobalSessionId(String value) {
+  public void setGlobalSessionId(java.lang.String value) {
     this.globalSessionId = value;
   }
 
@@ -214,7 +262,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'absStartTimestamp' field.
    * @return from unisession absStartTimestamp
    */
-  public Long getAbsStartTimestamp() {
+  public java.lang.Long getAbsStartTimestamp() {
     return absStartTimestamp;
   }
 
@@ -223,7 +271,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * from unisession absStartTimestamp
    * @param value the value to set.
    */
-  public void setAbsStartTimestamp(Long value) {
+  public void setAbsStartTimestamp(java.lang.Long value) {
     this.absStartTimestamp = value;
   }
 
@@ -231,7 +279,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'absEndTimestamp' field.
    * @return from unisession absEndTimestamp
    */
-  public Long getAbsEndTimestamp() {
+  public java.lang.Long getAbsEndTimestamp() {
     return absEndTimestamp;
   }
 
@@ -240,7 +288,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * from unisession absEndTimestamp
    * @param value the value to set.
    */
-  public void setAbsEndTimestamp(Long value) {
+  public void setAbsEndTimestamp(java.lang.Long value) {
     this.absEndTimestamp = value;
   }
 
@@ -248,7 +296,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'sessionStartDt' field.
    * @return from unisession sessionStartDt
    */
-  public Long getSessionStartDt() {
+  public java.lang.Long getSessionStartDt() {
     return sessionStartDt;
   }
 
@@ -257,24 +305,24 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * from unisession sessionStartDt
    * @param value the value to set.
    */
-  public void setSessionStartDt(Long value) {
+  public void setSessionStartDt(java.lang.Long value) {
     this.sessionStartDt = value;
   }
 
   /**
    * Gets the value of the 'trafficSource' field.
-   * @return traffic source
+   * @return 
    */
-  public String getTrafficSource() {
+  public java.util.Map<java.lang.String,java.lang.String> getTrafficSource() {
     return trafficSource;
   }
 
   /**
    * Sets the value of the 'trafficSource' field.
-   * traffic source
+   * 
    * @param value the value to set.
    */
-  public void setTrafficSource(String value) {
+  public void setTrafficSource(java.util.Map<java.lang.String,java.lang.String> value) {
     this.trafficSource = value;
   }
 
@@ -282,7 +330,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'ubiSessIds' field.
    * @return The value of the 'ubiSessIds' field.
    */
-  public java.util.List<String> getUbiSessIds() {
+  public java.util.List<java.lang.String> getUbiSessIds() {
     return ubiSessIds;
   }
 
@@ -290,7 +338,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'ubiSessIds' field.
    * @param value the value to set.
    */
-  public void setUbiSessIds(java.util.List<String> value) {
+  public void setUbiSessIds(java.util.List<java.lang.String> value) {
     this.ubiSessIds = value;
   }
 
@@ -298,7 +346,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'ubiSessSkeys' field.
    * @return The value of the 'ubiSessSkeys' field.
    */
-  public java.util.List<Long> getUbiSessSkeys() {
+  public java.util.List<java.lang.Long> getUbiSessSkeys() {
     return ubiSessSkeys;
   }
 
@@ -306,7 +354,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'ubiSessSkeys' field.
    * @param value the value to set.
    */
-  public void setUbiSessSkeys(java.util.List<Long> value) {
+  public void setUbiSessSkeys(java.util.List<java.lang.Long> value) {
     this.ubiSessSkeys = value;
   }
 
@@ -314,7 +362,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'autotrackSessIds' field.
    * @return The value of the 'autotrackSessIds' field.
    */
-  public java.util.List<Long> getAutotrackSessIds() {
+  public java.util.List<java.lang.Long> getAutotrackSessIds() {
     return autotrackSessIds;
   }
 
@@ -322,7 +370,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'autotrackSessIds' field.
    * @param value the value to set.
    */
-  public void setAutotrackSessIds(java.util.List<Long> value) {
+  public void setAutotrackSessIds(java.util.List<java.lang.Long> value) {
     this.autotrackSessIds = value;
   }
 
@@ -330,7 +378,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'autotrackSessSkeys' field.
    * @return The value of the 'autotrackSessSkeys' field.
    */
-  public java.util.List<Long> getAutotrackSessSkeys() {
+  public java.util.List<java.lang.Long> getAutotrackSessSkeys() {
     return autotrackSessSkeys;
   }
 
@@ -338,7 +386,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'autotrackSessSkeys' field.
    * @param value the value to set.
    */
-  public void setAutotrackSessSkeys(java.util.List<Long> value) {
+  public void setAutotrackSessSkeys(java.util.List<java.lang.Long> value) {
     this.autotrackSessSkeys = value;
   }
 
@@ -362,7 +410,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'others' field.
    * @return The value of the 'others' field.
    */
-  public java.util.Map<String, String> getOthers() {
+  public java.util.Map<java.lang.String,java.lang.String> getOthers() {
     return others;
   }
 
@@ -370,7 +418,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Sets the value of the 'others' field.
    * @param value the value to set.
    */
-  public void setOthers(java.util.Map<String, String> value) {
+  public void setOthers(java.util.Map<java.lang.String,java.lang.String> value) {
     this.others = value;
   }
 
@@ -378,7 +426,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * Gets the value of the 'isOpen' field.
    * @return to identify open or end
    */
-  public Boolean getIsOpen() {
+  public java.lang.Boolean getIsOpen() {
     return isOpen;
   }
 
@@ -387,8 +435,144 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * to identify open or end
    * @param value the value to set.
    */
-  public void setIsOpen(Boolean value) {
+  public void setIsOpen(java.lang.Boolean value) {
     this.isOpen = value;
+  }
+
+  /**
+   * Gets the value of the 'userId' field.
+   * @return from ubisession
+   */
+  public java.lang.String getUserId() {
+    return userId;
+  }
+
+  /**
+   * Sets the value of the 'userId' field.
+   * from ubisession
+   * @param value the value to set.
+   */
+  public void setUserId(java.lang.String value) {
+    this.userId = value;
+  }
+
+  /**
+   * Gets the value of the 'firstAppId' field.
+   * @return from ubisession
+   */
+  public java.lang.Integer getFirstAppId() {
+    return firstAppId;
+  }
+
+  /**
+   * Sets the value of the 'firstAppId' field.
+   * from ubisession
+   * @param value the value to set.
+   */
+  public void setFirstAppId(java.lang.Integer value) {
+    this.firstAppId = value;
+  }
+
+  /**
+   * Gets the value of the 'cobrand' field.
+   * @return from ubisession 
+   */
+  public java.lang.Integer getCobrand() {
+    return cobrand;
+  }
+
+  /**
+   * Sets the value of the 'cobrand' field.
+   * from ubisession 
+   * @param value the value to set.
+   */
+  public void setCobrand(java.lang.Integer value) {
+    this.cobrand = value;
+  }
+
+  /**
+   * Gets the value of the 'userAgent' field.
+   * @return from ubisession
+   */
+  public java.lang.String getUserAgent() {
+    return userAgent;
+  }
+
+  /**
+   * Sets the value of the 'userAgent' field.
+   * from ubisession
+   * @param value the value to set.
+   */
+  public void setUserAgent(java.lang.String value) {
+    this.userAgent = value;
+  }
+
+  /**
+   * Gets the value of the 'experience' field.
+   * @return from ubisession
+   */
+  public java.lang.String getExperience() {
+    return experience;
+  }
+
+  /**
+   * Sets the value of the 'experience' field.
+   * from ubisession
+   * @param value the value to set.
+   */
+  public void setExperience(java.lang.String value) {
+    this.experience = value;
+  }
+
+  /**
+   * Gets the value of the 'experienceLevel1' field.
+   * @return from ubisession
+   */
+  public java.lang.String getExperienceLevel1() {
+    return experienceLevel1;
+  }
+
+  /**
+   * Sets the value of the 'experienceLevel1' field.
+   * from ubisession
+   * @param value the value to set.
+   */
+  public void setExperienceLevel1(java.lang.String value) {
+    this.experienceLevel1 = value;
+  }
+
+  /**
+   * Gets the value of the 'experienceLevel2' field.
+   * @return from ubisession
+   */
+  public java.lang.String getExperienceLevel2() {
+    return experienceLevel2;
+  }
+
+  /**
+   * Sets the value of the 'experienceLevel2' field.
+   * from ubisession
+   * @param value the value to set.
+   */
+  public void setExperienceLevel2(java.lang.String value) {
+    this.experienceLevel2 = value;
+  }
+
+  /**
+   * Gets the value of the 'clavSessions' field.
+   * @return from ubisession
+   */
+  public java.util.List<com.ebay.epic.soj.common.model.ClavSession> getClavSessions() {
+    return clavSessions;
+  }
+
+  /**
+   * Sets the value of the 'clavSessions' field.
+   * from ubisession
+   * @param value the value to set.
+   */
+  public void setClavSessions(java.util.List<com.ebay.epic.soj.common.model.ClavSession> value) {
+    this.clavSessions = value;
   }
 
   /**
@@ -427,26 +611,42 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
     private com.ebay.epic.soj.common.model.RheosHeader rheosHeader;
     private com.ebay.epic.soj.common.model.RheosHeader.Builder rheosHeaderBuilder;
     /** from ubisession guid */
-    private String guid;
+    private java.lang.String guid;
     /** from unisession globalSessionId */
-    private String globalSessionId;
+    private java.lang.String globalSessionId;
     /** from unisession absStartTimestamp */
-    private Long absStartTimestamp;
+    private java.lang.Long absStartTimestamp;
     /** from unisession absEndTimestamp */
-    private Long absEndTimestamp;
+    private java.lang.Long absEndTimestamp;
     /** from unisession sessionStartDt */
-    private Long sessionStartDt;
-    /** traffic source */
-    private String trafficSource;
-    private java.util.List<String> ubiSessIds;
-    private java.util.List<Long> ubiSessSkeys;
-    private java.util.List<Long> autotrackSessIds;
-    private java.util.List<Long> autotrackSessSkeys;
+    private java.lang.Long sessionStartDt;
+    /**  */
+    private java.util.Map<java.lang.String,java.lang.String> trafficSource;
+    private java.util.List<java.lang.String> ubiSessIds;
+    private java.util.List<java.lang.Long> ubiSessSkeys;
+    private java.util.List<java.lang.Long> autotrackSessIds;
+    private java.util.List<java.lang.Long> autotrackSessSkeys;
     private com.ebay.epic.soj.common.model.BotFlag botFlag;
     private com.ebay.epic.soj.common.model.BotFlag.Builder botFlagBuilder;
-    private java.util.Map<String, String> others;
+    private java.util.Map<java.lang.String,java.lang.String> others;
     /** to identify open or end */
-    private Boolean isOpen;
+    private java.lang.Boolean isOpen;
+    /** from ubisession */
+    private java.lang.String userId;
+    /** from ubisession */
+    private java.lang.Integer firstAppId;
+    /** from ubisession  */
+    private java.lang.Integer cobrand;
+    /** from ubisession */
+    private java.lang.String userAgent;
+    /** from ubisession */
+    private java.lang.String experience;
+    /** from ubisession */
+    private java.lang.String experienceLevel1;
+    /** from ubisession */
+    private java.lang.String experienceLevel2;
+    /** from ubisession */
+    private java.util.List<com.ebay.epic.soj.common.model.ClavSession> clavSessions;
 
     /** Creates a new Builder */
     private Builder() {
@@ -521,6 +721,38 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
         this.isOpen = data().deepCopy(fields()[13].schema(), other.isOpen);
         fieldSetFlags()[13] = true;
       }
+      if (isValidValue(fields()[14], other.userId)) {
+        this.userId = data().deepCopy(fields()[14].schema(), other.userId);
+        fieldSetFlags()[14] = true;
+      }
+      if (isValidValue(fields()[15], other.firstAppId)) {
+        this.firstAppId = data().deepCopy(fields()[15].schema(), other.firstAppId);
+        fieldSetFlags()[15] = true;
+      }
+      if (isValidValue(fields()[16], other.cobrand)) {
+        this.cobrand = data().deepCopy(fields()[16].schema(), other.cobrand);
+        fieldSetFlags()[16] = true;
+      }
+      if (isValidValue(fields()[17], other.userAgent)) {
+        this.userAgent = data().deepCopy(fields()[17].schema(), other.userAgent);
+        fieldSetFlags()[17] = true;
+      }
+      if (isValidValue(fields()[18], other.experience)) {
+        this.experience = data().deepCopy(fields()[18].schema(), other.experience);
+        fieldSetFlags()[18] = true;
+      }
+      if (isValidValue(fields()[19], other.experienceLevel1)) {
+        this.experienceLevel1 = data().deepCopy(fields()[19].schema(), other.experienceLevel1);
+        fieldSetFlags()[19] = true;
+      }
+      if (isValidValue(fields()[20], other.experienceLevel2)) {
+        this.experienceLevel2 = data().deepCopy(fields()[20].schema(), other.experienceLevel2);
+        fieldSetFlags()[20] = true;
+      }
+      if (isValidValue(fields()[21], other.clavSessions)) {
+        this.clavSessions = data().deepCopy(fields()[21].schema(), other.clavSessions);
+        fieldSetFlags()[21] = true;
+      }
     }
 
     /**
@@ -586,6 +818,38 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       if (isValidValue(fields()[13], other.isOpen)) {
         this.isOpen = data().deepCopy(fields()[13].schema(), other.isOpen);
         fieldSetFlags()[13] = true;
+      }
+      if (isValidValue(fields()[14], other.userId)) {
+        this.userId = data().deepCopy(fields()[14].schema(), other.userId);
+        fieldSetFlags()[14] = true;
+      }
+      if (isValidValue(fields()[15], other.firstAppId)) {
+        this.firstAppId = data().deepCopy(fields()[15].schema(), other.firstAppId);
+        fieldSetFlags()[15] = true;
+      }
+      if (isValidValue(fields()[16], other.cobrand)) {
+        this.cobrand = data().deepCopy(fields()[16].schema(), other.cobrand);
+        fieldSetFlags()[16] = true;
+      }
+      if (isValidValue(fields()[17], other.userAgent)) {
+        this.userAgent = data().deepCopy(fields()[17].schema(), other.userAgent);
+        fieldSetFlags()[17] = true;
+      }
+      if (isValidValue(fields()[18], other.experience)) {
+        this.experience = data().deepCopy(fields()[18].schema(), other.experience);
+        fieldSetFlags()[18] = true;
+      }
+      if (isValidValue(fields()[19], other.experienceLevel1)) {
+        this.experienceLevel1 = data().deepCopy(fields()[19].schema(), other.experienceLevel1);
+        fieldSetFlags()[19] = true;
+      }
+      if (isValidValue(fields()[20], other.experienceLevel2)) {
+        this.experienceLevel2 = data().deepCopy(fields()[20].schema(), other.experienceLevel2);
+        fieldSetFlags()[20] = true;
+      }
+      if (isValidValue(fields()[21], other.clavSessions)) {
+        this.clavSessions = data().deepCopy(fields()[21].schema(), other.clavSessions);
+        fieldSetFlags()[21] = true;
       }
     }
 
@@ -675,7 +939,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * from ubisession guid
       * @return The value.
       */
-    public String getGuid() {
+    public java.lang.String getGuid() {
       return guid;
     }
 
@@ -685,7 +949,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'guid'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setGuid(String value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setGuid(java.lang.String value) {
       validate(fields()[1], value);
       this.guid = value;
       fieldSetFlags()[1] = true;
@@ -718,7 +982,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * from unisession globalSessionId
       * @return The value.
       */
-    public String getGlobalSessionId() {
+    public java.lang.String getGlobalSessionId() {
       return globalSessionId;
     }
 
@@ -728,7 +992,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'globalSessionId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setGlobalSessionId(String value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setGlobalSessionId(java.lang.String value) {
       validate(fields()[2], value);
       this.globalSessionId = value;
       fieldSetFlags()[2] = true;
@@ -761,7 +1025,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * from unisession absStartTimestamp
       * @return The value.
       */
-    public Long getAbsStartTimestamp() {
+    public java.lang.Long getAbsStartTimestamp() {
       return absStartTimestamp;
     }
 
@@ -771,7 +1035,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'absStartTimestamp'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setAbsStartTimestamp(Long value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setAbsStartTimestamp(java.lang.Long value) {
       validate(fields()[3], value);
       this.absStartTimestamp = value;
       fieldSetFlags()[3] = true;
@@ -804,7 +1068,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * from unisession absEndTimestamp
       * @return The value.
       */
-    public Long getAbsEndTimestamp() {
+    public java.lang.Long getAbsEndTimestamp() {
       return absEndTimestamp;
     }
 
@@ -814,7 +1078,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'absEndTimestamp'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setAbsEndTimestamp(Long value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setAbsEndTimestamp(java.lang.Long value) {
       validate(fields()[4], value);
       this.absEndTimestamp = value;
       fieldSetFlags()[4] = true;
@@ -847,7 +1111,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * from unisession sessionStartDt
       * @return The value.
       */
-    public Long getSessionStartDt() {
+    public java.lang.Long getSessionStartDt() {
       return sessionStartDt;
     }
 
@@ -857,7 +1121,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'sessionStartDt'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setSessionStartDt(Long value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setSessionStartDt(java.lang.Long value) {
       validate(fields()[5], value);
       this.sessionStartDt = value;
       fieldSetFlags()[5] = true;
@@ -887,20 +1151,20 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
       * Gets the value of the 'trafficSource' field.
-      * traffic source
+      * 
       * @return The value.
       */
-    public String getTrafficSource() {
+    public java.util.Map<java.lang.String,java.lang.String> getTrafficSource() {
       return trafficSource;
     }
 
     /**
       * Sets the value of the 'trafficSource' field.
-      * traffic source
+      * 
       * @param value The value of 'trafficSource'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setTrafficSource(String value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setTrafficSource(java.util.Map<java.lang.String,java.lang.String> value) {
       validate(fields()[6], value);
       this.trafficSource = value;
       fieldSetFlags()[6] = true;
@@ -909,7 +1173,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
       * Checks whether the 'trafficSource' field has been set.
-      * traffic source
+      * 
       * @return True if the 'trafficSource' field has been set, false otherwise.
       */
     public boolean hasTrafficSource() {
@@ -919,7 +1183,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
 
     /**
       * Clears the value of the 'trafficSource' field.
-      * traffic source
+      * 
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.UniSession.Builder clearTrafficSource() {
@@ -932,7 +1196,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * Gets the value of the 'ubiSessIds' field.
       * @return The value.
       */
-    public java.util.List<String> getUbiSessIds() {
+    public java.util.List<java.lang.String> getUbiSessIds() {
       return ubiSessIds;
     }
 
@@ -941,7 +1205,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'ubiSessIds'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setUbiSessIds(java.util.List<String> value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setUbiSessIds(java.util.List<java.lang.String> value) {
       validate(fields()[7], value);
       this.ubiSessIds = value;
       fieldSetFlags()[7] = true;
@@ -971,7 +1235,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * Gets the value of the 'ubiSessSkeys' field.
       * @return The value.
       */
-    public java.util.List<Long> getUbiSessSkeys() {
+    public java.util.List<java.lang.Long> getUbiSessSkeys() {
       return ubiSessSkeys;
     }
 
@@ -980,7 +1244,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'ubiSessSkeys'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setUbiSessSkeys(java.util.List<Long> value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setUbiSessSkeys(java.util.List<java.lang.Long> value) {
       validate(fields()[8], value);
       this.ubiSessSkeys = value;
       fieldSetFlags()[8] = true;
@@ -1010,7 +1274,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * Gets the value of the 'autotrackSessIds' field.
       * @return The value.
       */
-    public java.util.List<Long> getAutotrackSessIds() {
+    public java.util.List<java.lang.Long> getAutotrackSessIds() {
       return autotrackSessIds;
     }
 
@@ -1019,7 +1283,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'autotrackSessIds'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setAutotrackSessIds(java.util.List<Long> value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setAutotrackSessIds(java.util.List<java.lang.Long> value) {
       validate(fields()[9], value);
       this.autotrackSessIds = value;
       fieldSetFlags()[9] = true;
@@ -1049,7 +1313,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * Gets the value of the 'autotrackSessSkeys' field.
       * @return The value.
       */
-    public java.util.List<Long> getAutotrackSessSkeys() {
+    public java.util.List<java.lang.Long> getAutotrackSessSkeys() {
       return autotrackSessSkeys;
     }
 
@@ -1058,7 +1322,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'autotrackSessSkeys'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setAutotrackSessSkeys(java.util.List<Long> value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setAutotrackSessSkeys(java.util.List<java.lang.Long> value) {
       validate(fields()[10], value);
       this.autotrackSessSkeys = value;
       fieldSetFlags()[10] = true;
@@ -1162,7 +1426,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * Gets the value of the 'others' field.
       * @return The value.
       */
-    public java.util.Map<String, String> getOthers() {
+    public java.util.Map<java.lang.String,java.lang.String> getOthers() {
       return others;
     }
 
@@ -1171,7 +1435,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'others'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setOthers(java.util.Map<String, String> value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setOthers(java.util.Map<java.lang.String,java.lang.String> value) {
       validate(fields()[12], value);
       this.others = value;
       fieldSetFlags()[12] = true;
@@ -1202,7 +1466,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * to identify open or end
       * @return The value.
       */
-    public Boolean getIsOpen() {
+    public java.lang.Boolean getIsOpen() {
       return isOpen;
     }
 
@@ -1212,7 +1476,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @param value The value of 'isOpen'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UniSession.Builder setIsOpen(Boolean value) {
+    public com.ebay.epic.soj.common.model.UniSession.Builder setIsOpen(java.lang.Boolean value) {
       validate(fields()[13], value);
       this.isOpen = value;
       fieldSetFlags()[13] = true;
@@ -1240,6 +1504,350 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       return this;
     }
 
+    /**
+      * Gets the value of the 'userId' field.
+      * from ubisession
+      * @return The value.
+      */
+    public java.lang.String getUserId() {
+      return userId;
+    }
+
+    /**
+      * Sets the value of the 'userId' field.
+      * from ubisession
+      * @param value The value of 'userId'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder setUserId(java.lang.String value) {
+      validate(fields()[14], value);
+      this.userId = value;
+      fieldSetFlags()[14] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'userId' field has been set.
+      * from ubisession
+      * @return True if the 'userId' field has been set, false otherwise.
+      */
+    public boolean hasUserId() {
+      return fieldSetFlags()[14];
+    }
+
+
+    /**
+      * Clears the value of the 'userId' field.
+      * from ubisession
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder clearUserId() {
+      userId = null;
+      fieldSetFlags()[14] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'firstAppId' field.
+      * from ubisession
+      * @return The value.
+      */
+    public java.lang.Integer getFirstAppId() {
+      return firstAppId;
+    }
+
+    /**
+      * Sets the value of the 'firstAppId' field.
+      * from ubisession
+      * @param value The value of 'firstAppId'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder setFirstAppId(java.lang.Integer value) {
+      validate(fields()[15], value);
+      this.firstAppId = value;
+      fieldSetFlags()[15] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'firstAppId' field has been set.
+      * from ubisession
+      * @return True if the 'firstAppId' field has been set, false otherwise.
+      */
+    public boolean hasFirstAppId() {
+      return fieldSetFlags()[15];
+    }
+
+
+    /**
+      * Clears the value of the 'firstAppId' field.
+      * from ubisession
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder clearFirstAppId() {
+      firstAppId = null;
+      fieldSetFlags()[15] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'cobrand' field.
+      * from ubisession 
+      * @return The value.
+      */
+    public java.lang.Integer getCobrand() {
+      return cobrand;
+    }
+
+    /**
+      * Sets the value of the 'cobrand' field.
+      * from ubisession 
+      * @param value The value of 'cobrand'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder setCobrand(java.lang.Integer value) {
+      validate(fields()[16], value);
+      this.cobrand = value;
+      fieldSetFlags()[16] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'cobrand' field has been set.
+      * from ubisession 
+      * @return True if the 'cobrand' field has been set, false otherwise.
+      */
+    public boolean hasCobrand() {
+      return fieldSetFlags()[16];
+    }
+
+
+    /**
+      * Clears the value of the 'cobrand' field.
+      * from ubisession 
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder clearCobrand() {
+      cobrand = null;
+      fieldSetFlags()[16] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'userAgent' field.
+      * from ubisession
+      * @return The value.
+      */
+    public java.lang.String getUserAgent() {
+      return userAgent;
+    }
+
+    /**
+      * Sets the value of the 'userAgent' field.
+      * from ubisession
+      * @param value The value of 'userAgent'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder setUserAgent(java.lang.String value) {
+      validate(fields()[17], value);
+      this.userAgent = value;
+      fieldSetFlags()[17] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'userAgent' field has been set.
+      * from ubisession
+      * @return True if the 'userAgent' field has been set, false otherwise.
+      */
+    public boolean hasUserAgent() {
+      return fieldSetFlags()[17];
+    }
+
+
+    /**
+      * Clears the value of the 'userAgent' field.
+      * from ubisession
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder clearUserAgent() {
+      userAgent = null;
+      fieldSetFlags()[17] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'experience' field.
+      * from ubisession
+      * @return The value.
+      */
+    public java.lang.String getExperience() {
+      return experience;
+    }
+
+    /**
+      * Sets the value of the 'experience' field.
+      * from ubisession
+      * @param value The value of 'experience'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder setExperience(java.lang.String value) {
+      validate(fields()[18], value);
+      this.experience = value;
+      fieldSetFlags()[18] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'experience' field has been set.
+      * from ubisession
+      * @return True if the 'experience' field has been set, false otherwise.
+      */
+    public boolean hasExperience() {
+      return fieldSetFlags()[18];
+    }
+
+
+    /**
+      * Clears the value of the 'experience' field.
+      * from ubisession
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder clearExperience() {
+      experience = null;
+      fieldSetFlags()[18] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'experienceLevel1' field.
+      * from ubisession
+      * @return The value.
+      */
+    public java.lang.String getExperienceLevel1() {
+      return experienceLevel1;
+    }
+
+    /**
+      * Sets the value of the 'experienceLevel1' field.
+      * from ubisession
+      * @param value The value of 'experienceLevel1'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder setExperienceLevel1(java.lang.String value) {
+      validate(fields()[19], value);
+      this.experienceLevel1 = value;
+      fieldSetFlags()[19] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'experienceLevel1' field has been set.
+      * from ubisession
+      * @return True if the 'experienceLevel1' field has been set, false otherwise.
+      */
+    public boolean hasExperienceLevel1() {
+      return fieldSetFlags()[19];
+    }
+
+
+    /**
+      * Clears the value of the 'experienceLevel1' field.
+      * from ubisession
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder clearExperienceLevel1() {
+      experienceLevel1 = null;
+      fieldSetFlags()[19] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'experienceLevel2' field.
+      * from ubisession
+      * @return The value.
+      */
+    public java.lang.String getExperienceLevel2() {
+      return experienceLevel2;
+    }
+
+    /**
+      * Sets the value of the 'experienceLevel2' field.
+      * from ubisession
+      * @param value The value of 'experienceLevel2'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder setExperienceLevel2(java.lang.String value) {
+      validate(fields()[20], value);
+      this.experienceLevel2 = value;
+      fieldSetFlags()[20] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'experienceLevel2' field has been set.
+      * from ubisession
+      * @return True if the 'experienceLevel2' field has been set, false otherwise.
+      */
+    public boolean hasExperienceLevel2() {
+      return fieldSetFlags()[20];
+    }
+
+
+    /**
+      * Clears the value of the 'experienceLevel2' field.
+      * from ubisession
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder clearExperienceLevel2() {
+      experienceLevel2 = null;
+      fieldSetFlags()[20] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'clavSessions' field.
+      * from ubisession
+      * @return The value.
+      */
+    public java.util.List<com.ebay.epic.soj.common.model.ClavSession> getClavSessions() {
+      return clavSessions;
+    }
+
+    /**
+      * Sets the value of the 'clavSessions' field.
+      * from ubisession
+      * @param value The value of 'clavSessions'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder setClavSessions(java.util.List<com.ebay.epic.soj.common.model.ClavSession> value) {
+      validate(fields()[21], value);
+      this.clavSessions = value;
+      fieldSetFlags()[21] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'clavSessions' field has been set.
+      * from ubisession
+      * @return True if the 'clavSessions' field has been set, false otherwise.
+      */
+    public boolean hasClavSessions() {
+      return fieldSetFlags()[21];
+    }
+
+
+    /**
+      * Clears the value of the 'clavSessions' field.
+      * from ubisession
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder clearClavSessions() {
+      clavSessions = null;
+      fieldSetFlags()[21] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public UniSession build() {
@@ -1250,25 +1858,33 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
         } else {
           record.rheosHeader = fieldSetFlags()[0] ? this.rheosHeader : (com.ebay.epic.soj.common.model.RheosHeader) defaultValue(fields()[0]);
         }
-        record.guid = fieldSetFlags()[1] ? this.guid : (String) defaultValue(fields()[1]);
-        record.globalSessionId = fieldSetFlags()[2] ? this.globalSessionId : (String) defaultValue(fields()[2]);
-        record.absStartTimestamp = fieldSetFlags()[3] ? this.absStartTimestamp : (Long) defaultValue(fields()[3]);
-        record.absEndTimestamp = fieldSetFlags()[4] ? this.absEndTimestamp : (Long) defaultValue(fields()[4]);
-        record.sessionStartDt = fieldSetFlags()[5] ? this.sessionStartDt : (Long) defaultValue(fields()[5]);
-        record.trafficSource = fieldSetFlags()[6] ? this.trafficSource : (String) defaultValue(fields()[6]);
-        record.ubiSessIds = fieldSetFlags()[7] ? this.ubiSessIds : (java.util.List<String>) defaultValue(fields()[7]);
-        record.ubiSessSkeys = fieldSetFlags()[8] ? this.ubiSessSkeys : (java.util.List<Long>) defaultValue(fields()[8]);
-        record.autotrackSessIds = fieldSetFlags()[9] ? this.autotrackSessIds : (java.util.List<Long>) defaultValue(fields()[9]);
-        record.autotrackSessSkeys = fieldSetFlags()[10] ? this.autotrackSessSkeys : (java.util.List<Long>) defaultValue(fields()[10]);
+        record.guid = fieldSetFlags()[1] ? this.guid : (java.lang.String) defaultValue(fields()[1]);
+        record.globalSessionId = fieldSetFlags()[2] ? this.globalSessionId : (java.lang.String) defaultValue(fields()[2]);
+        record.absStartTimestamp = fieldSetFlags()[3] ? this.absStartTimestamp : (java.lang.Long) defaultValue(fields()[3]);
+        record.absEndTimestamp = fieldSetFlags()[4] ? this.absEndTimestamp : (java.lang.Long) defaultValue(fields()[4]);
+        record.sessionStartDt = fieldSetFlags()[5] ? this.sessionStartDt : (java.lang.Long) defaultValue(fields()[5]);
+        record.trafficSource = fieldSetFlags()[6] ? this.trafficSource : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[6]);
+        record.ubiSessIds = fieldSetFlags()[7] ? this.ubiSessIds : (java.util.List<java.lang.String>) defaultValue(fields()[7]);
+        record.ubiSessSkeys = fieldSetFlags()[8] ? this.ubiSessSkeys : (java.util.List<java.lang.Long>) defaultValue(fields()[8]);
+        record.autotrackSessIds = fieldSetFlags()[9] ? this.autotrackSessIds : (java.util.List<java.lang.Long>) defaultValue(fields()[9]);
+        record.autotrackSessSkeys = fieldSetFlags()[10] ? this.autotrackSessSkeys : (java.util.List<java.lang.Long>) defaultValue(fields()[10]);
         if (botFlagBuilder != null) {
           record.botFlag = this.botFlagBuilder.build();
         } else {
           record.botFlag = fieldSetFlags()[11] ? this.botFlag : (com.ebay.epic.soj.common.model.BotFlag) defaultValue(fields()[11]);
         }
-        record.others = fieldSetFlags()[12] ? this.others : (java.util.Map<String, String>) defaultValue(fields()[12]);
-        record.isOpen = fieldSetFlags()[13] ? this.isOpen : (Boolean) defaultValue(fields()[13]);
+        record.others = fieldSetFlags()[12] ? this.others : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[12]);
+        record.isOpen = fieldSetFlags()[13] ? this.isOpen : (java.lang.Boolean) defaultValue(fields()[13]);
+        record.userId = fieldSetFlags()[14] ? this.userId : (java.lang.String) defaultValue(fields()[14]);
+        record.firstAppId = fieldSetFlags()[15] ? this.firstAppId : (java.lang.Integer) defaultValue(fields()[15]);
+        record.cobrand = fieldSetFlags()[16] ? this.cobrand : (java.lang.Integer) defaultValue(fields()[16]);
+        record.userAgent = fieldSetFlags()[17] ? this.userAgent : (java.lang.String) defaultValue(fields()[17]);
+        record.experience = fieldSetFlags()[18] ? this.experience : (java.lang.String) defaultValue(fields()[18]);
+        record.experienceLevel1 = fieldSetFlags()[19] ? this.experienceLevel1 : (java.lang.String) defaultValue(fields()[19]);
+        record.experienceLevel2 = fieldSetFlags()[20] ? this.experienceLevel2 : (java.lang.String) defaultValue(fields()[20]);
+        record.clavSessions = fieldSetFlags()[21] ? this.clavSessions : (java.util.List<com.ebay.epic.soj.common.model.ClavSession>) defaultValue(fields()[21]);
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

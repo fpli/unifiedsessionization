@@ -28,6 +28,14 @@ public class RawEvent {
     private String sessionId;
     private Long sessionSkey;
     private List<Integer> botFlags;
+
+    // for traffic source
+    private String referer;
+    private Map<String,String> payload;
+    private String pageUrl;
+    private String experience;
+
+
     public boolean isNewSession() {
         return Constants.NO_SESSION_ID.equals(globalSessionId);
     }

@@ -1,11 +1,14 @@
 package com.ebay.epic.soj.common.model.raw;
 
 import com.ebay.epic.soj.common.enums.TrafficSource;
+import com.ebay.epic.soj.common.model.ClavSession;
 import lombok.Data;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 @Data
@@ -26,6 +29,18 @@ public class RawUniSession {
     private Set<Integer> surfaceBotList= new CopyOnWriteArraySet<>();
     private Set<Integer> ubiBotList= new CopyOnWriteArraySet<>();
     private Set<Integer> sutpBotList= new CopyOnWriteArraySet<>();
+    // For traffic source
+    private Map<String,String> trafficSourceDtl = new ConcurrentHashMap<>();
+
+    // For unisession extended for caleb session usage
+    private String userId;
+    private Integer firstAppId;
+    private Integer cobrand;
+    private String userAgent;
+    private String experience;
+    private String experienceLevel1;
+    private String experienceLevel2;
+    private Map<String,ClavSession> clavSessionMap = new ConcurrentHashMap<>();
 
     public RawUniSession merge(RawUniSession uniSession) {
         if (this.getAbsStartTimestamp() == null && uniSession.getAbsStartTimestamp() != null) {
@@ -56,6 +71,11 @@ public class RawUniSession {
             this.trafficSource = uniSession.getTrafficSource();
             this.trafficSourceTs = uniSession.getTrafficSourceTs();
         }
+
+        //TODO for traffic source
+
+        //TODO for unified session extend
+
         return this;
     }
 }

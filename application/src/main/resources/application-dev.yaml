@@ -1,0 +1,128 @@
+flink:
+  app:
+    name: Unified Sessionization local
+    parallelism:
+      default: 1
+      source:
+        autotrack:
+          web:
+            nonbot: 1
+          native:
+            nonbot: 1
+        ubi:
+          ubi:
+            nonbot: 1
+            bot: 1
+        utp:
+          utp:
+            nonbot: 1
+      pre-filter:
+        autotrack:
+          web:
+            nonbot: 1
+          native:
+            nonbot: 1
+        ubi:
+          ubi:
+            nonbot: 1
+            bot: 1
+        utp:
+          utp:
+            nonbot: 1
+      normalizer:
+        autotrack:
+          web:
+            nonbot: 1
+          native:
+            nonbot: 1
+        ubi:
+          ubi:
+            nonbot: 1
+            bot: 1
+        utp:
+          utp:
+            nonbot: 1
+      session: 1
+      split:
+        default: 1
+        late: 1
+        session: 1
+      sink-kafka:
+        autotrack: 1
+        ubi: 1
+        utp: 1
+        session: 1
+        late: 1
+      max:
+        default: 10
+        session: 10
+        sink: 10
+    sink:
+      kafka:
+        topic:
+          autotrack: behavior.totalv2.surfaceevent
+          ubi: behavior.totalv2.sojevent-poc
+          utp: behavior.totalv2.utpevent
+          session: behavior.totalv2.unisession
+        subject:
+          autotrack: SessionizedEvent
+          ubi: behavior.sojourner.sojevent.schema
+          utp: UnifiedTrackingRheosEvent
+          session: unisessionschema
+    slot-sharing-group:
+      source:
+        autotrack: local
+        ubi: local
+        utp: local
+      pre-filter: local
+      normalizer: local
+      session-window: local
+      post-filter: local
+      sink:
+        autotrack: local
+        ubi: local
+        utp: local
+        session: local
+kafka:
+  consumer:
+    group-id: unified-sessionization-local
+    topic:
+      ubi:
+        ubi:
+          nonbot:
+            - behavior.totalv2.sojevent-nonbot
+          bot:
+            - behavior.totalv2.sojevent-bot
+    bootstrap-servers:
+      slc:
+        ubi:
+          - rhs-vgnaniaa-kfk-1.rheos-streaming-qa.stratus.qa.ebay.com:9092
+          - rhs-vgnaniaa-kfk-2.rheos-streaming-qa.stratus.qa.ebay.com:9092
+          - rhs-vgnaniaa-kfk-3.rheos-streaming-qa.stratus.qa.ebay.com:9092
+          - rhs-vgnaniaa-kfk-4.rheos-streaming-qa.stratus.qa.ebay.com:9092
+          - rhs-vgnaniaa-kfk-5.rheos-streaming-qa.stratus.qa.ebay.com:9092
+    max-poll-records:
+      default: 3000
+    # 16MB, default value is 50MB
+    fetch-max-bytes:
+      default: 16777216
+    # 128KB, default value is 64KB
+    receive-buffer:
+      default: 131072
+    fetch-max-wait-ms:
+      default: 100
+    # 4MB, default value is 1MB
+    max-partitions-fetch-bytes:
+      default: 4194304
+    auto-offset-reset:
+      default: latest
+    partition-discovery-interval-ms:
+      default: 60000
+  # TODO after finalize the stream name and DC
+rheos:
+  registry-url: https://rheos-services.qa.ebay.com
+  client:
+    id: "urn:ebay-marketplace-consumerid:68a97ac2-013b-4915-9ed7-d6ae2ff01618"
+    iaf:
+      secret: 6218c197-200e-49d7-b404-2a4dbf7595ef
+      env: staging
