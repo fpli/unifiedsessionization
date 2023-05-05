@@ -1,12 +1,10 @@
 package com.ebay.epic.soj.common.model.raw;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 @Data
-@ToString()
-@EqualsAndHashCode
+@AllArgsConstructor
 public class UbiKey {
     private String guid;
     private String sessionId;

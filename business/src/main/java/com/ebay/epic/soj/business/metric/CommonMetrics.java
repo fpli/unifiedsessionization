@@ -13,7 +13,7 @@ public class CommonMetrics implements FieldMetrics<UniEvent, UniSessionAccumulat
   }
 
   @Override
-  public void feed(UniEvent event, UniSessionAccumulator uniSessionAccumulator) {
+  public void process(UniEvent event, UniSessionAccumulator uniSessionAccumulator) throws Exception {
     RawUniSession uniSession = uniSessionAccumulator.getUniSession();
     if (uniSession.getGuid() == null) {
       uniSession.setGuid(event.getGuid());
@@ -22,11 +22,4 @@ public class CommonMetrics implements FieldMetrics<UniEvent, UniSessionAccumulat
     }
   }
 
-  @Override
-  public void end(UniSessionAccumulator uniSessionAccumulator) {
-  }
-
-  @Override
-  public void init() throws Exception {
-  }
 }

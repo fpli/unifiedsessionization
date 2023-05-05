@@ -264,5 +264,19 @@ public class Property {
     public static final String YML_EXT = ".yml";
     public static final String YAML_EXT = ".yaml";
     public static final String PROFILE = "profile";
+
+    // for LkpManager
+    public static final String IFRAME_PAGE_IDS = "iframe.page.ids";
+    public static final String SELECTED_IPS = "selected.ips";
+    public static final String SELECTED_AGENTS = "selected.agents";
+    public static final String ITM_PAGES = "itm.pages";
+    public static final String LARGE_SESSION_GUID = "large.session.guid";
+    public static final String MPX_ROTATION = "mpx.rotation";
+    public static final String PAGE_FMLY_ALL = "pageFmlyAll";
+    public static final String IAB_AGENT = "iab.agent";
+    public static final String FINDING_FLAGS = "finding.flags";
+    public static final String VTNEW_IDS = "vtNewIds";
+    public static final String APP_ID = "appid";
+    public static final String PAGE_FMLY = "pagefmly";
 }
 

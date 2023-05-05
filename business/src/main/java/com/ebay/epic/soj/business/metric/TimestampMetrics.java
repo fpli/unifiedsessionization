@@ -15,7 +15,7 @@ public class TimestampMetrics implements FieldMetrics<UniEvent, UniSessionAccumu
   }
 
   @Override
-  public void feed(UniEvent event, UniSessionAccumulator uniSessionAccumulator) {
+  public void process(UniEvent event, UniSessionAccumulator uniSessionAccumulator) throws Exception {
     RawUniSession uniSession = uniSessionAccumulator.getUniSession();
     boolean isEarlyValidEvent = SojEventTimeUtil
             .isEarlyEvent(event.getEventTs(),
@@ -23,20 +23,19 @@ public class TimestampMetrics implements FieldMetrics<UniEvent, UniSessionAccumu
     if (uniSession.getAbsStartTimestamp() == null) {
       uniSession.setAbsStartTimestamp(event.getEventTs());
     } else if (event.getEventTs() != null
-              && uniSession.getAbsStartTimestamp() > event.getEventTs()) {
+            && uniSession.getAbsStartTimestamp() > event.getEventTs()) {
       uniSession.setAbsStartTimestamp(event.getEventTs());
     }
 
     if (uniSession.getAbsEndTimestamp() == null) {
       uniSession.setAbsEndTimestamp(event.getEventTs());
     } else if (event.getEventTs() != null
-              && uniSession.getAbsEndTimestamp() < event.getEventTs()) {
+            && uniSession.getAbsEndTimestamp() < event.getEventTs()) {
       uniSession.setAbsEndTimestamp(event.getEventTs());
     }
     if(isEarlyValidEvent&&!event.getIframe()&&event.getRdt()==0){
       uniSession.setStartTimestamp(event.getEventTs());
     }
-
   }
 
   @Override
@@ -50,9 +49,5 @@ public class TimestampMetrics implements FieldMetrics<UniEvent, UniSessionAccumu
               .setSessionStartDt(uniSessionAccumulator.getUniSession()
                       .getAbsStartTimestamp());
     }
-  }
-
-  @Override
-  public void init() throws Exception {
   }
 }

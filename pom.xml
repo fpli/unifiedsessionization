@@ -18,7 +18,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <sojourner.rt.version>1.10.11</sojourner.rt.version>
         <flink.version>1.13.5</flink.version>
+        <http.core.version>4.4.13</http.core.version>
         <java.version>1.8</java.version>
         <scala.binary.version>2.12</scala.binary.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -206,6 +208,11 @@
                 <groupId>org.apache.datasketches</groupId>
                 <artifactId>datasketches-java</artifactId>
                 <version>1.2.0-incubating</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ebay.sojourner</groupId>
+                <artifactId>sojourner-common</artifactId>
+                <version>${sojourner.rt.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>

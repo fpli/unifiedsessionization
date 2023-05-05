@@ -35,9 +35,12 @@ public class UniEvent {
 
     // for traffic source
     private String referer;
+    // both for traffic source and Clav session extension
     private Map<String,String> payload;
     private String pageUrl;
     private String experience;
+    private boolean partialValidPage = true;
+    private Integer pageId;
 
     public boolean isNewSession() {
         return Constants.NO_SESSION_ID.equals(globalSessionId);

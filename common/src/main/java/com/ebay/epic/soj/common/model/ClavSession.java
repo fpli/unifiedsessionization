@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class ClavSession extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 6730295609054705353L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ClavSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"session_skey\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"site_id\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"boolean\"},{\"name\":\"valid_page_count\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"start_page_id\",\"type\":\"int\"},{\"name\":\"exit_page_id\",\"type\":\"int\"},{\"name\":\"start_timestamp\",\"type\":\"long\"},{\"name\":\"exit_timestamp\",\"type\":\"long\"},{\"name\":\"gr_count\",\"type\":\"int\"},{\"name\":\"gr1_count\",\"type\":\"int\"},{\"name\":\"homepage_count\",\"type\":\"int\"},{\"name\":\"vi_count\",\"type\":\"int\"},{\"name\":\"signin_count\",\"type\":\"int\"},{\"name\":\"myebay_count\",\"type\":\"int\"},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = -7714883877334947075L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ClavSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"sessionSkey\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"siteId\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"boolean\"},{\"name\":\"validPageCount\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"startPageId\",\"type\":\"int\"},{\"name\":\"exitPageId\",\"type\":\"int\"},{\"name\":\"startTimestamp\",\"type\":\"long\"},{\"name\":\"exitTimestamp\",\"type\":\"long\"},{\"name\":\"grCount\",\"type\":\"int\"},{\"name\":\"gr1Count\",\"type\":\"int\"},{\"name\":\"homepageCount\",\"type\":\"int\"},{\"name\":\"viCount\",\"type\":\"int\"},{\"name\":\"signinCount\",\"type\":\"int\"},{\"name\":\"myebayCount\",\"type\":\"int\"},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -51,21 +51,21 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.lang.String session_skey;
-  @Deprecated public int site_id;
+  @Deprecated public java.lang.String sessionSkey;
+  @Deprecated public int siteId;
   @Deprecated public boolean botFlag;
-  @Deprecated public int valid_page_count;
+  @Deprecated public int validPageCount;
   @Deprecated public long duration;
-  @Deprecated public int start_page_id;
-  @Deprecated public int exit_page_id;
-  @Deprecated public long start_timestamp;
-  @Deprecated public long exit_timestamp;
-  @Deprecated public int gr_count;
-  @Deprecated public int gr1_count;
-  @Deprecated public int homepage_count;
-  @Deprecated public int vi_count;
-  @Deprecated public int signin_count;
-  @Deprecated public int myebay_count;
+  @Deprecated public int startPageId;
+  @Deprecated public int exitPageId;
+  @Deprecated public long startTimestamp;
+  @Deprecated public long exitTimestamp;
+  @Deprecated public int grCount;
+  @Deprecated public int gr1Count;
+  @Deprecated public int homepageCount;
+  @Deprecated public int viCount;
+  @Deprecated public int signinCount;
+  @Deprecated public int myebayCount;
   @Deprecated public java.util.Map<java.lang.String,java.lang.String> others;
 
   /**
@@ -77,39 +77,39 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
   /**
    * All-args constructor.
-   * @param session_skey The new value for session_skey
-   * @param site_id The new value for site_id
+   * @param sessionSkey The new value for sessionSkey
+   * @param siteId The new value for siteId
    * @param botFlag The new value for botFlag
-   * @param valid_page_count The new value for valid_page_count
+   * @param validPageCount The new value for validPageCount
    * @param duration The new value for duration
-   * @param start_page_id The new value for start_page_id
-   * @param exit_page_id The new value for exit_page_id
-   * @param start_timestamp The new value for start_timestamp
-   * @param exit_timestamp The new value for exit_timestamp
-   * @param gr_count The new value for gr_count
-   * @param gr1_count The new value for gr1_count
-   * @param homepage_count The new value for homepage_count
-   * @param vi_count The new value for vi_count
-   * @param signin_count The new value for signin_count
-   * @param myebay_count The new value for myebay_count
+   * @param startPageId The new value for startPageId
+   * @param exitPageId The new value for exitPageId
+   * @param startTimestamp The new value for startTimestamp
+   * @param exitTimestamp The new value for exitTimestamp
+   * @param grCount The new value for grCount
+   * @param gr1Count The new value for gr1Count
+   * @param homepageCount The new value for homepageCount
+   * @param viCount The new value for viCount
+   * @param signinCount The new value for signinCount
+   * @param myebayCount The new value for myebayCount
    * @param others The new value for others
    */
-  public ClavSession(java.lang.String session_skey, java.lang.Integer site_id, java.lang.Boolean botFlag, java.lang.Integer valid_page_count, java.lang.Long duration, java.lang.Integer start_page_id, java.lang.Integer exit_page_id, java.lang.Long start_timestamp, java.lang.Long exit_timestamp, java.lang.Integer gr_count, java.lang.Integer gr1_count, java.lang.Integer homepage_count, java.lang.Integer vi_count, java.lang.Integer signin_count, java.lang.Integer myebay_count, java.util.Map<java.lang.String,java.lang.String> others) {
-    this.session_skey = session_skey;
-    this.site_id = site_id;
+  public ClavSession(java.lang.String sessionSkey, java.lang.Integer siteId, java.lang.Boolean botFlag, java.lang.Integer validPageCount, java.lang.Long duration, java.lang.Integer startPageId, java.lang.Integer exitPageId, java.lang.Long startTimestamp, java.lang.Long exitTimestamp, java.lang.Integer grCount, java.lang.Integer gr1Count, java.lang.Integer homepageCount, java.lang.Integer viCount, java.lang.Integer signinCount, java.lang.Integer myebayCount, java.util.Map<java.lang.String,java.lang.String> others) {
+    this.sessionSkey = sessionSkey;
+    this.siteId = siteId;
     this.botFlag = botFlag;
-    this.valid_page_count = valid_page_count;
+    this.validPageCount = validPageCount;
     this.duration = duration;
-    this.start_page_id = start_page_id;
-    this.exit_page_id = exit_page_id;
-    this.start_timestamp = start_timestamp;
-    this.exit_timestamp = exit_timestamp;
-    this.gr_count = gr_count;
-    this.gr1_count = gr1_count;
-    this.homepage_count = homepage_count;
-    this.vi_count = vi_count;
-    this.signin_count = signin_count;
-    this.myebay_count = myebay_count;
+    this.startPageId = startPageId;
+    this.exitPageId = exitPageId;
+    this.startTimestamp = startTimestamp;
+    this.exitTimestamp = exitTimestamp;
+    this.grCount = grCount;
+    this.gr1Count = gr1Count;
+    this.homepageCount = homepageCount;
+    this.viCount = viCount;
+    this.signinCount = signinCount;
+    this.myebayCount = myebayCount;
     this.others = others;
   }
 
@@ -117,21 +117,21 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return session_skey;
-    case 1: return site_id;
+    case 0: return sessionSkey;
+    case 1: return siteId;
     case 2: return botFlag;
-    case 3: return valid_page_count;
+    case 3: return validPageCount;
     case 4: return duration;
-    case 5: return start_page_id;
-    case 6: return exit_page_id;
-    case 7: return start_timestamp;
-    case 8: return exit_timestamp;
-    case 9: return gr_count;
-    case 10: return gr1_count;
-    case 11: return homepage_count;
-    case 12: return vi_count;
-    case 13: return signin_count;
-    case 14: return myebay_count;
+    case 5: return startPageId;
+    case 6: return exitPageId;
+    case 7: return startTimestamp;
+    case 8: return exitTimestamp;
+    case 9: return grCount;
+    case 10: return gr1Count;
+    case 11: return homepageCount;
+    case 12: return viCount;
+    case 13: return signinCount;
+    case 14: return myebayCount;
     case 15: return others;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
@@ -141,56 +141,56 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: session_skey = (java.lang.String)value$; break;
-    case 1: site_id = (java.lang.Integer)value$; break;
+    case 0: sessionSkey = (java.lang.String)value$; break;
+    case 1: siteId = (java.lang.Integer)value$; break;
     case 2: botFlag = (java.lang.Boolean)value$; break;
-    case 3: valid_page_count = (java.lang.Integer)value$; break;
+    case 3: validPageCount = (java.lang.Integer)value$; break;
     case 4: duration = (java.lang.Long)value$; break;
-    case 5: start_page_id = (java.lang.Integer)value$; break;
-    case 6: exit_page_id = (java.lang.Integer)value$; break;
-    case 7: start_timestamp = (java.lang.Long)value$; break;
-    case 8: exit_timestamp = (java.lang.Long)value$; break;
-    case 9: gr_count = (java.lang.Integer)value$; break;
-    case 10: gr1_count = (java.lang.Integer)value$; break;
-    case 11: homepage_count = (java.lang.Integer)value$; break;
-    case 12: vi_count = (java.lang.Integer)value$; break;
-    case 13: signin_count = (java.lang.Integer)value$; break;
-    case 14: myebay_count = (java.lang.Integer)value$; break;
+    case 5: startPageId = (java.lang.Integer)value$; break;
+    case 6: exitPageId = (java.lang.Integer)value$; break;
+    case 7: startTimestamp = (java.lang.Long)value$; break;
+    case 8: exitTimestamp = (java.lang.Long)value$; break;
+    case 9: grCount = (java.lang.Integer)value$; break;
+    case 10: gr1Count = (java.lang.Integer)value$; break;
+    case 11: homepageCount = (java.lang.Integer)value$; break;
+    case 12: viCount = (java.lang.Integer)value$; break;
+    case 13: signinCount = (java.lang.Integer)value$; break;
+    case 14: myebayCount = (java.lang.Integer)value$; break;
     case 15: others = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
   /**
-   * Gets the value of the 'session_skey' field.
-   * @return The value of the 'session_skey' field.
+   * Gets the value of the 'sessionSkey' field.
+   * @return The value of the 'sessionSkey' field.
    */
   public java.lang.String getSessionSkey() {
-    return session_skey;
+    return sessionSkey;
   }
 
   /**
-   * Sets the value of the 'session_skey' field.
+   * Sets the value of the 'sessionSkey' field.
    * @param value the value to set.
    */
   public void setSessionSkey(java.lang.String value) {
-    this.session_skey = value;
+    this.sessionSkey = value;
   }
 
   /**
-   * Gets the value of the 'site_id' field.
-   * @return The value of the 'site_id' field.
+   * Gets the value of the 'siteId' field.
+   * @return The value of the 'siteId' field.
    */
   public java.lang.Integer getSiteId() {
-    return site_id;
+    return siteId;
   }
 
   /**
-   * Sets the value of the 'site_id' field.
+   * Sets the value of the 'siteId' field.
    * @param value the value to set.
    */
   public void setSiteId(java.lang.Integer value) {
-    this.site_id = value;
+    this.siteId = value;
   }
 
   /**
@@ -210,19 +210,19 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   }
 
   /**
-   * Gets the value of the 'valid_page_count' field.
-   * @return The value of the 'valid_page_count' field.
+   * Gets the value of the 'validPageCount' field.
+   * @return The value of the 'validPageCount' field.
    */
   public java.lang.Integer getValidPageCount() {
-    return valid_page_count;
+    return validPageCount;
   }
 
   /**
-   * Sets the value of the 'valid_page_count' field.
+   * Sets the value of the 'validPageCount' field.
    * @param value the value to set.
    */
   public void setValidPageCount(java.lang.Integer value) {
-    this.valid_page_count = value;
+    this.validPageCount = value;
   }
 
   /**
@@ -242,163 +242,163 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   }
 
   /**
-   * Gets the value of the 'start_page_id' field.
-   * @return The value of the 'start_page_id' field.
+   * Gets the value of the 'startPageId' field.
+   * @return The value of the 'startPageId' field.
    */
   public java.lang.Integer getStartPageId() {
-    return start_page_id;
+    return startPageId;
   }
 
   /**
-   * Sets the value of the 'start_page_id' field.
+   * Sets the value of the 'startPageId' field.
    * @param value the value to set.
    */
   public void setStartPageId(java.lang.Integer value) {
-    this.start_page_id = value;
+    this.startPageId = value;
   }
 
   /**
-   * Gets the value of the 'exit_page_id' field.
-   * @return The value of the 'exit_page_id' field.
+   * Gets the value of the 'exitPageId' field.
+   * @return The value of the 'exitPageId' field.
    */
   public java.lang.Integer getExitPageId() {
-    return exit_page_id;
+    return exitPageId;
   }
 
   /**
-   * Sets the value of the 'exit_page_id' field.
+   * Sets the value of the 'exitPageId' field.
    * @param value the value to set.
    */
   public void setExitPageId(java.lang.Integer value) {
-    this.exit_page_id = value;
+    this.exitPageId = value;
   }
 
   /**
-   * Gets the value of the 'start_timestamp' field.
-   * @return The value of the 'start_timestamp' field.
+   * Gets the value of the 'startTimestamp' field.
+   * @return The value of the 'startTimestamp' field.
    */
   public java.lang.Long getStartTimestamp() {
-    return start_timestamp;
+    return startTimestamp;
   }
 
   /**
-   * Sets the value of the 'start_timestamp' field.
+   * Sets the value of the 'startTimestamp' field.
    * @param value the value to set.
    */
   public void setStartTimestamp(java.lang.Long value) {
-    this.start_timestamp = value;
+    this.startTimestamp = value;
   }
 
   /**
-   * Gets the value of the 'exit_timestamp' field.
-   * @return The value of the 'exit_timestamp' field.
+   * Gets the value of the 'exitTimestamp' field.
+   * @return The value of the 'exitTimestamp' field.
    */
   public java.lang.Long getExitTimestamp() {
-    return exit_timestamp;
+    return exitTimestamp;
   }
 
   /**
-   * Sets the value of the 'exit_timestamp' field.
+   * Sets the value of the 'exitTimestamp' field.
    * @param value the value to set.
    */
   public void setExitTimestamp(java.lang.Long value) {
-    this.exit_timestamp = value;
+    this.exitTimestamp = value;
   }
 
   /**
-   * Gets the value of the 'gr_count' field.
-   * @return The value of the 'gr_count' field.
+   * Gets the value of the 'grCount' field.
+   * @return The value of the 'grCount' field.
    */
   public java.lang.Integer getGrCount() {
-    return gr_count;
+    return grCount;
   }
 
   /**
-   * Sets the value of the 'gr_count' field.
+   * Sets the value of the 'grCount' field.
    * @param value the value to set.
    */
   public void setGrCount(java.lang.Integer value) {
-    this.gr_count = value;
+    this.grCount = value;
   }
 
   /**
-   * Gets the value of the 'gr1_count' field.
-   * @return The value of the 'gr1_count' field.
+   * Gets the value of the 'gr1Count' field.
+   * @return The value of the 'gr1Count' field.
    */
   public java.lang.Integer getGr1Count() {
-    return gr1_count;
+    return gr1Count;
   }
 
   /**
-   * Sets the value of the 'gr1_count' field.
+   * Sets the value of the 'gr1Count' field.
    * @param value the value to set.
    */
   public void setGr1Count(java.lang.Integer value) {
-    this.gr1_count = value;
+    this.gr1Count = value;
   }
 
   /**
-   * Gets the value of the 'homepage_count' field.
-   * @return The value of the 'homepage_count' field.
+   * Gets the value of the 'homepageCount' field.
+   * @return The value of the 'homepageCount' field.
    */
   public java.lang.Integer getHomepageCount() {
-    return homepage_count;
+    return homepageCount;
   }
 
   /**
-   * Sets the value of the 'homepage_count' field.
+   * Sets the value of the 'homepageCount' field.
    * @param value the value to set.
    */
   public void setHomepageCount(java.lang.Integer value) {
-    this.homepage_count = value;
+    this.homepageCount = value;
   }
 
   /**
-   * Gets the value of the 'vi_count' field.
-   * @return The value of the 'vi_count' field.
+   * Gets the value of the 'viCount' field.
+   * @return The value of the 'viCount' field.
    */
   public java.lang.Integer getViCount() {
-    return vi_count;
+    return viCount;
   }
 
   /**
-   * Sets the value of the 'vi_count' field.
+   * Sets the value of the 'viCount' field.
    * @param value the value to set.
    */
   public void setViCount(java.lang.Integer value) {
-    this.vi_count = value;
+    this.viCount = value;
   }
 
   /**
-   * Gets the value of the 'signin_count' field.
-   * @return The value of the 'signin_count' field.
+   * Gets the value of the 'signinCount' field.
+   * @return The value of the 'signinCount' field.
    */
   public java.lang.Integer getSigninCount() {
-    return signin_count;
+    return signinCount;
   }
 
   /**
-   * Sets the value of the 'signin_count' field.
+   * Sets the value of the 'signinCount' field.
    * @param value the value to set.
    */
   public void setSigninCount(java.lang.Integer value) {
-    this.signin_count = value;
+    this.signinCount = value;
   }
 
   /**
-   * Gets the value of the 'myebay_count' field.
-   * @return The value of the 'myebay_count' field.
+   * Gets the value of the 'myebayCount' field.
+   * @return The value of the 'myebayCount' field.
    */
   public java.lang.Integer getMyebayCount() {
-    return myebay_count;
+    return myebayCount;
   }
 
   /**
-   * Sets the value of the 'myebay_count' field.
+   * Sets the value of the 'myebayCount' field.
    * @param value the value to set.
    */
   public void setMyebayCount(java.lang.Integer value) {
-    this.myebay_count = value;
+    this.myebayCount = value;
   }
 
   /**
@@ -449,21 +449,21 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ClavSession>
     implements org.apache.avro.data.RecordBuilder<ClavSession> {
 
-    private java.lang.String session_skey;
-    private int site_id;
+    private java.lang.String sessionSkey;
+    private int siteId;
     private boolean botFlag;
-    private int valid_page_count;
+    private int validPageCount;
     private long duration;
-    private int start_page_id;
-    private int exit_page_id;
-    private long start_timestamp;
-    private long exit_timestamp;
-    private int gr_count;
-    private int gr1_count;
-    private int homepage_count;
-    private int vi_count;
-    private int signin_count;
-    private int myebay_count;
+    private int startPageId;
+    private int exitPageId;
+    private long startTimestamp;
+    private long exitTimestamp;
+    private int grCount;
+    private int gr1Count;
+    private int homepageCount;
+    private int viCount;
+    private int signinCount;
+    private int myebayCount;
     private java.util.Map<java.lang.String,java.lang.String> others;
 
     /** Creates a new Builder */
@@ -477,64 +477,64 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
      */
     private Builder(com.ebay.epic.soj.common.model.ClavSession.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.session_skey)) {
-        this.session_skey = data().deepCopy(fields()[0].schema(), other.session_skey);
+      if (isValidValue(fields()[0], other.sessionSkey)) {
+        this.sessionSkey = data().deepCopy(fields()[0].schema(), other.sessionSkey);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.site_id)) {
-        this.site_id = data().deepCopy(fields()[1].schema(), other.site_id);
+      if (isValidValue(fields()[1], other.siteId)) {
+        this.siteId = data().deepCopy(fields()[1].schema(), other.siteId);
         fieldSetFlags()[1] = true;
       }
       if (isValidValue(fields()[2], other.botFlag)) {
         this.botFlag = data().deepCopy(fields()[2].schema(), other.botFlag);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.valid_page_count)) {
-        this.valid_page_count = data().deepCopy(fields()[3].schema(), other.valid_page_count);
+      if (isValidValue(fields()[3], other.validPageCount)) {
+        this.validPageCount = data().deepCopy(fields()[3].schema(), other.validPageCount);
         fieldSetFlags()[3] = true;
       }
       if (isValidValue(fields()[4], other.duration)) {
         this.duration = data().deepCopy(fields()[4].schema(), other.duration);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.start_page_id)) {
-        this.start_page_id = data().deepCopy(fields()[5].schema(), other.start_page_id);
+      if (isValidValue(fields()[5], other.startPageId)) {
+        this.startPageId = data().deepCopy(fields()[5].schema(), other.startPageId);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.exit_page_id)) {
-        this.exit_page_id = data().deepCopy(fields()[6].schema(), other.exit_page_id);
+      if (isValidValue(fields()[6], other.exitPageId)) {
+        this.exitPageId = data().deepCopy(fields()[6].schema(), other.exitPageId);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.start_timestamp)) {
-        this.start_timestamp = data().deepCopy(fields()[7].schema(), other.start_timestamp);
+      if (isValidValue(fields()[7], other.startTimestamp)) {
+        this.startTimestamp = data().deepCopy(fields()[7].schema(), other.startTimestamp);
         fieldSetFlags()[7] = true;
       }
-      if (isValidValue(fields()[8], other.exit_timestamp)) {
-        this.exit_timestamp = data().deepCopy(fields()[8].schema(), other.exit_timestamp);
+      if (isValidValue(fields()[8], other.exitTimestamp)) {
+        this.exitTimestamp = data().deepCopy(fields()[8].schema(), other.exitTimestamp);
         fieldSetFlags()[8] = true;
       }
-      if (isValidValue(fields()[9], other.gr_count)) {
-        this.gr_count = data().deepCopy(fields()[9].schema(), other.gr_count);
+      if (isValidValue(fields()[9], other.grCount)) {
+        this.grCount = data().deepCopy(fields()[9].schema(), other.grCount);
         fieldSetFlags()[9] = true;
       }
-      if (isValidValue(fields()[10], other.gr1_count)) {
-        this.gr1_count = data().deepCopy(fields()[10].schema(), other.gr1_count);
+      if (isValidValue(fields()[10], other.gr1Count)) {
+        this.gr1Count = data().deepCopy(fields()[10].schema(), other.gr1Count);
         fieldSetFlags()[10] = true;
       }
-      if (isValidValue(fields()[11], other.homepage_count)) {
-        this.homepage_count = data().deepCopy(fields()[11].schema(), other.homepage_count);
+      if (isValidValue(fields()[11], other.homepageCount)) {
+        this.homepageCount = data().deepCopy(fields()[11].schema(), other.homepageCount);
         fieldSetFlags()[11] = true;
       }
-      if (isValidValue(fields()[12], other.vi_count)) {
-        this.vi_count = data().deepCopy(fields()[12].schema(), other.vi_count);
+      if (isValidValue(fields()[12], other.viCount)) {
+        this.viCount = data().deepCopy(fields()[12].schema(), other.viCount);
         fieldSetFlags()[12] = true;
       }
-      if (isValidValue(fields()[13], other.signin_count)) {
-        this.signin_count = data().deepCopy(fields()[13].schema(), other.signin_count);
+      if (isValidValue(fields()[13], other.signinCount)) {
+        this.signinCount = data().deepCopy(fields()[13].schema(), other.signinCount);
         fieldSetFlags()[13] = true;
       }
-      if (isValidValue(fields()[14], other.myebay_count)) {
-        this.myebay_count = data().deepCopy(fields()[14].schema(), other.myebay_count);
+      if (isValidValue(fields()[14], other.myebayCount)) {
+        this.myebayCount = data().deepCopy(fields()[14].schema(), other.myebayCount);
         fieldSetFlags()[14] = true;
       }
       if (isValidValue(fields()[15], other.others)) {
@@ -549,64 +549,64 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
      */
     private Builder(com.ebay.epic.soj.common.model.ClavSession other) {
             super(SCHEMA$);
-      if (isValidValue(fields()[0], other.session_skey)) {
-        this.session_skey = data().deepCopy(fields()[0].schema(), other.session_skey);
+      if (isValidValue(fields()[0], other.sessionSkey)) {
+        this.sessionSkey = data().deepCopy(fields()[0].schema(), other.sessionSkey);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.site_id)) {
-        this.site_id = data().deepCopy(fields()[1].schema(), other.site_id);
+      if (isValidValue(fields()[1], other.siteId)) {
+        this.siteId = data().deepCopy(fields()[1].schema(), other.siteId);
         fieldSetFlags()[1] = true;
       }
       if (isValidValue(fields()[2], other.botFlag)) {
         this.botFlag = data().deepCopy(fields()[2].schema(), other.botFlag);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.valid_page_count)) {
-        this.valid_page_count = data().deepCopy(fields()[3].schema(), other.valid_page_count);
+      if (isValidValue(fields()[3], other.validPageCount)) {
+        this.validPageCount = data().deepCopy(fields()[3].schema(), other.validPageCount);
         fieldSetFlags()[3] = true;
       }
       if (isValidValue(fields()[4], other.duration)) {
         this.duration = data().deepCopy(fields()[4].schema(), other.duration);
         fieldSetFlags()[4] = true;
       }
-      if (isValidValue(fields()[5], other.start_page_id)) {
-        this.start_page_id = data().deepCopy(fields()[5].schema(), other.start_page_id);
+      if (isValidValue(fields()[5], other.startPageId)) {
+        this.startPageId = data().deepCopy(fields()[5].schema(), other.startPageId);
         fieldSetFlags()[5] = true;
       }
-      if (isValidValue(fields()[6], other.exit_page_id)) {
-        this.exit_page_id = data().deepCopy(fields()[6].schema(), other.exit_page_id);
+      if (isValidValue(fields()[6], other.exitPageId)) {
+        this.exitPageId = data().deepCopy(fields()[6].schema(), other.exitPageId);
         fieldSetFlags()[6] = true;
       }
-      if (isValidValue(fields()[7], other.start_timestamp)) {
-        this.start_timestamp = data().deepCopy(fields()[7].schema(), other.start_timestamp);
+      if (isValidValue(fields()[7], other.startTimestamp)) {
+        this.startTimestamp = data().deepCopy(fields()[7].schema(), other.startTimestamp);
         fieldSetFlags()[7] = true;
       }
-      if (isValidValue(fields()[8], other.exit_timestamp)) {
-        this.exit_timestamp = data().deepCopy(fields()[8].schema(), other.exit_timestamp);
+      if (isValidValue(fields()[8], other.exitTimestamp)) {
+        this.exitTimestamp = data().deepCopy(fields()[8].schema(), other.exitTimestamp);
         fieldSetFlags()[8] = true;
       }
-      if (isValidValue(fields()[9], other.gr_count)) {
-        this.gr_count = data().deepCopy(fields()[9].schema(), other.gr_count);
+      if (isValidValue(fields()[9], other.grCount)) {
+        this.grCount = data().deepCopy(fields()[9].schema(), other.grCount);
         fieldSetFlags()[9] = true;
       }
-      if (isValidValue(fields()[10], other.gr1_count)) {
-        this.gr1_count = data().deepCopy(fields()[10].schema(), other.gr1_count);
+      if (isValidValue(fields()[10], other.gr1Count)) {
+        this.gr1Count = data().deepCopy(fields()[10].schema(), other.gr1Count);
         fieldSetFlags()[10] = true;
       }
-      if (isValidValue(fields()[11], other.homepage_count)) {
-        this.homepage_count = data().deepCopy(fields()[11].schema(), other.homepage_count);
+      if (isValidValue(fields()[11], other.homepageCount)) {
+        this.homepageCount = data().deepCopy(fields()[11].schema(), other.homepageCount);
         fieldSetFlags()[11] = true;
       }
-      if (isValidValue(fields()[12], other.vi_count)) {
-        this.vi_count = data().deepCopy(fields()[12].schema(), other.vi_count);
+      if (isValidValue(fields()[12], other.viCount)) {
+        this.viCount = data().deepCopy(fields()[12].schema(), other.viCount);
         fieldSetFlags()[12] = true;
       }
-      if (isValidValue(fields()[13], other.signin_count)) {
-        this.signin_count = data().deepCopy(fields()[13].schema(), other.signin_count);
+      if (isValidValue(fields()[13], other.signinCount)) {
+        this.signinCount = data().deepCopy(fields()[13].schema(), other.signinCount);
         fieldSetFlags()[13] = true;
       }
-      if (isValidValue(fields()[14], other.myebay_count)) {
-        this.myebay_count = data().deepCopy(fields()[14].schema(), other.myebay_count);
+      if (isValidValue(fields()[14], other.myebayCount)) {
+        this.myebayCount = data().deepCopy(fields()[14].schema(), other.myebayCount);
         fieldSetFlags()[14] = true;
       }
       if (isValidValue(fields()[15], other.others)) {
@@ -616,28 +616,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'session_skey' field.
+      * Gets the value of the 'sessionSkey' field.
       * @return The value.
       */
     public java.lang.String getSessionSkey() {
-      return session_skey;
+      return sessionSkey;
     }
 
     /**
-      * Sets the value of the 'session_skey' field.
-      * @param value The value of 'session_skey'.
+      * Sets the value of the 'sessionSkey' field.
+      * @param value The value of 'sessionSkey'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setSessionSkey(java.lang.String value) {
       validate(fields()[0], value);
-      this.session_skey = value;
+      this.sessionSkey = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'session_skey' field has been set.
-      * @return True if the 'session_skey' field has been set, false otherwise.
+      * Checks whether the 'sessionSkey' field has been set.
+      * @return True if the 'sessionSkey' field has been set, false otherwise.
       */
     public boolean hasSessionSkey() {
       return fieldSetFlags()[0];
@@ -645,38 +645,38 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'session_skey' field.
+      * Clears the value of the 'sessionSkey' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearSessionSkey() {
-      session_skey = null;
+      sessionSkey = null;
       fieldSetFlags()[0] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'site_id' field.
+      * Gets the value of the 'siteId' field.
       * @return The value.
       */
     public java.lang.Integer getSiteId() {
-      return site_id;
+      return siteId;
     }
 
     /**
-      * Sets the value of the 'site_id' field.
-      * @param value The value of 'site_id'.
+      * Sets the value of the 'siteId' field.
+      * @param value The value of 'siteId'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setSiteId(int value) {
       validate(fields()[1], value);
-      this.site_id = value;
+      this.siteId = value;
       fieldSetFlags()[1] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'site_id' field has been set.
-      * @return True if the 'site_id' field has been set, false otherwise.
+      * Checks whether the 'siteId' field has been set.
+      * @return True if the 'siteId' field has been set, false otherwise.
       */
     public boolean hasSiteId() {
       return fieldSetFlags()[1];
@@ -684,7 +684,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'site_id' field.
+      * Clears the value of the 'siteId' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearSiteId() {
@@ -731,28 +731,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'valid_page_count' field.
+      * Gets the value of the 'validPageCount' field.
       * @return The value.
       */
     public java.lang.Integer getValidPageCount() {
-      return valid_page_count;
+      return validPageCount;
     }
 
     /**
-      * Sets the value of the 'valid_page_count' field.
-      * @param value The value of 'valid_page_count'.
+      * Sets the value of the 'validPageCount' field.
+      * @param value The value of 'validPageCount'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setValidPageCount(int value) {
       validate(fields()[3], value);
-      this.valid_page_count = value;
+      this.validPageCount = value;
       fieldSetFlags()[3] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'valid_page_count' field has been set.
-      * @return True if the 'valid_page_count' field has been set, false otherwise.
+      * Checks whether the 'validPageCount' field has been set.
+      * @return True if the 'validPageCount' field has been set, false otherwise.
       */
     public boolean hasValidPageCount() {
       return fieldSetFlags()[3];
@@ -760,7 +760,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'valid_page_count' field.
+      * Clears the value of the 'validPageCount' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearValidPageCount() {
@@ -807,28 +807,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'start_page_id' field.
+      * Gets the value of the 'startPageId' field.
       * @return The value.
       */
     public java.lang.Integer getStartPageId() {
-      return start_page_id;
+      return startPageId;
     }
 
     /**
-      * Sets the value of the 'start_page_id' field.
-      * @param value The value of 'start_page_id'.
+      * Sets the value of the 'startPageId' field.
+      * @param value The value of 'startPageId'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setStartPageId(int value) {
       validate(fields()[5], value);
-      this.start_page_id = value;
+      this.startPageId = value;
       fieldSetFlags()[5] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'start_page_id' field has been set.
-      * @return True if the 'start_page_id' field has been set, false otherwise.
+      * Checks whether the 'startPageId' field has been set.
+      * @return True if the 'startPageId' field has been set, false otherwise.
       */
     public boolean hasStartPageId() {
       return fieldSetFlags()[5];
@@ -836,7 +836,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'start_page_id' field.
+      * Clears the value of the 'startPageId' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearStartPageId() {
@@ -845,28 +845,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'exit_page_id' field.
+      * Gets the value of the 'exitPageId' field.
       * @return The value.
       */
     public java.lang.Integer getExitPageId() {
-      return exit_page_id;
+      return exitPageId;
     }
 
     /**
-      * Sets the value of the 'exit_page_id' field.
-      * @param value The value of 'exit_page_id'.
+      * Sets the value of the 'exitPageId' field.
+      * @param value The value of 'exitPageId'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setExitPageId(int value) {
       validate(fields()[6], value);
-      this.exit_page_id = value;
+      this.exitPageId = value;
       fieldSetFlags()[6] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'exit_page_id' field has been set.
-      * @return True if the 'exit_page_id' field has been set, false otherwise.
+      * Checks whether the 'exitPageId' field has been set.
+      * @return True if the 'exitPageId' field has been set, false otherwise.
       */
     public boolean hasExitPageId() {
       return fieldSetFlags()[6];
@@ -874,7 +874,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'exit_page_id' field.
+      * Clears the value of the 'exitPageId' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearExitPageId() {
@@ -883,28 +883,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'start_timestamp' field.
+      * Gets the value of the 'startTimestamp' field.
       * @return The value.
       */
     public java.lang.Long getStartTimestamp() {
-      return start_timestamp;
+      return startTimestamp;
     }
 
     /**
-      * Sets the value of the 'start_timestamp' field.
-      * @param value The value of 'start_timestamp'.
+      * Sets the value of the 'startTimestamp' field.
+      * @param value The value of 'startTimestamp'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setStartTimestamp(long value) {
       validate(fields()[7], value);
-      this.start_timestamp = value;
+      this.startTimestamp = value;
       fieldSetFlags()[7] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'start_timestamp' field has been set.
-      * @return True if the 'start_timestamp' field has been set, false otherwise.
+      * Checks whether the 'startTimestamp' field has been set.
+      * @return True if the 'startTimestamp' field has been set, false otherwise.
       */
     public boolean hasStartTimestamp() {
       return fieldSetFlags()[7];
@@ -912,7 +912,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'start_timestamp' field.
+      * Clears the value of the 'startTimestamp' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearStartTimestamp() {
@@ -921,28 +921,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'exit_timestamp' field.
+      * Gets the value of the 'exitTimestamp' field.
       * @return The value.
       */
     public java.lang.Long getExitTimestamp() {
-      return exit_timestamp;
+      return exitTimestamp;
     }
 
     /**
-      * Sets the value of the 'exit_timestamp' field.
-      * @param value The value of 'exit_timestamp'.
+      * Sets the value of the 'exitTimestamp' field.
+      * @param value The value of 'exitTimestamp'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setExitTimestamp(long value) {
       validate(fields()[8], value);
-      this.exit_timestamp = value;
+      this.exitTimestamp = value;
       fieldSetFlags()[8] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'exit_timestamp' field has been set.
-      * @return True if the 'exit_timestamp' field has been set, false otherwise.
+      * Checks whether the 'exitTimestamp' field has been set.
+      * @return True if the 'exitTimestamp' field has been set, false otherwise.
       */
     public boolean hasExitTimestamp() {
       return fieldSetFlags()[8];
@@ -950,7 +950,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'exit_timestamp' field.
+      * Clears the value of the 'exitTimestamp' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearExitTimestamp() {
@@ -959,28 +959,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'gr_count' field.
+      * Gets the value of the 'grCount' field.
       * @return The value.
       */
     public java.lang.Integer getGrCount() {
-      return gr_count;
+      return grCount;
     }
 
     /**
-      * Sets the value of the 'gr_count' field.
-      * @param value The value of 'gr_count'.
+      * Sets the value of the 'grCount' field.
+      * @param value The value of 'grCount'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setGrCount(int value) {
       validate(fields()[9], value);
-      this.gr_count = value;
+      this.grCount = value;
       fieldSetFlags()[9] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'gr_count' field has been set.
-      * @return True if the 'gr_count' field has been set, false otherwise.
+      * Checks whether the 'grCount' field has been set.
+      * @return True if the 'grCount' field has been set, false otherwise.
       */
     public boolean hasGrCount() {
       return fieldSetFlags()[9];
@@ -988,7 +988,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'gr_count' field.
+      * Clears the value of the 'grCount' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearGrCount() {
@@ -997,28 +997,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'gr1_count' field.
+      * Gets the value of the 'gr1Count' field.
       * @return The value.
       */
     public java.lang.Integer getGr1Count() {
-      return gr1_count;
+      return gr1Count;
     }
 
     /**
-      * Sets the value of the 'gr1_count' field.
-      * @param value The value of 'gr1_count'.
+      * Sets the value of the 'gr1Count' field.
+      * @param value The value of 'gr1Count'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setGr1Count(int value) {
       validate(fields()[10], value);
-      this.gr1_count = value;
+      this.gr1Count = value;
       fieldSetFlags()[10] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'gr1_count' field has been set.
-      * @return True if the 'gr1_count' field has been set, false otherwise.
+      * Checks whether the 'gr1Count' field has been set.
+      * @return True if the 'gr1Count' field has been set, false otherwise.
       */
     public boolean hasGr1Count() {
       return fieldSetFlags()[10];
@@ -1026,7 +1026,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'gr1_count' field.
+      * Clears the value of the 'gr1Count' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearGr1Count() {
@@ -1035,28 +1035,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'homepage_count' field.
+      * Gets the value of the 'homepageCount' field.
       * @return The value.
       */
     public java.lang.Integer getHomepageCount() {
-      return homepage_count;
+      return homepageCount;
     }
 
     /**
-      * Sets the value of the 'homepage_count' field.
-      * @param value The value of 'homepage_count'.
+      * Sets the value of the 'homepageCount' field.
+      * @param value The value of 'homepageCount'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setHomepageCount(int value) {
       validate(fields()[11], value);
-      this.homepage_count = value;
+      this.homepageCount = value;
       fieldSetFlags()[11] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'homepage_count' field has been set.
-      * @return True if the 'homepage_count' field has been set, false otherwise.
+      * Checks whether the 'homepageCount' field has been set.
+      * @return True if the 'homepageCount' field has been set, false otherwise.
       */
     public boolean hasHomepageCount() {
       return fieldSetFlags()[11];
@@ -1064,7 +1064,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'homepage_count' field.
+      * Clears the value of the 'homepageCount' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearHomepageCount() {
@@ -1073,28 +1073,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'vi_count' field.
+      * Gets the value of the 'viCount' field.
       * @return The value.
       */
     public java.lang.Integer getViCount() {
-      return vi_count;
+      return viCount;
     }
 
     /**
-      * Sets the value of the 'vi_count' field.
-      * @param value The value of 'vi_count'.
+      * Sets the value of the 'viCount' field.
+      * @param value The value of 'viCount'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setViCount(int value) {
       validate(fields()[12], value);
-      this.vi_count = value;
+      this.viCount = value;
       fieldSetFlags()[12] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'vi_count' field has been set.
-      * @return True if the 'vi_count' field has been set, false otherwise.
+      * Checks whether the 'viCount' field has been set.
+      * @return True if the 'viCount' field has been set, false otherwise.
       */
     public boolean hasViCount() {
       return fieldSetFlags()[12];
@@ -1102,7 +1102,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'vi_count' field.
+      * Clears the value of the 'viCount' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearViCount() {
@@ -1111,28 +1111,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'signin_count' field.
+      * Gets the value of the 'signinCount' field.
       * @return The value.
       */
     public java.lang.Integer getSigninCount() {
-      return signin_count;
+      return signinCount;
     }
 
     /**
-      * Sets the value of the 'signin_count' field.
-      * @param value The value of 'signin_count'.
+      * Sets the value of the 'signinCount' field.
+      * @param value The value of 'signinCount'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setSigninCount(int value) {
       validate(fields()[13], value);
-      this.signin_count = value;
+      this.signinCount = value;
       fieldSetFlags()[13] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'signin_count' field has been set.
-      * @return True if the 'signin_count' field has been set, false otherwise.
+      * Checks whether the 'signinCount' field has been set.
+      * @return True if the 'signinCount' field has been set, false otherwise.
       */
     public boolean hasSigninCount() {
       return fieldSetFlags()[13];
@@ -1140,7 +1140,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'signin_count' field.
+      * Clears the value of the 'signinCount' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearSigninCount() {
@@ -1149,28 +1149,28 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'myebay_count' field.
+      * Gets the value of the 'myebayCount' field.
       * @return The value.
       */
     public java.lang.Integer getMyebayCount() {
-      return myebay_count;
+      return myebayCount;
     }
 
     /**
-      * Sets the value of the 'myebay_count' field.
-      * @param value The value of 'myebay_count'.
+      * Sets the value of the 'myebayCount' field.
+      * @param value The value of 'myebayCount'.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setMyebayCount(int value) {
       validate(fields()[14], value);
-      this.myebay_count = value;
+      this.myebayCount = value;
       fieldSetFlags()[14] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'myebay_count' field has been set.
-      * @return True if the 'myebay_count' field has been set, false otherwise.
+      * Checks whether the 'myebayCount' field has been set.
+      * @return True if the 'myebayCount' field has been set, false otherwise.
       */
     public boolean hasMyebayCount() {
       return fieldSetFlags()[14];
@@ -1178,7 +1178,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
 
     /**
-      * Clears the value of the 'myebay_count' field.
+      * Clears the value of the 'myebayCount' field.
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearMyebayCount() {
@@ -1230,21 +1230,21 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     public ClavSession build() {
       try {
         ClavSession record = new ClavSession();
-        record.session_skey = fieldSetFlags()[0] ? this.session_skey : (java.lang.String) defaultValue(fields()[0]);
-        record.site_id = fieldSetFlags()[1] ? this.site_id : (java.lang.Integer) defaultValue(fields()[1]);
+        record.sessionSkey = fieldSetFlags()[0] ? this.sessionSkey : (java.lang.String) defaultValue(fields()[0]);
+        record.siteId = fieldSetFlags()[1] ? this.siteId : (java.lang.Integer) defaultValue(fields()[1]);
         record.botFlag = fieldSetFlags()[2] ? this.botFlag : (java.lang.Boolean) defaultValue(fields()[2]);
-        record.valid_page_count = fieldSetFlags()[3] ? this.valid_page_count : (java.lang.Integer) defaultValue(fields()[3]);
+        record.validPageCount = fieldSetFlags()[3] ? this.validPageCount : (java.lang.Integer) defaultValue(fields()[3]);
         record.duration = fieldSetFlags()[4] ? this.duration : (java.lang.Long) defaultValue(fields()[4]);
-        record.start_page_id = fieldSetFlags()[5] ? this.start_page_id : (java.lang.Integer) defaultValue(fields()[5]);
-        record.exit_page_id = fieldSetFlags()[6] ? this.exit_page_id : (java.lang.Integer) defaultValue(fields()[6]);
-        record.start_timestamp = fieldSetFlags()[7] ? this.start_timestamp : (java.lang.Long) defaultValue(fields()[7]);
-        record.exit_timestamp = fieldSetFlags()[8] ? this.exit_timestamp : (java.lang.Long) defaultValue(fields()[8]);
-        record.gr_count = fieldSetFlags()[9] ? this.gr_count : (java.lang.Integer) defaultValue(fields()[9]);
-        record.gr1_count = fieldSetFlags()[10] ? this.gr1_count : (java.lang.Integer) defaultValue(fields()[10]);
-        record.homepage_count = fieldSetFlags()[11] ? this.homepage_count : (java.lang.Integer) defaultValue(fields()[11]);
-        record.vi_count = fieldSetFlags()[12] ? this.vi_count : (java.lang.Integer) defaultValue(fields()[12]);
-        record.signin_count = fieldSetFlags()[13] ? this.signin_count : (java.lang.Integer) defaultValue(fields()[13]);
-        record.myebay_count = fieldSetFlags()[14] ? this.myebay_count : (java.lang.Integer) defaultValue(fields()[14]);
+        record.startPageId = fieldSetFlags()[5] ? this.startPageId : (java.lang.Integer) defaultValue(fields()[5]);
+        record.exitPageId = fieldSetFlags()[6] ? this.exitPageId : (java.lang.Integer) defaultValue(fields()[6]);
+        record.startTimestamp = fieldSetFlags()[7] ? this.startTimestamp : (java.lang.Long) defaultValue(fields()[7]);
+        record.exitTimestamp = fieldSetFlags()[8] ? this.exitTimestamp : (java.lang.Long) defaultValue(fields()[8]);
+        record.grCount = fieldSetFlags()[9] ? this.grCount : (java.lang.Integer) defaultValue(fields()[9]);
+        record.gr1Count = fieldSetFlags()[10] ? this.gr1Count : (java.lang.Integer) defaultValue(fields()[10]);
+        record.homepageCount = fieldSetFlags()[11] ? this.homepageCount : (java.lang.Integer) defaultValue(fields()[11]);
+        record.viCount = fieldSetFlags()[12] ? this.viCount : (java.lang.Integer) defaultValue(fields()[12]);
+        record.signinCount = fieldSetFlags()[13] ? this.signinCount : (java.lang.Integer) defaultValue(fields()[13]);
+        record.myebayCount = fieldSetFlags()[14] ? this.myebayCount : (java.lang.Integer) defaultValue(fields()[14]);
         record.others = fieldSetFlags()[15] ? this.others : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[15]);
         return record;
       } catch (java.lang.Exception e) {

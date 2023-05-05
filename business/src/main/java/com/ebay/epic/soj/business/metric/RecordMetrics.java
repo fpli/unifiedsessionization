@@ -28,16 +28,16 @@ public abstract class RecordMetrics<Source, Target> implements Aggregator<Source
     }
   }
 
-  public void feed(Source source, Target target) throws Exception {
+  @Override
+  public void process(Source source, Target target) throws Exception {
     for (FieldMetrics<Source, Target> metrics : fieldMetrics) {
       try {
         metrics.feed(source, target);
       }catch(Exception e){
-        //        log.error(" session metric feed issue :"+e.getMessage());
+        log.warn(" session metric feed issue : {}",e);
       }
     }
   }
-
   public void end(Target target) throws Exception {
     for (FieldMetrics<Source, Target> metrics : fieldMetrics) {
       metrics.end(target);

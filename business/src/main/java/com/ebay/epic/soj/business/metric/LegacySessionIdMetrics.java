@@ -16,9 +16,8 @@ public class LegacySessionIdMetrics implements FieldMetrics<UniEvent, UniSession
     uniSessionAccumulator.getUniSession().setAutotrackSessIds(new CopyOnWriteArraySet<>());
     uniSessionAccumulator.getUniSession().setAutotrackSessSkeys(new CopyOnWriteArraySet<>());
   }
-
   @Override
-  public void feed(UniEvent event, UniSessionAccumulator uniSessionAccumulator) {
+  public void process(UniEvent event, UniSessionAccumulator uniSessionAccumulator) throws Exception {
     RawUniSession rawUniSession = uniSessionAccumulator.getUniSession();
     if(event.getEventType()== EventType.AUTOTRACK_WEB||event.getEventType()== EventType.AUTOTRACK_NATIVE){
       rawUniSession.getAutotrackSessIds().add(Long.valueOf(event.getSessionId()));
@@ -27,14 +26,5 @@ public class LegacySessionIdMetrics implements FieldMetrics<UniEvent, UniSession
       rawUniSession.getUbiSessIds().add(event.getSessionId());
       rawUniSession.getUbiSessSkeys().add(event.getSessionSkey());
     }
-
-  }
-
-  @Override
-  public void end(UniSessionAccumulator uniSessionAccumulator) {
-  }
-
-  @Override
-  public void init() throws Exception {
   }
 }
