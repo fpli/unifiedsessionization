@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class ClavSession extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -7714883877334947075L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ClavSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"sessionSkey\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"siteId\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"boolean\"},{\"name\":\"validPageCount\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"startPageId\",\"type\":\"int\"},{\"name\":\"exitPageId\",\"type\":\"int\"},{\"name\":\"startTimestamp\",\"type\":\"long\"},{\"name\":\"exitTimestamp\",\"type\":\"long\"},{\"name\":\"grCount\",\"type\":\"int\"},{\"name\":\"gr1Count\",\"type\":\"int\"},{\"name\":\"homepageCount\",\"type\":\"int\"},{\"name\":\"viCount\",\"type\":\"int\"},{\"name\":\"signinCount\",\"type\":\"int\"},{\"name\":\"myebayCount\",\"type\":\"int\"},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = 2936623125681077285L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ClavSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"sessionSkey\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"siteId\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"long\"},{\"name\":\"validPageCount\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"startPageId\",\"type\":\"int\"},{\"name\":\"exitPageId\",\"type\":\"int\"},{\"name\":\"startTimestamp\",\"type\":\"long\"},{\"name\":\"exitTimestamp\",\"type\":\"long\"},{\"name\":\"grCount\",\"type\":\"int\"},{\"name\":\"gr1Count\",\"type\":\"int\"},{\"name\":\"homepageCount\",\"type\":\"int\"},{\"name\":\"viCount\",\"type\":\"int\"},{\"name\":\"signinCount\",\"type\":\"int\"},{\"name\":\"myebayCount\",\"type\":\"int\"},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -53,7 +53,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
   @Deprecated public java.lang.String sessionSkey;
   @Deprecated public int siteId;
-  @Deprecated public boolean botFlag;
+  @Deprecated public long botFlag;
   @Deprecated public int validPageCount;
   @Deprecated public long duration;
   @Deprecated public int startPageId;
@@ -94,7 +94,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
    * @param myebayCount The new value for myebayCount
    * @param others The new value for others
    */
-  public ClavSession(java.lang.String sessionSkey, java.lang.Integer siteId, java.lang.Boolean botFlag, java.lang.Integer validPageCount, java.lang.Long duration, java.lang.Integer startPageId, java.lang.Integer exitPageId, java.lang.Long startTimestamp, java.lang.Long exitTimestamp, java.lang.Integer grCount, java.lang.Integer gr1Count, java.lang.Integer homepageCount, java.lang.Integer viCount, java.lang.Integer signinCount, java.lang.Integer myebayCount, java.util.Map<java.lang.String,java.lang.String> others) {
+  public ClavSession(java.lang.String sessionSkey, java.lang.Integer siteId, java.lang.Long botFlag, java.lang.Integer validPageCount, java.lang.Long duration, java.lang.Integer startPageId, java.lang.Integer exitPageId, java.lang.Long startTimestamp, java.lang.Long exitTimestamp, java.lang.Integer grCount, java.lang.Integer gr1Count, java.lang.Integer homepageCount, java.lang.Integer viCount, java.lang.Integer signinCount, java.lang.Integer myebayCount, java.util.Map<java.lang.String,java.lang.String> others) {
     this.sessionSkey = sessionSkey;
     this.siteId = siteId;
     this.botFlag = botFlag;
@@ -143,7 +143,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     switch (field$) {
     case 0: sessionSkey = (java.lang.String)value$; break;
     case 1: siteId = (java.lang.Integer)value$; break;
-    case 2: botFlag = (java.lang.Boolean)value$; break;
+    case 2: botFlag = (java.lang.Long)value$; break;
     case 3: validPageCount = (java.lang.Integer)value$; break;
     case 4: duration = (java.lang.Long)value$; break;
     case 5: startPageId = (java.lang.Integer)value$; break;
@@ -197,7 +197,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
    * Gets the value of the 'botFlag' field.
    * @return The value of the 'botFlag' field.
    */
-  public java.lang.Boolean getBotFlag() {
+  public java.lang.Long getBotFlag() {
     return botFlag;
   }
 
@@ -205,7 +205,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
    * Sets the value of the 'botFlag' field.
    * @param value the value to set.
    */
-  public void setBotFlag(java.lang.Boolean value) {
+  public void setBotFlag(java.lang.Long value) {
     this.botFlag = value;
   }
 
@@ -451,7 +451,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
     private java.lang.String sessionSkey;
     private int siteId;
-    private boolean botFlag;
+    private long botFlag;
     private int validPageCount;
     private long duration;
     private int startPageId;
@@ -696,7 +696,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
       * Gets the value of the 'botFlag' field.
       * @return The value.
       */
-    public java.lang.Boolean getBotFlag() {
+    public java.lang.Long getBotFlag() {
       return botFlag;
     }
 
@@ -705,7 +705,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
       * @param value The value of 'botFlag'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.ClavSession.Builder setBotFlag(boolean value) {
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setBotFlag(long value) {
       validate(fields()[2], value);
       this.botFlag = value;
       fieldSetFlags()[2] = true;
@@ -1232,7 +1232,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
         ClavSession record = new ClavSession();
         record.sessionSkey = fieldSetFlags()[0] ? this.sessionSkey : (java.lang.String) defaultValue(fields()[0]);
         record.siteId = fieldSetFlags()[1] ? this.siteId : (java.lang.Integer) defaultValue(fields()[1]);
-        record.botFlag = fieldSetFlags()[2] ? this.botFlag : (java.lang.Boolean) defaultValue(fields()[2]);
+        record.botFlag = fieldSetFlags()[2] ? this.botFlag : (java.lang.Long) defaultValue(fields()[2]);
         record.validPageCount = fieldSetFlags()[3] ? this.validPageCount : (java.lang.Integer) defaultValue(fields()[3]);
         record.duration = fieldSetFlags()[4] ? this.duration : (java.lang.Long) defaultValue(fields()[4]);
         record.startPageId = fieldSetFlags()[5] ? this.startPageId : (java.lang.Integer) defaultValue(fields()[5]);

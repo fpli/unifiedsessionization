@@ -16,6 +16,8 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
     public RawEvent convert(GenericRecord genericRecord, RheosEvent rheosEvent) {
         RawEvent rawEvent = new RawEvent();
         rawEvent.setGuid(genericRecord.get("guid").toString());
+        rawEvent.setUserId(genericRecord.get("userId").toString());
+        rawEvent.setSiteId(genericRecord.get("siteId").toString());
         rawEvent.setEventTs(Long.valueOf(genericRecord.get("eventTimestamp").toString()));
         rawEvent.setRheosByteArray(rheosEvent.toBytes());
         rawEvent.setSessionId(genericRecord.get("sessionId").toString());
@@ -23,6 +25,8 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         rawEvent.setIframe(Boolean.valueOf(genericRecord.get("iframe").toString()));
         rawEvent.setRdt(Byte.valueOf(genericRecord.get("rdt").toString()));
         rawEvent.setBotFlags((List)genericRecord.get("botFlags"));
+        rawEvent.setCobrand(genericRecord.get("cobrand").toString());
+        rawEvent.setAppId(genericRecord.get("appId").toString());
         return rawEvent;
     }
 }

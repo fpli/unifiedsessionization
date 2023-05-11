@@ -12,6 +12,8 @@ import java.util.Map;
 @Data
 public class RawEvent {
     private String guid;
+    private String userId;
+    private String siteId;
     private Long eventTs;
     private EventType eventType;
     private Integer pageId;
@@ -34,6 +36,8 @@ public class RawEvent {
     private Map<String,String> payload;
     private String pageUrl;
     private String experience;
+    private String cobrand;
+    private String appId;
 
 
     public boolean isNewSession() {

@@ -13,7 +13,7 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Trackable extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -8172898798649826057L;
+  private static final long serialVersionUID = 1282669045345834859L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Trackable\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"trackableId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"parentTrackableId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"instanceId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"description\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"correlationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"screenId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"entityType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
@@ -51,14 +51,14 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
     return DECODER.decode(b);
   }
 
-  @Deprecated public String trackableId;
-  @Deprecated public String parentTrackableId;
-  @Deprecated public String entityId;
-  @Deprecated public String instanceId;
-  @Deprecated public String description;
-  @Deprecated public String correlationId;
-  @Deprecated public String screenId;
-  @Deprecated public String entityType;
+  @Deprecated public java.lang.String trackableId;
+  @Deprecated public java.lang.String parentTrackableId;
+  @Deprecated public java.lang.String entityId;
+  @Deprecated public java.lang.String instanceId;
+  @Deprecated public java.lang.String description;
+  @Deprecated public java.lang.String correlationId;
+  @Deprecated public java.lang.String screenId;
+  @Deprecated public java.lang.String entityType;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -78,7 +78,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * @param screenId The new value for screenId
    * @param entityType The new value for entityType
    */
-  public Trackable(String trackableId, String parentTrackableId, String entityId, String instanceId, String description, String correlationId, String screenId, String entityType) {
+  public Trackable(java.lang.String trackableId, java.lang.String parentTrackableId, java.lang.String entityId, java.lang.String instanceId, java.lang.String description, java.lang.String correlationId, java.lang.String screenId, java.lang.String entityType) {
     this.trackableId = trackableId;
     this.parentTrackableId = parentTrackableId;
     this.entityId = entityId;
@@ -91,7 +91,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return trackableId;
     case 1: return parentTrackableId;
@@ -107,16 +107,16 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: trackableId = (String)value$; break;
-    case 1: parentTrackableId = (String)value$; break;
-    case 2: entityId = (String)value$; break;
-    case 3: instanceId = (String)value$; break;
-    case 4: description = (String)value$; break;
-    case 5: correlationId = (String)value$; break;
-    case 6: screenId = (String)value$; break;
-    case 7: entityType = (String)value$; break;
+    case 0: trackableId = (java.lang.String)value$; break;
+    case 1: parentTrackableId = (java.lang.String)value$; break;
+    case 2: entityId = (java.lang.String)value$; break;
+    case 3: instanceId = (java.lang.String)value$; break;
+    case 4: description = (java.lang.String)value$; break;
+    case 5: correlationId = (java.lang.String)value$; break;
+    case 6: screenId = (java.lang.String)value$; break;
+    case 7: entityType = (java.lang.String)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -125,7 +125,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'trackableId' field.
    * @return The value of the 'trackableId' field.
    */
-  public String getTrackableId() {
+  public java.lang.String getTrackableId() {
     return trackableId;
   }
 
@@ -133,7 +133,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'trackableId' field.
    * @param value the value to set.
    */
-  public void setTrackableId(String value) {
+  public void setTrackableId(java.lang.String value) {
     this.trackableId = value;
   }
 
@@ -141,7 +141,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'parentTrackableId' field.
    * @return The value of the 'parentTrackableId' field.
    */
-  public String getParentTrackableId() {
+  public java.lang.String getParentTrackableId() {
     return parentTrackableId;
   }
 
@@ -149,7 +149,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'parentTrackableId' field.
    * @param value the value to set.
    */
-  public void setParentTrackableId(String value) {
+  public void setParentTrackableId(java.lang.String value) {
     this.parentTrackableId = value;
   }
 
@@ -157,7 +157,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'entityId' field.
    * @return The value of the 'entityId' field.
    */
-  public String getEntityId() {
+  public java.lang.String getEntityId() {
     return entityId;
   }
 
@@ -165,7 +165,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'entityId' field.
    * @param value the value to set.
    */
-  public void setEntityId(String value) {
+  public void setEntityId(java.lang.String value) {
     this.entityId = value;
   }
 
@@ -173,7 +173,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'instanceId' field.
    * @return The value of the 'instanceId' field.
    */
-  public String getInstanceId() {
+  public java.lang.String getInstanceId() {
     return instanceId;
   }
 
@@ -181,7 +181,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'instanceId' field.
    * @param value the value to set.
    */
-  public void setInstanceId(String value) {
+  public void setInstanceId(java.lang.String value) {
     this.instanceId = value;
   }
 
@@ -189,7 +189,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'description' field.
    * @return The value of the 'description' field.
    */
-  public String getDescription() {
+  public java.lang.String getDescription() {
     return description;
   }
 
@@ -197,7 +197,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'description' field.
    * @param value the value to set.
    */
-  public void setDescription(String value) {
+  public void setDescription(java.lang.String value) {
     this.description = value;
   }
 
@@ -205,7 +205,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'correlationId' field.
    * @return The value of the 'correlationId' field.
    */
-  public String getCorrelationId() {
+  public java.lang.String getCorrelationId() {
     return correlationId;
   }
 
@@ -213,7 +213,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'correlationId' field.
    * @param value the value to set.
    */
-  public void setCorrelationId(String value) {
+  public void setCorrelationId(java.lang.String value) {
     this.correlationId = value;
   }
 
@@ -221,7 +221,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'screenId' field.
    * @return The value of the 'screenId' field.
    */
-  public String getScreenId() {
+  public java.lang.String getScreenId() {
     return screenId;
   }
 
@@ -229,7 +229,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'screenId' field.
    * @param value the value to set.
    */
-  public void setScreenId(String value) {
+  public void setScreenId(java.lang.String value) {
     this.screenId = value;
   }
 
@@ -237,7 +237,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Gets the value of the 'entityType' field.
    * @return The value of the 'entityType' field.
    */
-  public String getEntityType() {
+  public java.lang.String getEntityType() {
     return entityType;
   }
 
@@ -245,7 +245,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
    * Sets the value of the 'entityType' field.
    * @param value the value to set.
    */
-  public void setEntityType(String value) {
+  public void setEntityType(java.lang.String value) {
     this.entityType = value;
   }
 
@@ -281,14 +281,14 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<Trackable>
     implements org.apache.avro.data.RecordBuilder<Trackable> {
 
-    private String trackableId;
-    private String parentTrackableId;
-    private String entityId;
-    private String instanceId;
-    private String description;
-    private String correlationId;
-    private String screenId;
-    private String entityType;
+    private java.lang.String trackableId;
+    private java.lang.String parentTrackableId;
+    private java.lang.String entityId;
+    private java.lang.String instanceId;
+    private java.lang.String description;
+    private java.lang.String correlationId;
+    private java.lang.String screenId;
+    private java.lang.String entityType;
 
     /** Creates a new Builder */
     private Builder() {
@@ -379,7 +379,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * Gets the value of the 'trackableId' field.
       * @return The value.
       */
-    public String getTrackableId() {
+    public java.lang.String getTrackableId() {
       return trackableId;
     }
 
@@ -388,7 +388,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'trackableId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Trackable.Builder setTrackableId(String value) {
+    public com.ebay.epic.soj.common.model.Trackable.Builder setTrackableId(java.lang.String value) {
       validate(fields()[0], value);
       this.trackableId = value;
       fieldSetFlags()[0] = true;
@@ -418,7 +418,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * Gets the value of the 'parentTrackableId' field.
       * @return The value.
       */
-    public String getParentTrackableId() {
+    public java.lang.String getParentTrackableId() {
       return parentTrackableId;
     }
 
@@ -427,7 +427,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'parentTrackableId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Trackable.Builder setParentTrackableId(String value) {
+    public com.ebay.epic.soj.common.model.Trackable.Builder setParentTrackableId(java.lang.String value) {
       validate(fields()[1], value);
       this.parentTrackableId = value;
       fieldSetFlags()[1] = true;
@@ -457,7 +457,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * Gets the value of the 'entityId' field.
       * @return The value.
       */
-    public String getEntityId() {
+    public java.lang.String getEntityId() {
       return entityId;
     }
 
@@ -466,7 +466,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'entityId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Trackable.Builder setEntityId(String value) {
+    public com.ebay.epic.soj.common.model.Trackable.Builder setEntityId(java.lang.String value) {
       validate(fields()[2], value);
       this.entityId = value;
       fieldSetFlags()[2] = true;
@@ -496,7 +496,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * Gets the value of the 'instanceId' field.
       * @return The value.
       */
-    public String getInstanceId() {
+    public java.lang.String getInstanceId() {
       return instanceId;
     }
 
@@ -505,7 +505,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'instanceId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Trackable.Builder setInstanceId(String value) {
+    public com.ebay.epic.soj.common.model.Trackable.Builder setInstanceId(java.lang.String value) {
       validate(fields()[3], value);
       this.instanceId = value;
       fieldSetFlags()[3] = true;
@@ -535,7 +535,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * Gets the value of the 'description' field.
       * @return The value.
       */
-    public String getDescription() {
+    public java.lang.String getDescription() {
       return description;
     }
 
@@ -544,7 +544,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'description'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Trackable.Builder setDescription(String value) {
+    public com.ebay.epic.soj.common.model.Trackable.Builder setDescription(java.lang.String value) {
       validate(fields()[4], value);
       this.description = value;
       fieldSetFlags()[4] = true;
@@ -574,7 +574,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * Gets the value of the 'correlationId' field.
       * @return The value.
       */
-    public String getCorrelationId() {
+    public java.lang.String getCorrelationId() {
       return correlationId;
     }
 
@@ -583,7 +583,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'correlationId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Trackable.Builder setCorrelationId(String value) {
+    public com.ebay.epic.soj.common.model.Trackable.Builder setCorrelationId(java.lang.String value) {
       validate(fields()[5], value);
       this.correlationId = value;
       fieldSetFlags()[5] = true;
@@ -613,7 +613,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * Gets the value of the 'screenId' field.
       * @return The value.
       */
-    public String getScreenId() {
+    public java.lang.String getScreenId() {
       return screenId;
     }
 
@@ -622,7 +622,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'screenId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Trackable.Builder setScreenId(String value) {
+    public com.ebay.epic.soj.common.model.Trackable.Builder setScreenId(java.lang.String value) {
       validate(fields()[6], value);
       this.screenId = value;
       fieldSetFlags()[6] = true;
@@ -652,7 +652,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * Gets the value of the 'entityType' field.
       * @return The value.
       */
-    public String getEntityType() {
+    public java.lang.String getEntityType() {
       return entityType;
     }
 
@@ -661,7 +661,7 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
       * @param value The value of 'entityType'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.Trackable.Builder setEntityType(String value) {
+    public com.ebay.epic.soj.common.model.Trackable.Builder setEntityType(java.lang.String value) {
       validate(fields()[7], value);
       this.entityType = value;
       fieldSetFlags()[7] = true;
@@ -692,16 +692,16 @@ public class Trackable extends org.apache.avro.specific.SpecificRecordBase imple
     public Trackable build() {
       try {
         Trackable record = new Trackable();
-        record.trackableId = fieldSetFlags()[0] ? this.trackableId : (String) defaultValue(fields()[0]);
-        record.parentTrackableId = fieldSetFlags()[1] ? this.parentTrackableId : (String) defaultValue(fields()[1]);
-        record.entityId = fieldSetFlags()[2] ? this.entityId : (String) defaultValue(fields()[2]);
-        record.instanceId = fieldSetFlags()[3] ? this.instanceId : (String) defaultValue(fields()[3]);
-        record.description = fieldSetFlags()[4] ? this.description : (String) defaultValue(fields()[4]);
-        record.correlationId = fieldSetFlags()[5] ? this.correlationId : (String) defaultValue(fields()[5]);
-        record.screenId = fieldSetFlags()[6] ? this.screenId : (String) defaultValue(fields()[6]);
-        record.entityType = fieldSetFlags()[7] ? this.entityType : (String) defaultValue(fields()[7]);
+        record.trackableId = fieldSetFlags()[0] ? this.trackableId : (java.lang.String) defaultValue(fields()[0]);
+        record.parentTrackableId = fieldSetFlags()[1] ? this.parentTrackableId : (java.lang.String) defaultValue(fields()[1]);
+        record.entityId = fieldSetFlags()[2] ? this.entityId : (java.lang.String) defaultValue(fields()[2]);
+        record.instanceId = fieldSetFlags()[3] ? this.instanceId : (java.lang.String) defaultValue(fields()[3]);
+        record.description = fieldSetFlags()[4] ? this.description : (java.lang.String) defaultValue(fields()[4]);
+        record.correlationId = fieldSetFlags()[5] ? this.correlationId : (java.lang.String) defaultValue(fields()[5]);
+        record.screenId = fieldSetFlags()[6] ? this.screenId : (java.lang.String) defaultValue(fields()[6]);
+        record.entityType = fieldSetFlags()[7] ? this.entityType : (java.lang.String) defaultValue(fields()[7]);
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

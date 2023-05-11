@@ -266,7 +266,7 @@
               "fields":[
                 {"name":"sessionSkey", "type":"string"},
                 {"name":"siteId", "type":"int"},
-                {"name":"botFlag", "type":"boolean"},
+                {"name":"botFlag", "type":"long"},
                 {"name":"validPageCount", "type":"int"},
                 {"name":"duration", "type":"long"},
                 {"name":"startPageId", "type":"int"},
