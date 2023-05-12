@@ -8,5 +8,6 @@ import lombok.Data;
 public class UbiKey {
     private String guid;
     private String sessionId;
+    private Integer siteId;
 
 }

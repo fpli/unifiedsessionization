@@ -41,6 +41,7 @@ public class UniEvent {
     private String experience;
     private boolean partialValidPage = true;
     private Integer pageId;
+    private Integer siteId;
 
     public boolean isNewSession() {
         return Constants.NO_SESSION_ID.equals(globalSessionId);

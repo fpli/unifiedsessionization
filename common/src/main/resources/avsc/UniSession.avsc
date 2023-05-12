@@ -264,7 +264,7 @@
               "name":"ClavSession",
               "type":"record",
               "fields":[
-                {"name":"sessionSkey", "type":"string"},
+                {"name":"sessionId", "type":"string"},
                 {"name":"siteId", "type":"int"},
                 {"name":"botFlag", "type":"boolean"},
                 {"name":"validPageCount", "type":"int"},
