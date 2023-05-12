@@ -1,6 +1,7 @@
 package com.ebay.epic.soj.flink.connector.kafka.serde;
 
 import com.ebay.epic.soj.common.model.raw.RawEvent;
+import com.ebay.sojourner.common.model.ClientData;
 import io.ebay.rheos.schema.event.RheosEvent;
 import org.apache.avro.generic.GenericRecord;
 
@@ -27,6 +28,10 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         rawEvent.setBotFlags((List)genericRecord.get("botFlags"));
         rawEvent.setCobrand(genericRecord.get("cobrand").toString());
         rawEvent.setAppId(genericRecord.get("appId").toString());
+        //User Agent
+        GenericRecord genericClientData = (GenericRecord) genericRecord.get("clientData");
+        Object agent = genericClientData.get("agent");
+        rawEvent.setUserAgent(agent != null ? agent.toString() : "");
         return rawEvent;
     }
 }

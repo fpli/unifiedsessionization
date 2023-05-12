@@ -24,5 +24,6 @@ public class CommonNormalizer extends FieldNormalizer<RawEvent, UniEvent> {
         tar.setBotFlags(src.getBotFlags());
         tar.setCobrand(src.getCobrand());
         tar.setSiteId(src.getSiteId());
+        tar.setUserAgent(src.getUserAgent());
     }
 }

@@ -38,6 +38,7 @@ public class RawEvent {
     private String experience;
     private String cobrand;
     private String appId;
+    private String userAgent;
 
 
     public boolean isNewSession() {

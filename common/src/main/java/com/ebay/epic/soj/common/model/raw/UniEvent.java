@@ -45,6 +45,7 @@ public class UniEvent {
     private String siteId = null;
     private String cobrand = null;
     private String appId = null;
+    private String userAgent = null;
     private boolean clavValidPage = true;
 
 
