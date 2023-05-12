@@ -19,6 +19,7 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         rawEvent.setGuid(genericRecord.get("guid").toString());
         rawEvent.setUserId(genericRecord.get("userId").toString());
         rawEvent.setSiteId(genericRecord.get("siteId").toString());
+        rawEvent.setPageId(Integer.valueOf(genericRecord.get("pageId").toString()));
         rawEvent.setEventTs(Long.valueOf(genericRecord.get("eventTimestamp").toString()));
         rawEvent.setRheosByteArray(rheosEvent.toBytes());
         rawEvent.setSessionId(genericRecord.get("sessionId").toString());

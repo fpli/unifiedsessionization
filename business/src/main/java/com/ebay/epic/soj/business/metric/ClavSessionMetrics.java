@@ -69,7 +69,7 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
     }
 
     public ClavSession getOrDefault(UniSessionAccumulator uniSessionAccumulator, UniEvent uniEvent) {
-        UbiKey ubiKey = new UbiKey(uniEvent.getGuid(), uniEvent.getGlobalSessionId(), uniEvent.getSiteId());
+        UbiKey ubiKey = new UbiKey(uniEvent.getGuid(), uniEvent.getGlobalSessionId(),uniEvent.getSiteId());
         ClavSession clavSession = uniSessionAccumulator.getUniSession().getClavSessionMap().get(ubiKey);
         if (clavSession == null) {
             clavSession = new ClavSession();

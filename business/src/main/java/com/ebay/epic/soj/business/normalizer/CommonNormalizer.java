@@ -25,5 +25,6 @@ public class CommonNormalizer extends FieldNormalizer<RawEvent, UniEvent> {
         tar.setCobrand(src.getCobrand());
         tar.setSiteId(src.getSiteId());
         tar.setUserAgent(src.getUserAgent());
+        tar.setPageId(src.getPageId());
     }
 }
