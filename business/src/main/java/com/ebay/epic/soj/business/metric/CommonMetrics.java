@@ -10,6 +10,7 @@ public class CommonMetrics implements FieldMetrics<UniEvent, UniSessionAccumulat
   @Override
   public void start(UniSessionAccumulator uniSessionAccumulator) {
     uniSessionAccumulator.getUniSession().setGuid(null);
+    uniSessionAccumulator.getUniSession().setUserId(null);
   }
 
   @Override
@@ -27,6 +28,7 @@ public class CommonMetrics implements FieldMetrics<UniEvent, UniSessionAccumulat
     }else if(event.getUserId()==null){
       event.setUserId(uniSession.getUserId());
     }
+
   }
 
 }
