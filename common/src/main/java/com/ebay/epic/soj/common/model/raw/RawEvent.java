@@ -6,6 +6,7 @@ import com.ebay.epic.soj.common.enums.EventType;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +34,7 @@ public class RawEvent {
 
     // for traffic source
     private String referer;
-    private Map<String,String> payload;
+    private Map<String,String> payload = new HashMap<>();
     private String pageUrl;
     private String experience;
     private String cobrand;
