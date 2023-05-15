@@ -11,8 +11,12 @@ public class UbiTrafficSourceDeserializer {
     public void convert(GenericRecord genericRecord, RawEvent rawEvent) {
         Integer pageId = (Integer) genericRecord.get("pageId");
         rawEvent.setPageId(pageId);
-        rawEvent.setPageUrl((String) genericRecord.get("urlQueryString"));
-        rawEvent.setReferer((String) genericRecord.get("referrer"));
+        if (genericRecord.get("urlQueryString") != null) {
+            rawEvent.setPageUrl(genericRecord.get("urlQueryString").toString());
+        }
+        if (genericRecord.get("referrer") != null) {
+            rawEvent.setReferer(genericRecord.get("referrer").toString());
+        }
         Map<String, String> payload = rawEvent.getPayload();
         extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_REF, payload);
         // UTP events
@@ -37,9 +41,8 @@ public class UbiTrafficSourceDeserializer {
             GenericRecord genericRecord,
             String key,
             Map<String, String> payload) {
-        String value = (String) genericRecord.get(key);
-        if (value != null) {
-            payload.put(key, value);
+        if (genericRecord.get(key) != null) {
+            payload.put(key, genericRecord.get(key).toString());
         }
     }
 }
