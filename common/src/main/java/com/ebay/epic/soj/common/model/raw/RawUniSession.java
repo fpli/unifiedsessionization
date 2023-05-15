@@ -35,7 +35,9 @@ public class RawUniSession {
     // For unisession extended for caleb session usage
     private String userId;
     private Integer firstAppId;
+    private Integer appId;
     private Integer cobrand;
+    private Integer firstCobrand;
     private String userAgent;
     private String experience;
     private String experienceLevel1;

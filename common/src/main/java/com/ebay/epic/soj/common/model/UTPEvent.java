@@ -14,7 +14,7 @@ import org.apache.avro.message.SchemaStore;
 /**  Unified tracking topic schema */
 @org.apache.avro.specific.AvroGenerated
 public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -8429021875429672971L;
+  private static final long serialVersionUID = 666627519267836541L;
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UTPEvent\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"doc\":\" Unified tracking topic schema\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},\"doc\":\"Rheos header\"},{\"name\":\"eventId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"ID of the event by tracking collection service\"},{\"name\":\"producerEventId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"ID of the event by producer\"},{\"name\":\"eventTs\",\"type\":\"long\",\"doc\":\"Event received timestamp at the collection service\"},{\"name\":\"producerEventTs\",\"type\":\"long\",\"doc\":\"Event created timestamp at producer side\"},{\"name\":\"rlogId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"trackingId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"ID to associate user behavior and dilivery\",\"default\":\"\"},{\"name\":\"userId\",\"type\":[\"null\",\"long\"],\"doc\":\"Oracle id\",\"default\":\"\"},{\"name\":\"publicUserId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"public user id\",\"default\":\"\"},{\"name\":\"encryptedUserId\",\"type\":[\"null\",\"long\"],\"doc\":\"Encrypted user id in email open and click url\",\"default\":\"\"},{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"idfa\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"gadid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"deviceId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"channelType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"actionType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"partner\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"campaignId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"rotationId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"siteId\",\"type\":[\"null\",\"int\"],\"default\":\"\"},{\"name\":\"url\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"referer\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"deviceFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"deviceType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"browserFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"browserVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"osFamily\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"osVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"appVersion\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"appId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":null},{\"name\":\"service\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"server\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"remoteIp\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"default\":\"\"},{\"name\":\"pageId\",\"type\":[\"null\",\"int\"],\"default\":\"\"},{\"name\":\"geoId\",\"type\":[\"null\",\"int\"],\"default\":\"\"},{\"name\":\"isBot\",\"type\":\"boolean\",\"default\":\"false\"},{\"name\":\"payload\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
@@ -55,50 +55,50 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
   /** Rheos header */
   @Deprecated public com.ebay.epic.soj.common.model.RheosHeader rheosHeader;
   /** ID of the event by tracking collection service */
-  @Deprecated public String eventId;
+  @Deprecated public java.lang.String eventId;
   /** ID of the event by producer */
-  @Deprecated public String producerEventId;
+  @Deprecated public java.lang.String producerEventId;
   /** Event received timestamp at the collection service */
   @Deprecated public long eventTs;
   /** Event created timestamp at producer side */
   @Deprecated public long producerEventTs;
-  @Deprecated public String rlogId;
+  @Deprecated public java.lang.String rlogId;
   /** ID to associate user behavior and dilivery */
-  @Deprecated public String trackingId;
+  @Deprecated public java.lang.String trackingId;
   /** Oracle id */
-  @Deprecated public Long userId;
+  @Deprecated public java.lang.Long userId;
   /** public user id */
-  @Deprecated public String publicUserId;
+  @Deprecated public java.lang.String publicUserId;
   /** Encrypted user id in email open and click url */
-  @Deprecated public Long encryptedUserId;
-  @Deprecated public String guid;
-  @Deprecated public String idfa;
-  @Deprecated public String gadid;
-  @Deprecated public String deviceId;
-  @Deprecated public String channelType;
-  @Deprecated public String actionType;
-  @Deprecated public String partner;
-  @Deprecated public String campaignId;
-  @Deprecated public String rotationId;
-  @Deprecated public Integer siteId;
-  @Deprecated public String url;
-  @Deprecated public String referer;
-  @Deprecated public String userAgent;
-  @Deprecated public String deviceFamily;
-  @Deprecated public String deviceType;
-  @Deprecated public String browserFamily;
-  @Deprecated public String browserVersion;
-  @Deprecated public String osFamily;
-  @Deprecated public String osVersion;
-  @Deprecated public String appVersion;
-  @Deprecated public String appId;
-  @Deprecated public String service;
-  @Deprecated public String server;
-  @Deprecated public String remoteIp;
-  @Deprecated public Integer pageId;
-  @Deprecated public Integer geoId;
+  @Deprecated public java.lang.Long encryptedUserId;
+  @Deprecated public java.lang.String guid;
+  @Deprecated public java.lang.String idfa;
+  @Deprecated public java.lang.String gadid;
+  @Deprecated public java.lang.String deviceId;
+  @Deprecated public java.lang.String channelType;
+  @Deprecated public java.lang.String actionType;
+  @Deprecated public java.lang.String partner;
+  @Deprecated public java.lang.String campaignId;
+  @Deprecated public java.lang.String rotationId;
+  @Deprecated public java.lang.Integer siteId;
+  @Deprecated public java.lang.String url;
+  @Deprecated public java.lang.String referer;
+  @Deprecated public java.lang.String userAgent;
+  @Deprecated public java.lang.String deviceFamily;
+  @Deprecated public java.lang.String deviceType;
+  @Deprecated public java.lang.String browserFamily;
+  @Deprecated public java.lang.String browserVersion;
+  @Deprecated public java.lang.String osFamily;
+  @Deprecated public java.lang.String osVersion;
+  @Deprecated public java.lang.String appVersion;
+  @Deprecated public java.lang.String appId;
+  @Deprecated public java.lang.String service;
+  @Deprecated public java.lang.String server;
+  @Deprecated public java.lang.String remoteIp;
+  @Deprecated public java.lang.Integer pageId;
+  @Deprecated public java.lang.Integer geoId;
   @Deprecated public boolean isBot;
-  @Deprecated public java.util.Map<String, String> payload;
+  @Deprecated public java.util.Map<java.lang.String,java.lang.String> payload;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -148,7 +148,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * @param isBot The new value for isBot
    * @param payload The new value for payload
    */
-  public UTPEvent(com.ebay.epic.soj.common.model.RheosHeader rheosHeader, String eventId, String producerEventId, Long eventTs, Long producerEventTs, String rlogId, String trackingId, Long userId, String publicUserId, Long encryptedUserId, String guid, String idfa, String gadid, String deviceId, String channelType, String actionType, String partner, String campaignId, String rotationId, Integer siteId, String url, String referer, String userAgent, String deviceFamily, String deviceType, String browserFamily, String browserVersion, String osFamily, String osVersion, String appVersion, String appId, String service, String server, String remoteIp, Integer pageId, Integer geoId, Boolean isBot, java.util.Map<String, String> payload) {
+  public UTPEvent(com.ebay.epic.soj.common.model.RheosHeader rheosHeader, java.lang.String eventId, java.lang.String producerEventId, java.lang.Long eventTs, java.lang.Long producerEventTs, java.lang.String rlogId, java.lang.String trackingId, java.lang.Long userId, java.lang.String publicUserId, java.lang.Long encryptedUserId, java.lang.String guid, java.lang.String idfa, java.lang.String gadid, java.lang.String deviceId, java.lang.String channelType, java.lang.String actionType, java.lang.String partner, java.lang.String campaignId, java.lang.String rotationId, java.lang.Integer siteId, java.lang.String url, java.lang.String referer, java.lang.String userAgent, java.lang.String deviceFamily, java.lang.String deviceType, java.lang.String browserFamily, java.lang.String browserVersion, java.lang.String osFamily, java.lang.String osVersion, java.lang.String appVersion, java.lang.String appId, java.lang.String service, java.lang.String server, java.lang.String remoteIp, java.lang.Integer pageId, java.lang.Integer geoId, java.lang.Boolean isBot, java.util.Map<java.lang.String,java.lang.String> payload) {
     this.rheosHeader = rheosHeader;
     this.eventId = eventId;
     this.producerEventId = producerEventId;
@@ -191,7 +191,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
 
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
   // Used by DatumWriter.  Applications should not call.
-  public Object get(int field$) {
+  public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return rheosHeader;
     case 1: return eventId;
@@ -237,46 +237,46 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
 
   // Used by DatumReader.  Applications should not call.
   @SuppressWarnings(value="unchecked")
-  public void put(int field$, Object value$) {
+  public void put(int field$, java.lang.Object value$) {
     switch (field$) {
     case 0: rheosHeader = (com.ebay.epic.soj.common.model.RheosHeader)value$; break;
-    case 1: eventId = (String)value$; break;
-    case 2: producerEventId = (String)value$; break;
-    case 3: eventTs = (Long)value$; break;
-    case 4: producerEventTs = (Long)value$; break;
-    case 5: rlogId = (String)value$; break;
-    case 6: trackingId = (String)value$; break;
-    case 7: userId = (Long)value$; break;
-    case 8: publicUserId = (String)value$; break;
-    case 9: encryptedUserId = (Long)value$; break;
-    case 10: guid = (String)value$; break;
-    case 11: idfa = (String)value$; break;
-    case 12: gadid = (String)value$; break;
-    case 13: deviceId = (String)value$; break;
-    case 14: channelType = (String)value$; break;
-    case 15: actionType = (String)value$; break;
-    case 16: partner = (String)value$; break;
-    case 17: campaignId = (String)value$; break;
-    case 18: rotationId = (String)value$; break;
-    case 19: siteId = (Integer)value$; break;
-    case 20: url = (String)value$; break;
-    case 21: referer = (String)value$; break;
-    case 22: userAgent = (String)value$; break;
-    case 23: deviceFamily = (String)value$; break;
-    case 24: deviceType = (String)value$; break;
-    case 25: browserFamily = (String)value$; break;
-    case 26: browserVersion = (String)value$; break;
-    case 27: osFamily = (String)value$; break;
-    case 28: osVersion = (String)value$; break;
-    case 29: appVersion = (String)value$; break;
-    case 30: appId = (String)value$; break;
-    case 31: service = (String)value$; break;
-    case 32: server = (String)value$; break;
-    case 33: remoteIp = (String)value$; break;
-    case 34: pageId = (Integer)value$; break;
-    case 35: geoId = (Integer)value$; break;
-    case 36: isBot = (Boolean)value$; break;
-    case 37: payload = (java.util.Map<String, String>)value$; break;
+    case 1: eventId = (java.lang.String)value$; break;
+    case 2: producerEventId = (java.lang.String)value$; break;
+    case 3: eventTs = (java.lang.Long)value$; break;
+    case 4: producerEventTs = (java.lang.Long)value$; break;
+    case 5: rlogId = (java.lang.String)value$; break;
+    case 6: trackingId = (java.lang.String)value$; break;
+    case 7: userId = (java.lang.Long)value$; break;
+    case 8: publicUserId = (java.lang.String)value$; break;
+    case 9: encryptedUserId = (java.lang.Long)value$; break;
+    case 10: guid = (java.lang.String)value$; break;
+    case 11: idfa = (java.lang.String)value$; break;
+    case 12: gadid = (java.lang.String)value$; break;
+    case 13: deviceId = (java.lang.String)value$; break;
+    case 14: channelType = (java.lang.String)value$; break;
+    case 15: actionType = (java.lang.String)value$; break;
+    case 16: partner = (java.lang.String)value$; break;
+    case 17: campaignId = (java.lang.String)value$; break;
+    case 18: rotationId = (java.lang.String)value$; break;
+    case 19: siteId = (java.lang.Integer)value$; break;
+    case 20: url = (java.lang.String)value$; break;
+    case 21: referer = (java.lang.String)value$; break;
+    case 22: userAgent = (java.lang.String)value$; break;
+    case 23: deviceFamily = (java.lang.String)value$; break;
+    case 24: deviceType = (java.lang.String)value$; break;
+    case 25: browserFamily = (java.lang.String)value$; break;
+    case 26: browserVersion = (java.lang.String)value$; break;
+    case 27: osFamily = (java.lang.String)value$; break;
+    case 28: osVersion = (java.lang.String)value$; break;
+    case 29: appVersion = (java.lang.String)value$; break;
+    case 30: appId = (java.lang.String)value$; break;
+    case 31: service = (java.lang.String)value$; break;
+    case 32: server = (java.lang.String)value$; break;
+    case 33: remoteIp = (java.lang.String)value$; break;
+    case 34: pageId = (java.lang.Integer)value$; break;
+    case 35: geoId = (java.lang.Integer)value$; break;
+    case 36: isBot = (java.lang.Boolean)value$; break;
+    case 37: payload = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -302,7 +302,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'eventId' field.
    * @return ID of the event by tracking collection service
    */
-  public String getEventId() {
+  public java.lang.String getEventId() {
     return eventId;
   }
 
@@ -311,7 +311,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * ID of the event by tracking collection service
    * @param value the value to set.
    */
-  public void setEventId(String value) {
+  public void setEventId(java.lang.String value) {
     this.eventId = value;
   }
 
@@ -319,7 +319,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'producerEventId' field.
    * @return ID of the event by producer
    */
-  public String getProducerEventId() {
+  public java.lang.String getProducerEventId() {
     return producerEventId;
   }
 
@@ -328,7 +328,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * ID of the event by producer
    * @param value the value to set.
    */
-  public void setProducerEventId(String value) {
+  public void setProducerEventId(java.lang.String value) {
     this.producerEventId = value;
   }
 
@@ -336,7 +336,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'eventTs' field.
    * @return Event received timestamp at the collection service
    */
-  public Long getEventTs() {
+  public java.lang.Long getEventTs() {
     return eventTs;
   }
 
@@ -345,7 +345,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Event received timestamp at the collection service
    * @param value the value to set.
    */
-  public void setEventTs(Long value) {
+  public void setEventTs(java.lang.Long value) {
     this.eventTs = value;
   }
 
@@ -353,7 +353,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'producerEventTs' field.
    * @return Event created timestamp at producer side
    */
-  public Long getProducerEventTs() {
+  public java.lang.Long getProducerEventTs() {
     return producerEventTs;
   }
 
@@ -362,7 +362,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Event created timestamp at producer side
    * @param value the value to set.
    */
-  public void setProducerEventTs(Long value) {
+  public void setProducerEventTs(java.lang.Long value) {
     this.producerEventTs = value;
   }
 
@@ -370,7 +370,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'rlogId' field.
    * @return The value of the 'rlogId' field.
    */
-  public String getRlogId() {
+  public java.lang.String getRlogId() {
     return rlogId;
   }
 
@@ -378,7 +378,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'rlogId' field.
    * @param value the value to set.
    */
-  public void setRlogId(String value) {
+  public void setRlogId(java.lang.String value) {
     this.rlogId = value;
   }
 
@@ -386,7 +386,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'trackingId' field.
    * @return ID to associate user behavior and dilivery
    */
-  public String getTrackingId() {
+  public java.lang.String getTrackingId() {
     return trackingId;
   }
 
@@ -395,7 +395,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * ID to associate user behavior and dilivery
    * @param value the value to set.
    */
-  public void setTrackingId(String value) {
+  public void setTrackingId(java.lang.String value) {
     this.trackingId = value;
   }
 
@@ -403,7 +403,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'userId' field.
    * @return Oracle id
    */
-  public Long getUserId() {
+  public java.lang.Long getUserId() {
     return userId;
   }
 
@@ -412,7 +412,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Oracle id
    * @param value the value to set.
    */
-  public void setUserId(Long value) {
+  public void setUserId(java.lang.Long value) {
     this.userId = value;
   }
 
@@ -420,7 +420,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'publicUserId' field.
    * @return public user id
    */
-  public String getPublicUserId() {
+  public java.lang.String getPublicUserId() {
     return publicUserId;
   }
 
@@ -429,7 +429,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * public user id
    * @param value the value to set.
    */
-  public void setPublicUserId(String value) {
+  public void setPublicUserId(java.lang.String value) {
     this.publicUserId = value;
   }
 
@@ -437,7 +437,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'encryptedUserId' field.
    * @return Encrypted user id in email open and click url
    */
-  public Long getEncryptedUserId() {
+  public java.lang.Long getEncryptedUserId() {
     return encryptedUserId;
   }
 
@@ -446,7 +446,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Encrypted user id in email open and click url
    * @param value the value to set.
    */
-  public void setEncryptedUserId(Long value) {
+  public void setEncryptedUserId(java.lang.Long value) {
     this.encryptedUserId = value;
   }
 
@@ -454,7 +454,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'guid' field.
    * @return The value of the 'guid' field.
    */
-  public String getGuid() {
+  public java.lang.String getGuid() {
     return guid;
   }
 
@@ -462,7 +462,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'guid' field.
    * @param value the value to set.
    */
-  public void setGuid(String value) {
+  public void setGuid(java.lang.String value) {
     this.guid = value;
   }
 
@@ -470,7 +470,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'idfa' field.
    * @return The value of the 'idfa' field.
    */
-  public String getIdfa() {
+  public java.lang.String getIdfa() {
     return idfa;
   }
 
@@ -478,7 +478,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'idfa' field.
    * @param value the value to set.
    */
-  public void setIdfa(String value) {
+  public void setIdfa(java.lang.String value) {
     this.idfa = value;
   }
 
@@ -486,7 +486,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'gadid' field.
    * @return The value of the 'gadid' field.
    */
-  public String getGadid() {
+  public java.lang.String getGadid() {
     return gadid;
   }
 
@@ -494,7 +494,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'gadid' field.
    * @param value the value to set.
    */
-  public void setGadid(String value) {
+  public void setGadid(java.lang.String value) {
     this.gadid = value;
   }
 
@@ -502,7 +502,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'deviceId' field.
    * @return The value of the 'deviceId' field.
    */
-  public String getDeviceId() {
+  public java.lang.String getDeviceId() {
     return deviceId;
   }
 
@@ -510,7 +510,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'deviceId' field.
    * @param value the value to set.
    */
-  public void setDeviceId(String value) {
+  public void setDeviceId(java.lang.String value) {
     this.deviceId = value;
   }
 
@@ -518,7 +518,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'channelType' field.
    * @return The value of the 'channelType' field.
    */
-  public String getChannelType() {
+  public java.lang.String getChannelType() {
     return channelType;
   }
 
@@ -526,7 +526,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'channelType' field.
    * @param value the value to set.
    */
-  public void setChannelType(String value) {
+  public void setChannelType(java.lang.String value) {
     this.channelType = value;
   }
 
@@ -534,7 +534,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'actionType' field.
    * @return The value of the 'actionType' field.
    */
-  public String getActionType() {
+  public java.lang.String getActionType() {
     return actionType;
   }
 
@@ -542,7 +542,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'actionType' field.
    * @param value the value to set.
    */
-  public void setActionType(String value) {
+  public void setActionType(java.lang.String value) {
     this.actionType = value;
   }
 
@@ -550,7 +550,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'partner' field.
    * @return The value of the 'partner' field.
    */
-  public String getPartner() {
+  public java.lang.String getPartner() {
     return partner;
   }
 
@@ -558,7 +558,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'partner' field.
    * @param value the value to set.
    */
-  public void setPartner(String value) {
+  public void setPartner(java.lang.String value) {
     this.partner = value;
   }
 
@@ -566,7 +566,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'campaignId' field.
    * @return The value of the 'campaignId' field.
    */
-  public String getCampaignId() {
+  public java.lang.String getCampaignId() {
     return campaignId;
   }
 
@@ -574,7 +574,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'campaignId' field.
    * @param value the value to set.
    */
-  public void setCampaignId(String value) {
+  public void setCampaignId(java.lang.String value) {
     this.campaignId = value;
   }
 
@@ -582,7 +582,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'rotationId' field.
    * @return The value of the 'rotationId' field.
    */
-  public String getRotationId() {
+  public java.lang.String getRotationId() {
     return rotationId;
   }
 
@@ -590,7 +590,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'rotationId' field.
    * @param value the value to set.
    */
-  public void setRotationId(String value) {
+  public void setRotationId(java.lang.String value) {
     this.rotationId = value;
   }
 
@@ -598,7 +598,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'siteId' field.
    * @return The value of the 'siteId' field.
    */
-  public Integer getSiteId() {
+  public java.lang.Integer getSiteId() {
     return siteId;
   }
 
@@ -606,7 +606,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'siteId' field.
    * @param value the value to set.
    */
-  public void setSiteId(Integer value) {
+  public void setSiteId(java.lang.Integer value) {
     this.siteId = value;
   }
 
@@ -614,7 +614,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'url' field.
    * @return The value of the 'url' field.
    */
-  public String getUrl() {
+  public java.lang.String getUrl() {
     return url;
   }
 
@@ -622,7 +622,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'url' field.
    * @param value the value to set.
    */
-  public void setUrl(String value) {
+  public void setUrl(java.lang.String value) {
     this.url = value;
   }
 
@@ -630,7 +630,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'referer' field.
    * @return The value of the 'referer' field.
    */
-  public String getReferer() {
+  public java.lang.String getReferer() {
     return referer;
   }
 
@@ -638,7 +638,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'referer' field.
    * @param value the value to set.
    */
-  public void setReferer(String value) {
+  public void setReferer(java.lang.String value) {
     this.referer = value;
   }
 
@@ -646,7 +646,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'userAgent' field.
    * @return The value of the 'userAgent' field.
    */
-  public String getUserAgent() {
+  public java.lang.String getUserAgent() {
     return userAgent;
   }
 
@@ -654,7 +654,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'userAgent' field.
    * @param value the value to set.
    */
-  public void setUserAgent(String value) {
+  public void setUserAgent(java.lang.String value) {
     this.userAgent = value;
   }
 
@@ -662,7 +662,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'deviceFamily' field.
    * @return The value of the 'deviceFamily' field.
    */
-  public String getDeviceFamily() {
+  public java.lang.String getDeviceFamily() {
     return deviceFamily;
   }
 
@@ -670,7 +670,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'deviceFamily' field.
    * @param value the value to set.
    */
-  public void setDeviceFamily(String value) {
+  public void setDeviceFamily(java.lang.String value) {
     this.deviceFamily = value;
   }
 
@@ -678,7 +678,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'deviceType' field.
    * @return The value of the 'deviceType' field.
    */
-  public String getDeviceType() {
+  public java.lang.String getDeviceType() {
     return deviceType;
   }
 
@@ -686,7 +686,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'deviceType' field.
    * @param value the value to set.
    */
-  public void setDeviceType(String value) {
+  public void setDeviceType(java.lang.String value) {
     this.deviceType = value;
   }
 
@@ -694,7 +694,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'browserFamily' field.
    * @return The value of the 'browserFamily' field.
    */
-  public String getBrowserFamily() {
+  public java.lang.String getBrowserFamily() {
     return browserFamily;
   }
 
@@ -702,7 +702,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'browserFamily' field.
    * @param value the value to set.
    */
-  public void setBrowserFamily(String value) {
+  public void setBrowserFamily(java.lang.String value) {
     this.browserFamily = value;
   }
 
@@ -710,7 +710,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'browserVersion' field.
    * @return The value of the 'browserVersion' field.
    */
-  public String getBrowserVersion() {
+  public java.lang.String getBrowserVersion() {
     return browserVersion;
   }
 
@@ -718,7 +718,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'browserVersion' field.
    * @param value the value to set.
    */
-  public void setBrowserVersion(String value) {
+  public void setBrowserVersion(java.lang.String value) {
     this.browserVersion = value;
   }
 
@@ -726,7 +726,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'osFamily' field.
    * @return The value of the 'osFamily' field.
    */
-  public String getOsFamily() {
+  public java.lang.String getOsFamily() {
     return osFamily;
   }
 
@@ -734,7 +734,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'osFamily' field.
    * @param value the value to set.
    */
-  public void setOsFamily(String value) {
+  public void setOsFamily(java.lang.String value) {
     this.osFamily = value;
   }
 
@@ -742,7 +742,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'osVersion' field.
    * @return The value of the 'osVersion' field.
    */
-  public String getOsVersion() {
+  public java.lang.String getOsVersion() {
     return osVersion;
   }
 
@@ -750,7 +750,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'osVersion' field.
    * @param value the value to set.
    */
-  public void setOsVersion(String value) {
+  public void setOsVersion(java.lang.String value) {
     this.osVersion = value;
   }
 
@@ -758,7 +758,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'appVersion' field.
    * @return The value of the 'appVersion' field.
    */
-  public String getAppVersion() {
+  public java.lang.String getAppVersion() {
     return appVersion;
   }
 
@@ -766,7 +766,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'appVersion' field.
    * @param value the value to set.
    */
-  public void setAppVersion(String value) {
+  public void setAppVersion(java.lang.String value) {
     this.appVersion = value;
   }
 
@@ -774,7 +774,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'appId' field.
    * @return The value of the 'appId' field.
    */
-  public String getAppId() {
+  public java.lang.String getAppId() {
     return appId;
   }
 
@@ -782,7 +782,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'appId' field.
    * @param value the value to set.
    */
-  public void setAppId(String value) {
+  public void setAppId(java.lang.String value) {
     this.appId = value;
   }
 
@@ -790,7 +790,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'service' field.
    * @return The value of the 'service' field.
    */
-  public String getService() {
+  public java.lang.String getService() {
     return service;
   }
 
@@ -798,7 +798,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'service' field.
    * @param value the value to set.
    */
-  public void setService(String value) {
+  public void setService(java.lang.String value) {
     this.service = value;
   }
 
@@ -806,7 +806,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'server' field.
    * @return The value of the 'server' field.
    */
-  public String getServer() {
+  public java.lang.String getServer() {
     return server;
   }
 
@@ -814,7 +814,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'server' field.
    * @param value the value to set.
    */
-  public void setServer(String value) {
+  public void setServer(java.lang.String value) {
     this.server = value;
   }
 
@@ -822,7 +822,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'remoteIp' field.
    * @return The value of the 'remoteIp' field.
    */
-  public String getRemoteIp() {
+  public java.lang.String getRemoteIp() {
     return remoteIp;
   }
 
@@ -830,7 +830,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'remoteIp' field.
    * @param value the value to set.
    */
-  public void setRemoteIp(String value) {
+  public void setRemoteIp(java.lang.String value) {
     this.remoteIp = value;
   }
 
@@ -838,7 +838,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'pageId' field.
    * @return The value of the 'pageId' field.
    */
-  public Integer getPageId() {
+  public java.lang.Integer getPageId() {
     return pageId;
   }
 
@@ -846,7 +846,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'pageId' field.
    * @param value the value to set.
    */
-  public void setPageId(Integer value) {
+  public void setPageId(java.lang.Integer value) {
     this.pageId = value;
   }
 
@@ -854,7 +854,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'geoId' field.
    * @return The value of the 'geoId' field.
    */
-  public Integer getGeoId() {
+  public java.lang.Integer getGeoId() {
     return geoId;
   }
 
@@ -862,7 +862,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'geoId' field.
    * @param value the value to set.
    */
-  public void setGeoId(Integer value) {
+  public void setGeoId(java.lang.Integer value) {
     this.geoId = value;
   }
 
@@ -870,7 +870,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'isBot' field.
    * @return The value of the 'isBot' field.
    */
-  public Boolean getIsBot() {
+  public java.lang.Boolean getIsBot() {
     return isBot;
   }
 
@@ -878,7 +878,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'isBot' field.
    * @param value the value to set.
    */
-  public void setIsBot(Boolean value) {
+  public void setIsBot(java.lang.Boolean value) {
     this.isBot = value;
   }
 
@@ -886,7 +886,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'payload' field.
    * @return The value of the 'payload' field.
    */
-  public java.util.Map<String, String> getPayload() {
+  public java.util.Map<java.lang.String,java.lang.String> getPayload() {
     return payload;
   }
 
@@ -894,7 +894,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'payload' field.
    * @param value the value to set.
    */
-  public void setPayload(java.util.Map<String, String> value) {
+  public void setPayload(java.util.Map<java.lang.String,java.lang.String> value) {
     this.payload = value;
   }
 
@@ -934,50 +934,50 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
     private com.ebay.epic.soj.common.model.RheosHeader rheosHeader;
     private com.ebay.epic.soj.common.model.RheosHeader.Builder rheosHeaderBuilder;
     /** ID of the event by tracking collection service */
-    private String eventId;
+    private java.lang.String eventId;
     /** ID of the event by producer */
-    private String producerEventId;
+    private java.lang.String producerEventId;
     /** Event received timestamp at the collection service */
     private long eventTs;
     /** Event created timestamp at producer side */
     private long producerEventTs;
-    private String rlogId;
+    private java.lang.String rlogId;
     /** ID to associate user behavior and dilivery */
-    private String trackingId;
+    private java.lang.String trackingId;
     /** Oracle id */
-    private Long userId;
+    private java.lang.Long userId;
     /** public user id */
-    private String publicUserId;
+    private java.lang.String publicUserId;
     /** Encrypted user id in email open and click url */
-    private Long encryptedUserId;
-    private String guid;
-    private String idfa;
-    private String gadid;
-    private String deviceId;
-    private String channelType;
-    private String actionType;
-    private String partner;
-    private String campaignId;
-    private String rotationId;
-    private Integer siteId;
-    private String url;
-    private String referer;
-    private String userAgent;
-    private String deviceFamily;
-    private String deviceType;
-    private String browserFamily;
-    private String browserVersion;
-    private String osFamily;
-    private String osVersion;
-    private String appVersion;
-    private String appId;
-    private String service;
-    private String server;
-    private String remoteIp;
-    private Integer pageId;
-    private Integer geoId;
+    private java.lang.Long encryptedUserId;
+    private java.lang.String guid;
+    private java.lang.String idfa;
+    private java.lang.String gadid;
+    private java.lang.String deviceId;
+    private java.lang.String channelType;
+    private java.lang.String actionType;
+    private java.lang.String partner;
+    private java.lang.String campaignId;
+    private java.lang.String rotationId;
+    private java.lang.Integer siteId;
+    private java.lang.String url;
+    private java.lang.String referer;
+    private java.lang.String userAgent;
+    private java.lang.String deviceFamily;
+    private java.lang.String deviceType;
+    private java.lang.String browserFamily;
+    private java.lang.String browserVersion;
+    private java.lang.String osFamily;
+    private java.lang.String osVersion;
+    private java.lang.String appVersion;
+    private java.lang.String appId;
+    private java.lang.String service;
+    private java.lang.String server;
+    private java.lang.String remoteIp;
+    private java.lang.Integer pageId;
+    private java.lang.Integer geoId;
     private boolean isBot;
-    private java.util.Map<String, String> payload;
+    private java.util.Map<java.lang.String,java.lang.String> payload;
 
     /** Creates a new Builder */
     private Builder() {
@@ -1394,7 +1394,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * ID of the event by tracking collection service
       * @return The value.
       */
-    public String getEventId() {
+    public java.lang.String getEventId() {
       return eventId;
     }
 
@@ -1404,7 +1404,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'eventId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setEventId(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setEventId(java.lang.String value) {
       validate(fields()[1], value);
       this.eventId = value;
       fieldSetFlags()[1] = true;
@@ -1437,7 +1437,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * ID of the event by producer
       * @return The value.
       */
-    public String getProducerEventId() {
+    public java.lang.String getProducerEventId() {
       return producerEventId;
     }
 
@@ -1447,7 +1447,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'producerEventId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setProducerEventId(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setProducerEventId(java.lang.String value) {
       validate(fields()[2], value);
       this.producerEventId = value;
       fieldSetFlags()[2] = true;
@@ -1480,7 +1480,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Event received timestamp at the collection service
       * @return The value.
       */
-    public Long getEventTs() {
+    public java.lang.Long getEventTs() {
       return eventTs;
     }
 
@@ -1522,7 +1522,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Event created timestamp at producer side
       * @return The value.
       */
-    public Long getProducerEventTs() {
+    public java.lang.Long getProducerEventTs() {
       return producerEventTs;
     }
 
@@ -1563,7 +1563,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'rlogId' field.
       * @return The value.
       */
-    public String getRlogId() {
+    public java.lang.String getRlogId() {
       return rlogId;
     }
 
@@ -1572,7 +1572,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'rlogId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setRlogId(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setRlogId(java.lang.String value) {
       validate(fields()[5], value);
       this.rlogId = value;
       fieldSetFlags()[5] = true;
@@ -1603,7 +1603,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * ID to associate user behavior and dilivery
       * @return The value.
       */
-    public String getTrackingId() {
+    public java.lang.String getTrackingId() {
       return trackingId;
     }
 
@@ -1613,7 +1613,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'trackingId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setTrackingId(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setTrackingId(java.lang.String value) {
       validate(fields()[6], value);
       this.trackingId = value;
       fieldSetFlags()[6] = true;
@@ -1646,7 +1646,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Oracle id
       * @return The value.
       */
-    public Long getUserId() {
+    public java.lang.Long getUserId() {
       return userId;
     }
 
@@ -1656,7 +1656,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'userId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setUserId(Long value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setUserId(java.lang.Long value) {
       validate(fields()[7], value);
       this.userId = value;
       fieldSetFlags()[7] = true;
@@ -1689,7 +1689,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * public user id
       * @return The value.
       */
-    public String getPublicUserId() {
+    public java.lang.String getPublicUserId() {
       return publicUserId;
     }
 
@@ -1699,7 +1699,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'publicUserId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setPublicUserId(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setPublicUserId(java.lang.String value) {
       validate(fields()[8], value);
       this.publicUserId = value;
       fieldSetFlags()[8] = true;
@@ -1732,7 +1732,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Encrypted user id in email open and click url
       * @return The value.
       */
-    public Long getEncryptedUserId() {
+    public java.lang.Long getEncryptedUserId() {
       return encryptedUserId;
     }
 
@@ -1742,7 +1742,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'encryptedUserId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setEncryptedUserId(Long value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setEncryptedUserId(java.lang.Long value) {
       validate(fields()[9], value);
       this.encryptedUserId = value;
       fieldSetFlags()[9] = true;
@@ -1774,7 +1774,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'guid' field.
       * @return The value.
       */
-    public String getGuid() {
+    public java.lang.String getGuid() {
       return guid;
     }
 
@@ -1783,7 +1783,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'guid'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setGuid(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setGuid(java.lang.String value) {
       validate(fields()[10], value);
       this.guid = value;
       fieldSetFlags()[10] = true;
@@ -1813,7 +1813,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'idfa' field.
       * @return The value.
       */
-    public String getIdfa() {
+    public java.lang.String getIdfa() {
       return idfa;
     }
 
@@ -1822,7 +1822,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'idfa'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setIdfa(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setIdfa(java.lang.String value) {
       validate(fields()[11], value);
       this.idfa = value;
       fieldSetFlags()[11] = true;
@@ -1852,7 +1852,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'gadid' field.
       * @return The value.
       */
-    public String getGadid() {
+    public java.lang.String getGadid() {
       return gadid;
     }
 
@@ -1861,7 +1861,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'gadid'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setGadid(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setGadid(java.lang.String value) {
       validate(fields()[12], value);
       this.gadid = value;
       fieldSetFlags()[12] = true;
@@ -1891,7 +1891,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'deviceId' field.
       * @return The value.
       */
-    public String getDeviceId() {
+    public java.lang.String getDeviceId() {
       return deviceId;
     }
 
@@ -1900,7 +1900,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'deviceId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setDeviceId(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setDeviceId(java.lang.String value) {
       validate(fields()[13], value);
       this.deviceId = value;
       fieldSetFlags()[13] = true;
@@ -1930,7 +1930,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'channelType' field.
       * @return The value.
       */
-    public String getChannelType() {
+    public java.lang.String getChannelType() {
       return channelType;
     }
 
@@ -1939,7 +1939,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'channelType'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setChannelType(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setChannelType(java.lang.String value) {
       validate(fields()[14], value);
       this.channelType = value;
       fieldSetFlags()[14] = true;
@@ -1969,7 +1969,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'actionType' field.
       * @return The value.
       */
-    public String getActionType() {
+    public java.lang.String getActionType() {
       return actionType;
     }
 
@@ -1978,7 +1978,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'actionType'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setActionType(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setActionType(java.lang.String value) {
       validate(fields()[15], value);
       this.actionType = value;
       fieldSetFlags()[15] = true;
@@ -2008,7 +2008,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'partner' field.
       * @return The value.
       */
-    public String getPartner() {
+    public java.lang.String getPartner() {
       return partner;
     }
 
@@ -2017,7 +2017,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'partner'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setPartner(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setPartner(java.lang.String value) {
       validate(fields()[16], value);
       this.partner = value;
       fieldSetFlags()[16] = true;
@@ -2047,7 +2047,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'campaignId' field.
       * @return The value.
       */
-    public String getCampaignId() {
+    public java.lang.String getCampaignId() {
       return campaignId;
     }
 
@@ -2056,7 +2056,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'campaignId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setCampaignId(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setCampaignId(java.lang.String value) {
       validate(fields()[17], value);
       this.campaignId = value;
       fieldSetFlags()[17] = true;
@@ -2086,7 +2086,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'rotationId' field.
       * @return The value.
       */
-    public String getRotationId() {
+    public java.lang.String getRotationId() {
       return rotationId;
     }
 
@@ -2095,7 +2095,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'rotationId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setRotationId(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setRotationId(java.lang.String value) {
       validate(fields()[18], value);
       this.rotationId = value;
       fieldSetFlags()[18] = true;
@@ -2125,7 +2125,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'siteId' field.
       * @return The value.
       */
-    public Integer getSiteId() {
+    public java.lang.Integer getSiteId() {
       return siteId;
     }
 
@@ -2134,7 +2134,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'siteId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setSiteId(Integer value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setSiteId(java.lang.Integer value) {
       validate(fields()[19], value);
       this.siteId = value;
       fieldSetFlags()[19] = true;
@@ -2164,7 +2164,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'url' field.
       * @return The value.
       */
-    public String getUrl() {
+    public java.lang.String getUrl() {
       return url;
     }
 
@@ -2173,7 +2173,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'url'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setUrl(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setUrl(java.lang.String value) {
       validate(fields()[20], value);
       this.url = value;
       fieldSetFlags()[20] = true;
@@ -2203,7 +2203,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'referer' field.
       * @return The value.
       */
-    public String getReferer() {
+    public java.lang.String getReferer() {
       return referer;
     }
 
@@ -2212,7 +2212,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'referer'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setReferer(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setReferer(java.lang.String value) {
       validate(fields()[21], value);
       this.referer = value;
       fieldSetFlags()[21] = true;
@@ -2242,7 +2242,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'userAgent' field.
       * @return The value.
       */
-    public String getUserAgent() {
+    public java.lang.String getUserAgent() {
       return userAgent;
     }
 
@@ -2251,7 +2251,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'userAgent'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setUserAgent(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setUserAgent(java.lang.String value) {
       validate(fields()[22], value);
       this.userAgent = value;
       fieldSetFlags()[22] = true;
@@ -2281,7 +2281,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'deviceFamily' field.
       * @return The value.
       */
-    public String getDeviceFamily() {
+    public java.lang.String getDeviceFamily() {
       return deviceFamily;
     }
 
@@ -2290,7 +2290,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'deviceFamily'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setDeviceFamily(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setDeviceFamily(java.lang.String value) {
       validate(fields()[23], value);
       this.deviceFamily = value;
       fieldSetFlags()[23] = true;
@@ -2320,7 +2320,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'deviceType' field.
       * @return The value.
       */
-    public String getDeviceType() {
+    public java.lang.String getDeviceType() {
       return deviceType;
     }
 
@@ -2329,7 +2329,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'deviceType'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setDeviceType(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setDeviceType(java.lang.String value) {
       validate(fields()[24], value);
       this.deviceType = value;
       fieldSetFlags()[24] = true;
@@ -2359,7 +2359,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'browserFamily' field.
       * @return The value.
       */
-    public String getBrowserFamily() {
+    public java.lang.String getBrowserFamily() {
       return browserFamily;
     }
 
@@ -2368,7 +2368,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'browserFamily'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setBrowserFamily(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setBrowserFamily(java.lang.String value) {
       validate(fields()[25], value);
       this.browserFamily = value;
       fieldSetFlags()[25] = true;
@@ -2398,7 +2398,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'browserVersion' field.
       * @return The value.
       */
-    public String getBrowserVersion() {
+    public java.lang.String getBrowserVersion() {
       return browserVersion;
     }
 
@@ -2407,7 +2407,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'browserVersion'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setBrowserVersion(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setBrowserVersion(java.lang.String value) {
       validate(fields()[26], value);
       this.browserVersion = value;
       fieldSetFlags()[26] = true;
@@ -2437,7 +2437,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'osFamily' field.
       * @return The value.
       */
-    public String getOsFamily() {
+    public java.lang.String getOsFamily() {
       return osFamily;
     }
 
@@ -2446,7 +2446,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'osFamily'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setOsFamily(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setOsFamily(java.lang.String value) {
       validate(fields()[27], value);
       this.osFamily = value;
       fieldSetFlags()[27] = true;
@@ -2476,7 +2476,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'osVersion' field.
       * @return The value.
       */
-    public String getOsVersion() {
+    public java.lang.String getOsVersion() {
       return osVersion;
     }
 
@@ -2485,7 +2485,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'osVersion'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setOsVersion(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setOsVersion(java.lang.String value) {
       validate(fields()[28], value);
       this.osVersion = value;
       fieldSetFlags()[28] = true;
@@ -2515,7 +2515,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'appVersion' field.
       * @return The value.
       */
-    public String getAppVersion() {
+    public java.lang.String getAppVersion() {
       return appVersion;
     }
 
@@ -2524,7 +2524,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'appVersion'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setAppVersion(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setAppVersion(java.lang.String value) {
       validate(fields()[29], value);
       this.appVersion = value;
       fieldSetFlags()[29] = true;
@@ -2554,7 +2554,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'appId' field.
       * @return The value.
       */
-    public String getAppId() {
+    public java.lang.String getAppId() {
       return appId;
     }
 
@@ -2563,7 +2563,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'appId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setAppId(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setAppId(java.lang.String value) {
       validate(fields()[30], value);
       this.appId = value;
       fieldSetFlags()[30] = true;
@@ -2593,7 +2593,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'service' field.
       * @return The value.
       */
-    public String getService() {
+    public java.lang.String getService() {
       return service;
     }
 
@@ -2602,7 +2602,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'service'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setService(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setService(java.lang.String value) {
       validate(fields()[31], value);
       this.service = value;
       fieldSetFlags()[31] = true;
@@ -2632,7 +2632,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'server' field.
       * @return The value.
       */
-    public String getServer() {
+    public java.lang.String getServer() {
       return server;
     }
 
@@ -2641,7 +2641,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'server'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setServer(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setServer(java.lang.String value) {
       validate(fields()[32], value);
       this.server = value;
       fieldSetFlags()[32] = true;
@@ -2671,7 +2671,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'remoteIp' field.
       * @return The value.
       */
-    public String getRemoteIp() {
+    public java.lang.String getRemoteIp() {
       return remoteIp;
     }
 
@@ -2680,7 +2680,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'remoteIp'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setRemoteIp(String value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setRemoteIp(java.lang.String value) {
       validate(fields()[33], value);
       this.remoteIp = value;
       fieldSetFlags()[33] = true;
@@ -2710,7 +2710,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'pageId' field.
       * @return The value.
       */
-    public Integer getPageId() {
+    public java.lang.Integer getPageId() {
       return pageId;
     }
 
@@ -2719,7 +2719,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'pageId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setPageId(Integer value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setPageId(java.lang.Integer value) {
       validate(fields()[34], value);
       this.pageId = value;
       fieldSetFlags()[34] = true;
@@ -2749,7 +2749,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'geoId' field.
       * @return The value.
       */
-    public Integer getGeoId() {
+    public java.lang.Integer getGeoId() {
       return geoId;
     }
 
@@ -2758,7 +2758,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'geoId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setGeoId(Integer value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setGeoId(java.lang.Integer value) {
       validate(fields()[35], value);
       this.geoId = value;
       fieldSetFlags()[35] = true;
@@ -2788,7 +2788,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'isBot' field.
       * @return The value.
       */
-    public Boolean getIsBot() {
+    public java.lang.Boolean getIsBot() {
       return isBot;
     }
 
@@ -2826,7 +2826,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'payload' field.
       * @return The value.
       */
-    public java.util.Map<String, String> getPayload() {
+    public java.util.Map<java.lang.String,java.lang.String> getPayload() {
       return payload;
     }
 
@@ -2835,7 +2835,7 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'payload'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.UTPEvent.Builder setPayload(java.util.Map<String, String> value) {
+    public com.ebay.epic.soj.common.model.UTPEvent.Builder setPayload(java.util.Map<java.lang.String,java.lang.String> value) {
       validate(fields()[37], value);
       this.payload = value;
       fieldSetFlags()[37] = true;
@@ -2871,45 +2871,45 @@ public class UTPEvent extends org.apache.avro.specific.SpecificRecordBase implem
         } else {
           record.rheosHeader = fieldSetFlags()[0] ? this.rheosHeader : (com.ebay.epic.soj.common.model.RheosHeader) defaultValue(fields()[0]);
         }
-        record.eventId = fieldSetFlags()[1] ? this.eventId : (String) defaultValue(fields()[1]);
-        record.producerEventId = fieldSetFlags()[2] ? this.producerEventId : (String) defaultValue(fields()[2]);
-        record.eventTs = fieldSetFlags()[3] ? this.eventTs : (Long) defaultValue(fields()[3]);
-        record.producerEventTs = fieldSetFlags()[4] ? this.producerEventTs : (Long) defaultValue(fields()[4]);
-        record.rlogId = fieldSetFlags()[5] ? this.rlogId : (String) defaultValue(fields()[5]);
-        record.trackingId = fieldSetFlags()[6] ? this.trackingId : (String) defaultValue(fields()[6]);
-        record.userId = fieldSetFlags()[7] ? this.userId : (Long) defaultValue(fields()[7]);
-        record.publicUserId = fieldSetFlags()[8] ? this.publicUserId : (String) defaultValue(fields()[8]);
-        record.encryptedUserId = fieldSetFlags()[9] ? this.encryptedUserId : (Long) defaultValue(fields()[9]);
-        record.guid = fieldSetFlags()[10] ? this.guid : (String) defaultValue(fields()[10]);
-        record.idfa = fieldSetFlags()[11] ? this.idfa : (String) defaultValue(fields()[11]);
-        record.gadid = fieldSetFlags()[12] ? this.gadid : (String) defaultValue(fields()[12]);
-        record.deviceId = fieldSetFlags()[13] ? this.deviceId : (String) defaultValue(fields()[13]);
-        record.channelType = fieldSetFlags()[14] ? this.channelType : (String) defaultValue(fields()[14]);
-        record.actionType = fieldSetFlags()[15] ? this.actionType : (String) defaultValue(fields()[15]);
-        record.partner = fieldSetFlags()[16] ? this.partner : (String) defaultValue(fields()[16]);
-        record.campaignId = fieldSetFlags()[17] ? this.campaignId : (String) defaultValue(fields()[17]);
-        record.rotationId = fieldSetFlags()[18] ? this.rotationId : (String) defaultValue(fields()[18]);
-        record.siteId = fieldSetFlags()[19] ? this.siteId : (Integer) defaultValue(fields()[19]);
-        record.url = fieldSetFlags()[20] ? this.url : (String) defaultValue(fields()[20]);
-        record.referer = fieldSetFlags()[21] ? this.referer : (String) defaultValue(fields()[21]);
-        record.userAgent = fieldSetFlags()[22] ? this.userAgent : (String) defaultValue(fields()[22]);
-        record.deviceFamily = fieldSetFlags()[23] ? this.deviceFamily : (String) defaultValue(fields()[23]);
-        record.deviceType = fieldSetFlags()[24] ? this.deviceType : (String) defaultValue(fields()[24]);
-        record.browserFamily = fieldSetFlags()[25] ? this.browserFamily : (String) defaultValue(fields()[25]);
-        record.browserVersion = fieldSetFlags()[26] ? this.browserVersion : (String) defaultValue(fields()[26]);
-        record.osFamily = fieldSetFlags()[27] ? this.osFamily : (String) defaultValue(fields()[27]);
-        record.osVersion = fieldSetFlags()[28] ? this.osVersion : (String) defaultValue(fields()[28]);
-        record.appVersion = fieldSetFlags()[29] ? this.appVersion : (String) defaultValue(fields()[29]);
-        record.appId = fieldSetFlags()[30] ? this.appId : (String) defaultValue(fields()[30]);
-        record.service = fieldSetFlags()[31] ? this.service : (String) defaultValue(fields()[31]);
-        record.server = fieldSetFlags()[32] ? this.server : (String) defaultValue(fields()[32]);
-        record.remoteIp = fieldSetFlags()[33] ? this.remoteIp : (String) defaultValue(fields()[33]);
-        record.pageId = fieldSetFlags()[34] ? this.pageId : (Integer) defaultValue(fields()[34]);
-        record.geoId = fieldSetFlags()[35] ? this.geoId : (Integer) defaultValue(fields()[35]);
-        record.isBot = fieldSetFlags()[36] ? this.isBot : (Boolean) defaultValue(fields()[36]);
-        record.payload = fieldSetFlags()[37] ? this.payload : (java.util.Map<String, String>) defaultValue(fields()[37]);
+        record.eventId = fieldSetFlags()[1] ? this.eventId : (java.lang.String) defaultValue(fields()[1]);
+        record.producerEventId = fieldSetFlags()[2] ? this.producerEventId : (java.lang.String) defaultValue(fields()[2]);
+        record.eventTs = fieldSetFlags()[3] ? this.eventTs : (java.lang.Long) defaultValue(fields()[3]);
+        record.producerEventTs = fieldSetFlags()[4] ? this.producerEventTs : (java.lang.Long) defaultValue(fields()[4]);
+        record.rlogId = fieldSetFlags()[5] ? this.rlogId : (java.lang.String) defaultValue(fields()[5]);
+        record.trackingId = fieldSetFlags()[6] ? this.trackingId : (java.lang.String) defaultValue(fields()[6]);
+        record.userId = fieldSetFlags()[7] ? this.userId : (java.lang.Long) defaultValue(fields()[7]);
+        record.publicUserId = fieldSetFlags()[8] ? this.publicUserId : (java.lang.String) defaultValue(fields()[8]);
+        record.encryptedUserId = fieldSetFlags()[9] ? this.encryptedUserId : (java.lang.Long) defaultValue(fields()[9]);
+        record.guid = fieldSetFlags()[10] ? this.guid : (java.lang.String) defaultValue(fields()[10]);
+        record.idfa = fieldSetFlags()[11] ? this.idfa : (java.lang.String) defaultValue(fields()[11]);
+        record.gadid = fieldSetFlags()[12] ? this.gadid : (java.lang.String) defaultValue(fields()[12]);
+        record.deviceId = fieldSetFlags()[13] ? this.deviceId : (java.lang.String) defaultValue(fields()[13]);
+        record.channelType = fieldSetFlags()[14] ? this.channelType : (java.lang.String) defaultValue(fields()[14]);
+        record.actionType = fieldSetFlags()[15] ? this.actionType : (java.lang.String) defaultValue(fields()[15]);
+        record.partner = fieldSetFlags()[16] ? this.partner : (java.lang.String) defaultValue(fields()[16]);
+        record.campaignId = fieldSetFlags()[17] ? this.campaignId : (java.lang.String) defaultValue(fields()[17]);
+        record.rotationId = fieldSetFlags()[18] ? this.rotationId : (java.lang.String) defaultValue(fields()[18]);
+        record.siteId = fieldSetFlags()[19] ? this.siteId : (java.lang.Integer) defaultValue(fields()[19]);
+        record.url = fieldSetFlags()[20] ? this.url : (java.lang.String) defaultValue(fields()[20]);
+        record.referer = fieldSetFlags()[21] ? this.referer : (java.lang.String) defaultValue(fields()[21]);
+        record.userAgent = fieldSetFlags()[22] ? this.userAgent : (java.lang.String) defaultValue(fields()[22]);
+        record.deviceFamily = fieldSetFlags()[23] ? this.deviceFamily : (java.lang.String) defaultValue(fields()[23]);
+        record.deviceType = fieldSetFlags()[24] ? this.deviceType : (java.lang.String) defaultValue(fields()[24]);
+        record.browserFamily = fieldSetFlags()[25] ? this.browserFamily : (java.lang.String) defaultValue(fields()[25]);
+        record.browserVersion = fieldSetFlags()[26] ? this.browserVersion : (java.lang.String) defaultValue(fields()[26]);
+        record.osFamily = fieldSetFlags()[27] ? this.osFamily : (java.lang.String) defaultValue(fields()[27]);
+        record.osVersion = fieldSetFlags()[28] ? this.osVersion : (java.lang.String) defaultValue(fields()[28]);
+        record.appVersion = fieldSetFlags()[29] ? this.appVersion : (java.lang.String) defaultValue(fields()[29]);
+        record.appId = fieldSetFlags()[30] ? this.appId : (java.lang.String) defaultValue(fields()[30]);
+        record.service = fieldSetFlags()[31] ? this.service : (java.lang.String) defaultValue(fields()[31]);
+        record.server = fieldSetFlags()[32] ? this.server : (java.lang.String) defaultValue(fields()[32]);
+        record.remoteIp = fieldSetFlags()[33] ? this.remoteIp : (java.lang.String) defaultValue(fields()[33]);
+        record.pageId = fieldSetFlags()[34] ? this.pageId : (java.lang.Integer) defaultValue(fields()[34]);
+        record.geoId = fieldSetFlags()[35] ? this.geoId : (java.lang.Integer) defaultValue(fields()[35]);
+        record.isBot = fieldSetFlags()[36] ? this.isBot : (java.lang.Boolean) defaultValue(fields()[36]);
+        record.payload = fieldSetFlags()[37] ? this.payload : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[37]);
         return record;
-      } catch (Exception e) {
+      } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
       }
     }

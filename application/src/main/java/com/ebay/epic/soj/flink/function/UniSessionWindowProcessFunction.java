@@ -15,6 +15,7 @@ import org.apache.flink.streaming.api.functions.windowing.ProcessWindowFunction;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class UniSessionWindowProcessFunction
@@ -38,6 +39,11 @@ public class UniSessionWindowProcessFunction
         uniSession.setTrafficSource(rawUniSession.getTrafficSourceDtl());
         uniSession.setOthers(rawUniSession.getOthers());
         uniSession.setIsOpen(isOpen);
+        uniSession.setUserId(rawUniSession.getUserId());
+        uniSession.setFirstAppId(rawUniSession.getFirstAppId());
+        uniSession.setCobrand(rawUniSession.getCobrand());
+        uniSession.setUserAgent(rawUniSession.getUserAgent());
+        uniSession.setClavSessions(new ArrayList<>(rawUniSession.getClavSessionMap().values()));
         RheosHeader rheosHeader = new RheosHeader();
         rheosHeader.setEventId("DummyID");
         rheosHeader.setEventCreateTimestamp(System.currentTimeMillis());

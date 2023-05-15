@@ -12,6 +12,8 @@ public class CommonNormalizer extends FieldNormalizer<RawEvent, UniEvent> {
         tar.setEventTs(src.getEventTs());
         tar.setEventType(src.getEventType());
         tar.setGuid(src.getGuid());
+        tar.setUserId(src.getUserId());
+        tar.setSiteId(src.getSiteId());
         tar.setIngestTimestamp(src.getIngestTimestamp());
         tar.setGlobalSessionId(src.getGlobalSessionId());
         tar.setRheosByteArray(src.getRheosByteArray());
@@ -20,6 +22,9 @@ public class CommonNormalizer extends FieldNormalizer<RawEvent, UniEvent> {
         tar.setIframe(src.getIframe());
         tar.setCategory(src.getCategory());
         tar.setBotFlags(src.getBotFlags());
+        tar.setCobrand(src.getCobrand());
+        tar.setSiteId(src.getSiteId());
+        tar.setUserAgent(src.getUserAgent());
         tar.setPageId(src.getPageId());
     }
 }

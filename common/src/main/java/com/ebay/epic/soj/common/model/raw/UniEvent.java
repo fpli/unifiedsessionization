@@ -16,6 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class UniEvent {
     private String guid;
+    private String userId;
     private Long eventTs;
     private String sessionId;
     private Long sessionSkey;
@@ -40,8 +41,13 @@ public class UniEvent {
     private String pageUrl;
     private String experience;
     private boolean partialValidPage = true;
-    private Integer pageId;
-    private Integer siteId;
+    private Integer pageId = null;
+    private String siteId = null;
+    private String cobrand = null;
+    private String appId = null;
+    private String userAgent = null;
+    private boolean clavValidPage = true;
+
 
     public boolean isNewSession() {
         return Constants.NO_SESSION_ID.equals(globalSessionId);

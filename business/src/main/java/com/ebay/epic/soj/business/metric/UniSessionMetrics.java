@@ -32,10 +32,12 @@ public class UniSessionMetrics extends RecordMetrics<UniEvent, UniSessionAccumul
   @Override
   public void initFieldMetrics() {
     addFieldMetrics(new CommonMetrics());
+    addFieldMetrics(new AgentStringMetrics());
     addFieldMetrics(new GlobalSessionIdMetrics());
     addFieldMetrics(new TimestampMetrics());
     addFieldMetrics(new LegacySessionIdMetrics());
     addFieldMetrics(new BotFlagMetrics());
+    addFieldMetrics(new UbiGeneralMetrics());
     addFieldMetrics(new ClavSessionMetrics());
   }
 }
