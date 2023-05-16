@@ -34,9 +34,11 @@ public class UniEvent {
     private Long kafkaReceivedTimestamp;
 
     // for traffic source
+    private String entityType;
     private String referer;
     // both for traffic source and Clav session extension
-    private Map<String,String> payload;
+    // See TrafficSourceConstants for available applicationPayload keys
+    private Map<String,String> payload = new HashMap<>();
     private String pageUrl;
     private String experience;
     private boolean partialValidPage = true;
