@@ -15,7 +15,6 @@ import java.util.Map;
 public class HomepageCntMetrics extends ClavSessionFieldMetrics {
 
     public static final String HOME = "HOME";
-    private List<String> viPGT;
 
     @Override
     public void process(UniEvent event, ClavSession clavSession) throws Exception {
