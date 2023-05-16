@@ -1,9 +1,6 @@
 package com.ebay.epic.soj.business.metric;
 
-import com.ebay.epic.soj.business.metric.clav.ClavTimestampMetrics;
-import com.ebay.epic.soj.business.metric.clav.Gr1CntMetrics;
-import com.ebay.epic.soj.business.metric.clav.GrCntMetrics;
-import com.ebay.epic.soj.business.metric.clav.PageIdMetrics;
+import com.ebay.epic.soj.business.metric.clav.*;
 import com.ebay.epic.soj.common.enums.EventType;
 import com.ebay.epic.soj.common.model.ClavSession;
 import com.ebay.epic.soj.common.model.UniSessionAccumulator;
@@ -39,8 +36,14 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
         }
     }
     public void initFieldMetrics() {
+        //Page family cnt
         addClavSessionFieldMetrics(new Gr1CntMetrics());
         addClavSessionFieldMetrics(new GrCntMetrics());
+        addClavSessionFieldMetrics(new HomepageCntMetrics());
+        addClavSessionFieldMetrics(new MyebayCntMetrics());
+        addClavSessionFieldMetrics(new SigninCntMetrics());
+        addClavSessionFieldMetrics(new ViCntMetrics());
+
         addClavSessionFieldMetrics(new ClavTimestampMetrics());
         // page id metrics is dependency on timestamp
         addClavSessionFieldMetrics(new PageIdMetrics());
