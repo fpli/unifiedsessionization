@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class ClavSession extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 2936623125681077285L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ClavSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"sessionSkey\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"siteId\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"long\"},{\"name\":\"validPageCount\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"startPageId\",\"type\":\"int\"},{\"name\":\"exitPageId\",\"type\":\"int\"},{\"name\":\"startTimestamp\",\"type\":\"long\"},{\"name\":\"exitTimestamp\",\"type\":\"long\"},{\"name\":\"grCount\",\"type\":\"int\"},{\"name\":\"gr1Count\",\"type\":\"int\"},{\"name\":\"homepageCount\",\"type\":\"int\"},{\"name\":\"viCount\",\"type\":\"int\"},{\"name\":\"signinCount\",\"type\":\"int\"},{\"name\":\"myebayCount\",\"type\":\"int\"},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = 1152536039928496387L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ClavSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"sessionId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"siteId\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"long\"},{\"name\":\"validPageCount\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"startPageId\",\"type\":\"int\"},{\"name\":\"exitPageId\",\"type\":\"int\"},{\"name\":\"startTimestamp\",\"type\":\"long\"},{\"name\":\"exitTimestamp\",\"type\":\"long\"},{\"name\":\"grCount\",\"type\":\"int\"},{\"name\":\"gr1Count\",\"type\":\"int\"},{\"name\":\"homepageCount\",\"type\":\"int\"},{\"name\":\"viCount\",\"type\":\"int\"},{\"name\":\"signinCount\",\"type\":\"int\"},{\"name\":\"myebayCount\",\"type\":\"int\"},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -51,7 +51,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.lang.String sessionSkey;
+  @Deprecated public java.lang.String sessionId;
   @Deprecated public int siteId;
   @Deprecated public long botFlag;
   @Deprecated public int validPageCount;
@@ -77,7 +77,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
   /**
    * All-args constructor.
-   * @param sessionSkey The new value for sessionSkey
+   * @param sessionId The new value for sessionId
    * @param siteId The new value for siteId
    * @param botFlag The new value for botFlag
    * @param validPageCount The new value for validPageCount
@@ -94,8 +94,8 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
    * @param myebayCount The new value for myebayCount
    * @param others The new value for others
    */
-  public ClavSession(java.lang.String sessionSkey, java.lang.Integer siteId, java.lang.Long botFlag, java.lang.Integer validPageCount, java.lang.Long duration, java.lang.Integer startPageId, java.lang.Integer exitPageId, java.lang.Long startTimestamp, java.lang.Long exitTimestamp, java.lang.Integer grCount, java.lang.Integer gr1Count, java.lang.Integer homepageCount, java.lang.Integer viCount, java.lang.Integer signinCount, java.lang.Integer myebayCount, java.util.Map<java.lang.String,java.lang.String> others) {
-    this.sessionSkey = sessionSkey;
+  public ClavSession(java.lang.String sessionId, java.lang.Integer siteId, java.lang.Long botFlag, java.lang.Integer validPageCount, java.lang.Long duration, java.lang.Integer startPageId, java.lang.Integer exitPageId, java.lang.Long startTimestamp, java.lang.Long exitTimestamp, java.lang.Integer grCount, java.lang.Integer gr1Count, java.lang.Integer homepageCount, java.lang.Integer viCount, java.lang.Integer signinCount, java.lang.Integer myebayCount, java.util.Map<java.lang.String,java.lang.String> others) {
+    this.sessionId = sessionId;
     this.siteId = siteId;
     this.botFlag = botFlag;
     this.validPageCount = validPageCount;
@@ -117,7 +117,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return sessionSkey;
+    case 0: return sessionId;
     case 1: return siteId;
     case 2: return botFlag;
     case 3: return validPageCount;
@@ -141,7 +141,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: sessionSkey = (java.lang.String)value$; break;
+    case 0: sessionId = (java.lang.String)value$; break;
     case 1: siteId = (java.lang.Integer)value$; break;
     case 2: botFlag = (java.lang.Long)value$; break;
     case 3: validPageCount = (java.lang.Integer)value$; break;
@@ -162,19 +162,19 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   }
 
   /**
-   * Gets the value of the 'sessionSkey' field.
-   * @return The value of the 'sessionSkey' field.
+   * Gets the value of the 'sessionId' field.
+   * @return The value of the 'sessionId' field.
    */
-  public java.lang.String getSessionSkey() {
-    return sessionSkey;
+  public java.lang.String getSessionId() {
+    return sessionId;
   }
 
   /**
-   * Sets the value of the 'sessionSkey' field.
+   * Sets the value of the 'sessionId' field.
    * @param value the value to set.
    */
-  public void setSessionSkey(java.lang.String value) {
-    this.sessionSkey = value;
+  public void setSessionId(java.lang.String value) {
+    this.sessionId = value;
   }
 
   /**
@@ -449,7 +449,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ClavSession>
     implements org.apache.avro.data.RecordBuilder<ClavSession> {
 
-    private java.lang.String sessionSkey;
+    private java.lang.String sessionId;
     private int siteId;
     private long botFlag;
     private int validPageCount;
@@ -477,8 +477,8 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
      */
     private Builder(com.ebay.epic.soj.common.model.ClavSession.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.sessionSkey)) {
-        this.sessionSkey = data().deepCopy(fields()[0].schema(), other.sessionSkey);
+      if (isValidValue(fields()[0], other.sessionId)) {
+        this.sessionId = data().deepCopy(fields()[0].schema(), other.sessionId);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.siteId)) {
@@ -549,8 +549,8 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
      */
     private Builder(com.ebay.epic.soj.common.model.ClavSession other) {
             super(SCHEMA$);
-      if (isValidValue(fields()[0], other.sessionSkey)) {
-        this.sessionSkey = data().deepCopy(fields()[0].schema(), other.sessionSkey);
+      if (isValidValue(fields()[0], other.sessionId)) {
+        this.sessionId = data().deepCopy(fields()[0].schema(), other.sessionId);
         fieldSetFlags()[0] = true;
       }
       if (isValidValue(fields()[1], other.siteId)) {
@@ -616,40 +616,40 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
-      * Gets the value of the 'sessionSkey' field.
+      * Gets the value of the 'sessionId' field.
       * @return The value.
       */
-    public java.lang.String getSessionSkey() {
-      return sessionSkey;
+    public java.lang.String getSessionId() {
+      return sessionId;
     }
 
     /**
-      * Sets the value of the 'sessionSkey' field.
-      * @param value The value of 'sessionSkey'.
+      * Sets the value of the 'sessionId' field.
+      * @param value The value of 'sessionId'.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.ClavSession.Builder setSessionSkey(java.lang.String value) {
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setSessionId(java.lang.String value) {
       validate(fields()[0], value);
-      this.sessionSkey = value;
+      this.sessionId = value;
       fieldSetFlags()[0] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'sessionSkey' field has been set.
-      * @return True if the 'sessionSkey' field has been set, false otherwise.
+      * Checks whether the 'sessionId' field has been set.
+      * @return True if the 'sessionId' field has been set, false otherwise.
       */
-    public boolean hasSessionSkey() {
+    public boolean hasSessionId() {
       return fieldSetFlags()[0];
     }
 
 
     /**
-      * Clears the value of the 'sessionSkey' field.
+      * Clears the value of the 'sessionId' field.
       * @return This builder.
       */
-    public com.ebay.epic.soj.common.model.ClavSession.Builder clearSessionSkey() {
-      sessionSkey = null;
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearSessionId() {
+      sessionId = null;
       fieldSetFlags()[0] = false;
       return this;
     }
@@ -1230,7 +1230,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     public ClavSession build() {
       try {
         ClavSession record = new ClavSession();
-        record.sessionSkey = fieldSetFlags()[0] ? this.sessionSkey : (java.lang.String) defaultValue(fields()[0]);
+        record.sessionId = fieldSetFlags()[0] ? this.sessionId : (java.lang.String) defaultValue(fields()[0]);
         record.siteId = fieldSetFlags()[1] ? this.siteId : (java.lang.Integer) defaultValue(fields()[1]);
         record.botFlag = fieldSetFlags()[2] ? this.botFlag : (java.lang.Long) defaultValue(fields()[2]);
         record.validPageCount = fieldSetFlags()[3] ? this.validPageCount : (java.lang.Integer) defaultValue(fields()[3]);
