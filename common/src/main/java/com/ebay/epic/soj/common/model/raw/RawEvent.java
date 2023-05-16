@@ -33,6 +33,7 @@ public class RawEvent {
     private List<Integer> botFlags;
 
     // for traffic source
+    private String entityType;
     private String referer;
     private Map<String,String> payload = new HashMap<>();
     private String pageUrl;
