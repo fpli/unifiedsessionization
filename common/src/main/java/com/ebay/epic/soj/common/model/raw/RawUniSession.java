@@ -142,8 +142,8 @@ public class RawUniSession {
             src.setExitPageId(tgt.getExitPageId());
             maxEnd=tgt.getExitTimestamp();
         }
-        if (Long.valueOf(src.getSessionSkey()) > Long.valueOf(tgt.getSessionSkey())) {
-            src.setSessionSkey(tgt.getSessionSkey());
+        if (Long.parseLong(src.getSessionId()) > Long.parseLong(tgt.getSessionId())) {
+            src.setSessionId(tgt.getSessionId());
         }
         if(maxEnd!=null&&minStart!=null) {
             src.setDuration(maxEnd - minStart);
