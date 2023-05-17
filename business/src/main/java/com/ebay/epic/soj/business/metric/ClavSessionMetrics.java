@@ -36,6 +36,8 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
         }
     }
     public void initFieldMetrics() {
+        // Clav bot rule
+        addClavSessionFieldMetrics(new BotMetrics());
         //Page family cnt
         addClavSessionFieldMetrics(new Gr1CntMetrics());
         addClavSessionFieldMetrics(new GrCntMetrics());
@@ -83,6 +85,7 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
             clavSession = new ClavSession();
             clavSession.setSiteId(Integer.valueOf(uniEvent.getSiteId()));
             clavSession.setSessionId(uniEvent.getSessionId());
+            clavSession.setBotFlag(0L);
             uniSessionAccumulator.getUniSession().getClavSessionMap().put(ubiKey, clavSession);
         }
         return clavSession;
