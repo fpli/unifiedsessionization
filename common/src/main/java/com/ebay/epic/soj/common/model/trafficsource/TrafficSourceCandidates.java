@@ -12,9 +12,6 @@ public class TrafficSourceCandidates {
 
     public boolean hasAtLeastOneCandidate() {
         return firstValidSurfaceEvent != null ||
-                firstValidUbiEvent != null ||
-                firstDeeplinkActionEvent != null ||
-                firstUtpEvent != null ||
-                firstImbdEvent != null;
+                firstValidUbiEvent != null;
     }
 }

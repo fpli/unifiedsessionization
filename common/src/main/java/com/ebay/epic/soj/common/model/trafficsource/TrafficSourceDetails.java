@@ -10,8 +10,9 @@ public class TrafficSourceDetails {
     private String trafficSourceLevel3;
     private long rotid;
     private int mpxChnlId;
-    private String pageName;
+    private int ldngPageId;
     private String referer;
+    private String mppid;
 
     public Map<String, String> toMap() {
         if (trafficSourceLevel3 == null) {
@@ -25,11 +26,14 @@ public class TrafficSourceDetails {
             if (mpxChnlId > 0) {
                 trafficSourceMap.put("mpx_chnl_id", String.valueOf(mpxChnlId));
             }
-            if(pageName != null) {
-                trafficSourceMap.put("page_name", pageName);
+            if(ldngPageId > 0) {
+                trafficSourceMap.put("ldng_page_id", String.valueOf(ldngPageId));
             }
             if (referer != null) {
                 trafficSourceMap.put("referer", referer);
+            }
+            if (mppid != null) {
+                trafficSourceMap.put("mppid", mppid);
             }
             return trafficSourceMap;
         }
