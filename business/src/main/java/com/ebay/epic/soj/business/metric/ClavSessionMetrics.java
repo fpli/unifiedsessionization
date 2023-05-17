@@ -36,7 +36,7 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
         }
     }
     public void initFieldMetrics() {
-        // Clav bot rule
+        // Clav bot rule, now only handle ubi bot event rule
         addClavSessionFieldMetrics(new BotMetrics());
         //Page family cnt
         addClavSessionFieldMetrics(new Gr1CntMetrics());
