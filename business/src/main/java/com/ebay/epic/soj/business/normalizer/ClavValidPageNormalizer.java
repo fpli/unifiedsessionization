@@ -35,6 +35,8 @@ public class ClavValidPageNormalizer extends FieldNormalizer<RawEvent, UniEvent>
     public void normalize(RawEvent src, UniEvent tar) throws Exception {
         if (checkIsValidEvent(src.getPageId(), src.getClientData(), src.getSqr(), Integer.parseInt(src.getSiteId()), src.getPayload(), src.getRdt() != 0, src.getIframe())) {
             tar.setClavValidPage(true);
+        } else {
+            tar.setPartialValidPage(false);
         }
     }
 
