@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -46,7 +45,7 @@ public class UniEvent {
     private String cobrand = null;
     private String appId = null;
     private String userAgent = null;
-    private boolean clavValidPage = true;
+    private boolean clavValidPage = false;
 
 
     public boolean isNewSession() {
