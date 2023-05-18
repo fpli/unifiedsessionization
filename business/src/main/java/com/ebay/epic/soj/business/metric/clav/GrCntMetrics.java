@@ -24,7 +24,7 @@ public class GrCntMetrics extends ClavSessionFieldMetrics {
         Integer pageId = event.getPageId();
         if (event.getRdt() == 0
                 && !event.getIframe()
-                && event.isPartialValidPage()
+                && event.isClavValidPage()
                 && pageId != -1
                 && ((pageFmlyNameMap.containsKey(pageId) && GR.equals(pageFmlyNameMap.get(pageId)[1]))
                 || (getImPGT(event) != null && GR.equals(getImPGT(event))))) {

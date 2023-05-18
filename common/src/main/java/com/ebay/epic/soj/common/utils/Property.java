@@ -229,7 +229,7 @@ public class Property {
 
     //sink topic
     public static final String FLINK_APP_SINK_TOPIC_BASE="flink.app.sink.kafka.topic";
-    public static final String FLINK_APP_SINK_TOPIC_SESSION = "flink.app.sink.session.kafka.topic";
+    public static final String FLINK_APP_SINK_TOPIC_SESSION = "flink.app.sink.kafka.session.topic";
 
     public static final String FLINK_APP_SINK_TOPIC_SUBJECT_BASE="flink.app.sink.kafka.subject";
     public static final String FLINK_APP_SINK_TOPIC_SUBJECT_SESSION = "flink.app.sink.session.kafka.subject";

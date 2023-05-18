@@ -107,7 +107,7 @@ flink:
                 nonbot: behavior.unified.sojourner.nonbot.late.sojevent-rno
           session:
             session:
-              nonbot: behavior.unified.sojourner.nonbot.unisession-rno
+              nonbot: behavior.unified.sojourner.nonbot.unisession-test-rno
         subject:
           autotrack: SessionizedEvent
           ubi: behavior.sojourner.sojevent.schema

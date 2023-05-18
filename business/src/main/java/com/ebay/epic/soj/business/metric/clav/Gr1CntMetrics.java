@@ -16,7 +16,7 @@ public class Gr1CntMetrics extends ClavSessionFieldMetrics {
     String[] pageFmlyName = pageFmlyNameMap.get(pageId);
     if (event.getRdt()==0
             && !event.getIframe()
-            && event.isPartialValidPage()
+            && event.isClavValidPage()
             && (pageFmlyName != null && GR_1.equals(pageFmlyName[1]))) {
       clavSession.setGr1Count(clavSession.getGr1Count() + 1);
     }
