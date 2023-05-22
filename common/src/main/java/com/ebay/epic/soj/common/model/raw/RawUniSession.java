@@ -3,12 +3,9 @@ package com.ebay.epic.soj.common.model.raw;
 import com.ebay.epic.soj.common.enums.TrafficSource;
 import com.ebay.epic.soj.common.model.ClavSession;
 import lombok.Data;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 @Data
@@ -123,6 +120,7 @@ public class RawUniSession {
             src.setStartTimestamp(tgt.getStartTimestamp());
             src.setStartPageId(tgt.getStartPageId());
             src.setSiteId(tgt.getSiteId());
+            src.setSessionId(tgt.getSessionId());
             minStart=tgt.getStartTimestamp();
         } else if (src.getStartTimestamp() != null && this.getStartTimestamp() > tgt
                 .getStartTimestamp()) {
@@ -130,6 +128,7 @@ public class RawUniSession {
             src.setStartPageId(tgt.getStartPageId());
             src.setSiteId(tgt.getSiteId());
             minStart=tgt.getStartTimestamp();
+            src.setSessionId(tgt.getSessionId());
         }
         Long maxEnd=src.getExitTimestamp();
         if (src.getExitTimestamp() == null && tgt.getExitTimestamp() != null) {
@@ -141,9 +140,6 @@ public class RawUniSession {
             src.setExitTimestamp(tgt.getExitTimestamp());
             src.setExitPageId(tgt.getExitPageId());
             maxEnd=tgt.getExitTimestamp();
-        }
-        if (Long.parseLong(src.getSessionId()) > Long.parseLong(tgt.getSessionId())) {
-            src.setSessionId(tgt.getSessionId());
         }
         if(maxEnd!=null&&minStart!=null) {
             src.setDuration(maxEnd - minStart);

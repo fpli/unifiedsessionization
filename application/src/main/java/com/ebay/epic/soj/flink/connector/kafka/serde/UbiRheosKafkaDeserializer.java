@@ -21,28 +21,33 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
     @Override
     public RawEvent convert(GenericRecord genericRecord, RheosEvent rheosEvent) {
         RawEvent rawEvent = new RawEvent();
-        rawEvent.setGuid(genericRecord.get("guid").toString());
-        rawEvent.setUserId(genericRecord.get("userId").toString());
-        rawEvent.setSiteId(genericRecord.get("siteId").toString());
-        rawEvent.setPageId(Integer.valueOf(genericRecord.get("pageId").toString()));
-        rawEvent.setEventTs(Long.valueOf(genericRecord.get("eventTimestamp").toString()));
+        rawEvent.setGuid(getStrOrDefault(genericRecord.get("guid"),null));
+        rawEvent.setUserId(getStrOrDefault(genericRecord.get("userId"), null));
+        rawEvent.setSiteId(getStrOrDefault(genericRecord.get("siteId"), null));
+        rawEvent.setPageId(Integer.valueOf(getStrOrDefault(genericRecord.get("pageId"), "0")));
+        rawEvent.setEventTs(Long.valueOf(getStrOrDefault(genericRecord.get("eventTimestamp"), "0")));
         rawEvent.setRheosByteArray(rheosEvent.toBytes());
-        rawEvent.setSessionId(genericRecord.get("sessionId").toString());
-        rawEvent.setSessionSkey(Long.valueOf(genericRecord.get("sessionSkey").toString()));
-        rawEvent.setIframe(Boolean.valueOf(genericRecord.get("iframe").toString()));
-        rawEvent.setRdt(Byte.valueOf(genericRecord.get("rdt").toString()));
+        rawEvent.setSessionId(getStrOrDefault(genericRecord.get("sessionId"), null));
+        rawEvent.setSessionSkey(Long.valueOf(getStrOrDefault(genericRecord.get("sessionSkey"), "-1")));
+        rawEvent.setIframe(Boolean.valueOf(getStrOrDefault(genericRecord.get("iframe"), "true")));
+        rawEvent.setRdt(Byte.parseByte(getStrOrDefault(genericRecord.get("rdt"), "0")));
         rawEvent.setBotFlags((List) genericRecord.get("botFlags"));
-        rawEvent.setCobrand(genericRecord.get("cobrand").toString());
-        rawEvent.setAppId(genericRecord.get("appId").toString());
+        rawEvent.setCobrand(getStrOrDefault(genericRecord.get("cobrand"), null));
+        rawEvent.setAppId(getStrOrDefault(genericRecord.get("appId"), null));
         //User Agent
-        GenericRecord genericClientData = (GenericRecord) genericRecord.get("clientData");
-        Object agent = genericClientData.get("agent");
-        rawEvent.setUserAgent(agent != null ? agent.toString() : "");
-        rawEvent.setClientData(genericClientData.toString());
+        Map<String, String> genericClientData = (Map<String, String>)genericRecord.get("clientData");
+        String agent = genericClientData.get("agent");
+        rawEvent.setUserAgent(getStrOrDefault(agent, ""));
+        rawEvent.setClientData(getStrOrDefault(genericClientData, null));
         rawEvent.setPayload((Map<String, String>) genericRecord.get("applicationPayload"));
         //TODO has sqr been decoded?
-        rawEvent.setSqr(decodeSQR(genericRecord.get("sqr").toString()));
+//        rawEvent.setSqr(decodeSQR(getStrOrDefault(genericRecord.get("sqr"), null)));
+        rawEvent.setSqr(getStrOrDefault(genericRecord.get("sqr"), null));
         return rawEvent;
+    }
+
+    private String getStrOrDefault(Object o, String def) {
+        return o!= null ? o.toString() : def;
     }
 
     private String decodeSQR(String sqr) {
