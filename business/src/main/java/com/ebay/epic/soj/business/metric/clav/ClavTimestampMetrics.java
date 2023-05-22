@@ -16,41 +16,31 @@ public class ClavTimestampMetrics extends ClavSessionFieldMetrics {
 
     @Override
     public void start(ClavSession clavSession) throws Exception {
-        clavSession.setStartTimestamp(null);
-        clavSession.setExitTimestamp(null);
-        clavSession.setDuration(null);
+        clavSession.setStartTimestamp(Long.MAX_VALUE);
+        clavSession.setExitTimestamp(Long.MIN_VALUE);
+        clavSession.setDuration(Long.MIN_VALUE);
     }
 
     @Override
     public void process(UniEvent uniEvent, ClavSession clavSession) throws Exception {
         if (uniEvent.isClavValidPage() && !uniEvent.getIframe()) {
             if (uniEvent.getRdt() == 0 || indicator.isCorrespondingPageEvent(uniEvent.getPageId())) {
-                if (clavSession.getStartTimestamp() == null) {
-                    clavSession.setStartTimestamp(uniEvent.getEventTs());
-                } else if (uniEvent.getEventTs() != null && clavSession.getStartTimestamp() > uniEvent.getEventTs()) {
+                if (uniEvent.getEventTs() != null && clavSession.getStartTimestamp() > uniEvent.getEventTs()) {
                     clavSession.setStartTimestamp(uniEvent.getEventTs());
                 }
-                if (clavSession.getExitTimestamp() == null) {
-                    clavSession.setExitTimestamp(uniEvent.getEventTs());
-                } else if (uniEvent.getEventTs() != null
-                        && clavSession.getExitTimestamp() < uniEvent.getEventTs()) {
+                if (uniEvent.getEventTs() != null && clavSession.getExitTimestamp() < uniEvent.getEventTs()) {
                     clavSession.setExitTimestamp(uniEvent.getEventTs());
                 }
             }
-
         }
     }
 
     @Override
     public void end(ClavSession clavSession) throws Exception {
         long durationSec =
-                (clavSession.getStartTimestamp() == null
-                        || clavSession.getExitTimestamp() == null)
+                (clavSession.getStartTimestamp() == Long.MAX_VALUE || clavSession.getExitTimestamp() == Long.MIN_VALUE)
                         ? 0
-                        :
-                        ((clavSession.getExitTimestamp()
-                                - clavSession.getStartTimestamp())
-                                / 1000000);
+                        : ((clavSession.getExitTimestamp() - clavSession.getStartTimestamp()) / 1000000);
         clavSession.setDuration(durationSec);
     }
 

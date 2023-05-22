@@ -50,6 +50,7 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
         addClavSessionFieldMetrics(new ClavTimestampMetrics());
         // page id metrics is dependency on timestamp
         addClavSessionFieldMetrics(new PageIdMetrics());
+        addClavSessionFieldMetrics(new ValidPageCountMetrics());
     }
 
     @Override
