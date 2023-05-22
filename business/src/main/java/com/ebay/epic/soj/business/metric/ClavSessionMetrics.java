@@ -8,6 +8,7 @@ import com.ebay.epic.soj.common.model.raw.UbiKey;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.HashMap;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
@@ -86,6 +87,7 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
             clavSession.setSiteId(Integer.valueOf(uniEvent.getSiteId()));
             clavSession.setSessionId(uniEvent.getSessionId());
             clavSession.setBotFlag(0L);
+            clavSession.setOthers(new HashMap<>());
             uniSessionAccumulator.getUniSession().getClavSessionMap().put(ubiKey, clavSession);
         }
         return clavSession;

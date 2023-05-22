@@ -1,6 +1,6 @@
 flink:
   app:
-    name: Unified Sessionization Prod
+    name: Unified Sessionization Test
     parallelism:
       default: 50
       source:
@@ -107,12 +107,12 @@ flink:
                 nonbot: behavior.unified.sojourner.nonbot.late.sojevent-rno
           session:
             session:
-              nonbot: behavior.unified.sojourner.nonbot.unisession-rno
+              nonbot: behavior.unified.sojourner.nonbot.unisession-test-rno
         subject:
           autotrack: SessionizedEvent
           ubi: behavior.sojourner.sojevent.schema
           utp: UnifiedTrackingRheosEvent
-          session: unisessionschema
+          session: UniSessionTest
     metric:
       window-size: 70000
     slot-sharing-group:
@@ -187,7 +187,7 @@ flink:
         late: late-event-sink-to-kafka
 kafka:
   consumer:
-      group-id: unified-sessionization-prod
+      group-id: unified-sessionization-test
       topic:
         autotrack:
           web:
