@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.net.URL;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -178,6 +179,14 @@ public class UrlUtils {
             return decode;
         } catch (Exception e) {
             return encoded;
+        }
+    }
+
+    public static String encode(String decoded) {
+        try {
+            return URLEncoder.encode(decoded, "UTF-8");
+        } catch (Exception e) {
+            return decoded;
         }
     }
 

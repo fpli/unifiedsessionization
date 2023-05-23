@@ -3,7 +3,10 @@ package com.ebay.epic.soj.common.model.raw;
 import com.ebay.epic.soj.common.constant.Constants;
 import com.ebay.epic.soj.common.enums.Category;
 import com.ebay.epic.soj.common.enums.EventType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -12,6 +15,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Slf4j
 public class UniEvent {
     private String guid;

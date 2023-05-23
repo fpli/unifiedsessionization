@@ -4,6 +4,7 @@ import com.ebay.epic.soj.common.model.raw.UniEvent;
 import com.ebay.epic.soj.common.model.trafficsource.*;
 import com.ebay.epic.soj.common.utils.UrlUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.TestOnly;
 
 import java.util.List;
 
@@ -11,8 +12,18 @@ import static com.ebay.epic.soj.common.enums.EventType.*;
 import static com.ebay.epic.soj.common.model.trafficsource.TrafficSourceConstants.*;
 
 public class TrafficSourceDetector {
+    private final TrafficSourceLookupManager lookupManager;
+
+    public TrafficSourceDetector() {
+        lookupManager = TrafficSourceLookupManager.getInstance();
+    }
+
+    @TestOnly
+    public TrafficSourceDetector(TrafficSourceLookupManager lookupManager) {
+        this.lookupManager = lookupManager;
+    }
+
     public TrafficSourceCandidate extractCandidate(UniEvent uniEvent) {
-        TrafficSourceLookupManager lookupManager = TrafficSourceLookupManager.getInstance();
         int pageId = uniEvent.getPageId();
         // UBI event
         if (UBI_BOT.equals(uniEvent.getEventType()) || UBI_NONBOT.equals(uniEvent.getEventType())) {
@@ -22,7 +33,7 @@ public class TrafficSourceDetector {
                 event.setEventTimestamp(uniEvent.getEventTs());
                 event.setChnl(Integer.parseInt(uniEvent.getPayload().get(PAYLOAD_KEY_CHNL)));
                 long rotid = Long.parseLong(uniEvent.getPayload().get(PAYLOAD_KEY_ROTID));
-                event.setRotid(rotid);
+                event.setRotId(rotid);
                 event.setMpxChnlId(lookupManager.getDwMpxRotationMap().get(rotid).getMpxChnlId());
                 event.setUrl(UrlUtils.decode(uniEvent.getPayload().get(PAYLOAD_KEY_URL_MPRE)));
                 event.setPageId(pageId);
@@ -47,7 +58,7 @@ public class TrafficSourceDetector {
                     && !"unknown".equals(uniEvent.getPayload().get(PAYLOAD_KEY_REF))) {
                 DeeplinkActionEvent event = new DeeplinkActionEvent();
                 event.setEventTimestamp(uniEvent.getEventTs());
-                event.setReferer(uniEvent.getPayload().get(PAYLOAD_KEY_REF));
+                event.setReferer(UrlUtils.decode(uniEvent.getPayload().get(PAYLOAD_KEY_REF)));
                 return event;
             }
             // UBI valid event
@@ -150,7 +161,7 @@ public class TrafficSourceDetector {
             int mpxChnlId = utpEvent.getMpxChnlId();
             int chnl = utpEvent.getChnl();
             String url = utpEvent.getUrl();
-            details = chocolateTrafficSource(mpxChnlId, chnl, url, utpEvent.getRotid());
+            details = chocolateTrafficSource(mpxChnlId, chnl, url, utpEvent.getRotId());
             if (StringUtils.isNotEmpty(details.getTrafficSourceLevel3())) {
                 return details;
             }
@@ -165,7 +176,7 @@ public class TrafficSourceDetector {
             String mkrid = UrlUtils.getParamValue(firstEventUrl, "mkrid");
             if (StringUtils.isNotEmpty(mkrid)) {
                 rotId = Long.parseLong(mkrid);
-                mpxChnlId = TrafficSourceLookupManager.getInstance().getDwMpxRotationMap().get(rotId).getMpxChnlId();
+                mpxChnlId = lookupManager.getDwMpxRotationMap().get(rotId).getMpxChnlId();
             }
             details = chocolateTrafficSource(mpxChnlId, chnl, firstEventUrl, rotId);
             if (StringUtils.isNotEmpty(details.getTrafficSourceLevel3())) {
