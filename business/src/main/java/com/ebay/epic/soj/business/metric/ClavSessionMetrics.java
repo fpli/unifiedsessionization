@@ -6,6 +6,7 @@ import com.ebay.epic.soj.common.model.ClavSession;
 import com.ebay.epic.soj.common.model.UniSessionAccumulator;
 import com.ebay.epic.soj.common.model.raw.UbiKey;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
+import com.sun.jersey.client.impl.CopyOnWriteHashMap;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
@@ -38,7 +39,7 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
     }
     public void initFieldMetrics() {
         // Clav bot rule, now only handle ubi bot event rule
-        addClavSessionFieldMetrics(new BotMetrics());
+        addClavSessionFieldMetrics(new BotSessMetrics());
         //Page family cnt
         addClavSessionFieldMetrics(new Gr1CntMetrics());
         addClavSessionFieldMetrics(new GrCntMetrics());
@@ -88,7 +89,7 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
             clavSession.setSiteId(Integer.valueOf(uniEvent.getSiteId()));
             clavSession.setSessionId(uniEvent.getSessionId());
             clavSession.setBotFlag(0L);
-            clavSession.setOthers(new HashMap<>());
+            clavSession.setOthers(new CopyOnWriteHashMap<>());
             uniSessionAccumulator.getUniSession().getClavSessionMap().put(ubiKey, clavSession);
         }
         return clavSession;
