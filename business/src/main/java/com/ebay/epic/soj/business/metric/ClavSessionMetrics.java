@@ -8,6 +8,7 @@ import com.ebay.epic.soj.common.model.raw.UbiKey;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
@@ -22,8 +23,8 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
         for (FieldMetrics<UniEvent, ClavSession> metrics : fieldMetrics) {
             try {
                 metrics.init();
-            }catch(Exception e){
-                log.warn(" Clav session metrics init issue :{}",e);
+            } catch (Exception e) {
+                log.warn(" Clav session metrics init issue :{%s}", e);
             }
         }
     }
@@ -33,9 +34,10 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
         try {
             init();
         } catch (Exception e) {
-            log.warn("Failed to init session metrics", e);
+            log.warn("Failed to init session metrics {%s}", e);
         }
     }
+
     public void initFieldMetrics() {
         // Clav bot rule, now only handle ubi bot event rule
         addClavSessionFieldMetrics(new BotMetrics());
@@ -61,12 +63,26 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
 
     @Override
     public void process(UniEvent uniEvent, UniSessionAccumulator uniSessionAccumulator) throws Exception {
-       ClavSession clavSession = getOrDefault(uniSessionAccumulator,uniEvent);
+        ClavSession clavSession = getOrDefault(uniSessionAccumulator, uniEvent);
         for (FieldMetrics<UniEvent, ClavSession> metrics : fieldMetrics) {
             try {
                 metrics.process(uniEvent, clavSession);
-            }catch(Exception e){
-                log.warn(" Clav session metric feed issue :{}",e);
+            } catch (Exception e) {
+                log.warn(" Clav session metric feed issue :{%s}", e);
+            }
+        }
+    }
+
+    @Override
+    public void end(UniSessionAccumulator uniSessionAccumulator) throws Exception {
+        Collection<ClavSession> clavSessions = uniSessionAccumulator.getUniSession().getClavSessionMap().values();
+        for (ClavSession clavSession : clavSessions) {
+            for (FieldMetrics<UniEvent, ClavSession> metrics : fieldMetrics) {
+                try {
+                    metrics.end(clavSession);
+                } catch (Exception e) {
+                    log.warn(" Clav session metric end issue :{%s}", e);
+                }
             }
         }
     }
@@ -81,7 +97,7 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
     }
 
     public ClavSession getOrDefault(UniSessionAccumulator uniSessionAccumulator, UniEvent uniEvent) {
-        UbiKey ubiKey = new UbiKey(uniEvent.getGuid(), uniEvent.getGlobalSessionId(),uniEvent.getSiteId());
+        UbiKey ubiKey = new UbiKey(uniEvent.getGuid(), uniEvent.getGlobalSessionId(), uniEvent.getSiteId());
         ClavSession clavSession = uniSessionAccumulator.getUniSession().getClavSessionMap().get(ubiKey);
         if (clavSession == null) {
             clavSession = new ClavSession();
