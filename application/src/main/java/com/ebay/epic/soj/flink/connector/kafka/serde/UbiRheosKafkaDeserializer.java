@@ -36,7 +36,7 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         rawEvent.setAppId(getStrOrDefault(genericRecord.get("appId"), null));
         //User Agent
         Map<String, String> genericClientData = (Map<String, String>)genericRecord.get("clientData");
-        String agent = genericClientData.get("agent");
+        String agent = genericClientData.get("Agent");
         rawEvent.setUserAgent(getStrOrDefault(agent, ""));
         rawEvent.setClientData(getStrOrDefault(genericClientData, null));
         rawEvent.setPayload((Map<String, String>) genericRecord.get("applicationPayload"));
@@ -46,8 +46,8 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         return rawEvent;
     }
 
-    private String getStrOrDefault(Object o, String def) {
-        return o!= null ? o.toString() : def;
+    private String getStrOrDefault(Object o, String defaultStr) {
+        return o!= null ? o.toString() : defaultStr;
     }
 
     private String decodeSQR(String sqr) {

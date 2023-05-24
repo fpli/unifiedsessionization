@@ -23,9 +23,7 @@ import com.ebay.epic.soj.common.enums.EventType;
 import com.ebay.epic.soj.common.model.UniSession;
 import com.ebay.epic.soj.common.model.raw.RawEvent;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
-import com.ebay.epic.soj.flink.function.RawEventMapWithStateFunction;
-import com.ebay.epic.soj.flink.function.UniSessionAgg;
-import com.ebay.epic.soj.flink.function.UniSessionWindowProcessFunction;
+import com.ebay.epic.soj.flink.function.*;
 import com.ebay.epic.soj.flink.window.CompositeTrigger;
 import com.ebay.epic.soj.flink.window.MidnightOpenSessionTrigger;
 import com.ebay.epic.soj.flink.window.RawEventTimeSessionWindows;
@@ -43,9 +41,9 @@ import org.apache.flink.streaming.runtime.operators.windowing.WindowOperatorHelp
 import static com.ebay.epic.soj.common.enums.DataCenter.*;
 import static com.ebay.epic.soj.common.enums.EventType.SESSION_BOT;
 import static com.ebay.epic.soj.flink.constant.OutputTagConstants.*;
-import static com.ebay.epic.soj.flink.constant.OutputTagConstants.uniSessBotOutputTag;
-import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.getInteger;
-import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.getString;
+import static com.ebay.epic.soj.common.enums.DataCenter.*;
+import static com.ebay.epic.soj.common.enums.EventType.*;
+import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.*;
 import static com.ebay.epic.soj.common.utils.Property.*;
 
 public class UniSessRTJobQA extends FlinkBaseJob {
