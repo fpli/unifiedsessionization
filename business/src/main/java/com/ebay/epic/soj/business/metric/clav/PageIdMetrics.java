@@ -25,6 +25,7 @@ public class PageIdMetrics extends ClavSessionFieldMetrics {
 
     @Override
     public void process(UniEvent event, ClavSession clavSession) throws Exception {
+        System.out.printf("PageIdMetrics Process Start: event is {%s}, clav session is:{%s}%n", event.toString(), clavSession.toString());
         if (event.isClavValidPage() && event.getIframe()) {
             if (event.getRdt() == 0 || indicator.isCorrespondingPageEvent(event.getPageId())) {
                 boolean isEarlyValidEvent = SojEventTimeUtil.isEarlyEvent(event.getEventTs(), clavSession.getStartTimestamp());
@@ -40,15 +41,18 @@ public class PageIdMetrics extends ClavSessionFieldMetrics {
                 }
             }
         }
+        System.out.printf("PageIdMetrics Process Finish: event is {%s}, clav session is:{%s}%n", event.toString(), clavSession.toString());
     }
 
     @Override
     public void end(ClavSession clavSession) throws Exception {
+        System.out.printf("PageIdMetrics End Start: clav session is {%s}%n", clavSession.toString());
         if (clavSession.getStartPageId() == Integer.MIN_VALUE) {
             clavSession.setStartPageId(0);
         }
         if (clavSession.getExitPageId() == Integer.MIN_VALUE) {
             clavSession.setExitPageId(0);
         }
+        System.out.printf("PageIdMetrics End Finish: clav session is {%s}%n", clavSession.toString());
     }
 }
