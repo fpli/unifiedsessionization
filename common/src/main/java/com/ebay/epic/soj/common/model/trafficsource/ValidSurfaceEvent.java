@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ValidSurfaceEvent extends TrafficSourceCandidate {
-    private Integer pageId;
+    private int pageId;
     private String pageName;
     private String referer;
     private String url;
