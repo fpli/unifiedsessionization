@@ -94,7 +94,7 @@ public class FlinkEnvUtils {
         conf.setTolerableCheckpointFailureNumber(getInteger(Property.TOLERATE_FAILURE_CHECKPOINT_NUMBER));
 
         // state config
-        env.setStateBackend(StateBackendFactory.getStateBackend(StateBackendFactory.ROCKSDB));
+        env.setStateBackend(StateBackendFactory.getStateBackend(StateBackendFactory.FS));
 
         return env;
     }
