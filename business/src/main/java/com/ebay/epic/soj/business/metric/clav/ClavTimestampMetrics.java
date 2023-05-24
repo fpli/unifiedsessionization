@@ -23,6 +23,7 @@ public class ClavTimestampMetrics extends ClavSessionFieldMetrics {
 
     @Override
     public void process(UniEvent uniEvent, ClavSession clavSession) throws Exception {
+        System.out.printf("ClavTimestampMetrics Process Start: event is {%s}, clav session is:{%s}%n", uniEvent.toString(), clavSession.toString());
         if (uniEvent.isClavValidPage() && !uniEvent.getIframe()) {
             if (uniEvent.getRdt() == 0 || indicator.isCorrespondingPageEvent(uniEvent.getPageId())) {
                 if (uniEvent.getEventTs() != null && clavSession.getStartTimestamp() > uniEvent.getEventTs()) {
@@ -33,15 +34,18 @@ public class ClavTimestampMetrics extends ClavSessionFieldMetrics {
                 }
             }
         }
+        System.out.printf("ClavTimestampMetrics Process Finish: event is {%s}, clav session is:{%s}%n", uniEvent.toString(), clavSession.toString());
     }
 
     @Override
     public void end(ClavSession clavSession) throws Exception {
-        long durationSec =
+        System.out.printf("ClavTimestampMetrics End Start: clav session is:{%s}%n", clavSession.toString());
+        long duration =
                 (clavSession.getStartTimestamp() == Long.MAX_VALUE || clavSession.getExitTimestamp() == Long.MIN_VALUE)
                         ? 0
-                        : ((clavSession.getExitTimestamp() - clavSession.getStartTimestamp()) / 1000000);
-        clavSession.setDuration(durationSec);
+                        : clavSession.getExitTimestamp() - clavSession.getStartTimestamp();
+        clavSession.setDuration(duration);
+        System.out.printf("ClavTimestampMetrics End Finish: clav session is:{%s}%n", clavSession.toString());
     }
 
 
