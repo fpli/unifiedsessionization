@@ -40,11 +40,11 @@ public class ClavTimestampMetrics extends ClavSessionFieldMetrics {
     @Override
     public void end(ClavSession clavSession) throws Exception {
         System.out.printf("ClavTimestampMetrics End Start: clav session is:{%s}%n", clavSession.toString());
-        long durationSec =
+        long duration =
                 (clavSession.getStartTimestamp() == Long.MAX_VALUE || clavSession.getExitTimestamp() == Long.MIN_VALUE)
                         ? 0
-                        : ((clavSession.getExitTimestamp() - clavSession.getStartTimestamp()) / 1000000);
-        clavSession.setDuration(durationSec);
+                        : clavSession.getExitTimestamp() - clavSession.getStartTimestamp();
+        clavSession.setDuration(duration);
         System.out.printf("ClavTimestampMetrics End Finish: clav session is:{%s}%n", clavSession.toString());
     }
 
