@@ -23,7 +23,7 @@ public class ClavTimestampMetrics extends ClavSessionFieldMetrics {
     @Override
     public void end(ClavSession clavSession) throws Exception {
         long duration =
-                (clavSession.getStartTimestamp() == Long.MAX_VALUE || clavSession.getExitTimestamp() == Long.MIN_VALUE)
+                (clavSession.getStartTimestamp() == 0 || clavSession.getExitTimestamp() == 0)
                         ? 0
                         : clavSession.getExitTimestamp() - clavSession.getStartTimestamp();
         clavSession.setDuration(duration);
