@@ -17,8 +17,10 @@ public class PageIdMetrics extends ClavSessionFieldMetrics {
                     clavSession.setStartPageId(event.getPageId());
                 }
             }
-            if (isLateValidEvent && event.getPageId() != -1) {
-                clavSession.setExitPageId(event.getPageId());
+            if (clavSession.getExitPageId() == 0 || isLateValidEvent) {
+                if (event.getPageId() != -1) {
+                    clavSession.setExitPageId(event.getPageId());
+                }
             }
         }
     }
