@@ -5,10 +5,13 @@ import com.ebay.sojourner.common.util.RegexReplace;
 import com.ebay.sojourner.common.util.SOJURLDecodeEscape;
 import io.ebay.rheos.schema.event.RheosEvent;
 import org.apache.avro.generic.GenericRecord;
+import org.apache.avro.util.Utf8;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 
@@ -35,9 +38,11 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         rawEvent.setCobrand(getStrOrDefault(genericRecord.get("cobrand"), null));
         rawEvent.setAppId(getStrOrDefault(genericRecord.get("appId"), null));
         //User Agent
-        Map<String, String> genericClientData = (Map<String, String>)genericRecord.get("clientData");
-        String agent = genericClientData.get("Agent");
-        rawEvent.setUserAgent(getStrOrDefault(agent, ""));
+        Map<Object, Object> genericClientData = (Map<Object, Object>)genericRecord.get("clientData");
+        Object agent = genericClientData.get(new Utf8("Agent"));
+        String agentStr = (agent == null ? null:agent.toString());
+
+        rawEvent.setUserAgent(getStrOrDefault(agentStr, ""));
         rawEvent.setClientData(getStrOrDefault(genericClientData, null));
         rawEvent.setPayload((Map<String, String>) genericRecord.get("applicationPayload"));
         //TODO has sqr been decoded?
@@ -45,7 +50,6 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         rawEvent.setSqr(getStrOrDefault(genericRecord.get("sqr"), null));
         return rawEvent;
     }
-
     private String getStrOrDefault(Object o, String defaultStr) {
         return o!= null ? o.toString() : defaultStr;
     }
