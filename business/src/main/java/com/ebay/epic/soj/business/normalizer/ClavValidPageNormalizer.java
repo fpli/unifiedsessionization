@@ -33,19 +33,18 @@ public class ClavValidPageNormalizer extends FieldNormalizer<RawEvent, UniEvent>
 
     @Override
     public void normalize(RawEvent src, UniEvent tar) throws Exception {
-        if (checkIsValidEvent(src.getPageId(), src.getClientData(), src.getSqr(), Integer.parseInt(src.getSiteId()), src.getPayload(), src.getRdt() != 0, src.getIframe())) {
+        if (checkIsValidEvent(src.getPageId(), src.getClientData(), src.getSqr(), Integer.parseInt(src.getSiteId()), src.getPayload(), src.getRdt() != 0, src.getIframe(), src.getPageUrl())) {
             tar.setClavValidPage(true);
         } else {
             tar.setPartialValidPage(false);
         }
     }
 
-    private boolean checkIsValidEvent(Integer pageId, String clientData, String sqr, Integer siteId, Map<String, String> payload, boolean isRdt, boolean isIframe) {
+    private boolean checkIsValidEvent(Integer pageId, String clientData, String sqr, Integer siteId, Map<String, String> payload, boolean isRdt, boolean isIframe, String urlQueryString) {
         if (isWhiteListPage(pageId)) {
             return true;
         }
         int csTracking = 0;
-        String urlQueryString = payload == null ? null : payload.get("urlQueryString");
         if (StringUtils.isNotBlank(urlQueryString) &&
                 (urlQueryString.startsWith("/roverimp") || urlQueryString.contains("SojPageView"))) {
             csTracking = 1;
