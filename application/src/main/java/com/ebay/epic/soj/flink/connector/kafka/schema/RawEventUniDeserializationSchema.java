@@ -44,8 +44,10 @@ public class RawEventUniDeserializationSchema implements DeserializationSchema<R
             rawEvent = (RawEvent) rawEventDeserFactory.getDeserializer(SchemaSubject.of(subjectName)).decodeValue(message);
         } catch (Exception e) {
             droppedEventCounter.inc();
+            // debug mode
             e.printStackTrace();
             throw new IOException(e);
+            // prod mode
 //            return null;
         }
         rawEvent.setIngestTimestamp(ingestTime);

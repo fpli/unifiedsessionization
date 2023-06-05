@@ -122,7 +122,7 @@ public class RawUniSession {
             src.setSiteId(tgt.getSiteId());
             src.setSessionId(tgt.getSessionId());
             minStart=tgt.getStartTimestamp();
-        } else if (src.getStartTimestamp() != null && this.getStartTimestamp() > tgt
+        } else if (src.getStartTimestamp() != null && src.getStartTimestamp() > tgt
                 .getStartTimestamp()) {
             src.setStartTimestamp(tgt.getStartTimestamp());
             src.setStartPageId(tgt.getStartPageId());
@@ -135,7 +135,7 @@ public class RawUniSession {
             src.setExitTimestamp(tgt.getExitTimestamp());
             src.setExitPageId(tgt.getExitPageId());
             maxEnd=tgt.getExitTimestamp();
-        } else if (tgt.getExitTimestamp() != null && this.getEndTimestamp() < tgt
+        } else if (tgt.getExitTimestamp() != null && src.getExitTimestamp() < tgt
                 .getExitTimestamp()) {
             src.setExitTimestamp(tgt.getExitTimestamp());
             src.setExitPageId(tgt.getExitPageId());

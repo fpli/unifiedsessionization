@@ -120,20 +120,20 @@ public class UniSessRTJob extends FlinkBaseJob {
 
         // filter out each kind of event , surface native,web; ubi bot nonbot...etc
 
-        SingleOutputStreamOperator<UniEvent> outputStreamOperator = uniSessRTJob.uniEevntSplitFunctionBuilder
-                (uniEventDS, EventType.DEFAULT,true);
-        DataStream<UniEvent> surfaceWebDS = outputStreamOperator.getSideOutput(atWEBOutputTag);
-        DataStream<UniEvent> surfaceNativeDS = outputStreamOperator.getSideOutput(atNATIVEOutputTag);
-        DataStream<UniEvent> ubiBotDS = outputStreamOperator.getSideOutput(ubiBOTOutputTag);
-        DataStream<UniEvent> ubiNonBotDS = outputStreamOperator.getSideOutput(ubiNONBOTOutputTag);
+//        SingleOutputStreamOperator<UniEvent> outputStreamOperator = uniSessRTJob.uniEevntSplitFunctionBuilder
+//                (uniEventDS, EventType.DEFAULT,true);
+//        DataStream<UniEvent> surfaceWebDS = outputStreamOperator.getSideOutput(atWEBOutputTag);
+//        DataStream<UniEvent> surfaceNativeDS = outputStreamOperator.getSideOutput(atNATIVEOutputTag);
+//        DataStream<UniEvent> ubiBotDS = outputStreamOperator.getSideOutput(ubiBOTOutputTag);
+//        DataStream<UniEvent> ubiNonBotDS = outputStreamOperator.getSideOutput(ubiNONBOTOutputTag);
 
         // filter our each kind of event based on late events
-        SingleOutputStreamOperator<UniEvent> outputStreamOperatorLate = uniSessRTJob.uniEevntSplitFunctionBuilder
-                (latedStream, DEFAULT_LATE,false);
-        DataStream<UniEvent> surfaceLateWebDS = outputStreamOperatorLate.getSideOutput(atWEBOutputTagLate);
-        DataStream<UniEvent> surfaceLateNativeDS = outputStreamOperatorLate.getSideOutput(atNATIVEOutputTagLate);
-        DataStream<UniEvent> ubiBotLateDS = outputStreamOperatorLate.getSideOutput(ubiBOTOutputTagLate);
-        DataStream<UniEvent> ubiNonLateBotDS = outputStreamOperatorLate.getSideOutput(ubiNONBOTOutputTagLate);
+//        SingleOutputStreamOperator<UniEvent> outputStreamOperatorLate = uniSessRTJob.uniEevntSplitFunctionBuilder
+//                (latedStream, DEFAULT_LATE,false);
+//        DataStream<UniEvent> surfaceLateWebDS = outputStreamOperatorLate.getSideOutput(atWEBOutputTagLate);
+//        DataStream<UniEvent> surfaceLateNativeDS = outputStreamOperatorLate.getSideOutput(atNATIVEOutputTagLate);
+//        DataStream<UniEvent> ubiBotLateDS = outputStreamOperatorLate.getSideOutput(ubiBOTOutputTagLate);
+//        DataStream<UniEvent> ubiNonLateBotDS = outputStreamOperatorLate.getSideOutput(ubiNONBOTOutputTagLate);
 
         // filter our each kind of event based on late events
         SingleOutputStreamOperator<UniSession> outputStreamOperatorSess =
@@ -142,10 +142,10 @@ public class UniSessRTJob extends FlinkBaseJob {
         DataStream<UniSession> uniSessionBotDS = outputStreamOperatorSess.getSideOutput(uniSessBotOutputTag);
 
         // normal event sink
-        uniSessRTJob.kafkaSinkBuilder(surfaceWebDS, AUTOTRACK_WEB, RNO);
-        uniSessRTJob.kafkaSinkBuilder(surfaceNativeDS, AUTOTRACK_NATIVE, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiBotDS, UBI_BOT, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiNonBotDS, UBI_NONBOT, RNO);
+//        uniSessRTJob.kafkaSinkBuilder(surfaceWebDS, AUTOTRACK_WEB, RNO);
+//        uniSessRTJob.kafkaSinkBuilder(surfaceNativeDS, AUTOTRACK_NATIVE, RNO);
+//        uniSessRTJob.kafkaSinkBuilder(ubiBotDS, UBI_BOT, RNO);
+//        uniSessRTJob.kafkaSinkBuilder(ubiNonBotDS, UBI_NONBOT, RNO);
 
         // unisession sink
         uniSessRTJob.kafkaSinkBuilder(uniSessionNonbotDS, SESSION_NONBOT, RNO);
@@ -153,10 +153,10 @@ public class UniSessRTJob extends FlinkBaseJob {
         //        uniSessRTJob.kafkaSinkBuilder(uniSessionBotDS, SESSION_BOT, RNO);
 
         // late event sink
-        uniSessRTJob.kafkaSinkBuilder(surfaceLateWebDS, LATE_WEB, RNO);
-        uniSessRTJob.kafkaSinkBuilder(surfaceLateNativeDS, LATE_NATIVE, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiBotLateDS, LATE_UBI_BOT, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiNonLateBotDS, LATE_UBI_NONBOT, RNO);
+//        uniSessRTJob.kafkaSinkBuilder(surfaceLateWebDS, LATE_WEB, RNO);
+//        uniSessRTJob.kafkaSinkBuilder(surfaceLateNativeDS, LATE_NATIVE, RNO);
+//        uniSessRTJob.kafkaSinkBuilder(ubiBotLateDS, LATE_UBI_BOT, RNO);
+//        uniSessRTJob.kafkaSinkBuilder(ubiNonLateBotDS, LATE_UBI_NONBOT, RNO);
 
         //        //Discardsink
         //        // normal event sink

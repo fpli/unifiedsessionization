@@ -199,15 +199,16 @@ kafka:
         ubi:
           ubi:
             nonbot:
-              - behavior.totalv2.sojevent-nonbot-rno
-              - behavior.totalv2.sojevent-nonbot-lvs
+              - behavior.totalv3.sojevent-nonbot-rno
+              - behavior.totalv3.sojevent-nonbot-lvs
             bot:
-              - behavior.totalv2.sojevent-bot-rno
-              - behavior.totalv2.sojevent-bot-lvs
+              - behavior.totalv3.sojevent-bot-rno
+              - behavior.totalv3.sojevent-bot-lvs
         utp:
           utp:
             nonbot:
               - marketing.tracking.events.total
+
       bootstrap-servers:
         rno:
           autotrack:
@@ -217,11 +218,11 @@ kafka:
             - rhs-bkuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
             - rhs-bkuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
           ubi:
-            - rhs-fxuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.37.tess.io:9092
-            - rhs-fxuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.37.tess.io:9092
-            - rhs-fxuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.37.tess.io:9092
-            - rhs-fxuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.37.tess.io:9092
-            - rhs-fxuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.37.tess.io:9092
+            - rhs-lpdwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+            - rhs-lpdwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+            - rhs-lpdwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+            - rhs-lpdwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+            - rhs-lpdwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
         lvs:
           autotrack:
             - rhs-lpuvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.27.tess.io:9092
@@ -230,11 +231,11 @@ kafka:
             - rhs-lpuvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.27.tess.io:9092
             - rhs-lpuvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.27.tess.io:9092
           ubi:
-            - rhs-ravvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.38.tess.io:9092
-            - rhs-ravvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.38.tess.io:9092
-            - rhs-ravvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.38.tess.io:9092
-            - rhs-ravvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.38.tess.io:9092
-            - rhs-ravvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.38.tess.io:9092
+            - rhs-opdwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+            - rhs-opdwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+            - rhs-opdwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+            - rhs-opdwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+            - rhs-opdwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
           utp:
             - rhs-hcrvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.27.tess.io:9092
             - rhs-hcrvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.27.tess.io:9092
