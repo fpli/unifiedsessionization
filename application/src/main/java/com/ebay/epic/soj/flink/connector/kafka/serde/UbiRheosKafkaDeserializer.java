@@ -1,6 +1,7 @@
 package com.ebay.epic.soj.flink.connector.kafka.serde;
 
 import com.ebay.epic.soj.common.model.raw.RawEvent;
+import com.ebay.sojourner.common.util.PropertyUtils;
 import com.ebay.sojourner.common.util.RegexReplace;
 import com.ebay.sojourner.common.util.SOJURLDecodeEscape;
 import io.ebay.rheos.schema.event.RheosEvent;
@@ -10,8 +11,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +25,7 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
     @Override
     public RawEvent convert(GenericRecord genericRecord, RheosEvent rheosEvent) {
         RawEvent rawEvent = new RawEvent();
-        rawEvent.setGuid(getStrOrDefault(genericRecord.get("guid"),null));
+        rawEvent.setGuid(getStrOrDefault(genericRecord.get("guid"), null));
         rawEvent.setUserId(getStrOrDefault(genericRecord.get("userId"), null));
         rawEvent.setSiteId(getStrOrDefault(genericRecord.get("siteId"), null));
         rawEvent.setPageId(Integer.valueOf(getStrOrDefault(genericRecord.get("pageId"), "0")));
@@ -41,19 +42,34 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         Map<Object, Object> genericClientData = (Map<Object, Object>)genericRecord.get("clientData");
         Object agent = genericClientData.get(new Utf8("Agent"));
         String agentStr = (agent == null ? null:agent.toString());
-
         rawEvent.setUserAgent(getStrOrDefault(agentStr, ""));
-        rawEvent.setClientData(getStrOrDefault(genericClientData, null));
+        rawEvent.setClientData(utfMapToString(genericClientData == null ? Collections.emptyMap() : genericClientData));
+
         rawEvent.setPayload((Map<String, String>) genericRecord.get("applicationPayload"));
-        //TODO has sqr been decoded?
-//        rawEvent.setSqr(decodeSQR(getStrOrDefault(genericRecord.get("sqr"), null)));
         rawEvent.setSqr(getStrOrDefault(genericRecord.get("sqr"), null));
+        rawEvent.setPageUrl(getStrOrDefault(genericClientData.get("urlQueryString"), null));
         return rawEvent;
     }
     private String getStrOrDefault(Object o, String defaultStr) {
-        return o!= null ? o.toString() : defaultStr;
+        return o != null ? o.toString() : defaultStr;
     }
 
+
+    public static String utfMapToString(Map<Object, Object> sojMap) {
+        StringBuilder sb = new StringBuilder();
+        Iterator var2 = sojMap.entrySet().iterator();
+
+        while(var2.hasNext()) {
+            Map.Entry<Object, Object> pair = (Map.Entry)var2.next();
+            sb.append(pair.getKey().toString()).append("=").append(pair.getValue().toString()).append("&");
+        }
+
+        if (sb.length() > 0) {
+            sb.deleteCharAt(sb.length() - 1);
+        }
+
+        return sb.toString();
+    }
     private String decodeSQR(String sqr) {
         if (sqr != null && StringUtils.isNoneBlank(sqr)) {
             try {
