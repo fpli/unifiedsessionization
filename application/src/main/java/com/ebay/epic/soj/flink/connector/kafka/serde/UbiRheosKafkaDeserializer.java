@@ -1,6 +1,7 @@
 package com.ebay.epic.soj.flink.connector.kafka.serde;
 
 import com.ebay.epic.soj.common.model.raw.RawEvent;
+import com.ebay.sojourner.common.util.PropertyUtils;
 import com.ebay.sojourner.common.util.RegexReplace;
 import com.ebay.sojourner.common.util.SOJURLDecodeEscape;
 import io.ebay.rheos.schema.event.RheosEvent;
@@ -9,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +23,7 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
     @Override
     public RawEvent convert(GenericRecord genericRecord, RheosEvent rheosEvent) {
         RawEvent rawEvent = new RawEvent();
-        rawEvent.setGuid(getStrOrDefault(genericRecord.get("guid"),null));
+        rawEvent.setGuid(getStrOrDefault(genericRecord.get("guid"), null));
         rawEvent.setUserId(getStrOrDefault(genericRecord.get("userId"), null));
         rawEvent.setSiteId(getStrOrDefault(genericRecord.get("siteId"), null));
         rawEvent.setPageId(Integer.valueOf(getStrOrDefault(genericRecord.get("pageId"), "0")));
@@ -38,16 +40,15 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         Map<String, String> genericClientData = (Map<String, String>)genericRecord.get("clientData");
         String agent = genericClientData.get("Agent");
         rawEvent.setUserAgent(getStrOrDefault(agent, ""));
-        rawEvent.setClientData(getStrOrDefault(genericClientData, null));
+        rawEvent.setClientData(PropertyUtils.mapToString(genericClientData == null ? Collections.emptyMap() : genericClientData));
         rawEvent.setPayload((Map<String, String>) genericRecord.get("applicationPayload"));
-        //TODO has sqr been decoded?
-//        rawEvent.setSqr(decodeSQR(getStrOrDefault(genericRecord.get("sqr"), null)));
         rawEvent.setSqr(getStrOrDefault(genericRecord.get("sqr"), null));
+        rawEvent.setPageUrl(getStrOrDefault(genericClientData.get("urlQueryString"), null));
         return rawEvent;
     }
 
     private String getStrOrDefault(Object o, String defaultStr) {
-        return o!= null ? o.toString() : defaultStr;
+        return o != null ? o.toString() : defaultStr;
     }
 
     private String decodeSQR(String sqr) {
