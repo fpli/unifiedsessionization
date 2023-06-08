@@ -35,6 +35,7 @@
         <jackson.version>2.9.8</jackson.version>
         <avro.version>1.8.2</avro.version>
         <rheos.client.version>2.0.11</rheos.client.version>
+        <junit-jupiter.version>5.6.2</junit-jupiter.version>
         <mockito.version>3.5.10</mockito.version>
         <powermock.version>2.0.7</powermock.version>
         <assertj.version>3.17.2</assertj.version>

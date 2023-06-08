@@ -6,6 +6,7 @@ import com.ebay.epic.soj.common.model.RheosHeader;
 import com.ebay.epic.soj.common.model.UniSession;
 import com.ebay.epic.soj.common.model.raw.RawUniSession;
 import com.ebay.epic.soj.common.model.UniSessionAccumulator;
+import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceDetails;
 import com.google.common.collect.Lists;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.typeutils.base.LongSerializer;
@@ -56,6 +57,10 @@ public class UniSessionWindowProcessFunction
         botFlag.setUbi(Lists.newArrayList(rawUniSession.getUbiBotList()));
         botFlag.setUtp(Lists.newArrayList(rawUniSession.getSutpBotList()));
         uniSession.setBotFlag(botFlag);
+        TrafficSourceDetails trafficSourceDetails = rawUniSession.getTrafficSourceDetails();
+        if (trafficSourceDetails != null && trafficSourceDetails.getTrafficSourceLevel3() != null) {
+            uniSession.setTrafficSource(trafficSourceDetails.toMap());
+        }
         out.collect(uniSession);
     }
 

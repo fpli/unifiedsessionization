@@ -2,6 +2,8 @@ package com.ebay.epic.soj.common.model.raw;
 
 import com.ebay.epic.soj.common.enums.TrafficSource;
 import com.ebay.epic.soj.common.model.ClavSession;
+import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceCandidates;
+import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceDetails;
 import lombok.Data;
 
 import java.util.*;
@@ -18,6 +20,8 @@ public class RawUniSession {
     private Long startTimestamp;
     private TrafficSource trafficSource = TrafficSource.EMPTY;
     private Long trafficSourceTs;
+    private TrafficSourceCandidates trafficSourceCandidates = new TrafficSourceCandidates();
+    private TrafficSourceDetails trafficSourceDetails;
     private Set<String> ubiSessIds = new CopyOnWriteArraySet<>();
     private Set<Long> ubiSessSkeys = new CopyOnWriteArraySet<>();
     private Set<Long> autotrackSessIds = new CopyOnWriteArraySet<>();
