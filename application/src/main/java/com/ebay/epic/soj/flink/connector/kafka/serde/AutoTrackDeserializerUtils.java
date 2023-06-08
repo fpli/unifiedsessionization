@@ -1,7 +1,7 @@
 package com.ebay.epic.soj.flink.connector.kafka.serde;
 
 import com.google.common.collect.Lists;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 import java.util.regex.Matcher;

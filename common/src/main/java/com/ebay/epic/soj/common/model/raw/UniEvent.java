@@ -38,7 +38,7 @@ public class UniEvent {
     private String referer;
     // both for traffic source and Clav session extension
     // See TrafficSourceConstants for available applicationPayload keys
-    private Map<String,String> payload = new HashMap<>();
+    private Map<String,String> payload = new ConcurrentHashMap<>();
     private String pageUrl;
     private String experience;
     private boolean partialValidPage = true;
