@@ -65,13 +65,12 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
 
         while(var2.hasNext()) {
             Map.Entry<Object, Object> pair = (Map.Entry)var2.next();
-            sb.append(pair.getKey().toString()).append("=").append(pair.getValue().toString()).append("&");
+            sb.append(pair.getKey().toString().toLowerCase()).append("=").append(pair.getValue().toString()).append("&");
         }
 
         if (sb.length() > 0) {
             sb.deleteCharAt(sb.length() - 1);
         }
-
         return sb.toString();
     }
     private String decodeSQR(String sqr) {
