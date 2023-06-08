@@ -71,7 +71,6 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         if (sb.length() > 0) {
             sb.deleteCharAt(sb.length() - 1);
         }
-
         return sb.toString();
     }
     private String decodeSQR(String sqr) {
