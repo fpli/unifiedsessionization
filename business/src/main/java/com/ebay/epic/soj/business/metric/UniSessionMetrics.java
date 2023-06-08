@@ -1,5 +1,6 @@
 package com.ebay.epic.soj.business.metric;
 
+import com.ebay.epic.soj.business.metric.trafficsource.TrafficSourceMetrics;
 import com.ebay.epic.soj.common.model.UniSessionAccumulator;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
 import lombok.extern.slf4j.Slf4j;
@@ -39,5 +40,6 @@ public class UniSessionMetrics extends RecordMetrics<UniEvent, UniSessionAccumul
     addFieldMetrics(new BotFlagMetrics());
     addFieldMetrics(new UbiGeneralMetrics());
     addFieldMetrics(new ClavSessionMetrics());
+    addFieldMetrics(new TrafficSourceMetrics());
   }
 }

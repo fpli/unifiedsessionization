@@ -18,6 +18,9 @@ import java.util.Map;
 
 public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> {
 
+    private UbiTrafficSourceDeserializer ubiTrafficSourceDeserializer =
+            new UbiTrafficSourceDeserializer();
+
     public UbiRheosKafkaDeserializer(String schemaRegistryUrl) {
         super(schemaRegistryUrl);
     }
@@ -48,6 +51,7 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         rawEvent.setPayload((Map<String, String>) genericRecord.get("applicationPayload"));
         rawEvent.setSqr(getStrOrDefault(genericRecord.get("sqr"), null));
         rawEvent.setPageUrl(getStrOrDefault(genericClientData.get("urlQueryString"), null));
+        ubiTrafficSourceDeserializer.convert(genericRecord, rawEvent);
         return rawEvent;
     }
     private String getStrOrDefault(Object o, String defaultStr) {

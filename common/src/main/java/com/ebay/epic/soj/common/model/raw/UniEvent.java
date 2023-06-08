@@ -3,7 +3,10 @@ package com.ebay.epic.soj.common.model.raw;
 import com.ebay.epic.soj.common.constant.Constants;
 import com.ebay.epic.soj.common.enums.Category;
 import com.ebay.epic.soj.common.enums.EventType;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -12,6 +15,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Slf4j
 public class UniEvent {
     private String guid;
@@ -34,9 +40,11 @@ public class UniEvent {
     private Long kafkaReceivedTimestamp;
 
     // for traffic source
+    private String entityType;
     private String referer;
     // both for traffic source and Clav session extension
-    private Map<String,String> payload;
+    // See TrafficSourceConstants for available applicationPayload keys
+    private Map<String,String> payload = new ConcurrentHashMap<>();
     private String pageUrl;
     private String experience;
     private boolean partialValidPage = true;
