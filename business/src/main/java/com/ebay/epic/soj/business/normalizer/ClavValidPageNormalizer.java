@@ -77,7 +77,7 @@ public class ClavValidPageNormalizer extends FieldNormalizer<RawEvent, UniEvent>
         }
         String sojPage = payload == null ? null : payload.get("page");
         String urlQueryPage = StringUtils.isNotBlank(urlQueryString) ? null : SOJNVL.getTagValue(urlQueryString, "page");
-        String remoteIP = clientData == null ? null : SOJNVL.getTagValue(clientData, "RemoteIP");
+        String remoteIP = clientData == null ? null : SOJNVL.getTagValue(clientData, "remoteip");
         String pfn = payload == null ? null : payload.get("pfn");
         String cflags = payload == null ? null : payload.get("cflgs");
 
@@ -139,7 +139,7 @@ public class ClavValidPageNormalizer extends FieldNormalizer<RawEvent, UniEvent>
         if (StringUtils.isNotBlank(urlQueryString) && ("null".equals(urlQueryString) || "undefined".equals(urlQueryString) || urlQueryString.endsWith(".gif") || urlQueryString.endsWith(".png") || urlQueryString.endsWith(".pdf") || urlQueryString.endsWith(".jpeg") || urlQueryString.endsWith(".swf") || urlQueryString.endsWith(".txt") || urlQueryString.endsWith(".wav") || urlQueryString.endsWith(".zip") || urlQueryString.endsWith(".flv") || urlQueryString.endsWith(".ico") || urlQueryString.endsWith(".jpg"))) {
             return false;
         }
-        String pageName = clientData == null ? null : SOJNVL.getTagValue(clientData, "tName");
+        String pageName = clientData == null ? null : SOJNVL.getTagValue(clientData, "tname");
         if (pageId != null && (pageId == 2050601) && (!StringUtils.isNotBlank(pageName) || !pageName.startsWith("FeedHome"))) {
             return false;
         }
