@@ -11,7 +11,8 @@ public class UniEventNormalizer extends RecordNormalizer<RawEvent, UniEvent> {
         addFieldNormalizer(new UtpTrafficSourceNormalizer());
         addFieldNormalizer(new SessionIdsNormalizer());
         addFieldNormalizer(new ClavValidPageNormalizer());
-        addFieldNormalizer(new TrafficSourceNormalizer());
+        // TODO: enable traffic source logic later
+        // addFieldNormalizer(new TrafficSourceNormalizer());
     }
 
 }
