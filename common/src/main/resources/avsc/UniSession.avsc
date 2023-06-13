@@ -89,6 +89,14 @@
         "name": "trafficSource",
         "type": [
           "null",
+          "string"
+        ],
+        "doc": "traffic source"
+      },
+      {
+        "name": "trafficSourceDetails",
+        "type": [
+          "null",
           {
             "type": "map",
             "values": [

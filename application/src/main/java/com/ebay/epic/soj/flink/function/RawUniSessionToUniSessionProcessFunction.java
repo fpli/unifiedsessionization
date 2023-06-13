@@ -20,7 +20,7 @@ public class RawUniSessionToUniSessionProcessFunction extends ProcessFunction<Ra
         uniSession.setUbiSessSkeys(Lists.newArrayList(rawUniSession.getUbiSessSkeys()));
         uniSession.setAutotrackSessSkeys(Lists.newArrayList(rawUniSession.getAutotrackSessSkeys()));
         uniSession.setAutotrackSessIds(Lists.newArrayList(rawUniSession.getAutotrackSessIds()));
-        uniSession.setTrafficSource(rawUniSession.getTrafficSourceDtl());
+        uniSession.setTrafficSourceDetails(rawUniSession.getTrafficSourceDtl());
         uniSession.setOthers(rawUniSession.getOthers());
         RheosHeader rheosHeader = new RheosHeader();
         rheosHeader.setEventId("DummyID");

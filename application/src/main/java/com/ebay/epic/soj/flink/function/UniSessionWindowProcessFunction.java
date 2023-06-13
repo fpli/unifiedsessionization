@@ -37,7 +37,7 @@ public class UniSessionWindowProcessFunction
         uniSession.setUbiSessSkeys(Lists.newArrayList(rawUniSession.getUbiSessSkeys()));
         uniSession.setAutotrackSessSkeys(Lists.newArrayList(rawUniSession.getAutotrackSessSkeys()));
         uniSession.setAutotrackSessIds(Lists.newArrayList(rawUniSession.getAutotrackSessIds()));
-        uniSession.setTrafficSource(rawUniSession.getTrafficSourceDtl());
+        uniSession.setTrafficSourceDetails(rawUniSession.getTrafficSourceDtl());
         uniSession.setOthers(rawUniSession.getOthers());
         uniSession.setIsOpen(isOpen);
         uniSession.setUserId(rawUniSession.getUserId());
@@ -57,10 +57,10 @@ public class UniSessionWindowProcessFunction
         botFlag.setUbi(Lists.newArrayList(rawUniSession.getUbiBotList()));
         botFlag.setUtp(Lists.newArrayList(rawUniSession.getSutpBotList()));
         uniSession.setBotFlag(botFlag);
-        TrafficSourceDetails trafficSourceDetails = rawUniSession.getTrafficSourceDetails();
-        if (trafficSourceDetails != null && trafficSourceDetails.getTrafficSourceLevel3() != null) {
-            uniSession.setTrafficSource(trafficSourceDetails.toMap());
-        }
+//        TrafficSourceDetails trafficSourceDetails = rawUniSession.getTrafficSourceDetails();
+//        if (trafficSourceDetails != null && trafficSourceDetails.getTrafficSourceLevel3() != null) {
+//            uniSession.setTrafficSource(trafficSourceDetails.toMap());
+//        }
         out.collect(uniSession);
     }
 
