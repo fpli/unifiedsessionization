@@ -40,14 +40,8 @@ public class TimestampMetrics implements FieldMetrics<UniEvent, UniSessionAccumu
 
   @Override
   public void end(UniSessionAccumulator uniSessionAccumulator) {
-    if(uniSessionAccumulator.getUniSession().getStartTimestamp()!=null) {
-      uniSessionAccumulator.getUniSession()
-              .setSessionStartDt(uniSessionAccumulator.getUniSession()
-                      .getStartTimestamp());
-    }else{
-      uniSessionAccumulator.getUniSession()
-              .setSessionStartDt(uniSessionAccumulator.getUniSession()
-                      .getAbsStartTimestamp());
-    }
+    uniSessionAccumulator.getUniSession()
+            .setSessionStartDt(uniSessionAccumulator.getUniSession()
+                    .getAbsStartTimestamp());
   }
 }
