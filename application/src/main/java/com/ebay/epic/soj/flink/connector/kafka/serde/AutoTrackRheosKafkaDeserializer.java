@@ -27,7 +27,7 @@ public class AutoTrackRheosKafkaDeserializer extends RheosKafkaDeserializer<RawE
         rawEvent.setRdt((byte)0);
         rawEvent.setBotFlags(new ArrayList<>());
         // TODO: enable traffic source logic later
-        autoTrackTrafficSourceDeserializer.convert(genericRecord, rawEvent);
+        // autoTrackTrafficSourceDeserializer.convert(genericRecord, rawEvent);
         return rawEvent;
     }
 }
