@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class AutoTrackRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent>{
+    private AutoTrackTrafficSourceDeserializer autoTrackTrafficSourceDeserializer =
+            new AutoTrackTrafficSourceDeserializer();
 
     public AutoTrackRheosKafkaDeserializer(String schemaRegistryUrl) {
         super(schemaRegistryUrl);
@@ -24,30 +26,8 @@ public class AutoTrackRheosKafkaDeserializer extends RheosKafkaDeserializer<RawE
         rawEvent.setIframe(false);
         rawEvent.setRdt((byte)0);
         rawEvent.setBotFlags(new ArrayList<>());
-
-        GenericRecord trackable = (GenericRecord) genericRecord.get("trackable");
-        String entityType = trackable.get("entityType").toString();
-        rawEvent.setEntityType(entityType);
-        if ("Page".equals(entityType)) {
-            // entityId -> page id
-            String entityId = trackable.get("entityId").toString();
-            rawEvent.setPageId(Integer.valueOf(entityId));
-            // instanceId -> page url
-            String instanceId = trackable.get("instanceId") == null ?
-                    null : trackable.get("instanceId").toString();
-            rawEvent.setPageUrl(instanceId);
-            // referer -> referer
-            String referer = activity.get("referer") == null ?
-                    null : activity.get("referer").toString();
-            rawEvent.setReferer(referer);
-            // experience
-            GenericRecord context = (GenericRecord) genericRecord.get("context");
-            String userAgent = context.get("userAgent") == null ?
-                    null : context.get("userAgent").toString();
-            if (userAgent != null) {
-                rawEvent.setExperience(AutoTrackDeserializerUtils.getExperience(userAgent));
-            }
-        }
+        // TODO: enable traffic source logic later
+        // autoTrackTrafficSourceDeserializer.convert(genericRecord, rawEvent);
         return rawEvent;
     }
 }
