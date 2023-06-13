@@ -45,10 +45,11 @@ public class RawEventUniDeserializationSchema implements DeserializationSchema<R
         } catch (Exception e) {
             droppedEventCounter.inc();
             // debug mode
-            e.printStackTrace();
-            throw new IOException(e);
+//            e.printStackTrace();
+//            throw new IOException(e);
             // prod mode
-//            return null;
+            e.printStackTrace();
+            return null;
         }
         rawEvent.setIngestTimestamp(ingestTime);
         return rawEvent;
