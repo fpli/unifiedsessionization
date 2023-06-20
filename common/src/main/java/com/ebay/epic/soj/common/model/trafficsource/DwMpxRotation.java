@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class DwMpxRotation {
-    private long rotationId;
-    private int mpxChnlId;
+    private Long rotationId;
+    private Integer mpxChnlId;
 }

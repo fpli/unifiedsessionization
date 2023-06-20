@@ -8,9 +8,9 @@ import java.util.Map;
 @Data
 public class TrafficSourceDetails {
     private String trafficSourceLevel3;
-    private long rotid;
-    private int mpxChnlId;
-    private int ldngPageId;
+    private Long rotid;
+    private Integer mpxChnlId;
+    private Integer ldngPageId;
     private String referer;
     private String mppid;
 

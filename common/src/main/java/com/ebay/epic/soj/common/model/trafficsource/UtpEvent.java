@@ -1,12 +1,18 @@
 package com.ebay.epic.soj.common.model.trafficsource;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UtpEvent extends TrafficSourceCandidate {
-    private int chnl;
-    private long rotId;
+    private Integer chnl;
+    private Long rotId;
     private String url;
-    private int mpxChnlId;
-    private int pageId;
+    private Integer mpxChnlId;
+    private Integer pageId;
 }
