@@ -48,21 +48,24 @@ public class TrafficSourceDetector {
                 return event;
             }
             // Notification event
-            else if (pageId == NOTIFICATION_PAGE && "1".equals(uniEvent.getPayload().get(PAYLOAD_KEY_PNACT))) {
+            else if (pageId == NOTIFICATION_PAGE && uniEvent.getPayload() != null
+                    && "1".equals(uniEvent.getPayload().get(PAYLOAD_KEY_PNACT))) {
                 UtpEvent event = new UtpEvent();
                 event.setEventTimestamp(uniEvent.getEventTs());
                 event.setPageId(pageId);
                 return event;
             }
             // IMBD event
-            else if (pageId == IMBD_PAGE) {
+            else if (pageId == IMBD_PAGE && uniEvent.getPayload() != null
+                    && StringUtils.isNotEmpty(uniEvent.getPayload().get(PAYLOAD_KEY_MPPID))) {
                 ImbdEvent event = new ImbdEvent();
                 event.setEventTimestamp(uniEvent.getEventTs());
                 event.setMppid(uniEvent.getPayload().get(PAYLOAD_KEY_MPPID));
                 return event;
             }
             // Deeplink event
-            else if (pageId == DEEPLINK_PAGE && !uniEvent.getPayload().get(PAYLOAD_KEY_REF).isEmpty()
+            else if (pageId == DEEPLINK_PAGE && uniEvent.getPayload() != null
+                    && StringUtils.isNotEmpty(uniEvent.getPayload().get(PAYLOAD_KEY_REF))
                     && !UNKNOWN_REF.equals(uniEvent.getPayload().get(PAYLOAD_KEY_REF))) {
                 DeeplinkActionEvent event = new DeeplinkActionEvent();
                 event.setEventTimestamp(uniEvent.getEventTs());
