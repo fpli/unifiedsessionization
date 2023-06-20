@@ -40,7 +40,9 @@ public class TrafficSourceDetector {
                     if (StringUtils.isNotEmpty(payload.get(PAYLOAD_KEY_ROTID))) {
                         long rotid = Long.parseLong(payload.get(PAYLOAD_KEY_ROTID));
                         event.setRotId(rotid);
-                        event.setMpxChnlId(lookupManager.getDwMpxRotationMap().get(rotid).getMpxChnlId());
+                        if (lookupManager.getDwMpxRotationMap().get(rotid) != null) {
+                            event.setMpxChnlId(lookupManager.getDwMpxRotationMap().get(rotid).getMpxChnlId());
+                        }
                     }
                     event.setUrl(UrlUtils.decode(payload.get(PAYLOAD_KEY_URL_MPRE)));
                 }
@@ -73,7 +75,8 @@ public class TrafficSourceDetector {
                 return event;
             }
             // UBI valid event
-            else if (lookupManager.getPageMap().get(uniEvent.getPageId()).getIframe() == 0
+            else if (lookupManager.getPageMap().get(uniEvent.getPageId()) != null
+                    && lookupManager.getPageMap().get(uniEvent.getPageId()).getIframe() == 0
                     && uniEvent.getRdt() == 0) {
                 ValidUbiEvent event = new ValidUbiEvent();
                 event.setEventTimestamp(uniEvent.getEventTs());
@@ -91,6 +94,7 @@ public class TrafficSourceDetector {
 
         // Surface valid event
         if ((AUTOTRACK_WEB.equals(uniEvent.getEventType()) || AUTOTRACK_NATIVE.equals(uniEvent.getEventType()))
+                && lookupManager.getPageMap().get(uniEvent.getPageId()) != null
                 && lookupManager.getPageMap().get(uniEvent.getPageId()).getIframe() == 0) {
             ValidSurfaceEvent event = new ValidSurfaceEvent();
             event.setEventTimestamp(uniEvent.getEventTs());
@@ -194,7 +198,9 @@ public class TrafficSourceDetector {
             if (StringUtils.isNotEmpty(mkrid)) {
                 String mkridNum = UrlUtils.decode(mkrid).replaceAll("-", "");
                 rotId = Long.parseLong(mkridNum);
-                mpxChnlId = lookupManager.getDwMpxRotationMap().get(rotId).getMpxChnlId();
+                if (lookupManager.getDwMpxRotationMap().get(rotId) != null) {
+                    mpxChnlId = lookupManager.getDwMpxRotationMap().get(rotId).getMpxChnlId();
+                }
             }
             detectChocolateTrafficSource(details, mpxChnlId, chnl, firstEventUrl, rotId);
             if (StringUtils.isNotEmpty(details.getTrafficSourceLevel3())) {
