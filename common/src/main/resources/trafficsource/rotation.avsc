@@ -1,0 +1,8 @@
+{"namespace": "com.ebay.epic.soj.common.model.trafficsource",
+ "type": "record",
+ "name": "Rotation",
+ "fields": [
+     {"name": "rotation_id", "type": ["long", "null"]},
+     {"name": "mpx_chnl_id",  "type": ["int", "null"]}
+ ]
+}
