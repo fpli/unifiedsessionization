@@ -2,38 +2,52 @@ package com.ebay.epic.soj.flink.connector.kafka.serde;
 
 import com.ebay.epic.soj.common.model.raw.RawEvent;
 import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceConstants;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.avro.generic.GenericRecord;
 
 import java.util.Map;
 
+import static com.ebay.epic.soj.common.model.trafficsource.TrafficSourceConstants.CHOCOLATE_PAGE;
+import static com.ebay.epic.soj.common.model.trafficsource.TrafficSourceConstants.IMBD_PAGE;
+import static com.ebay.epic.soj.common.model.trafficsource.TrafficSourceConstants.NOTIFICATION_PAGE;
+import static com.ebay.epic.soj.common.model.trafficsource.TrafficSourceConstants.UBI_FIELD_REFERRER;
+import static com.ebay.epic.soj.common.model.trafficsource.TrafficSourceConstants.UBI_FIELD_URLQUERYSTRING;
+
+@Slf4j
 public class UbiTrafficSourceDeserializer {
 
     public void convert(GenericRecord genericRecord, RawEvent rawEvent) {
-        Integer pageId = (Integer) genericRecord.get("pageId");
-        rawEvent.setPageId(pageId);
-        if (genericRecord.get("urlQueryString") != null) {
-            rawEvent.setPageUrl(genericRecord.get("urlQueryString").toString());
-        }
-        if (genericRecord.get("referrer") != null) {
-            rawEvent.setReferer(genericRecord.get("referrer").toString());
-        }
-        Map<String, String> payload = rawEvent.getPayload();
-        extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_REF, payload);
-        // UTP events
-        // 2054060: Notifications: Apps
-        if (pageId == 2547208 || pageId == 2054060) {
-            extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_ROTID, payload);
-            extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_URL_MPRE, payload);
-        }
-        if (pageId == 2547208) {
-            extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_CHNL, payload);
-        }
-        if (pageId == 2054060) {
-            extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_PNACT, payload);
-        }
-        // IMBD events
-        if (pageId == 2051248) {
-            extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_MPPID, payload);
+        try {
+            // extract ubi event fields
+            Object urlQueryString = genericRecord.get(UBI_FIELD_URLQUERYSTRING);
+            if (urlQueryString != null) {
+                rawEvent.setPageUrl(urlQueryString.toString());
+            }
+            Object referrer = genericRecord.get(UBI_FIELD_REFERRER);
+            if (referrer != null) {
+                rawEvent.setReferer(referrer.toString());
+            }
+            // extract application payload tags
+            Map<String, String> payload = rawEvent.getPayload();
+            extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_REF, payload);
+            Integer pageId = rawEvent.getPageId();
+            // UTP events
+            if (pageId == CHOCOLATE_PAGE || pageId == NOTIFICATION_PAGE) {
+                extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_ROTID, payload);
+                extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_URL_MPRE, payload);
+            }
+            if (pageId == CHOCOLATE_PAGE) {
+                extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_CHNL, payload);
+            }
+            if (pageId == NOTIFICATION_PAGE) {
+                extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_PNACT, payload);
+            }
+            // IMBD events
+            if (pageId == IMBD_PAGE) {
+                extractPayload(genericRecord, TrafficSourceConstants.PAYLOAD_KEY_MPPID, payload);
+            }
+        } catch (Exception e) {
+            log.warn("failed to convert ubi event", e);
         }
     }
 

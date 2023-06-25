@@ -26,8 +26,14 @@ public class TrafficSourceConstants {
     public static final String ORGANIC_DIRECT_NO_REF = "Organic: Direct: No Referrer";
     public static final String FREE_OTHER = "Free: Other";
 
+    // ubi event fields
+    public static final String UBI_FIELD_URLQUERYSTRING = "urlQueryString";
+    public static final String UBI_FIELD_REFERRER = "referrer";
+
     // payload tags
     public static final String PAYLOAD_KEY_REF = "ref";
+    // use ubi event field instead, this is slightly different from batch
+    public static final String PAYLOAD_KEY_RDT = "rdt";
     public static final String PAYLOAD_KEY_CHNL = "chnl";
     public static final String PAYLOAD_KEY_ROTID = "rotid";
     public static final String PAYLOAD_KEY_URL_MPRE = "url_mpre";

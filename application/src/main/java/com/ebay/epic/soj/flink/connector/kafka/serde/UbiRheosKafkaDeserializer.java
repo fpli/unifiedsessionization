@@ -51,8 +51,7 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         rawEvent.setPayload((Map<String, String>) genericRecord.get("applicationPayload"));
         rawEvent.setSqr(getStrOrDefault(genericRecord.get("sqr"), null));
         rawEvent.setPageUrl(getStrOrDefault(genericClientData.get("urlQueryString"), null));
-        // TODO: enable traffic source logic later
-        // ubiTrafficSourceDeserializer.convert(genericRecord, rawEvent);
+        ubiTrafficSourceDeserializer.convert(genericRecord, rawEvent);
         return rawEvent;
     }
     private String getStrOrDefault(Object o, String defaultStr) {
