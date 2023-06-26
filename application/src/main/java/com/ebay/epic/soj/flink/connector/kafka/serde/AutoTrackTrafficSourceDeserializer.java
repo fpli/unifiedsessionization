@@ -29,6 +29,8 @@ public class AutoTrackTrafficSourceDeserializer {
                 if (userAgent != null) {
                     rawEvent.setExperience(AutoTrackDeserializerUtils.getExperience(userAgent));
                 }
+            } else {
+                rawEvent.setPageId(0);
             }
         } catch (Exception e) {
             log.warn("failed to convert surface event", e);
