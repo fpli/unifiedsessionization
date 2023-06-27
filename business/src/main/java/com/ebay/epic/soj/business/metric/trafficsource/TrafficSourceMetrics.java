@@ -46,7 +46,11 @@ public class TrafficSourceMetrics implements FieldMetrics<UniEvent, UniSessionAc
         if (trafficSourceCandidate != null) {
             // events in streaming are out of order, we need to update first event for traffic
             // source candidates according to event timestamp
-            updateTrafficSourceCandidates(trafficSourceCandidate, trafficSourceCandidates);
+            try {
+                updateTrafficSourceCandidates(trafficSourceCandidate, trafficSourceCandidates);
+            } catch (Exception e) {
+                log.warn("failed to update traffic source candidate", e);
+            }
         }
     }
 
@@ -97,7 +101,7 @@ public class TrafficSourceMetrics implements FieldMetrics<UniEvent, UniSessionAc
         RawUniSession rawUniSession = uniSessionAccumulator.getUniSession();
         TrafficSourceCandidates trafficSourceCandidates =
                 rawUniSession.getTrafficSourceCandidates();
-        if (trafficSourceCandidates.hasAtLeastOneCandidate()) {
+        if (trafficSourceCandidates != null && trafficSourceCandidates.hasAtLeastOneCandidate()) {
             TrafficSourceDetails trafficSourceDetails = null;
             try {
                 trafficSourceDetails = trafficSourceDetector.determineTrafficSource(
