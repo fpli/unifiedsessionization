@@ -17,7 +17,7 @@ public class RawEvent {
     private String siteId;
     private Long eventTs;
     private EventType eventType;
-    private Integer pageId;
+    private Integer pageId = 0;
     private Category category;
     private byte rdt;
     private Boolean iframe;
@@ -25,7 +25,7 @@ public class RawEvent {
     private byte[] rheosByteArray;
     private Long ingestTimestamp;
     private Long kafkaReceivedTimestamp;
-    private Map<String, Object> utpTs;
+    private Map<String, Object> utpTs = new HashMap<>();
     private Map<String, Object> nonUtpTs;
 //    private GenericRecord genericRecord;
     private String sessionId;
