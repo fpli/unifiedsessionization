@@ -57,10 +57,10 @@ public class UniSessionWindowProcessFunction
         botFlag.setUbi(Lists.newArrayList(rawUniSession.getUbiBotList()));
         botFlag.setUtp(Lists.newArrayList(rawUniSession.getSutpBotList()));
         uniSession.setBotFlag(botFlag);
-//        TrafficSourceDetails trafficSourceDetails = rawUniSession.getTrafficSourceDetails();
-//        if (trafficSourceDetails != null && trafficSourceDetails.getTrafficSourceLevel3() != null) {
-//            uniSession.setTrafficSource(trafficSourceDetails.toMap());
-//        }
+        TrafficSourceDetails trafficSourceDetails = rawUniSession.getTrafficSourceDetails();
+        if (trafficSourceDetails != null && trafficSourceDetails.getTrafficSourceLevel3() != null) {
+            uniSession.setTrafficSourceDetails(trafficSourceDetails.toMap());
+        }
         out.collect(uniSession);
     }
 

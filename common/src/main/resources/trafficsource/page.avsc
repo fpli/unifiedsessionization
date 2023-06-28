@@ -1,0 +1,9 @@
+{"namespace": "com.ebay.epic.soj.common.model.trafficsource",
+ "type": "record",
+ "name": "Page",
+ "fields": [
+     {"name": "page_id", "type": ["int", "null"]},
+     {"name": "page_name",  "type": ["string", "null"]},
+     {"name": "iframe", "type": ["int", "null"]}
+ ]
+}

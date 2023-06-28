@@ -14,7 +14,9 @@ import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceDetails;
 import com.ebay.epic.soj.common.model.trafficsource.UtpEvent;
 import com.ebay.epic.soj.common.model.trafficsource.ValidSurfaceEvent;
 import com.ebay.epic.soj.common.model.trafficsource.ValidUbiEvent;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class TrafficSourceMetrics implements FieldMetrics<UniEvent, UniSessionAccumulator> {
 
     private TrafficSourceDetector trafficSourceDetector;
@@ -35,12 +37,20 @@ public class TrafficSourceMetrics implements FieldMetrics<UniEvent, UniSessionAc
         RawUniSession rawUniSession = uniSessionAccumulator.getUniSession();
         TrafficSourceCandidates trafficSourceCandidates =
                 rawUniSession.getTrafficSourceCandidates();
-        TrafficSourceCandidate trafficSourceCandidate =
-                trafficSourceDetector.extractCandidate(uniEvent);
+        TrafficSourceCandidate trafficSourceCandidate = null;
+        try {
+            trafficSourceCandidate = trafficSourceDetector.extractCandidate(uniEvent);
+        } catch (Exception e) {
+            log.warn("failed to extract traffic source candidate", e);
+        }
         if (trafficSourceCandidate != null) {
             // events in streaming are out of order, we need to update first event for traffic
             // source candidates according to event timestamp
-            updateTrafficSourceCandidates(trafficSourceCandidate, trafficSourceCandidates);
+            try {
+                updateTrafficSourceCandidates(trafficSourceCandidate, trafficSourceCandidates);
+            } catch (Exception e) {
+                log.warn("failed to update traffic source candidate", e);
+            }
         }
     }
 
@@ -91,10 +101,17 @@ public class TrafficSourceMetrics implements FieldMetrics<UniEvent, UniSessionAc
         RawUniSession rawUniSession = uniSessionAccumulator.getUniSession();
         TrafficSourceCandidates trafficSourceCandidates =
                 rawUniSession.getTrafficSourceCandidates();
-        if (trafficSourceCandidates.hasAtLeastOneCandidate()) {
-            TrafficSourceDetails trafficSourceDetails =
-                    trafficSourceDetector.determineTrafficSource(trafficSourceCandidates);
-            rawUniSession.setTrafficSourceDetails(trafficSourceDetails);
+        if (trafficSourceCandidates != null && trafficSourceCandidates.hasAtLeastOneCandidate()) {
+            TrafficSourceDetails trafficSourceDetails = null;
+            try {
+                trafficSourceDetails = trafficSourceDetector.determineTrafficSource(
+                        trafficSourceCandidates);
+            } catch (Exception e) {
+                log.warn("failed to determine traffic source", e);
+            }
+            if (trafficSourceDetails != null) {
+                rawUniSession.setTrafficSourceDetails(trafficSourceDetails);
+            }
         }
     }
 }

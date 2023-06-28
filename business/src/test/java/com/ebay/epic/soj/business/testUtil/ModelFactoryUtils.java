@@ -47,4 +47,49 @@ public class ModelFactoryUtils {
                 .mpxChnlId(mpxChnlId)
                 .build();
     }
+
+    public static ValidUbiEvent getValidUbiEvent(long eventTimestamp, int pageId, String pageName, String url, String referer) {
+        return ValidUbiEvent.builder()
+                .eventTimestamp(eventTimestamp)
+                .pageId(pageId)
+                .pageName(pageName)
+                .url(url)
+                .referer(referer)
+                .build();
+    }
+
+    public static ValidSurfaceEvent getValidSurfaceEvent(long eventTimestamp, int pageId, String pageName, String url, String referer) {
+        return ValidSurfaceEvent.builder()
+                .eventTimestamp(eventTimestamp)
+                .pageId(pageId)
+                .pageName(pageName)
+                .url(url)
+                .referer(referer)
+                .build();
+    }
+
+    public static UtpEvent getUtpEvent(long eventTimestamp, int pageId, Integer chnl, Long rotId, Integer mpxChnlId, String url) {
+        return UtpEvent.builder()
+                .eventTimestamp(eventTimestamp)
+                .pageId(pageId)
+                .chnl(chnl)
+                .rotId(rotId)
+                .mpxChnlId(mpxChnlId)
+                .url(url)
+                .build();
+    }
+
+    public static ImbdEvent getImbdEvent(long eventTimestamp, String mppid) {
+        return ImbdEvent.builder()
+                .eventTimestamp(eventTimestamp)
+                .mppid(mppid)
+                .build();
+    }
+
+    public static DeeplinkActionEvent getDeeplinkActionEvent(long eventTimestamp, String referer) {
+        return DeeplinkActionEvent.builder()
+                .eventTimestamp(eventTimestamp)
+                .referer(referer)
+                .build();
+    }
 }

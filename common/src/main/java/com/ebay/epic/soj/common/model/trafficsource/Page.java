@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Page {
-    private int pageId;
+    private Integer pageId;
     private String pageName;
-    private int iframe;
+    private Integer iframe;
 }

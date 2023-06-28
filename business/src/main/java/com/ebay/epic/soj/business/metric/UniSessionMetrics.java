@@ -40,7 +40,6 @@ public class UniSessionMetrics extends RecordMetrics<UniEvent, UniSessionAccumul
     addFieldMetrics(new BotFlagMetrics());
     addFieldMetrics(new UbiGeneralMetrics());
     addFieldMetrics(new ClavSessionMetrics());
-    // TODO: enable traffic source logic later
-    // addFieldMetrics(new TrafficSourceMetrics());
+    addFieldMetrics(new TrafficSourceMetrics());
   }
 }

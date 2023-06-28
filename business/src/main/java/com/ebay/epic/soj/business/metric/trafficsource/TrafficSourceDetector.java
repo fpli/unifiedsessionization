@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.TestOnly;
 
 import java.util.List;
+import java.util.Map;
 
 import static com.ebay.epic.soj.common.enums.EventType.*;
 import static com.ebay.epic.soj.common.model.trafficsource.TrafficSourceConstants.*;
@@ -31,55 +32,69 @@ public class TrafficSourceDetector {
             if (pageId == CHOCOLATE_PAGE) {
                 UtpEvent event = new UtpEvent();
                 event.setEventTimestamp(uniEvent.getEventTs());
-                event.setChnl(Integer.parseInt(uniEvent.getPayload().get(PAYLOAD_KEY_CHNL)));
-                long rotid = Long.parseLong(uniEvent.getPayload().get(PAYLOAD_KEY_ROTID));
-                event.setRotId(rotid);
-                event.setMpxChnlId(lookupManager.getDwMpxRotationMap().get(rotid).getMpxChnlId());
-                event.setUrl(UrlUtils.decode(uniEvent.getPayload().get(PAYLOAD_KEY_URL_MPRE)));
+                if (uniEvent.getPayload() != null) {
+                    Map<String,String> payload = uniEvent.getPayload();
+                    if (StringUtils.isNotEmpty(payload.get(PAYLOAD_KEY_CHNL))) {
+                        event.setChnl(Integer.parseInt(payload.get(PAYLOAD_KEY_CHNL)));
+                    }
+                    if (StringUtils.isNotEmpty(payload.get(PAYLOAD_KEY_ROTID))) {
+                        long rotid = Long.parseLong(payload.get(PAYLOAD_KEY_ROTID));
+                        event.setRotId(rotid);
+                        if (lookupManager.getDwMpxRotationMap().get(rotid) != null) {
+                            event.setMpxChnlId(lookupManager.getDwMpxRotationMap().get(rotid).getMpxChnlId());
+                        }
+                    }
+                    event.setUrl(UrlUtils.decode(payload.get(PAYLOAD_KEY_URL_MPRE)));
+                }
                 event.setPageId(pageId);
                 return event;
             }
             // Notification event
-            else if (pageId == NOTIFICATION_PAGE && "1".equals(uniEvent.getPayload().get(PAYLOAD_KEY_PNACT))) {
+            else if (pageId == NOTIFICATION_PAGE && uniEvent.getPayload() != null
+                    && "1".equals(uniEvent.getPayload().get(PAYLOAD_KEY_PNACT))) {
                 UtpEvent event = new UtpEvent();
                 event.setEventTimestamp(uniEvent.getEventTs());
                 event.setPageId(pageId);
                 return event;
             }
             // IMBD event
-            else if (pageId == IMBD_PAGE) {
+            else if (pageId == IMBD_PAGE && uniEvent.getPayload() != null
+                    && StringUtils.isNotEmpty(uniEvent.getPayload().get(PAYLOAD_KEY_MPPID))) {
                 ImbdEvent event = new ImbdEvent();
                 event.setEventTimestamp(uniEvent.getEventTs());
                 event.setMppid(uniEvent.getPayload().get(PAYLOAD_KEY_MPPID));
                 return event;
             }
             // Deeplink event
-            else if (pageId == DEEPLINK_PAGE && !uniEvent.getPayload().get(PAYLOAD_KEY_REF).isEmpty()
-                    && !"unknown".equals(uniEvent.getPayload().get(PAYLOAD_KEY_REF))) {
+            else if (pageId == DEEPLINK_PAGE && uniEvent.getPayload() != null
+                    && StringUtils.isNotEmpty(uniEvent.getPayload().get(PAYLOAD_KEY_REF))
+                    && !UNKNOWN_REF.equals(uniEvent.getPayload().get(PAYLOAD_KEY_REF))) {
                 DeeplinkActionEvent event = new DeeplinkActionEvent();
                 event.setEventTimestamp(uniEvent.getEventTs());
                 event.setReferer(UrlUtils.decode(uniEvent.getPayload().get(PAYLOAD_KEY_REF)));
                 return event;
             }
             // UBI valid event
-            else if (lookupManager.getPageMap().get(uniEvent.getPageId()).getIframe() == 0
+            else if (lookupManager.getPageMap().get(uniEvent.getPageId()) != null
+                    && lookupManager.getPageMap().get(uniEvent.getPageId()).getIframe() == 0
                     && uniEvent.getRdt() == 0) {
                 ValidUbiEvent event = new ValidUbiEvent();
                 event.setEventTimestamp(uniEvent.getEventTs());
                 event.setPageId(uniEvent.getPageId());
                 event.setPageName(lookupManager.getPageMap().get(uniEvent.getPageId()).getPageName());
                 event.setUrl(uniEvent.getPageUrl());
-                if (!uniEvent.getReferer().isEmpty()) {
+                if (StringUtils.isNotEmpty(uniEvent.getReferer())) {
                     event.setReferer(uniEvent.getReferer());
-                } else {
-                    event.setReferer(uniEvent.getPayload().get(PAYLOAD_KEY_REF));
+                } else if (uniEvent.getPayload() != null) {
+                    event.setReferer(UrlUtils.decode(uniEvent.getPayload().get(PAYLOAD_KEY_REF)));
                 }
                 return event;
             }
         }
 
-        // Surface valid event, only need web events
-        if (AUTOTRACK_WEB.equals(uniEvent.getEventType())
+        // Surface valid event
+        if ((AUTOTRACK_WEB.equals(uniEvent.getEventType()) || AUTOTRACK_NATIVE.equals(uniEvent.getEventType()))
+                && lookupManager.getPageMap().get(uniEvent.getPageId()) != null
                 && lookupManager.getPageMap().get(uniEvent.getPageId()).getIframe() == 0) {
             ValidSurfaceEvent event = new ValidSurfaceEvent();
             event.setEventTimestamp(uniEvent.getEventTs());
@@ -133,6 +148,9 @@ public class TrafficSourceDetector {
                 firstEventPageId = surfaceEvent.getPageId();
             }
         }
+        if (firstEventTs  == -1) {
+            return null;
+        }
 
         // fallback referer
         if (StringUtils.isEmpty(firstEventRef) && trafficSourceCandidates.getFirstDeeplinkActionEvent() != null) {
@@ -141,7 +159,10 @@ public class TrafficSourceDetector {
 
         // set common fields
         details.setLdngPageId(firstEventPageId);
-        details.setReferer(UrlUtils.getDomain(firstEventRef));
+        String refererDomain = UrlUtils.getDomain(firstEventRef);
+        if (StringUtils.isNotEmpty(refererDomain)) {
+            details.setReferer(refererDomain);
+        }
 
         // UTP traffic source, including Chocolate and Notification
         // TODO: split Chocolate and Notification
@@ -149,20 +170,20 @@ public class TrafficSourceDetector {
                 && Math.abs(trafficSourceCandidates.getFirstUtpEvent().getEventTimestamp() - firstEventTs)
                 <= UTP_THRESHOLD) {
             UtpEvent utpEvent = trafficSourceCandidates.getFirstUtpEvent();
-            int pageId = utpEvent.getPageId();
+            Integer pageId = utpEvent.getPageId();
+
+            // Chocolate
+            Integer mpxChnlId = utpEvent.getMpxChnlId();
+            Integer chnl = utpEvent.getChnl();
+            String url = utpEvent.getUrl();
+            detectChocolateTrafficSource(details, mpxChnlId, chnl, url, utpEvent.getRotId());
+            if (StringUtils.isNotEmpty(details.getTrafficSourceLevel3())) {
+                return details;
+            }
 
             // Notification
             if (pageId == NOTIFICATION_PAGE) {
                 details.setTrafficSourceLevel3(NOTIFICATIONS_APPS);
-                return details;
-            }
-
-            // Chocolate
-            int mpxChnlId = utpEvent.getMpxChnlId();
-            int chnl = utpEvent.getChnl();
-            String url = utpEvent.getUrl();
-            details = chocolateTrafficSource(mpxChnlId, chnl, url, utpEvent.getRotId());
-            if (StringUtils.isNotEmpty(details.getTrafficSourceLevel3())) {
                 return details;
             }
         }
@@ -170,15 +191,18 @@ public class TrafficSourceDetector {
         // fallback Chocolate traffic source using first valid event
         String mkcid = UrlUtils.getParamValue(firstEventUrl, "mkcid");
         if (StringUtils.isNotEmpty(mkcid) && CHOCOLATE_CHNL.contains(mkcid)) {
-            long rotId = -1;
-            int mpxChnlId = -1;
-            int chnl = Integer.parseInt(mkcid);;
+            Long rotId = null;
+            Integer mpxChnlId = null;
+            Integer chnl = Integer.parseInt(mkcid);
             String mkrid = UrlUtils.getParamValue(firstEventUrl, "mkrid");
             if (StringUtils.isNotEmpty(mkrid)) {
-                rotId = Long.parseLong(mkrid);
-                mpxChnlId = lookupManager.getDwMpxRotationMap().get(rotId).getMpxChnlId();
+                String mkridNum = UrlUtils.decode(mkrid).replaceAll("-", "");
+                rotId = Long.parseLong(mkridNum);
+                if (lookupManager.getDwMpxRotationMap().get(rotId) != null) {
+                    mpxChnlId = lookupManager.getDwMpxRotationMap().get(rotId).getMpxChnlId();
+                }
             }
-            details = chocolateTrafficSource(mpxChnlId, chnl, firstEventUrl, rotId);
+            detectChocolateTrafficSource(details, mpxChnlId, chnl, firstEventUrl, rotId);
             if (StringUtils.isNotEmpty(details.getTrafficSourceLevel3())) {
                 return details;
             }
@@ -194,77 +218,87 @@ public class TrafficSourceDetector {
         }
 
         // referer based traffic source
-        if (containsKey(firstEventRef, SEARCH_ENGINE_KEYWORD) && !firstEventRef.contains(MAIL_KEYWORD)) {
-            if (!HOME_PAGE_NAME.equals(firstEventPageName)) {
-                details.setTrafficSourceLevel3(FREE_SEO_NATURAL_SEARCH);
+        if (StringUtils.isNotEmpty(firstEventRef)) {
+            if (containsKey(firstEventRef, SEARCH_ENGINE_KEYWORDS) && !firstEventRef.contains(MAIL_KEYWORD)) {
+                if (!HOME_PAGE_NAME.equals(firstEventPageName)) {
+                    details.setTrafficSourceLevel3(FREE_SEO_NATURAL_SEARCH);
+                } else {
+                    details.setTrafficSourceLevel3(ORGANIC_NAV_SEARCH_FREE);
+                }
+            } else if (firstEventRef.contains(EBAY_KEYWORD)) {
+                details.setTrafficSourceLevel3(ORGANIC_DIRECT_ON_EBAY);
+            } else if (containsKey(firstEventRef, SOCIAL_KEYWORDS)) {
+                details.setTrafficSourceLevel3(FREE_FREE_SOCIAL);
+            } else if (firstEventRef.contains(MAIL_KEYWORD)) {
+                details.setTrafficSourceLevel3(ORGANIC_TXN_COMMS_WEBMAIL);
+            } else if (NULL_KEYWORD.equals(firstEventRef)) {
+                details.setTrafficSourceLevel3(ORGANIC_DIRECT_NO_REF);
             } else {
-                details.setTrafficSourceLevel3(ORGANIC_NAV_SEARCH_FREE);
+                details.setTrafficSourceLevel3(FREE_OTHER);
             }
-        } else if (firstEventRef.contains(EBAY_KEYWORD)) {
-            details.setTrafficSourceLevel3(ORGANIC_DIRECT_ON_EBAY);
-        } else if (containsKey(firstEventRef, SOCIAL_KEYWORD)) {
-            details.setTrafficSourceLevel3(FREE_FREE_SOCIAL);
-        } else if (firstEventRef.contains(MAIL_KEYWORD)) {
-            details.setTrafficSourceLevel3(ORGANIC_TXN_COMMS_WEBMAIL);
-        } else if (StringUtils.isEmpty(firstEventRef) || firstEventRef == NULL_KEYWORD) {
-            details.setTrafficSourceLevel3(ORGANIC_DIRECT_NO_REF);
         } else {
-            details.setTrafficSourceLevel3(FREE_OTHER);
+            details.setTrafficSourceLevel3(ORGANIC_DIRECT_NO_REF);
         }
 
-        return null;
+        return details;
     }
 
-    private TrafficSourceDetails chocolateTrafficSource(int mpxChnlId, int chnl, String url, long rotId) {
-        TrafficSourceDetails details = new TrafficSourceDetails();
-        if (mpxChnlId == 25) {
+    private void detectChocolateTrafficSource(TrafficSourceDetails details, Integer mpxChnlId, Integer chnl, String url, Long rotId) {
+        if (Integer.valueOf(25).equals(mpxChnlId)) {
             details.setTrafficSourceLevel3(ORGANIC_NAV_SEARCH_PAID);
-        } else if (mpxChnlId == 2 && StringUtils.isNotEmpty(url)) {
-            String keyword = UrlUtils.decode(UrlUtils.getParamValue(url, KEYWORD_PARAM)).trim().toLowerCase();
-            if (EBAY_PATTERN.matcher(keyword).find()) {
-                details.setTrafficSourceLevel3(ORGANIC_NAV_SEARCH_PAID);
+        } else if (Integer.valueOf(2).equals(mpxChnlId)) {
+            String keywordParam = UrlUtils.getParamValue(url, KEYWORD_PARAM);
+            if (StringUtils.isNotEmpty(keywordParam)) {
+                String keyword = UrlUtils.decode(keywordParam).replaceAll(" ", "").toLowerCase();
+                if (containsKey(keyword, EBAY_KEYWORDS)) {
+                    details.setTrafficSourceLevel3(ORGANIC_NAV_SEARCH_PAID);
+                } else {
+                    details.setTrafficSourceLevel3(PAID_PAID_SEARCH);
+                }
+            } else {
+                details.setTrafficSourceLevel3(PAID_PAID_SEARCH);
             }
-        } else if (mpxChnlId == 2) {
-            details.setTrafficSourceLevel3(PAID_PAID_SEARCH);
-        } else if (mpxChnlId == 6) {
+        } else if (Integer.valueOf(6).equals(mpxChnlId)) {
             details.setTrafficSourceLevel3(PAID_EPN);
-        } else if (mpxChnlId == 36) {
+        } else if (Integer.valueOf(36).equals(mpxChnlId)) {
             details.setTrafficSourceLevel3(FREE_SEO_FREE_FEEDS);
-        } else if (mpxChnlId == 1) {
+        } else if (Integer.valueOf(1).equals(mpxChnlId)) {
             details.setTrafficSourceLevel3(PAID_DISPLAY);
-        } else if (mpxChnlId == 33 || mpxChnlId == 35) {
+        } else if (Integer.valueOf(33).equals(mpxChnlId) || Integer.valueOf(35).equals(mpxChnlId)) {
             details.setTrafficSourceLevel3(PAID_PAID_SOCIAL);
-        } else if (chnl == 7) {
+        } else if (Integer.valueOf(7).equals(chnl)) {
             details.setTrafficSourceLevel3(ORGANIC_TXN_COMMS_SITE_EMAIL);
-        } else if (chnl == 8) {
+        } else if (Integer.valueOf(8).equals(chnl)) {
             details.setTrafficSourceLevel3(FREE_MKTG_COMMS_MKTG_EMAIL);
-        } else if (chnl == 24) {
+        } else if (Integer.valueOf(24).equals(chnl)) {
             details.setTrafficSourceLevel3(FREE_MKTG_COMMS_SMS);
-        } else if (chnl == 29) {
+        } else if (Integer.valueOf(29).equals(chnl)) {
             details.setTrafficSourceLevel3(ORGANIC_TXN_COMMS_CS_EMAIL);
-        } else if (chnl == 16) {
+        } else if (Integer.valueOf(16).equals(chnl)) {
             details.setTrafficSourceLevel3(FREE_FREE_SOCIAL);
         }
         // fallback with chnl
-        else if (chnl == 1) {
+        else if (Integer.valueOf(1).equals(chnl)) {
             details.setTrafficSourceLevel3(PAID_EPN);
-        } else if (chnl == 2) {
+        } else if (Integer.valueOf(2).equals(chnl)) {
             details.setTrafficSourceLevel3(PAID_PAID_SEARCH);
-        } else if (chnl == 4) {
+        } else if (Integer.valueOf(4).equals(chnl)) {
             details.setTrafficSourceLevel3(PAID_DISPLAY);
-        } else if (chnl == 28) {
+        } else if (Integer.valueOf(28).equals(chnl)) {
             details.setTrafficSourceLevel3(FREE_SEO_FREE_FEEDS);
         }
         if (StringUtils.isNotEmpty(details.getTrafficSourceLevel3())) {
             details.setRotid(rotId);
             details.setMpxChnlId(mpxChnlId);
         }
-
-        return details;
     }
 
     private boolean containsKey(String str, List<String> keywords) {
-        return keywords.stream().anyMatch(str::contains);
+        if (StringUtils.isNotEmpty(str)) {
+            return keywords.stream().anyMatch(str::contains);
+        } else {
+            return false;
+        }
     }
 
 }

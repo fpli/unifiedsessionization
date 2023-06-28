@@ -3,7 +3,6 @@ package com.ebay.epic.soj.common.model.trafficsource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class TrafficSourceConstants {
     // traffic source level 3
@@ -27,8 +26,14 @@ public class TrafficSourceConstants {
     public static final String ORGANIC_DIRECT_NO_REF = "Organic: Direct: No Referrer";
     public static final String FREE_OTHER = "Free: Other";
 
+    // ubi event fields
+    public static final String UBI_FIELD_URLQUERYSTRING = "urlQueryString";
+    public static final String UBI_FIELD_REFERRER = "referrer";
+
     // payload tags
     public static final String PAYLOAD_KEY_REF = "ref";
+    // use ubi event field instead, this is slightly different from batch
+    public static final String PAYLOAD_KEY_RDT = "rdt";
     public static final String PAYLOAD_KEY_CHNL = "chnl";
     public static final String PAYLOAD_KEY_ROTID = "rotid";
     public static final String PAYLOAD_KEY_URL_MPRE = "url_mpre";
@@ -47,13 +52,14 @@ public class TrafficSourceConstants {
 
     // others
     public static final String KEYWORD_PARAM = "keyword";
-    public static final Pattern EBAY_PATTERN = Pattern.compile("(e[a|+|-|.]?bay)|eaby|eby|eba|kijiji",
-            Pattern.CASE_INSENSITIVE);
+    public static final String UNKNOWN_REF = "unknown";
+    public static final List<String> EBAY_KEYWORDS = new ArrayList<>(Arrays.asList("ebay", "eaby", "eby", "eba", "eabay",
+            "e+bay", "e-bay", "e.bay", "kijiji")); // Common ebay misspellings and ebay subsidiary
     public static final List<String> CHOCOLATE_CHNL = new ArrayList<>(Arrays.asList("1", "2", "4", "7", "8", "16",
             "24", "28", "29"));
-    public static final List<String> SEARCH_ENGINE_KEYWORD = new ArrayList<>(Arrays.asList("google", "bing", "yahoo",
+    public static final List<String> SEARCH_ENGINE_KEYWORDS = new ArrayList<>(Arrays.asList("google", "bing", "yahoo",
             "duckduckgo", "yandex"));
-    public static final List<String> SOCIAL_KEYWORD = new ArrayList<>(Arrays.asList("youtube", "facebook", "twitter",
+    public static final List<String> SOCIAL_KEYWORDS = new ArrayList<>(Arrays.asList("youtube", "facebook", "twitter",
             "pinterest", "instagram", "linkedin", "t.co"));
     public static final String MAIL_KEYWORD = "mail";
     public static final String EBAY_KEYWORD = "ebay";
