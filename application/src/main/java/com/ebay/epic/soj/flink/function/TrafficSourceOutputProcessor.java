@@ -6,11 +6,12 @@ import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceCandidates;
 import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceDetails;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
-public class TrafficSourceOutputProcessor {
+public class TrafficSourceOutputProcessor implements Serializable {
 
     public static final String OTHERS_TRAFFIC_SOURCE_CANDIDATES = "trafficSourceCandidates";
 
