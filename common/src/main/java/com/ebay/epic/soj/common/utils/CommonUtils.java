@@ -1,8 +1,11 @@
 package com.ebay.epic.soj.common.utils;
 
 import org.apache.commons.lang3.StringUtils;
+import org.codehaus.jackson.map.ObjectMapper;
 
 public class CommonUtils {
+    public static final ObjectMapper objectMapper = new ObjectMapper();
+
     public static boolean isMeaningFullString(String str) {
         if (StringUtils.isBlank(str)) {
             return false;

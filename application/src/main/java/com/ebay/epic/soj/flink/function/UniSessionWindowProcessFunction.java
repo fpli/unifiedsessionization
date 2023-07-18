@@ -6,7 +6,6 @@ import com.ebay.epic.soj.common.model.RheosHeader;
 import com.ebay.epic.soj.common.model.UniSession;
 import com.ebay.epic.soj.common.model.raw.RawUniSession;
 import com.ebay.epic.soj.common.model.UniSessionAccumulator;
-import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceDetails;
 import com.google.common.collect.Lists;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.typeutils.base.LongSerializer;
@@ -17,13 +16,15 @@ import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class UniSessionWindowProcessFunction
         extends ProcessWindowFunction<UniSessionAccumulator, UniSession, Tuple, TimeWindow> {
 
     private static final ValueStateDescriptor<Long> lastTimestampStateDescriptor =
             new ValueStateDescriptor("lastTimestamp", LongSerializer.INSTANCE);
+
+    private TrafficSourceOutputProcessor trafficSourceOutputProcessor =
+            new TrafficSourceOutputProcessor();
 
     private void outputSession(RawUniSession rawUniSession,
                                Collector<UniSession> out, boolean isOpen) {
@@ -57,10 +58,7 @@ public class UniSessionWindowProcessFunction
         botFlag.setUbi(Lists.newArrayList(rawUniSession.getUbiBotList()));
         botFlag.setUtp(Lists.newArrayList(rawUniSession.getSutpBotList()));
         uniSession.setBotFlag(botFlag);
-        TrafficSourceDetails trafficSourceDetails = rawUniSession.getTrafficSourceDetails();
-        if (trafficSourceDetails != null && trafficSourceDetails.getTrafficSourceLevel3() != null) {
-            uniSession.setTrafficSourceDetails(trafficSourceDetails.toMap());
-        }
+        trafficSourceOutputProcessor.output(rawUniSession, uniSession);
         out.collect(uniSession);
     }
 
