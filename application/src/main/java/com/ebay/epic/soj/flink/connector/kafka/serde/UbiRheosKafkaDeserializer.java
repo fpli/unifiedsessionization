@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +49,7 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         rawEvent.setUserAgent(getStrOrDefault(agentStr, ""));
         rawEvent.setClientData(utfMapToString(genericClientData == null ? Collections.emptyMap() : genericClientData));
 
-        rawEvent.setPayload((Map<String, String>) genericRecord.get("applicationPayload"));
+        rawEvent.setPayload(utf8MapToStringMap((Map<Utf8, Utf8>) genericRecord.get("applicationPayload")));
         rawEvent.setSqr(getStrOrDefault(genericRecord.get("sqr"), null));
         rawEvent.setPageUrl(getStrOrDefault(genericClientData.get("urlQueryString"), null));
         ubiTrafficSourceDeserializer.convert(genericRecord, rawEvent);
@@ -98,4 +99,13 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         return null;
     }
 
+    private Map<String, String> utf8MapToStringMap(Map<Utf8, Utf8> applicationPayload) {
+        Map<String, String> stringMap = new HashMap<>();
+        for(Map.Entry entry : applicationPayload.entrySet()) {
+            if (entry.getKey() != null && entry.getValue() != null) {
+                stringMap.put(entry.getKey().toString(), entry.getValue().toString());
+            }
+        }
+        return stringMap;
+    }
 }
