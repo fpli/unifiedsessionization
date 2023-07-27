@@ -3,6 +3,7 @@ package com.ebay.epic.soj.business.metric.trafficsource;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
 import com.ebay.epic.soj.common.model.trafficsource.*;
 import com.ebay.epic.soj.common.utils.UrlUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.TestOnly;
 
@@ -12,6 +13,7 @@ import java.util.Map;
 import static com.ebay.epic.soj.common.enums.EventType.*;
 import static com.ebay.epic.soj.common.model.trafficsource.TrafficSourceConstants.*;
 
+@Slf4j
 public class TrafficSourceDetector {
     private final TrafficSourceLookupManager lookupManager;
 
@@ -35,13 +37,24 @@ public class TrafficSourceDetector {
                 if (uniEvent.getPayload() != null) {
                     Map<String,String> payload = uniEvent.getPayload();
                     if (StringUtils.isNotEmpty(payload.get(PAYLOAD_KEY_CHNL))) {
-                        event.setChnl(Integer.parseInt(payload.get(PAYLOAD_KEY_CHNL)));
+                        try {
+                            event.setChnl(Integer.parseInt(payload.get(PAYLOAD_KEY_CHNL)));
+                        } catch (NumberFormatException e) {
+                            log.warn("Cannot parse chnl tag", e);
+                        }
                     }
                     if (StringUtils.isNotEmpty(payload.get(PAYLOAD_KEY_ROTID))) {
-                        long rotid = Long.parseLong(payload.get(PAYLOAD_KEY_ROTID));
-                        event.setRotId(rotid);
-                        if (lookupManager.getDwMpxRotationMap().get(rotid) != null) {
-                            event.setMpxChnlId(lookupManager.getDwMpxRotationMap().get(rotid).getMpxChnlId());
+                        Long rotid = null;
+                        try {
+                            rotid = Long.parseLong(payload.get(PAYLOAD_KEY_ROTID));
+                        } catch (NumberFormatException e) {
+                            log.warn("Cannot parse rotid tag", e);
+                        }
+                        if (rotid != null) {
+                            event.setRotId(rotid);
+                            if (lookupManager.getDwMpxRotationMap().get(rotid) != null) {
+                                event.setMpxChnlId(lookupManager.getDwMpxRotationMap().get(rotid).getMpxChnlId());
+                            }
                         }
                     }
                     event.setUrl(UrlUtils.decode(payload.get(PAYLOAD_KEY_URL_MPRE)));
@@ -193,12 +206,21 @@ public class TrafficSourceDetector {
         if (StringUtils.isNotEmpty(mkcid) && CHOCOLATE_CHNL.contains(mkcid)) {
             Long rotId = null;
             Integer mpxChnlId = null;
-            Integer chnl = Integer.parseInt(mkcid);
+            Integer chnl = null;
+            try {
+                chnl = Integer.parseInt(mkcid);
+            } catch (NumberFormatException e) {
+                log.warn("Cannot parse mkcid", e);
+            }
             String mkrid = UrlUtils.getParamValue(firstEventUrl, "mkrid");
             if (StringUtils.isNotEmpty(mkrid)) {
-                String mkridNum = UrlUtils.decode(mkrid).replaceAll("-", "");
-                rotId = Long.parseLong(mkridNum);
-                if (lookupManager.getDwMpxRotationMap().get(rotId) != null) {
+                String mkridNum = UrlUtils.decode(mkrid).replaceAll("[-\\n\\r\\t\\s]", "");
+                try {
+                    rotId = Long.parseLong(mkridNum);
+                } catch (NumberFormatException e) {
+                    log.warn("Cannot parse rotation id", e);
+                }
+                if (rotId != null && lookupManager.getDwMpxRotationMap().get(rotId) != null) {
                     mpxChnlId = lookupManager.getDwMpxRotationMap().get(rotId).getMpxChnlId();
                 }
             }
@@ -266,6 +288,8 @@ public class TrafficSourceDetector {
             details.setTrafficSourceLevel3(PAID_DISPLAY);
         } else if (Integer.valueOf(33).equals(mpxChnlId) || Integer.valueOf(35).equals(mpxChnlId)) {
             details.setTrafficSourceLevel3(PAID_PAID_SOCIAL);
+        } else if (Integer.valueOf(15).equals(mpxChnlId) || Integer.valueOf(23).equals(mpxChnlId)) {
+            details.setTrafficSourceLevel3(ORGANIC_IMBD);
         } else if (Integer.valueOf(7).equals(chnl)) {
             details.setTrafficSourceLevel3(ORGANIC_TXN_COMMS_SITE_EMAIL);
         } else if (Integer.valueOf(8).equals(chnl)) {

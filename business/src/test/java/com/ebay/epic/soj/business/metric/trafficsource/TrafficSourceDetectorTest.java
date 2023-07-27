@@ -5,7 +5,6 @@ import com.ebay.epic.soj.common.model.trafficsource.*;
 import com.ebay.epic.soj.common.utils.UrlUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -31,6 +30,7 @@ public class TrafficSourceDetectorTest {
     private static final String IFRAME_PAGE_NAME = "Pulsar Gateway";
 
     private static final long TEST_RID = 7101597872055385L;
+    private static final long IMBD_RID = 71186042134093L;
 
     private static final String GOOGLE_REF = "https://www.google.com";
     private static final String FACEBOOK_REF = "https://www.facebook.com";
@@ -508,8 +508,8 @@ public class TrafficSourceDetectorTest {
         assertThat(details.getTrafficSourceLevel3()).isEqualTo(NOTIFICATIONS_APPS);
         assertThat(details.getLdngPageId()).isEqualTo(HOME_PAGE);
         assertThat(details.getReferer()).isEqualTo(UrlUtils.getDomain(GOOGLE_REF));
-        assertThat(details.getRotid()).isNull();
-        assertThat(details.getMpxChnlId()).isNull();
+        assertThat(details.getRotid()).isEqualTo(0);
+        assertThat(details.getMpxChnlId()).isEqualTo(0);
     }
 
     @Test
@@ -540,8 +540,25 @@ public class TrafficSourceDetectorTest {
         assertThat(details.getLdngPageId()).isEqualTo(HOME_PAGE);
         assertThat(details.getReferer()).isEqualTo(UrlUtils.getDomain(GOOGLE_REF));
         assertThat(details.getMppid()).isEqualTo(mppid);
-        assertThat(details.getRotid()).isNull();
-        assertThat(details.getMpxChnlId()).isNull();
+        assertThat(details.getRotid()).isEqualTo(0);
+        assertThat(details.getMpxChnlId()).isEqualTo(0);
+    }
+
+    @Test
+    public void determineTrafficSource_imbd_chocolate() {
+        ValidUbiEvent ubiEvent = getValidUbiEvent(firstEventTs, HOME_PAGE, HOME_PAGE_NAME, HOME_PAGE_URL, GOOGLE_REF);
+        UtpEvent utpEvent = getUtpEvent(eventTsAdd3sec, CHOCOLATE_PAGE, 4, IMBD_RID, 15, HOME_PAGE_URL);
+        TrafficSourceCandidates candidates = TrafficSourceCandidates.builder()
+                .firstValidUbiEvent(ubiEvent)
+                .firstUtpEvent(utpEvent)
+                .build();
+        TrafficSourceDetails details = detector.determineTrafficSource(candidates);
+        assertThat(details.getTrafficSourceLevel3()).isEqualTo(ORGANIC_IMBD);
+        assertThat(details.getLdngPageId()).isEqualTo(HOME_PAGE);
+        assertThat(details.getReferer()).isEqualTo(UrlUtils.getDomain(GOOGLE_REF));
+        assertThat(details.getMppid()).isNull();
+        assertThat(details.getRotid()).isEqualTo(IMBD_RID);
+        assertThat(details.getMpxChnlId()).isEqualTo(15);
     }
 
     @Test
@@ -635,7 +652,7 @@ public class TrafficSourceDetectorTest {
         assertThat(details.getTrafficSourceLevel3()).isEqualTo(ORGANIC_DIRECT_NO_REF);
         assertThat(details.getLdngPageId()).isEqualTo(HOME_PAGE);
         assertThat(details.getReferer()).isNull();
-        assertThat(details.getRotid()).isNull();
+        assertThat(details.getRotid()).isEqualTo(0);
 
         ubiEvent.setReferer("null");
         candidates.setFirstValidUbiEvent(ubiEvent);
@@ -745,6 +762,7 @@ public class TrafficSourceDetectorTest {
     private static void mockRotationLookup(TrafficSourceLookupManager lookupManager) {
         Map<Long, DwMpxRotation> rotationMap = new HashMap<>();
         rotationMap.put(TEST_RID, getMpxRotation(TEST_RID, 6));
+        rotationMap.put(IMBD_RID, getMpxRotation(IMBD_RID, 15));
         when(lookupManager.getDwMpxRotationMap()).thenReturn(rotationMap);
     }
 }
