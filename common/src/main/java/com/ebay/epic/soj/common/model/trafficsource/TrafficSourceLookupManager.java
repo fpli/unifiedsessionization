@@ -1,88 +1,78 @@
 package com.ebay.epic.soj.common.model.trafficsource;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.avro.Schema;
-import org.apache.avro.file.DataFileStream;
-import org.apache.avro.generic.GenericDatumReader;
-import org.apache.avro.generic.GenericRecord;
-import org.apache.avro.io.DatumReader;
+import org.jetbrains.annotations.NotNull;
 
-import java.io.InputStream;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
-public class TrafficSourceLookupManager {
+public class TrafficSourceLookupManager implements Runnable {
+
     private static TrafficSourceLookupManager trafficSourceLookupManager =
             new TrafficSourceLookupManager();
-    private Map<Long, DwMpxRotation> dwMpxRotationMap =
-            Collections.unmodifiableMap(new HashMap<>());
-    private Map<Integer, Page> pageMap =
-            Collections.unmodifiableMap(new HashMap<>());
+    private volatile Pages pages;
+    private volatile Rotations rotations;
 
     private TrafficSourceLookupManager() {
-        loadPages();
-        loadRotations();
+        initializeLookups();
+        scheduleRefreshLookups();
     }
 
-    private void loadPages() {
-        Map<Integer, Page> pages = new HashMap<>();
-        try {
-            long start = System.currentTimeMillis();
-            Schema schema = new Schema.Parser().parse(
-                    TrafficSourceLookupManager.class.getResourceAsStream(
-                            "/trafficsource/page.avsc"));
-            DatumReader<GenericRecord> datumReader = new GenericDatumReader<>(schema);
-            InputStream in = TrafficSourceLookupManager.class.getResourceAsStream(
-                    "/trafficsource/lkp_pages.avro");
-            DataFileStream<GenericRecord> dataFileStream = new DataFileStream<>(in, datumReader);
-            GenericRecord page = null;
-            while (dataFileStream.hasNext()) {
-                // Reuse object by passing it to next(). This saves us from allocating and garbage
-                // collecting many objects for files with many items.
-                page = dataFileStream.next(page);
-                Integer pageId = (Integer) page.get("page_id");
-                String pageName = (String) page.get("page_name").toString();
-                Integer iframe = (Integer) page.get("iframe");
-                pages.put(pageId, new Page(pageId, pageName, iframe));
-            }
-            long end = System.currentTimeMillis();
-            log.info("Duration to load pages: " + ((end - start)) + " (ms)");
-            log.info("Pages loaded: " + pages.size());
-        } catch (Exception e) {
-            log.error("failed to load pages", e);
+    private void initializeLookups() {
+        Pages initPages = new Pages();
+        Rotations initRotations = new Rotations();
+        if (initPages.initialize() && initRotations.initialize()) {
+            pages = initPages;
+            rotations = initRotations;
+            log.info("Lookups are initialized successfully.");
+            log.info("pages: " + pages);
+            log.info("rotations: " + rotations);
+        } else {
+            throw new RuntimeException("Failed to initialize lookups.");
         }
-        pageMap = Collections.unmodifiableMap(pages);
     }
 
-    private void loadRotations() {
-        Map<Long, DwMpxRotation> rotations = new HashMap<>();
-        try {
-            long start = System.currentTimeMillis();
-            Schema schema = new Schema.Parser().parse(
-                    TrafficSourceLookupManager.class.getResourceAsStream(
-                            "/trafficsource/rotation.avsc"));
-            DatumReader<GenericRecord> datumReader = new GenericDatumReader<>(schema);
-            InputStream in = TrafficSourceLookupManager.class.getResourceAsStream(
-                    "/trafficsource/lkp_rotations.avro");
-            DataFileStream<GenericRecord> dataFileStream = new DataFileStream<>(in, datumReader);
-            GenericRecord rotation = null;
-            while (dataFileStream.hasNext()) {
-                // Reuse object by passing it to next(). This saves us from allocating and garbage
-                // collecting many objects for files with many items.
-                rotation = dataFileStream.next(rotation);
-                Long rotationId = (Long) rotation.get("rotation_id");
-                Integer mpxChnlId = (Integer) rotation.get("mpx_chnl_id");
-                rotations.put(rotationId, new DwMpxRotation(rotationId, mpxChnlId));
+    private void scheduleRefreshLookups() {
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor
+                = new ScheduledThreadPoolExecutor(1, new ThreadFactory() {
+            @Override
+            public Thread newThread(@NotNull Runnable r) {
+                Thread t = new Thread(r, "traffic-source-lookup-thread");
+                t.setDaemon(true);
+                return t;
             }
-            long end = System.currentTimeMillis();
-            log.info("Duration (ms) to load rotations: " + ((end - start)) + " (ms)");
-            log.info("Rotations loaded: " + rotations.size());
+        });
+        scheduledThreadPoolExecutor
+                .scheduleAtFixedRate(this, 60, 60, TimeUnit.MINUTES);
+    }
+
+    @Override
+    public void run() {
+        try {
+            refreshLookups();
         } catch (Exception e) {
-            log.error("failed to load rotations", e);
+            log.warn("Failed to refresh lookups", e);
         }
-        dwMpxRotationMap = Collections.unmodifiableMap(rotations);
+    }
+
+    private void refreshLookups() {
+        if (pages.outOfDate()) {
+            Pages newPages = new Pages();
+            if (newPages.loadFromHdfs() == LoadStatus.SUCCESS) {
+                pages = newPages;
+                log.info("pages refreshed successfully: " + pages);
+            }
+        }
+        if (rotations.outOfDate()) {
+            Rotations newRotations = new Rotations();
+            if (newRotations.loadFromHdfs() == LoadStatus.SUCCESS) {
+                rotations = newRotations;
+                log.info("rotations refreshed successfully: " + rotations);
+            }
+        }
     }
 
     public static TrafficSourceLookupManager getInstance() {
@@ -90,10 +80,10 @@ public class TrafficSourceLookupManager {
     }
 
     public Map<Long, DwMpxRotation> getDwMpxRotationMap() {
-        return dwMpxRotationMap;
+        return rotations.getKvMap();
     }
 
     public Map<Integer, Page> getPageMap() {
-        return pageMap;
+        return pages.getKvMap();
     }
 }
