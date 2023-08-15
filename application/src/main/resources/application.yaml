@@ -16,6 +16,9 @@ flink:
         utp:
           utp:
             nonbot: 80
+        roi:
+          roi:
+            nonbot: 10
       pre-filter:
         autotrack:
           web:
@@ -29,6 +32,9 @@ flink:
         utp:
           utp:
             nonbot: 80
+        roi:
+          roi:
+            nonbot: 10
       normalizer:
         autotrack:
           web:
@@ -42,6 +48,9 @@ flink:
         utp:
           utp:
             nonbot: 80
+        roi:
+          roi:
+            nonbot: 10
       session: 1260
       split:
         default: 1260
@@ -53,6 +62,7 @@ flink:
         utp: 1260
         session: 1260
         late: 1260
+        roi: 1260
       max:
         default: 2400
         session: 5040
@@ -69,14 +79,17 @@ flink:
         autotrack: 0
         ubi: 0
         utp: 0
+        roi: 0
       out-of-orderless-in-min:
         autotrack: 3
         ubi: 3
         utp: 3
+        roi: 3
       idle-source-timeout-in-min:
         autotrack: 10
         ubi: 10
         utp: 10
+        roi: 10
     sink:
       message-key: guid
       sampling-key: guid
@@ -97,6 +110,9 @@ flink:
           utp:
             utp:
               nonbot: behavior.total.new.utpevent
+          roi:
+            roi:
+              nonbot: behavior.unified.sojourner.nonbot.globalevents.roi
           late:
               web:
                 nonbot: behavior.unified.surface.late.event.web-rno
@@ -105,6 +121,8 @@ flink:
               ubi:
                 bot: behavior.unified.sojourner.bot.late.sojevent-rno
                 nonbot: behavior.unified.sojourner.nonbot.late.sojevent-rno
+              roi:
+                nonbot: behavior.unified.sojourner.nonbot.late.globalevents.roi
           session:
             session:
               nonbot: behavior.unified.sojourner.nonbot.unisession-rno
@@ -113,6 +131,7 @@ flink:
           ubi: behavior.sojourner.sojevent.schema
           utp: UnifiedTrackingRheosEvent
           session: unisessionschema
+          roi: globalevents.roi.schema
     metric:
       window-size: 70000
     slot-sharing-group:
@@ -120,14 +139,17 @@ flink:
         autotrack: autotrack-source
         ubi: sojourner-source
         utp: marketing-tracking-source
+        roi: roi-source
       pre-filter:
         autotrack: autotrack-source
         ubi: sojourner-source
         utp: marketing-tracking-source
+        roi: roi-source
       normalizer:
         autotrack: autotrack-source
         ubi: sojourner-source
         utp: marketing-tracking-source
+        roi: roi-source
       session-window: session-operator
       split: session-operator
       sink:
@@ -142,14 +164,17 @@ flink:
         autotrack: AutoTrack Source
         ubi: Sojourner Source
         utp: Marketing Tracking Source
+        roi: Roi Source
       pre-filter:
         autotrack: AutoTrack PreFilter Operator
         ubi: Sojourner PreFilter Operator
         utp: Marketing PreFilter Operator
+        roi: Roi PreFilter Operator
       normalizer:
         autotrack: AutoTrack Normalizer Operator
         ubi: Sojourner Normalizer Operator
         utp: Marketing Normalizer Operator
+        roi: Roi Normalizer Operator
       session-window: Session Operator
       split:
         default: Main Split Operator
@@ -161,19 +186,23 @@ flink:
         utp: Marketing Tracking Sink To Kafka
         session: UniSession Sink to Kafka
         late: Late Event Sink to Kafka
+        roi: Roi Sink To Kafka
     uid:
       source:
         autotrack: autotrack-source
         ubi: sojourner-source
         utp: marketing-tracking-source
+        roi: roi-source
       pre-filter:
         autotrack: autotrack-prefilter-operator
         ubi: sojourner-prefilter-operator
         utp: marketing-tracking-prefilter-operator
+        roi: roi-prefilter-operator
       normalizer:
         autotrack: autotrack-normalizer-0perator
         ubi: sojourner-normalizer-0perator
         utp: marketing-tracking-normalizer-0perator
+        roi: roi-normalizer-operator
       session-window: session-operator
       split:
         default: main-split-operator
@@ -185,6 +214,7 @@ flink:
         utp: marketing-tracking-sink-to-kafka
         session: unisession-sink-to-kafka
         late: late-event-sink-to-kafka
+        roi: roi-sink-to-kafka
 kafka:
   consumer:
       group-id: unified-sessionization-prod
@@ -208,11 +238,15 @@ kafka:
           utp:
             nonbot:
               - marketing.tracking.events.total
+        roi:
+          roi:
+            nonbot:
+              - marketing.tracking.globalevents.roi
       bootstrap-servers:
         rno:
           autotrack:
             - rhs-bkuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-            - rhs-bkuvkiaa-kfk-rno-2.rheos-slstreaming-prod.svc.26.tess.io:9092
+            - rhs-bkuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
             - rhs-bkuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
             - rhs-bkuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
             - rhs-bkuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
@@ -241,6 +275,12 @@ kafka:
             - rhs-hcrvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.27.tess.io:9092
             - rhs-hcrvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.27.tess.io:9092
             - rhs-hcrvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.27.tess.io:9092
+          roi:
+            - rhs-hcrvkiaa-kfk-lvs-1.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-hcrvkiaa-kfk-lvs-2.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-hcrvkiaa-kfk-lvs-3.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-hcrvkiaa-kfk-lvs-4.rheos-streaming-prod.svc.27.tess.io:9092
+            - rhs-hcrvkiaa-kfk-lvs-5.rheos-streaming-prod.svc.27.tess.io:9092
         slc:
           autotrack:
             - rhs-gpuvkiaa-kfk-slc-1.rheos-streaming-prod.svc.40.tess.io:9092
@@ -249,6 +289,12 @@ kafka:
             - rhs-gpuvkiaa-kfk-slc-4.rheos-streaming-prod.svc.40.tess.io:9092
             - rhs-gpuvkiaa-kfk-slc-5.rheos-streaming-prod.svc.40.tess.io:9092
           utp:
+            - rhs-ncrvkiaa-kfk-slc-1.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-ncrvkiaa-kfk-slc-2.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-ncrvkiaa-kfk-slc-3.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-ncrvkiaa-kfk-slc-4.rheos-streaming-prod.svc.40.tess.io:9092
+            - rhs-ncrvkiaa-kfk-slc-5.rheos-streaming-prod.svc.40.tess.io:9092
+          roi:
             - rhs-ncrvkiaa-kfk-slc-1.rheos-streaming-prod.svc.40.tess.io:9092
             - rhs-ncrvkiaa-kfk-slc-2.rheos-streaming-prod.svc.40.tess.io:9092
             - rhs-ncrvkiaa-kfk-slc-3.rheos-streaming-prod.svc.40.tess.io:9092
@@ -314,6 +360,14 @@ kafka:
               - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
               - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
               - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+        roi:
+          roi:
+            nonbot:
+              - rhs-ddcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
         late:
           web:
             nonbot:
@@ -342,6 +396,14 @@ kafka:
               - rhs-necwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
               - rhs-necwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
               - rhs-necwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+          roi:
+            nonbot:
+              - rhs-ddcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+
         session:
           session:
             bot:

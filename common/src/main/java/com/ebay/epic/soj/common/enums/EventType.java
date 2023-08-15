@@ -16,7 +16,11 @@ public enum EventType {
     LATE_UBI_BOT("late","ubi","bot"),
     LATE_UTP_NONBOT("late","utp","nonbot"),
     LATE_UTP_BOT("late","utp","bot"),
-    DEFAULT_LATE("late","default","default"),;
+    DEFAULT_LATE("late","default","default"),
+    ROI_NONBOT("roi","roi","nonbot"),
+    ROI_BOT("roi","roi","bot"),
+    LATE_ROI_NONBOT("late","roi","nonbot"),
+    LATE_ROI_BOT("late","roi","bot");
 
     private String name;
     private String category;

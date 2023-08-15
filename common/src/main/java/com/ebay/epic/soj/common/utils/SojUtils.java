@@ -18,7 +18,8 @@ public class SojUtils {
         categoryMap.put("autotracking.event",AUTOTRACK_WEB);
         categoryMap.put("sojevent-nonbot",UBI_NONBOT);
         categoryMap.put("sojevent-bot",UBI_BOT);
-        categoryMap.put("marketing.tracking",UTP_NONBOT);
+        categoryMap.put("marketing.tracking.events.total",UTP_NONBOT);
+        categoryMap.put("marketing.tracking.globalevents.roi",ROI_NONBOT);
     }
     public static String extractNVP(String payloadValue, String PayloadKey, String keyDelimiter, String valueDelimiter) {
         if (payloadValue == null || PayloadKey == null) {

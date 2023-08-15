@@ -1,0 +1,633 @@
+{
+  "type": "record",
+  "name": "GlobalEvent",
+  "namespace": "org.ebayanalytics.globalevent",
+  "fields": [
+    {
+      "name": "rheosHeader",
+      "type": {
+        "type": "record",
+        "name": "RheosHeader",
+        "fields": [
+          {
+            "name": "eventCreateTimestamp",
+            "type": "long"
+          },
+          {
+            "name": "eventSentTimestamp",
+            "type": "long"
+          },
+          {
+            "name": "schemaId",
+            "type": "int"
+          },
+          {
+            "name": "eventId",
+            "type": [
+              "null",
+              {
+                "type": "string",
+                "avro.java.string": "String"
+              }
+            ],
+            "default": null
+          },
+          {
+            "name": "producerId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "dataSrc",
+      "type": [
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        },
+        "null"
+      ],
+      "default": "surface"
+    },
+    {
+      "name": "snapshotVersion",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "eventId",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "customEventIds",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "avro.java.string": "String"
+          }
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "assetType",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "guid",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "userId",
+      "type": [
+        "null",
+        "long"
+      ],
+      "default": null
+    },
+    {
+      "name": "eventTime",
+      "type": [
+        "null",
+        "long"
+      ],
+      "default": null
+    },
+    {
+      "name": "eventTrigger",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "customEventTriggers",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "avro.java.string": "String"
+          }
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "eventPrimaryAsset",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "customEventPrimaryAssets",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "avro.java.string": "String"
+          }
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "label",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "activityDtl",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "dwell",
+      "type": [
+        "null",
+        "long"
+      ],
+      "default": null
+    },
+    {
+      "name": "eventLevel",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "experience",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "pageId",
+      "type": [
+        "null",
+        "long"
+      ],
+      "default": null
+    },
+    {
+      "name": "pageUrl",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "payload",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": [
+            "null",
+            {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          ],
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "referer",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "pageName",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "pageGroupId",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "pageGroupName",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "pageGroupDesc",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "elementId",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "elementName",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "moduleId",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "moduleName",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "moduleDesc",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "clickId",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "clickName",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "clickDesc",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "destinationUrl",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "imageUrl",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "elementLabel",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "elementSelectorPath",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "itemId",
+      "type": [
+        "null",
+        "long"
+      ],
+      "default": null
+    },
+    {
+      "name": "siteId",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "dt",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "bizDtl",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": [
+            "null",
+            {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          ],
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "trackableId",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "sessionId",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "correlationId",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "screenId",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "ratio",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "userAgent",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "userLang",
+      "type": [
+        "null",
+        {
+          "type": "string",
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "screenWidth",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "screenHeight",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "viewportWidth",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "viewportHeight",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "pageLoad",
+      "type": [
+        "null",
+        "long"
+      ],
+      "default": null
+    },
+    {
+      "name": "ttfb",
+      "type": [
+        "null",
+        "long"
+      ],
+      "default": null
+    },
+    {
+      "name": "itemDtl",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": [
+            "null",
+            {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          ],
+          "avro.java.string": "String"
+        }
+      ],
+      "default": null
+    }
+  ]
+}

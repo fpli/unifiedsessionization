@@ -73,6 +73,10 @@ public class FlinkKafkaSinkBuilder<T> {
                 this.topicSubject = configManager.getTopicSubjectOR(topicSubject, EventType.UBI_NONBOT);
                 break;
             }
+            case LATE_ROI_NONBOT: {
+                this.topicSubject = configManager.getTopicSubjectOR(topicSubject, EventType.ROI_NONBOT);
+                break;
+            }
             default: {
                 this.topicSubject = configManager.getTopicSubject(topicSubject);
                 break;

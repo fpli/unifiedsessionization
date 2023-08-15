@@ -34,17 +34,20 @@ public class UniEventSplitProcessFunction extends ProcessFunction<UniEvent,UniEv
     private transient DropwizardHistogramWrapper siteToSourceSBWrapper;
     private transient DropwizardHistogramWrapper siteToSourceSNBWrapper;
     private transient DropwizardHistogramWrapper siteToSourceUNBWrapper;
+    private transient DropwizardHistogramWrapper siteToSourceRNBWrapper;
     private transient DropwizardHistogramWrapper siteToSinkSWWrapper;
     private transient DropwizardHistogramWrapper siteToSinkSNWrapper;
     private transient DropwizardHistogramWrapper siteToSinkSBWrapper;
     private transient DropwizardHistogramWrapper siteToSinkSNBWrapper;
     private transient DropwizardHistogramWrapper siteToSinkUNBWrapper;
+    private transient DropwizardHistogramWrapper siteToSinkRNBWrapper;
     private transient DropwizardHistogramWrapper sourceToSinkWrapper;
     private transient DropwizardHistogramWrapper USUpstreamDelaySWWrapper;
     private transient DropwizardHistogramWrapper USUpstreamDelaySNWrapper;
     private transient DropwizardHistogramWrapper USUpstreamDelaySBWrapper;
     private transient DropwizardHistogramWrapper USUpstreamDelaySNBWrapper;
     private transient DropwizardHistogramWrapper USUpstreamDelayUNBWrapper;
+    private transient DropwizardHistogramWrapper USUpstreamDelayRNBWrapper;
 
     private transient DropwizardHistogramWrapper USKafkaFetchDelayWrapper;
     private transient Map<EventType,DropwizardHistogramWrapper> s2sourceDhwMap;
@@ -86,13 +89,17 @@ public class UniEventSplitProcessFunction extends ProcessFunction<UniEvent,UniEv
                     .addGroup(Constants.UNIFIED_SESSION_METRICS_GROUP,Constants.UTP_NONBOT_METRICS_GROUP)
                     .histogram(siteToSource, new DropwizardHistogramWrapper(new Histogram(
                             new SlidingWindowReservoir(latencyWindowSize))));
+            siteToSourceRNBWrapper = getRuntimeContext().getMetricGroup()
+                    .addGroup(Constants.UNIFIED_SESSION_METRICS_GROUP,Constants.ROI_NONBOT_METRICS_GROUP)
+                    .histogram(siteToSource, new DropwizardHistogramWrapper(new Histogram(
+                            new SlidingWindowReservoir(latencyWindowSize))));
             s2sourceDhwMap = new ConcurrentHashMap<>();
             s2sourceDhwMap.put(EventType.AUTOTRACK_WEB,siteToSourceSWWrapper);
             s2sourceDhwMap.put(EventType.AUTOTRACK_NATIVE,siteToSourceSNWrapper);
             s2sourceDhwMap.put(EventType.UBI_BOT,siteToSourceSBWrapper);
             s2sourceDhwMap.put(EventType.UBI_NONBOT,siteToSourceSNBWrapper);
             s2sourceDhwMap.put(EventType.UTP_NONBOT,siteToSourceUNBWrapper);
-
+            s2sourceDhwMap.put(EventType.ROI_NONBOT,siteToSourceRNBWrapper);
             siteToSinkSWWrapper = getRuntimeContext().getMetricGroup()
                     .addGroup(Constants.UNIFIED_SESSION_METRICS_GROUP,Constants.SURFACE_WEB_METRICS_GROUP)
                     .histogram(siteToSink, new DropwizardHistogramWrapper(new Histogram(
@@ -113,12 +120,17 @@ public class UniEventSplitProcessFunction extends ProcessFunction<UniEvent,UniEv
                     .addGroup(Constants.UNIFIED_SESSION_METRICS_GROUP,Constants.UTP_NONBOT_METRICS_GROUP)
                     .histogram(siteToSink, new DropwizardHistogramWrapper(new Histogram(
                             new SlidingWindowReservoir(latencyWindowSize))));
+            siteToSinkRNBWrapper = getRuntimeContext().getMetricGroup()
+                    .addGroup(Constants.UNIFIED_SESSION_METRICS_GROUP,Constants.ROI_NONBOT_METRICS_GROUP)
+                    .histogram(siteToSink, new DropwizardHistogramWrapper(new Histogram(
+                            new SlidingWindowReservoir(latencyWindowSize))));
             s2sinkDhwMap= new ConcurrentHashMap<>();
             s2sinkDhwMap.put(EventType.AUTOTRACK_WEB,siteToSinkSWWrapper);
             s2sinkDhwMap.put(EventType.AUTOTRACK_NATIVE,siteToSinkSNWrapper);
             s2sinkDhwMap.put(EventType.UBI_BOT,siteToSinkSBWrapper);
             s2sinkDhwMap.put(EventType.UBI_NONBOT,siteToSinkSNBWrapper);
             s2sinkDhwMap.put(EventType.UTP_NONBOT,siteToSinkUNBWrapper);
+            s2sinkDhwMap.put(EventType.ROI_NONBOT,siteToSinkRNBWrapper);
 
             sourceToSinkWrapper = getRuntimeContext().getMetricGroup()
                     .addGroup(Constants.UNIFIED_SESSION_METRICS_GROUP)
@@ -145,6 +157,10 @@ public class UniEventSplitProcessFunction extends ProcessFunction<UniEvent,UniEv
                     .addGroup(Constants.UNIFIED_SESSION_METRICS_GROUP,Constants.UTP_NONBOT_METRICS_GROUP)
                     .histogram(sojournerUpstreamDelay, new DropwizardHistogramWrapper(new Histogram(
                             new SlidingWindowReservoir(latencyWindowSize))));
+            USUpstreamDelayRNBWrapper = getRuntimeContext().getMetricGroup()
+                    .addGroup(Constants.UNIFIED_SESSION_METRICS_GROUP,Constants.ROI_NONBOT_METRICS_GROUP)
+                    .histogram(sojournerUpstreamDelay, new DropwizardHistogramWrapper(new Histogram(
+                            new SlidingWindowReservoir(latencyWindowSize))));
 
             upstreamDhwMap= new ConcurrentHashMap<>();
             upstreamDhwMap.put(EventType.AUTOTRACK_WEB,USUpstreamDelaySWWrapper);
@@ -152,6 +168,7 @@ public class UniEventSplitProcessFunction extends ProcessFunction<UniEvent,UniEv
             upstreamDhwMap.put(EventType.UBI_BOT,USUpstreamDelaySBWrapper);
             upstreamDhwMap.put(EventType.UBI_NONBOT,USUpstreamDelaySNBWrapper);
             upstreamDhwMap.put(EventType.UTP_NONBOT,USUpstreamDelayUNBWrapper);
+            upstreamDhwMap.put(EventType.ROI_NONBOT,USUpstreamDelayRNBWrapper);
 
             USKafkaFetchDelayWrapper = getRuntimeContext().getMetricGroup()
                     .addGroup(Constants.UNIFIED_SESSION_METRICS_GROUP)

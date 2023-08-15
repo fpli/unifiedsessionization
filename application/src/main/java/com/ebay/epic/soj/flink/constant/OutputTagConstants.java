@@ -43,6 +43,12 @@ public class OutputTagConstants {
     public static OutputTag<UniEvent> utpBOTOutputTag =
             new OutputTag<>(UTP_BOT.getFullName(), TypeInformation.of(UniEvent.class));
 
+    public static OutputTag<UniEvent> roiNONBOTOutputTag =
+            new OutputTag<>(ROI_NONBOT.getFullName(), TypeInformation.of(UniEvent.class));
+
+    public static OutputTag<UniEvent> roiBOTOutputTag =
+            new OutputTag<>(ROI_BOT.getFullName(), TypeInformation.of(UniEvent.class));
+
     public static Map<String, OutputTag<UniEvent>> outputTagMapMain = new ConcurrentHashMap<>();
 
     static {
@@ -52,6 +58,8 @@ public class OutputTagConstants {
         outputTagMapMain.put(UBI_NONBOT.getFullName(), ubiNONBOTOutputTag);
         outputTagMapMain.put(UTP_NONBOT.getFullName(), utpNONBOTOutputTag);
         outputTagMapMain.put(UTP_BOT.getFullName(), utpBOTOutputTag);
+        outputTagMapMain.put(ROI_NONBOT.getFullName(), roiNONBOTOutputTag);
+        outputTagMapMain.put(ROI_BOT.getFullName(), roiBOTOutputTag);
 
     }
     public static OutputTag<UniEvent> atWEBOutputTagLate =
@@ -72,6 +80,12 @@ public class OutputTagConstants {
     public static OutputTag<UniEvent> utpBOTOutputTagLate =
             new OutputTag<>(LATE_UTP_BOT.getFullName(), TypeInformation.of(UniEvent.class));
 
+    public static OutputTag<UniEvent> roiNONBOTOutputTagLate =
+            new OutputTag<>(LATE_ROI_NONBOT.getFullName(), TypeInformation.of(UniEvent.class));
+
+    public static OutputTag<UniEvent> roiBOTOutputTagLate =
+            new OutputTag<>(LATE_ROI_BOT.getFullName(), TypeInformation.of(UniEvent.class));
+
     public static Map<String, OutputTag<UniEvent>> outputTagMapLate = new ConcurrentHashMap<>();
     static {
         outputTagMapLate.put(AUTOTRACK_WEB.getFullName(), atWEBOutputTagLate);
@@ -80,6 +94,8 @@ public class OutputTagConstants {
         outputTagMapLate.put(UBI_NONBOT.getFullName(), ubiNONBOTOutputTagLate);
         outputTagMapLate.put(UTP_BOT.getFullName(), utpBOTOutputTagLate);
         outputTagMapLate.put(UTP_NONBOT.getFullName(), utpNONBOTOutputTagLate);
+        outputTagMapLate.put(ROI_NONBOT.getFullName(), roiNONBOTOutputTagLate);
+        outputTagMapLate.put(ROI_BOT.getFullName(), roiBOTOutputTagLate);
     }
 
     public static OutputTag<UniSession> uniSessBotOutputTag =

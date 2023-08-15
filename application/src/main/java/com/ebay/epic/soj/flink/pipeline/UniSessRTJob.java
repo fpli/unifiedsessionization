@@ -57,6 +57,8 @@ public class UniSessRTJob extends FlinkBaseJob {
         DataStream<RawEvent> ubiBot = uniSessRTJob.consumerBuilder(see, UBI_BOT, RNO);
         DataStream<RawEvent> ubiNonBot = uniSessRTJob.consumerBuilder(see, UBI_NONBOT, RNO);
         DataStream<RawEvent> utpNonBot = uniSessRTJob.consumerBuilder(see, UTP_NONBOT, LVS);
+        // integrate roi source
+        DataStream<RawEvent> roiNonBot = uniSessRTJob.consumerBuilder(see, ROI_NONBOT, LVS);
 
         // prefilter for each source
         DataStream<RawEvent> surfaceWebPreFilterDS = uniSessRTJob.preFilterFunctionBuilder(surfaceWeb,AUTOTRACK_WEB,RNO);
@@ -64,7 +66,8 @@ public class UniSessRTJob extends FlinkBaseJob {
         DataStream<RawEvent> ubiBotPreFilterDS = uniSessRTJob.preFilterFunctionBuilder(ubiBot,UBI_BOT,RNO);
         DataStream<RawEvent> ubiNonBotPreFilterDS = uniSessRTJob.preFilterFunctionBuilder(ubiNonBot,UBI_NONBOT,RNO);
         DataStream<RawEvent> utpNonBotPreFilterDS = uniSessRTJob.preFilterFunctionBuilder(utpNonBot,UTP_NONBOT,LVS);
-
+        // roi prefilter
+        DataStream<RawEvent> roiNonBotPreFilterDS = uniSessRTJob.preFilterFunctionBuilder(roiNonBot, ROI_NONBOT, LVS);
         //Normalizer for each source
         // surface web
         val surfaceWebNormalizerDs  = uniSessRTJob.normalizerFunctionBuilder(surfaceWebPreFilterDS,AUTOTRACK_WEB,RNO);
@@ -76,13 +79,17 @@ public class UniSessRTJob extends FlinkBaseJob {
                 = uniSessRTJob.normalizerFunctionBuilder(ubiNonBotPreFilterDS,UBI_NONBOT,RNO);
         val utpNonBotNormalizerDs
                 = uniSessRTJob.normalizerFunctionBuilder(utpNonBotPreFilterDS,UTP_NONBOT,LVS);
+        // for roi normalizer
+        val roiNonBotNormalizerDs
+                = uniSessRTJob.normalizerFunctionBuilder(roiNonBotPreFilterDS,ROI_NONBOT,LVS);
 
         //Union all three sources into one DataStream
         DataStream<UniEvent> uniDs = surfaceWebNormalizerDs
                 .union(surfaceNativeNormalizerDs)
                 .union(ubiBotNormalizerDs)
                 .union(ubiNonBotNormalizerDs)
-                .union(utpNonBotNormalizerDs);
+                .union(utpNonBotNormalizerDs)
+                .union(roiNonBotNormalizerDs);
 
         //        // prefilter for each source
         //        val rawEventPreFilterDS = uniSessRTJob.preFilterFunctionBuilder(uniDs);
@@ -127,6 +134,9 @@ public class UniSessRTJob extends FlinkBaseJob {
         DataStream<UniEvent> ubiBotDS = outputStreamOperator.getSideOutput(ubiBOTOutputTag);
         DataStream<UniEvent> ubiNonBotDS = outputStreamOperator.getSideOutput(ubiNONBOTOutputTag);
 
+        // for roi events
+        DataStream<UniEvent> roiNonBotDS = outputStreamOperator.getSideOutput(roiNONBOTOutputTag);
+
         // filter our each kind of event based on late events
         SingleOutputStreamOperator<UniEvent> outputStreamOperatorLate = uniSessRTJob.uniEevntSplitFunctionBuilder
                 (latedStream, DEFAULT_LATE,false);
@@ -134,6 +144,9 @@ public class UniSessRTJob extends FlinkBaseJob {
         DataStream<UniEvent> surfaceLateNativeDS = outputStreamOperatorLate.getSideOutput(atNATIVEOutputTagLate);
         DataStream<UniEvent> ubiBotLateDS = outputStreamOperatorLate.getSideOutput(ubiBOTOutputTagLate);
         DataStream<UniEvent> ubiNonLateBotDS = outputStreamOperatorLate.getSideOutput(ubiNONBOTOutputTagLate);
+
+        // for late roi events
+        DataStream<UniEvent> roiNonLateBotDS = outputStreamOperator.getSideOutput(roiNONBOTOutputTagLate);
 
         // filter our each kind of event based on late events
         SingleOutputStreamOperator<UniSession> outputStreamOperatorSess =
@@ -147,6 +160,9 @@ public class UniSessRTJob extends FlinkBaseJob {
         uniSessRTJob.kafkaSinkBuilder(ubiBotDS, UBI_BOT, RNO);
         uniSessRTJob.kafkaSinkBuilder(ubiNonBotDS, UBI_NONBOT, RNO);
 
+        // for roi event sink
+        uniSessRTJob.kafkaSinkBuilder(roiNonBotDS, ROI_NONBOT, RNO);
+
         // unisession sink
         uniSessRTJob.kafkaSinkBuilder(uniSessionNonbotDS, SESSION_NONBOT, RNO);
         //TODO currently no bot detection impletemented in unified sessionization
@@ -157,6 +173,9 @@ public class UniSessRTJob extends FlinkBaseJob {
         uniSessRTJob.kafkaSinkBuilder(surfaceLateNativeDS, LATE_NATIVE, RNO);
         uniSessRTJob.kafkaSinkBuilder(ubiBotLateDS, LATE_UBI_BOT, RNO);
         uniSessRTJob.kafkaSinkBuilder(ubiNonLateBotDS, LATE_UBI_NONBOT, RNO);
+
+        // for late roi event sink
+        uniSessRTJob.kafkaSinkBuilder(roiNonLateBotDS, LATE_ROI_NONBOT, RNO);
 
         //        //Discardsink
         //        // normal event sink

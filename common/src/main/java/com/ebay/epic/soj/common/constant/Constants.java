@@ -13,6 +13,7 @@ public class Constants {
     public static final String SOJ_BOT_METRICS_GROUP = "soj_bot";
     public static final String SOJ_NONBOT_METRICS_GROUP = "soj_nonbot";
     public static final String UTP_NONBOT_METRICS_GROUP = "utp_nonbot";
+    public static final String ROI_NONBOT_METRICS_GROUP = "roi_nonbot";
 
     // flied delimiter
     public static final String FIELD_DELIM = "\007";

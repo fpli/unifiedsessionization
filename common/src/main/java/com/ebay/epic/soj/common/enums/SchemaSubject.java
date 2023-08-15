@@ -6,7 +6,8 @@ public enum SchemaSubject {
     AUTOTRACK("sessionizedevent"),
     UBI("behavior.sojourner.sojevent.schema"),
     UTP("marketing.tracking.events.schema"),
-    SESSION("unisessionschema");
+    SESSION("unisessionschema"),
+    ROI("globalevents.roi.schema");
     private String value;
 
     SchemaSubject(String value) {
