@@ -22,6 +22,10 @@
             <artifactId>unified-common</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+        </dependency>
 
         <!-- Test Dependencies -->
         <!--  Mockito  -->
