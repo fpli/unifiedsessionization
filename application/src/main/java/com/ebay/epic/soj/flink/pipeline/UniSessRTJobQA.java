@@ -76,7 +76,9 @@ public class UniSessRTJobQA extends FlinkBaseJob {
                                 .trigger(MidnightOpenSessionTrigger
                                         .of(Time.hours(7))).build())
                         .sideOutputLateData(OutputTagConstants.lateEventOutputTag)
-                        .aggregate(new UniSessionAgg(), new UniSessionWindowProcessFunction())
+                        .aggregate(new UniSessionAgg(),
+                                new UniSessionWindowProcessFunction(
+                                        Time.minutes(getLong(FLINK_APP_SESSION_TIMEDURATION)).toMilliseconds()))
                         .setParallelism(getInteger(Property.SESSION_PARALLELISM))
                         .slotSharingGroup(getString(SESSION_WINDOR_SLOT_SHARE_GROUP))
                         .name(getString(SESSION_WINDOR_OPERATOR_NAME))

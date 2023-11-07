@@ -15,4 +15,5 @@ public class UtpEvent extends TrafficSourceCandidate {
     private String url;
     private Integer mpxChnlId;
     private Integer pageId;
+    private String ntype;
 }

@@ -30,6 +30,7 @@ public class RawEvent {
 //    private GenericRecord genericRecord;
     private String sessionId;
     private Long sessionSkey;
+    private Integer seqNum;
     private List<Integer> botFlags;
 
     // for traffic source

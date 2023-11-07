@@ -22,14 +22,16 @@ flink:
           session:
             session:
               nonbot: behavior.total.new.unisession
+            sessionlkp:
+              nonbot: behavior.total.new.unisessionlkp
           late:
             web:
               nonbot: behavior.total.new.surfaceevent
             native:
               nonbot: behavior.total.new.surfaceevent
             ubi:
-              bot: behavior.total.new.sojevent-poc
-              nonbot: behavior.total.new.sojevent-poc
+              bot: behavior.total.new.sojevent-late-bot-poc
+              nonbot: behavior.total.new.sojevent-late-nonbot-poc
             roi:
               nonbot: behavior.total.new.late.globalevents.roi
       message-key: guid
@@ -72,67 +74,108 @@ kafka:
         autotrack:
           web:
             nonbot:
-              - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
           native:
             nonbot:
-              - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
         ubi:
           ubi:
             nonbot:
-              - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
             bot:
-              - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
         utp:
           utp:
             nonbot:
-              - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
         roi:
           roi:
             nonbot:
-              - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
         session:
           session:
             bot:
-              - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
             nonbot:
-              - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+          sessionlkp:
+            bot:
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+            nonbot:
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+
         late:
           roi:
             nonbot:
-              - rhs-pbuvkiaa-kfk-rno-1.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-2.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-3.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-4.rheos-streaming-prod.svc.26.tess.io:9092
-              - rhs-pbuvkiaa-kfk-rno-5.rheos-streaming-prod.svc.26.tess.io:9092
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+          native:
+            nonbot:
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+          web:
+            nonbot:
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+          ubi:
+            bot:
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+            nonbot:
+              - rhs-pbuvkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-pbuvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092

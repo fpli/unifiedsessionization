@@ -47,7 +47,7 @@ public class UniEvent {
     private Map<String,String> payload = new ConcurrentHashMap<>();
     private String pageUrl;
     private String experience;
-    private boolean partialValidPage = true;
+    private boolean partialValidPage = false;
     private Integer pageId = null;
     private String siteId = null;
     private String cobrand = null;

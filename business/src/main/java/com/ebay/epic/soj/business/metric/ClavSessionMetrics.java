@@ -10,7 +10,6 @@ import com.sun.jersey.client.impl.CopyOnWriteHashMap;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
 
@@ -54,6 +53,9 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
         // page id metrics is dependency on timestamp
         addClavSessionFieldMetrics(new PageIdMetrics());
         addClavSessionFieldMetrics(new ValidPageCountMetrics());
+        addClavSessionFieldMetrics(new CguidAndOldExperienceMetrics());
+        addClavSessionFieldMetrics(new SessionSeqnumMetrics());
+        addClavSessionFieldMetrics(new BestGuessUserIdMetrics());
     }
 
     @Override
@@ -98,7 +100,7 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
     }
 
     public ClavSession getOrDefault(UniSessionAccumulator uniSessionAccumulator, UniEvent uniEvent) {
-        UbiKey ubiKey = new UbiKey(uniEvent.getGuid(), uniEvent.getSessionSkey().toString(),uniEvent.getSiteId());
+        UbiKey ubiKey = new UbiKey(uniEvent.getGuid(), uniEvent.getSessionSkey().toString(), uniEvent.getSiteId());
         ClavSession clavSession = uniSessionAccumulator.getUniSession().getClavSessionMap().get(ubiKey);
         if (clavSession == null) {
             clavSession = new ClavSession();

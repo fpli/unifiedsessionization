@@ -1,0 +1,12 @@
+{"namespace": "com.ebay.epic.soj.common.model.lookup",
+  "type": "record",
+  "name": "PageFamilyInfo",
+  "fields": [
+    {"name": "page_id", "type": ["int", "null"]},
+    {"name": "page_family1",  "type": ["string", "null"]},
+    {"name": "page_family2",  "type": ["string", "null"]},
+    {"name": "page_family3",  "type": ["string", "null"]},
+    {"name": "page_family4",  "type": ["string", "null"]},
+    {"name": "iframe",  "type": ["int", "null"]}
+  ]
+}

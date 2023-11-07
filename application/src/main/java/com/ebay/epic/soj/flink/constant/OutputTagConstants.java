@@ -104,11 +104,20 @@ public class OutputTagConstants {
     public static OutputTag<UniSession> uniSessNonbotOutputTag =
             new OutputTag<>(SESSION_NONBOT.getFullName(), TypeInformation.of(UniSession.class));
 
+    public static OutputTag<UniSession> uniSessLkpBotOutputTag =
+            new OutputTag<>(SESSION_LOOKUP_BOT.getFullName(), TypeInformation.of(UniSession.class));
+
+    public static OutputTag<UniSession> uniSessLkpNonbotOutputTag =
+            new OutputTag<>(SESSION_LOOKUP_NONBOT.getFullName(), TypeInformation.of(UniSession.class));
+
     public static Map<String, OutputTag<UniSession>> outputTagMapSess = new ConcurrentHashMap<>();
 
     static {
         outputTagMapSess.put(SESSION_BOT.getFullName(), uniSessBotOutputTag);
         outputTagMapSess.put(SESSION_NONBOT.getFullName(), uniSessNonbotOutputTag);
+        outputTagMapSess.put(SESSION_LOOKUP_BOT.getFullName(), uniSessLkpBotOutputTag);
+        outputTagMapSess.put(SESSION_LOOKUP_NONBOT.getFullName(), uniSessLkpNonbotOutputTag);
+
     }
 
 }

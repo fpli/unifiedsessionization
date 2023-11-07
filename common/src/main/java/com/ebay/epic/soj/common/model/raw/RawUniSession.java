@@ -18,6 +18,7 @@ public class RawUniSession {
     private Long absEndTimestamp;
     private Long sessionStartDt;
     private Long startTimestamp;
+    private Long startTimestampNOIFRAMERDT;
     private TrafficSource trafficSource = TrafficSource.EMPTY;
     private Long trafficSourceTs;
     private TrafficSourceCandidates trafficSourceCandidates = new TrafficSourceCandidates();

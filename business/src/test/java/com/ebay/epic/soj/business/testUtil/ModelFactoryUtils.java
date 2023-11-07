@@ -79,6 +79,14 @@ public class ModelFactoryUtils {
                 .build();
     }
 
+    public static UtpEvent getUtpNotifEvent(long eventTimestamp, int pageId, String ntype) {
+        return UtpEvent.builder()
+                .eventTimestamp(eventTimestamp)
+                .pageId(pageId)
+                .ntype(ntype)
+                .build();
+    }
+
     public static ImbdEvent getImbdEvent(long eventTimestamp, String mppid) {
         return ImbdEvent.builder()
                 .eventTimestamp(eventTimestamp)

@@ -2,7 +2,6 @@ package com.ebay.epic.soj.business.metric;
 
 import com.ebay.epic.soj.common.enums.EventType;
 import com.ebay.epic.soj.common.model.UniSessionAccumulator;
-import com.ebay.epic.soj.common.model.raw.RawUniSession;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
 import com.ebay.epic.soj.common.utils.SojEventTimeUtil;
 
@@ -24,13 +23,12 @@ public class UbiGeneralMetrics implements FieldMetrics<UniEvent, UniSessionAccum
 
   @Override
   public void process(UniEvent event, UniSessionAccumulator uniSessionAccumulator) throws Exception {
-    RawUniSession uniSession = uniSessionAccumulator.getUniSession();
     boolean isEarlyEvent = SojEventTimeUtil
             .isEarlyEvent(event.getEventTs(),
                     uniSessionAccumulator.getUniSession().getAbsStartTimestamp());
     boolean isEarlyValidEvent = SojEventTimeUtil
             .isEarlyEvent(event.getEventTs(),
-                    uniSessionAccumulator.getUniSession().getStartTimestamp());
+                    uniSessionAccumulator.getUniSession().getStartTimestampNOIFRAMERDT());
 
     // first app id
     if ((isEarlyEvent ? isEarlyEvent : uniSessionAccumulator.getUniSession().getFirstAppId() == null)

@@ -102,6 +102,9 @@ public class Property {
     public static final String FLINK_APP_SOURCE_OFO_BASE="flink.app.source.out-of-orderless-in-min";
     public static final String FLINK_APP_SOURCE_TIM_BASE="flink.app.source.idle-source-timeout-in-min";
 
+    // flink session
+    public static final String FLINK_APP_SESSION_TIMEDURATION="flink.app.session.timeDuration";
+
     // flink checkpoint
     public static final String CHECKPOINT_DATA_DIR = "flink.app.checkpoint.data-dir";
     public static final String CHECKPOINT_INTERVAL_MS = "flink.app.checkpoint.interval-ms";

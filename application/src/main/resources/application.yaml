@@ -90,6 +90,8 @@ flink:
         ubi: 10
         utp: 10
         roi: 10
+    session:
+      timeDuration: 10
     sink:
       message-key: guid
       sampling-key: guid
@@ -126,6 +128,8 @@ flink:
           session:
             session:
               nonbot: behavior.unified.sojourner.nonbot.unisession-rno
+            sessionlkp:
+              nonbot: behavior.unified.sojourner.nonbot.unisessionlkp-rno
         subject:
           autotrack: SessionizedEvent
           ubi: behavior.sojourner.sojevent.schema
@@ -406,6 +410,19 @@ kafka:
 
         session:
           session:
+            bot:
+              - rhs-ddcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+            nonbot:
+              - rhs-ddcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
+              - rhs-ddcwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+          sessionlkp:
             bot:
               - rhs-ddcwkiaa-kfk-1.rheos-streaming-prod.vip.ebay.com:9092
               - rhs-ddcwkiaa-kfk-2.rheos-streaming-prod.vip.ebay.com:9092

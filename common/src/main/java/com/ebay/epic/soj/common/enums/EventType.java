@@ -9,6 +9,9 @@ public enum EventType {
     UTP_BOT("utp","utp","bot"),
     SESSION_BOT("session","session","bot"),
     SESSION_NONBOT("session","session","nonbot"),
+
+    SESSION_LOOKUP_BOT("session","sessionlkp","bot"),
+    SESSION_LOOKUP_NONBOT("session","sessionlkp","nonbot"),
     DEFAULT("default","default","default"),
     LATE_WEB("late","web","nonbot"),
     LATE_NATIVE("late","native","nonbot"),

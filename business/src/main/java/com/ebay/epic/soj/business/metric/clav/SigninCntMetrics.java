@@ -1,24 +1,28 @@
 package com.ebay.epic.soj.business.metric.clav;
 
 import com.ebay.epic.soj.common.model.ClavSession;
+import com.ebay.epic.soj.common.model.lookup.PageFamilyInfo;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
-import com.ebay.sojourner.common.util.LkpManager;
-import com.google.common.collect.ImmutableSet;
-
-import java.util.Map;
+import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceLookupManager;
 
 public class SigninCntMetrics extends ClavSessionFieldMetrics {
 
   private static final String SIGN_IN = "SIGNIN";
+  private TrafficSourceLookupManager lookupManager;
+
+  @Override
+  public void init() throws Exception {
+    lookupManager = TrafficSourceLookupManager.getInstance();
+  }
+
+
   @Override
   public void process(UniEvent event, ClavSession clavSession) throws Exception {
-    Map<Integer, String[]> pageFmlyNameMap = LkpManager.getInstance().getPageFmlyMaps();
     Integer pageId = event.getPageId();
-    String[] pageFmlyName = pageFmlyNameMap.get(pageId);
+    PageFamilyInfo pageFamilyInfo = lookupManager.getPageFamilyAllMap().get(pageId);
     if (event.getRdt()==0
-            && !event.getIframe()
-            && event.isClavValidPage()
-            && (pageFmlyName != null && SIGN_IN.equals(pageFmlyName[1]))) {
+            && event.isPartialValidPage()
+            && (pageFamilyInfo != null && SIGN_IN.equals(pageFamilyInfo.getPageFamily4()))) {
       clavSession.setSigninCount(clavSession.getSigninCount() + 1);
     }
   }

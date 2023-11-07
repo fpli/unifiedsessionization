@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.TestOnly;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -25,6 +26,15 @@ public class TrafficSourceDetector {
     public TrafficSourceDetector(TrafficSourceLookupManager lookupManager) {
         this.lookupManager = lookupManager;
     }
+
+    private final List<String> MNGD_TRAFFIC_SOURCE_LEVEL1_MNGD_FREE = Arrays.asList(FREE_FREE_SOCIAL,
+            FREE_MKTG_COMMS_MKTG_EMAIL, FREE_MKTG_COMMS_SMS, FREE_MRKT_COMMS_NOTIF, ORGANIC_TXN_COMMS_CS_EMAIL,
+            ORGANIC_TXN_COMMS_SITE_EMAIL, ORGANIC_TXN_COMMS_WEBMAIL, ORGANIC_TXN_COMMS_NOTIF);
+    private final List<String> MNGD_TRAFFIC_SOURCE_LEVEL1_MNGD_PAID = Arrays.asList(PAID_DISPLAY, PAID_EPN,
+            PAID_PAID_SEARCH, PAID_PAID_SOCIAL);
+    private final List<String> MNGD_TRAFFIC_SOURCE_LEVEL1_SEO = Arrays.asList(FREE_SEO_FREE_FEEDS, FREE_SEO_NATURAL_SEARCH);
+    private final List<String> MNGD_TRAFFIC_SOURCE_LEVEL1_UNMNGD = Arrays.asList(FREE_OTHER, ORGANIC_DIRECT_NO_REF,
+            ORGANIC_DIRECT_ON_EBAY, ORGANIC_IMBD, ORGANIC_NAV_SEARCH_FREE);
 
     public TrafficSourceCandidate extractCandidate(UniEvent uniEvent) {
         int pageId = uniEvent.getPageId();
@@ -68,6 +78,7 @@ public class TrafficSourceDetector {
                 UtpEvent event = new UtpEvent();
                 event.setEventTimestamp(uniEvent.getEventTs());
                 event.setPageId(pageId);
+                event.setNtype(uniEvent.getPayload().get(PAYLOAD_KEY_NTYPE));
                 return event;
             }
             // IMBD event
@@ -122,6 +133,21 @@ public class TrafficSourceDetector {
     }
 
     public TrafficSourceDetails determineTrafficSource(TrafficSourceCandidates trafficSourceCandidates) {
+        // traffic source level 3
+        TrafficSourceDetails details = detectTrafficSourceLevel3(trafficSourceCandidates);
+
+        // traffic source level 1 and 2
+        if (details != null && StringUtils.isNotEmpty(details.getTrafficSourceLevel3())) {
+            String trafficSourceLevel3 = details.getTrafficSourceLevel3();
+            details.setMngdTrafficSourceLevel1(detectMngdTrafficSourceLevel1(trafficSourceLevel3));
+            details.setCustTrafficSourceLevel1(detectCustTrafficSourceLevel1(trafficSourceLevel3));
+            details.setCustTrafficSourceLevel2(detectCustTrafficSourceLevel2(trafficSourceLevel3));
+        }
+
+        return details;
+    }
+
+    public TrafficSourceDetails detectTrafficSourceLevel3(TrafficSourceCandidates trafficSourceCandidates) {
         TrafficSourceDetails details = new TrafficSourceDetails();
 
         // first valid event
@@ -196,7 +222,13 @@ public class TrafficSourceDetector {
 
             // Notification
             if (pageId == NOTIFICATION_PAGE) {
-                details.setTrafficSourceLevel3(NOTIFICATIONS_APPS);
+                if (utpEvent.getNtype() != null && utpEvent.getNtype().contains(MRKT_NOTIF_NTYPE)) {
+                    details.setTrafficSourceLevel3(FREE_MRKT_COMMS_NOTIF);
+                    details.setNtype(utpEvent.getNtype());
+                } else {
+                    details.setTrafficSourceLevel3(ORGANIC_TXN_COMMS_NOTIF);
+                    details.setNtype(utpEvent.getNtype());
+                }
                 return details;
             }
         }
@@ -315,6 +347,66 @@ public class TrafficSourceDetector {
             details.setRotid(rotId);
             details.setMpxChnlId(mpxChnlId);
         }
+    }
+
+    private String detectMngdTrafficSourceLevel1(String trafficSourceLevel3) {
+        if (MNGD_TRAFFIC_SOURCE_LEVEL1_MNGD_FREE.contains(trafficSourceLevel3)) {
+            return LEVEL1_MANAGED_FREE;
+        } else if (ORGANIC_NAV_SEARCH_PAID.equals(trafficSourceLevel3)) {
+            return LEVEL1_MANAGED_NAV_SEARCH;
+        } else if (MNGD_TRAFFIC_SOURCE_LEVEL1_MNGD_PAID.contains(trafficSourceLevel3)) {
+            return LEVEL1_MANAGED_PAID;
+        } else if (MNGD_TRAFFIC_SOURCE_LEVEL1_SEO.contains(trafficSourceLevel3)) {
+            return LEVEL1_SEO;
+        } else if (MNGD_TRAFFIC_SOURCE_LEVEL1_UNMNGD.contains(trafficSourceLevel3)) {
+            return LEVEL1_UNMANAGED;
+        }
+
+        return TRAFFIC_SOUCE_OTHER;
+    }
+
+    private String detectCustTrafficSourceLevel1(String trafficSourceLevel3) {
+        if (trafficSourceLevel3.startsWith(LEVEL1_FREE)) {
+            return LEVEL1_FREE;
+        } else if (trafficSourceLevel3.startsWith(LEVEL1_ORGANIC)) {
+            return LEVEL1_ORGANIC;
+        } else if (trafficSourceLevel3.startsWith(LEVEL1_PAID)) {
+            return LEVEL1_PAID;
+        }
+
+        return TRAFFIC_SOUCE_OTHER;
+    }
+
+    private String detectCustTrafficSourceLevel2(String trafficSourceLevel3) {
+        if (FREE_FREE_SOCIAL.equals(trafficSourceLevel3)) {
+            return LEVEL2_FREE_FREE_SOCIAL;
+        } else if (trafficSourceLevel3.startsWith(LEVEL2_FREE_MKTG_COMMS)) {
+            return LEVEL2_FREE_MKTG_COMMS;
+        } else if (FREE_OTHER.equals(trafficSourceLevel3)) {
+            return LEVEL2_FREE_OTHER;
+        } else if (trafficSourceLevel3.startsWith(LEVEL2_FREE_SEO)) {
+            return LEVEL2_FREE_SEO;
+        } else if (trafficSourceLevel3.startsWith(LEVEL2_ORGANIC_DIRECT)) {
+            return LEVEL2_ORGANIC_DIRECT;
+        } else if (ORGANIC_IMBD.equals(trafficSourceLevel3)) {
+            return LEVEL2_ORGANIC_IMBD;
+        } else if (ORGANIC_NAV_SEARCH_FREE.equals(trafficSourceLevel3)) {
+            return LEVEL2_ORGANIC_NAV_SEARCH_FREE;
+        } else if (ORGANIC_NAV_SEARCH_PAID.equals(trafficSourceLevel3)) {
+            return LEVEL2_ORGANIC_NAV_SEARCH_PAID;
+        } else if (trafficSourceLevel3.startsWith(LEVEL2_ORGANIC_TXN_COMMS)) {
+            return LEVEL2_ORGANIC_TXN_COMMS;
+        } else if (PAID_DISPLAY.equals(trafficSourceLevel3)) {
+            return LEVEL2_PAID_DISPLAY;
+        } else if (PAID_EPN.equals(trafficSourceLevel3)) {
+            return LEVEL2_PAID_EPN;
+        } else if (PAID_PAID_SEARCH.equals(trafficSourceLevel3)) {
+            return LEVEL2_PAID_PAID_SEARCH;
+        } else if (PAID_PAID_SOCIAL.equals(trafficSourceLevel3)) {
+            return LEVEL2_PAID_PAID_SOCIAL;
+        }
+
+        return TRAFFIC_SOUCE_OTHER;
     }
 
     private boolean containsKey(String str, List<String> keywords) {
