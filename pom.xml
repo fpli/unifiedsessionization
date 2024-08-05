@@ -18,7 +18,7 @@
 
     <properties>
 
-        <revision>1.7.0-SNAPSHOT</revision>
+        <revision>1.7.1-SNAPSHOT</revision>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sojourner.rt.version>1.10.11</sojourner.rt.version>
