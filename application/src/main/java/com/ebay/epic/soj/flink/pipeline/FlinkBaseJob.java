@@ -70,6 +70,10 @@ public abstract class FlinkBaseJob {
      * @param <T>
      */
     public <T> void kafkaSinkBuilder(DataStream<T> dataStream, EventType eventType, DataCenter dataCenter) {
+        this.kafkaSinkBuilder(dataStream, eventType, dataCenter, false);
+    }
+
+    public <T> void kafkaSinkBuilder(DataStream<T> dataStream, EventType eventType, DataCenter dataCenter, Boolean rescale) {
         FlinkKafkaSinkBuilder<T> flinkKafkaSinkBuilder =
                 new FlinkKafkaSinkBuilder<>(dataStream, dataCenter, eventType);
         flinkKafkaSinkBuilder.className(dataStream.getType().getTypeClass())
@@ -79,6 +83,7 @@ public abstract class FlinkBaseJob {
                 .topicSubject(FLINK_APP_SINK_TOPIC_SUBJECT_BASE)
                 .uid(SINK_UID_BASE)
                 .slotGroup(SINK_SLOT_SHARE_GROUP_BASE)
+                .rescale(rescale)
                 .build();
     }
 

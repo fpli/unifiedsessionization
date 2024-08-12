@@ -7,6 +7,7 @@ import com.ebay.epic.soj.flink.connector.kafka.config.ConfigManager;
 import com.ebay.epic.soj.flink.connector.kafka.config.FlinkKafkaSourceConfigWrapper;
 import com.ebay.epic.soj.flink.connector.kafka.config.KafkaConsumerConfig;
 import com.ebay.epic.soj.flink.connector.kafka.factory.FlinkKafkaConsumerFactory;
+import com.ebay.epic.soj.flink.utils.FlinkEnvUtils;
 import com.google.common.base.Preconditions;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -98,10 +99,9 @@ public class SourceDataStreamBuilder<T> {
         FlinkKafkaConsumerFactory factory = new FlinkKafkaConsumerFactory(configWrapper);
 
         DataStream<T> dataStream = environment
-                .addSource(factory.get(schema))
+                .fromSource(factory.getKafkaSource(schema),factory.getWatermarkStrategy(),operatorName)
                 .setParallelism(parallelism)
                 .slotSharingGroup(slotGroup)
-                .name(operatorName)
                 .uid(uid)
                 .setMaxParallelism(maxParallelism);
 

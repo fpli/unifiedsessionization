@@ -47,6 +47,12 @@ public class RawUniSession {
     private Long endTimestamp;
     private Map<UbiKey, ClavSession> clavSessionMap = new ConcurrentHashMap<>();
 
+    private Integer eventCnt;
+    private Integer ubiCnt;
+    private Integer utpCnt;
+    private Integer surfaceCnt;
+    private Integer roiCnt;
+
     public RawUniSession merge(RawUniSession uniSession) {
         if (this.getAbsStartTimestamp() == null && uniSession.getAbsStartTimestamp() != null) {
             this.setAbsStartTimestamp(uniSession.getAbsStartTimestamp());
@@ -103,6 +109,12 @@ public class RawUniSession {
         }
 
         //TODO for unified session extend
+
+        this.eventCnt += uniSession.getEventCnt();
+        this.ubiCnt += uniSession.getUbiCnt();
+        this.utpCnt += uniSession.getUtpCnt();
+        this.surfaceCnt += uniSession.getSurfaceCnt();
+        this.roiCnt += uniSession.getRoiCnt();
 
         return this;
     }

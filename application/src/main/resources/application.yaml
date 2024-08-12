@@ -6,9 +6,9 @@ flink:
       source:
         autotrack:
           web:
-            nonbot: 50
+            nonbot: 100
           native:
-            nonbot: 10
+            nonbot: 20
         ubi:
           ubi:
             nonbot: 400
@@ -22,9 +22,9 @@ flink:
       pre-filter:
         autotrack:
           web:
-            nonbot: 50
+            nonbot: 100
           native:
-            nonbot: 10
+            nonbot: 20
         ubi:
           ubi:
             nonbot: 400
@@ -38,9 +38,9 @@ flink:
       normalizer:
         autotrack:
           web:
-            nonbot: 50
+            nonbot: 100
           native:
-            nonbot: 10
+            nonbot: 20
         ubi:
           ubi:
             nonbot: 400
@@ -54,14 +54,14 @@ flink:
       session: 1260
       split:
         default: 1260
-        late: 1260
-        session: 1260
+        late: 420
+        session: 210
       sink-kafka:
         autotrack: 1260
         ubi: 1260
         utp: 1260
-        session: 1260
-        late: 1260
+        session: 210
+        late: 420
         roi: 1260
       max:
         default: 2400
@@ -69,7 +69,7 @@ flink:
         sink: 5040
     checkpoint:
       data-dir: /opt/tracking-behavior/checkpoint
-      interval-ms: 300000
+      interval-ms: 900000
       timeout-ms: 900000
       min-pause-between-ms: 120000
       max-concurrent: 1
@@ -305,13 +305,13 @@ kafka:
             - rhs-ncrvkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
             - rhs-ncrvkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
       max-poll-records:
-        default: 6000
+        default: 12000
       # 16MB, default value is 50MB
       fetch-max-bytes:
         default: 16777216
       # 128KB, default value is 64KB
       receive-buffer:
-        default: 131072
+        default: 524288
       fetch-max-wait-ms:
         default: 100
       # 4MB, default value is 1MB

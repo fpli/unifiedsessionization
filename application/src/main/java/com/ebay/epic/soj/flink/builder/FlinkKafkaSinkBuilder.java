@@ -2,15 +2,15 @@ package com.ebay.epic.soj.flink.builder;
 
 import com.ebay.epic.soj.common.enums.DataCenter;
 import com.ebay.epic.soj.common.enums.EventType;
+import com.ebay.epic.soj.common.utils.Property;
 import com.ebay.epic.soj.flink.connector.kafka.config.ConfigManager;
 import com.ebay.epic.soj.flink.connector.kafka.config.KafkaProducerConfig;
 import com.ebay.epic.soj.flink.connector.kafka.factory.FlinkKafkaProducerFactory;
-import com.ebay.epic.soj.common.utils.Property;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.functions.sink.DiscardingSink;
 
-import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.*;
 import static com.ebay.epic.soj.common.utils.Property.*;
+import static com.ebay.epic.soj.flink.utils.FlinkEnvUtils.*;
 
 public class FlinkKafkaSinkBuilder<T> {
 
@@ -26,6 +26,8 @@ public class FlinkKafkaSinkBuilder<T> {
     private String topicSubject;
     private Class<T> className;
     private ConfigManager configManager;
+
+    private Boolean rescale = false;
 
     public FlinkKafkaSinkBuilder(DataStream<T> dataStream, DataCenter dc, EventType eventType) {
         this.dataStream = dataStream;
@@ -95,10 +97,17 @@ public class FlinkKafkaSinkBuilder<T> {
         return this;
     }
 
+    public FlinkKafkaSinkBuilder<T> rescale(boolean rescale) {
+        this.rescale = rescale;
+        return this;
+    }
+
+
     public void build() {
         KafkaProducerConfig config = KafkaProducerConfig.build(this.dc, this.eventType);
         FlinkKafkaProducerFactory producerFactory = new FlinkKafkaProducerFactory(config);
-        dataStream.addSink(producerFactory.get(
+        DataStream<T> rescaleStream = rescale ? dataStream.rescale() : dataStream;
+        rescaleStream.sinkTo(producerFactory.getKafkaSink(
                         className,
                         getString(Property.RHEOS_KAFKA_REGISTRY_URL),
                         topic,

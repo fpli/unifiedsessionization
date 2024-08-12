@@ -178,13 +178,13 @@ public class UniSessRTJob extends FlinkBaseJob {
         //        uniSessRTJob.kafkaSinkBuilder(uniSessionBotDS, SESSION_BOT, RNO);
 
         // late event sink
-        uniSessRTJob.kafkaSinkBuilder(surfaceLateWebDS, LATE_WEB, RNO);
-        uniSessRTJob.kafkaSinkBuilder(surfaceLateNativeDS, LATE_NATIVE, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiBotLateDS, LATE_UBI_BOT, RNO);
-        uniSessRTJob.kafkaSinkBuilder(ubiNonLateBotDS, LATE_UBI_NONBOT, RNO);
+        uniSessRTJob.kafkaSinkBuilder(surfaceLateWebDS, LATE_WEB, RNO, true);
+        uniSessRTJob.kafkaSinkBuilder(surfaceLateNativeDS, LATE_NATIVE, RNO, true);
+        uniSessRTJob.kafkaSinkBuilder(ubiBotLateDS, LATE_UBI_BOT, RNO, true);
+        uniSessRTJob.kafkaSinkBuilder(ubiNonLateBotDS, LATE_UBI_NONBOT, RNO, true);
 
         // for late roi event sink
-        uniSessRTJob.kafkaSinkBuilder(roiNonLateBotDS, LATE_ROI_NONBOT, RNO);
+        uniSessRTJob.kafkaSinkBuilder(roiNonLateBotDS, LATE_ROI_NONBOT, RNO, true);
 
         //        //Discardsink
         //        // normal event sink

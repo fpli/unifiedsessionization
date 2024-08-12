@@ -8,7 +8,7 @@ flink:
             web:
               nonbot: behavior.total.new.surfaceevent
             native:
-              nonbot: behavior.total.new.surfaceevent
+              nonbot: behavior.total.new.surfaceevent.native
           ubi:
             ubi:
               bot: behavior.total.new.sojevent-poc
@@ -28,7 +28,7 @@ flink:
             web:
               nonbot: behavior.total.new.surfaceevent
             native:
-              nonbot: behavior.total.new.surfaceevent
+              nonbot: behavior.total.new.surfaceevent.native
             ubi:
               bot: behavior.total.new.sojevent-late-bot-poc
               nonbot: behavior.total.new.sojevent-late-nonbot-poc

@@ -8,6 +8,8 @@ import com.ebay.epic.soj.common.model.UniSessionAccumulator;
 import com.ebay.epic.soj.common.model.raw.RawUniSession;
 import com.ebay.epic.soj.common.utils.SojTimestamp;
 import com.google.common.collect.Lists;
+import java.util.ArrayList;
+import java.util.Map;
 import org.apache.flink.api.common.ExecutionConfig;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
 import org.apache.flink.api.common.time.Time;
@@ -49,6 +51,14 @@ public class UniSessionWindowProcessFunction
         uniSession.setAutotrackSessSkeys(Lists.newArrayList(rawUniSession.getAutotrackSessSkeys()));
         uniSession.setAutotrackSessIds(Lists.newArrayList(rawUniSession.getAutotrackSessIds()));
         uniSession.setTrafficSourceDetails(rawUniSession.getTrafficSourceDtl());
+
+        Map<String, String> others = rawUniSession.getOthers();
+        others.put("eventCnt", String.valueOf(rawUniSession.getEventCnt()));
+        others.put("ubiCnt", String.valueOf(rawUniSession.getUbiCnt()));
+        others.put("utpCnt", String.valueOf(rawUniSession.getUtpCnt()));
+        others.put("surfaceCnt", String.valueOf(rawUniSession.getSurfaceCnt()));
+        others.put("roiCnt", String.valueOf(rawUniSession.getRoiCnt()));
+
         uniSession.setOthers(rawUniSession.getOthers());
         uniSession.setIsOpen(isOpen);
         uniSession.setUserId(rawUniSession.getUserId());
