@@ -25,3 +25,25 @@ kafka:
           - rhs-opdwkiaa-kfk-3.rheos-streaming-prod.vip.ebay.com:9092
           - rhs-opdwkiaa-kfk-4.rheos-streaming-prod.vip.ebay.com:9092
           - rhs-opdwkiaa-kfk-5.rheos-streaming-prod.vip.ebay.com:9092
+
+flink:
+  app:
+    source:
+      from-timestamp:
+        autotrack: committed-offset-or-earliest
+        ubi: committed-offset-or-earliest
+        utp: committed-offset-or-earliest
+        roi: committed-offset-or-earliest
+    uid:
+      source:
+        autotrack: autotrack-source-new
+        ubi: sojourner-source-new
+        utp: marketing-tracking-source-new
+        roi: roi-source-new
+      sink:
+        autotrack: autotracking-sink-to-kafka-new
+        ubi: sojourner-sink-to-kafka-new
+        utp: marketing-tracking-sink-to-kafka-new
+        session: unisession-sink-to-kafka-new
+        late: late-event-sink-to-kafka-new
+        roi: roi-sink-to-kafka-new

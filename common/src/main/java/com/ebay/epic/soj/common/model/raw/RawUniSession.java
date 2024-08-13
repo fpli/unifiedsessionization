@@ -6,7 +6,9 @@ import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceCandidates;
 import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceDetails;
 import lombok.Data;
 
-import java.util.*;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
@@ -110,11 +112,12 @@ public class RawUniSession {
 
         //TODO for unified session extend
 
-        this.eventCnt += uniSession.getEventCnt();
-        this.ubiCnt += uniSession.getUbiCnt();
-        this.utpCnt += uniSession.getUtpCnt();
-        this.surfaceCnt += uniSession.getSurfaceCnt();
-        this.roiCnt += uniSession.getRoiCnt();
+
+        this.eventCnt = add(this.eventCnt, uniSession.getEventCnt());
+        this.ubiCnt = add(this.ubiCnt, uniSession.getUbiCnt());
+        this.utpCnt = add(this.utpCnt, uniSession.getUtpCnt());
+        this.surfaceCnt = add(this.surfaceCnt, uniSession.getSurfaceCnt());
+        this.roiCnt = add(this.roiCnt, uniSession.getSurfaceCnt());
 
         return this;
     }
@@ -132,33 +135,33 @@ public class RawUniSession {
 
     private void refreshClavSessionExtended(ClavSession src, ClavSession tgt) {
         refreshCommon(src, tgt);
-        Long minStart=src.getStartTimestamp();
+        Long minStart = src.getStartTimestamp();
         if (src.getStartTimestamp() == null && tgt.getStartTimestamp() != null) {
             src.setStartTimestamp(tgt.getStartTimestamp());
             src.setStartPageId(tgt.getStartPageId());
             src.setSiteId(tgt.getSiteId());
             src.setSessionId(tgt.getSessionId());
-            minStart=tgt.getStartTimestamp();
+            minStart = tgt.getStartTimestamp();
         } else if (src.getStartTimestamp() != null && src.getStartTimestamp() > tgt
                 .getStartTimestamp()) {
             src.setStartTimestamp(tgt.getStartTimestamp());
             src.setStartPageId(tgt.getStartPageId());
             src.setSiteId(tgt.getSiteId());
-            minStart=tgt.getStartTimestamp();
+            minStart = tgt.getStartTimestamp();
             src.setSessionId(tgt.getSessionId());
         }
-        Long maxEnd=src.getExitTimestamp();
+        Long maxEnd = src.getExitTimestamp();
         if (src.getExitTimestamp() == null && tgt.getExitTimestamp() != null) {
             src.setExitTimestamp(tgt.getExitTimestamp());
             src.setExitPageId(tgt.getExitPageId());
-            maxEnd=tgt.getExitTimestamp();
+            maxEnd = tgt.getExitTimestamp();
         } else if (tgt.getExitTimestamp() != null && src.getExitTimestamp() < tgt
                 .getExitTimestamp()) {
             src.setExitTimestamp(tgt.getExitTimestamp());
             src.setExitPageId(tgt.getExitPageId());
-            maxEnd=tgt.getExitTimestamp();
+            maxEnd = tgt.getExitTimestamp();
         }
-        if(maxEnd!=null&&minStart!=null) {
+        if (maxEnd != null && minStart != null) {
             src.setDuration(maxEnd - minStart);
         }
     }
@@ -181,4 +184,9 @@ public class RawUniSession {
         src.setValidPageCount(Optional.of(src.getValidPageCount()).orElse(0)
                 + Optional.of(tgt.getValidPageCount()).orElse(0));
     }
+
+    private Integer add(Integer a, Integer b) {
+        return Optional.ofNullable(a).orElse(0) + Optional.ofNullable(b).orElse(0);
+    }
+
 }

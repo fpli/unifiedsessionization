@@ -150,7 +150,7 @@ public class UniSessRTJob extends FlinkBaseJob {
         DataStream<UniEvent> ubiNonLateBotDS = outputStreamOperatorLate.getSideOutput(ubiNONBOTOutputTagLate);
 
         // for late roi events
-        DataStream<UniEvent> roiNonLateBotDS = outputStreamOperator.getSideOutput(roiNONBOTOutputTagLate);
+        DataStream<UniEvent> roiNonLateBotDS = outputStreamOperatorLate.getSideOutput(roiNONBOTOutputTagLate);
 
         // filter our each kind of event based on late events
         SingleOutputStreamOperator<UniSession> outputStreamOperatorSess =
@@ -178,13 +178,13 @@ public class UniSessRTJob extends FlinkBaseJob {
         //        uniSessRTJob.kafkaSinkBuilder(uniSessionBotDS, SESSION_BOT, RNO);
 
         // late event sink
-        uniSessRTJob.kafkaSinkBuilder(surfaceLateWebDS, LATE_WEB, RNO, true);
-        uniSessRTJob.kafkaSinkBuilder(surfaceLateNativeDS, LATE_NATIVE, RNO, true);
-        uniSessRTJob.kafkaSinkBuilder(ubiBotLateDS, LATE_UBI_BOT, RNO, true);
-        uniSessRTJob.kafkaSinkBuilder(ubiNonLateBotDS, LATE_UBI_NONBOT, RNO, true);
+        uniSessRTJob.kafkaSinkBuilder(surfaceLateWebDS, LATE_WEB, RNO );
+        uniSessRTJob.kafkaSinkBuilder(surfaceLateNativeDS, LATE_NATIVE, RNO );
+        uniSessRTJob.kafkaSinkBuilder(ubiBotLateDS, LATE_UBI_BOT, RNO);
+        uniSessRTJob.kafkaSinkBuilder(ubiNonLateBotDS, LATE_UBI_NONBOT, RNO);
 
         // for late roi event sink
-        uniSessRTJob.kafkaSinkBuilder(roiNonLateBotDS, LATE_ROI_NONBOT, RNO, true);
+        uniSessRTJob.kafkaSinkBuilder(roiNonLateBotDS, LATE_ROI_NONBOT, RNO);
 
         //        //Discardsink
         //        // normal event sink

@@ -1,6 +1,12 @@
 flink:
   app:
     name: Unified Sessionization Preprod
+    source:
+      from-timestamp:
+        autotrack: latest
+        ubi: latest
+        utp: latest
+        roi: latest
     sink:
       kafka:
         topic:
@@ -39,6 +45,19 @@ flink:
       sampling-pct: 10
       allow-drop: true
       dc: rno
+    uid:
+      source:
+        autotrack: autotrack-source-preprod
+        ubi: sojourner-source-preprod
+        utp: marketing-tracking-source-preprod
+        roi: roi-source-preprod
+      sink:
+        autotrack: autotracking-sink-to-kafka-preprod
+        ubi: sojourner-sink-to-kafka-preprod
+        utp: marketing-tracking-sink-to-kafka-preprod
+        session: unisession-sink-to-kafka-preprod
+        late: late-event-sink-to-kafka-preprod
+        roi: roi-sink-to-kafka-preprod
 kafka:
   consumer:
     group-id: unified-sessionization-preprod
