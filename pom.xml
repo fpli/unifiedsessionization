@@ -21,16 +21,18 @@
         <revision>1.7.3-SNAPSHOT</revision>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <sojourner.rt.version>1.10.11</sojourner.rt.version>
-        <flink.version>1.17.1</flink.version>
-        <http.core.version>4.4.13</http.core.version>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <sojourner.rt.version>1.10.11</sojourner.rt.version>
+        <flink.version>1.17.1</flink.version>
+        <flink.scope>provided</flink.scope>
         <hadoop.version>3.3.3</hadoop.version>
+        <http.core.version>4.4.13</http.core.version>
         <parquet-avro.version>1.12.3</parquet-avro.version>
         <log4j.version>2.17.1</log4j.version>
-        <lombok.version>1.18.10</lombok.version>
+        <lombok.version>1.18.22</lombok.version>
         <slf4j.version>1.7.25</slf4j.version>
         <commons.lang3.version>3.11</commons.lang3.version>
         <guava.version>28.1-jre</guava.version>
@@ -43,8 +45,6 @@
         <powermock.version>2.0.7</powermock.version>
         <assertj.version>3.17.2</assertj.version>
         <okhttp3.version>4.9.0</okhttp3.version>
-        <curator.version>4.2.0</curator.version>
-        <zookeeper.version>3.4.14</zookeeper.version>
         <jacoco.plugin.version>0.8.5</jacoco.plugin.version>
         <compiler.plugin.version>3.8.1</compiler.plugin.version>
         <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
@@ -131,7 +131,6 @@
         </snapshotRepository>
     </distributionManagement>
     <profiles>
-
         <profile>
             <id>sonar</id>
             <activation>
@@ -378,51 +377,37 @@
             <!-- Apache Flink dependencies -->
             <dependency>
                 <groupId>org.apache.flink</groupId>
-                <artifactId>flink-core</artifactId>
+                <artifactId>flink-clients</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+                <scope>${flink.scope}</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
-                <artifactId>flink-java</artifactId>
+                <artifactId>flink-streaming-scala_2.12</artifactId>
                 <version>${flink.version}</version>
-                <type>jar</type>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-streaming-java</artifactId>
-                <version>${flink.version}</version>
-                <type>jar</type>
-                <scope>provided</scope>
+                <scope>${flink.scope}</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-statebackend-rocksdb</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
+                <scope>${flink.scope}</scope>
             </dependency>
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-clients</artifactId>
-                <version>${flink.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <!-- rsuntime-web is needed to start Web UI from IDE -->
+            <!-- runtime-web is needed to start Web UI from IDE -->
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-runtime-web</artifactId>
                 <version>${flink.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.flink</groupId>
-                <artifactId>flink-connector-kafka</artifactId>
-                <version>${flink.version}</version>
+                <scope>${flink.scope}</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-metrics-dropwizard</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-kafka</artifactId>
                 <version>${flink.version}</version>
             </dependency>
             <dependency>
@@ -441,22 +426,22 @@
                 <artifactId>parquet-avro</artifactId>
                 <version>${parquet-avro.version}</version>
                 <exclusions>
-                  <exclusion>
-                    <groupId>org.apache.parquet</groupId>
-                    <artifactId>parquet-column</artifactId>
-                  </exclusion>
-                  <exclusion>
-                    <groupId>org.apache.parquet</groupId>
-                    <artifactId>parquet-hadoop</artifactId>
-                  </exclusion>
-                  <exclusion>
-                    <groupId>org.apache.parquet</groupId>
-                    <artifactId>parquet-common</artifactId>
-                  </exclusion>
-                  <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                  </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.parquet</groupId>
+                        <artifactId>parquet-column</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.parquet</groupId>
+                        <artifactId>parquet-hadoop</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.parquet</groupId>
+                        <artifactId>parquet-common</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
             <!--   Rheos   -->
@@ -481,57 +466,11 @@
                 <version>1.1.10.5</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.apache.calcite</groupId>
-                <artifactId>calcite-core</artifactId>
-                <version>${calcite.version}</version>
-            </dependency>
-
             <!--   Http Client   -->
             <dependency>
                 <groupId>com.squareup.okhttp3</groupId>
                 <artifactId>okhttp</artifactId>
                 <version>${okhttp3.version}</version>
-            </dependency>
-
-            <!-- ZooKeeper -->
-            <!-- The Curator Client - replacement for the ZooKeeper class in the ZK distribution.   -->
-            <dependency>
-                <groupId>org.apache.curator</groupId>
-                <artifactId>curator-client</artifactId>
-                <version>${curator.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>com.google.guava</groupId>
-                        <artifactId>guava</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.apache.zookeeper</groupId>
-                        <artifactId>zookeeper</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.curator</groupId>
-                <artifactId>curator-recipes</artifactId>
-                <version>${curator.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.zookeeper</groupId>
-                        <artifactId>zookeeper</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.zookeeper</groupId>
-                <artifactId>zookeeper</artifactId>
-                <version>${zookeeper.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-log4j12</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
 
             <!-- Test Dependencies -->
@@ -644,14 +583,14 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>log4j-over-slf4j</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>ch.qos.logback</groupId>-->
-<!--            <artifactId>logback-core</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>log4j-over-slf4j</artifactId>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>ch.qos.logback</groupId>-->
+        <!--            <artifactId>logback-core</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -739,7 +678,8 @@
                     </executions>
                     <configuration>
                         <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                        <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+                        <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties
+                        </generateGitPropertiesFilename>
                         <commitIdGenerationMode>full</commitIdGenerationMode>
                     </configuration>
                 </plugin>
@@ -868,13 +808,14 @@
                 </executions>
                 <configuration>
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                    <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties</generateGitPropertiesFilename>
+                    <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties
+                    </generateGitPropertiesFilename>
                     <commitIdGenerationMode>full</commitIdGenerationMode>
                 </configuration>
             </plugin>
             <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
