@@ -68,7 +68,7 @@ flink:
         session: 5040
         sink: 5040
     checkpoint:
-      data-dir: /opt/tracking-behavior/checkpoint
+      data-dir: /tmp/tracking-behavior/checkpoint
       interval-ms: 900000
       timeout-ms: 900000
       min-pause-between-ms: 120000

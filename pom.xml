@@ -26,34 +26,39 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <sojourner.rt.version>1.10.11</sojourner.rt.version>
+        <sojourner.common.version>0.2.0-hadoop2-SNAPSHOT</sojourner.common.version>
+
         <flink.version>1.17.1</flink.version>
-        <flink.scope>provided</flink.scope>
         <hadoop.version>3.3.3</hadoop.version>
-        <http.core.version>4.4.13</http.core.version>
         <parquet-avro.version>1.12.3</parquet-avro.version>
-        <log4j.version>2.17.1</log4j.version>
+
+        <flink.scope>compile</flink.scope>
+        <hadoop.scope>compile</hadoop.scope>
+
         <lombok.version>1.18.22</lombok.version>
-        <slf4j.version>1.7.25</slf4j.version>
+        <slf4j.version>1.7.36</slf4j.version>
+        <log4j2.version>2.20.0</log4j2.version>
         <commons.lang3.version>3.11</commons.lang3.version>
         <guava.version>28.1-jre</guava.version>
-        <logback.version>1.2.3</logback.version>
+        <http.core.version>4.4.13</http.core.version>
         <jackson.version>2.15.3</jackson.version>
         <avro.version>1.8.2</avro.version>
         <rheos.client.version>2.0.16</rheos.client.version>
         <junit-jupiter.version>5.6.2</junit-jupiter.version>
+
         <mockito.version>3.5.10</mockito.version>
         <powermock.version>2.0.7</powermock.version>
         <assertj.version>3.17.2</assertj.version>
         <okhttp3.version>4.9.0</okhttp3.version>
         <jacoco.plugin.version>0.8.5</jacoco.plugin.version>
-        <compiler.plugin.version>3.8.1</compiler.plugin.version>
+        <compiler.plugin.version>3.11.0</compiler.plugin.version>
         <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
         <sonar.coverage.exclusions>
             src/main/java/com/ebay/epic/flink/pipeline/*.java,
             src/main/java/org/apache/flink/streaming/runtime/operators/windowing/*.java,
         </sonar.coverage.exclusions>
         <rheos.job.uploader.plugin.version>1.0.1-SNAPSHOT</rheos.job.uploader.plugin.version>
-        <sojourner.common.version>0.2.0-hadoop2-SNAPSHOT</sojourner.common.version>
+
         <username>09435219e9414af585341bf60b8880e6</username>
         <password>pxvv77BaeVOqyzszWh86dDRFjUmsDGTAV0jrKeHQBO6aB5ZEDZQRq2itRjL4Y3F7</password>
         <namespace>unified_tracking</namespace>
@@ -169,18 +174,62 @@
                 <version>${sojourner.rt.version}</version>
                 <exclusions>
                     <exclusion>
-                        <groupId>org.apache.flink</groupId>
-                        <artifactId>flink-streaming-java_2.11</artifactId>
+                        <groupId>org.apache.avro</groupId>
+                        <artifactId>avro</artifactId>
                     </exclusion>
                     <exclusion>
                         <groupId>org.apache.flink</groupId>
-                        <artifactId>flink-runtime-web_2.11</artifactId>
+                        <artifactId>*</artifactId>
                     </exclusion>
                     <exclusion>
-                        <groupId>org.apache.flink</groupId>
-                        <artifactId>flink-statebackend-rocksdb_2.11</artifactId>
+                        <groupId>com.ebay.platform.dds</groupId>
+                        <artifactId>dds-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.curator</groupId>
+                        <artifactId>curator-client</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.curator</groupId>
+                        <artifactId>curator-recipes</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.zookeeper</groupId>
+                        <artifactId>zookeeper</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>httpcore</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.squareup.okhttp3</groupId>
+                        <artifactId>okhttp</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>ch.qos.logback</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>log4j-over-slf4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.datasketches</groupId>
+                        <artifactId>datasketches-java</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
@@ -188,20 +237,48 @@
                 <version>${commons.lang3.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>3.2.2</version>
+            </dependency>
+            <!-- joda time -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>2.10.5</version>
+            </dependency>
+
+            <!--  Logging  -->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!--  bridge  -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <!--  Logging:end  -->
+
+            <!--  Http Client  -->
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp3.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpcore</artifactId>
                 <version>${http.core.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.apache.avro</groupId>
-                <artifactId>avro</artifactId>
-                <version>${avro.version}</version>
-            </dependency>
+
             <!-- jackson -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
@@ -223,35 +300,13 @@
                 <artifactId>jackson-core</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
 
-            <!--  Logging    -->
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-core</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>${logback.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>log4j-over-slf4j</artifactId>
-                <version>${slf4j.version}</version>
-            </dependency>
-
-            <!--  Hadoop HDFS   -->
+            <!--  Hadoop  -->
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-common</artifactId>
                 <version>${hadoop.version}</version>
-                <scope>provided</scope>
+                <scope>${hadoop.scope}</scope>
                 <exclusions>
                     <exclusion>
                         <groupId>xml-apis</groupId>
@@ -303,7 +358,7 @@
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-hdfs</artifactId>
                 <version>${hadoop.version}</version>
-                <scope>provided</scope>
+                <scope>${hadoop.scope}</scope>
                 <exclusions>
                     <exclusion>
                         <groupId>xml-apis</groupId>
@@ -351,7 +406,7 @@
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-client</artifactId>
                 <version>${hadoop.version}</version>
-                <scope>provided</scope>
+                <scope>${hadoop.scope}</scope>
                 <exclusions>
                     <exclusion>
                         <groupId>log4j</groupId>
@@ -367,11 +422,7 @@
                     </exclusion>
                 </exclusions>
             </dependency>
-            <dependency>
-                <groupId>commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
-                <version>3.2.2</version>
-            </dependency>
+
             <!-- Flink artifacts-->
             <!-- These dependencies are provided, because they should not be packaged into the JAR file. -->
             <!-- Apache Flink dependencies -->
@@ -414,6 +465,11 @@
                 <groupId>org.apache.flink</groupId>
                 <artifactId>flink-avro</artifactId>
                 <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro</artifactId>
+                <version>${avro.version}</version>
             </dependency>
             <!--   parquet   -->
             <dependency>
@@ -464,13 +520,6 @@
                 <groupId>org.xerial.snappy</groupId>
                 <artifactId>snappy-java</artifactId>
                 <version>1.1.10.5</version>
-            </dependency>
-
-            <!--   Http Client   -->
-            <dependency>
-                <groupId>com.squareup.okhttp3</groupId>
-                <artifactId>okhttp</artifactId>
-                <version>${okhttp3.version}</version>
             </dependency>
 
             <!-- Test Dependencies -->
@@ -533,12 +582,6 @@
                 <version>${assertj.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!-- joda time -->
-            <dependency>
-                <groupId>joda-time</groupId>
-                <artifactId>joda-time</artifactId>
-                <version>2.10.5</version>
-            </dependency>
 
             <!--  Flink Test Frameworks  -->
             <dependency>
@@ -567,35 +610,16 @@
                 <scope>test</scope>
                 <classifier>tests</classifier>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.slf4j</groupId>-->
-        <!--            <artifactId>log4j-over-slf4j</artifactId>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>ch.qos.logback</groupId>-->
-        <!--            <artifactId>logback-core</artifactId>-->
-        <!--        </dependency>-->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-        </dependency>
     </dependencies>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -781,11 +805,6 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <!--job-uploader-maven-plugin-->
-            <plugin>
-                <groupId>io.ebay.rheos.streaming</groupId>
-                <artifactId>job-uploader-maven-plugin</artifactId>
-            </plugin>
             <!-- Java Compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -808,7 +827,8 @@
                 </executions>
                 <configuration>
                     <generateGitPropertiesFile>true</generateGitPropertiesFile>
-                    <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties
+                    <generateGitPropertiesFilename>
+                        ${project.build.outputDirectory}/git.properties
                     </generateGitPropertiesFilename>
                     <commitIdGenerationMode>full</commitIdGenerationMode>
                 </configuration>

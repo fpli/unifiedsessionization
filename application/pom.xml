@@ -12,6 +12,11 @@
     <artifactId>unified-sessionization-application</artifactId>
     <packaging>jar</packaging>
 
+    <properties>
+        <flink.scope>provided</flink.scope>
+        <hadoop.scope>provided</hadoop.scope>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.ebay.epic.soj</groupId>
@@ -34,18 +39,6 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-test-utils</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-runtime</artifactId>
-            <scope>test</scope>
-            <classifier>tests</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.flink</groupId>
-            <artifactId>flink-streaming-java</artifactId>
-            <scope>test</scope>
-            <classifier>tests</classifier>
         </dependency>
     </dependencies>
 
