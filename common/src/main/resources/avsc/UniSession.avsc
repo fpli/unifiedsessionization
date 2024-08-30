@@ -274,7 +274,8 @@
             "fields": [
               {
                 "name": "sessionId",
-                "type": "string"
+                "type": "string",
+                "doc": "align with  globalSessionId"
               },
               {
                 "name": "siteId",
@@ -282,7 +283,8 @@
               },
               {
                 "name": "botFlag",
-                "type": "long"
+                "type": "long",
+                "doc": "botSignature"
               },
               {
                 "name": "validPageCount",
@@ -374,6 +376,45 @@
                   "string"
                 ]
               },
+              {
+                "name": "sessionSkey",
+                "type": [
+                  "null",
+                  "long"
+                ]
+              },
+              {
+                "name": "cobrand",
+                "type": [
+                  "null",
+                  "int"
+                ]
+              },
+              {
+                "name": "sessionStartDt",
+                "type": [
+                  "null",
+                  "long"
+                ],
+                "doc": " clav sessionStartDt"
+              },
+              {
+                "name": "absStartTimestamp",
+                "type": [
+                  "null",
+                  "long"
+                ],
+                "doc": " clav absStartTimestamp"
+              },
+              {
+                "name": "absEndTimestamp",
+                "type": [
+                  "null",
+                  "long"
+                ],
+                "doc": " clav absEndTimestamp"
+              },
+
               {
                 "name": "others",
                 "type": {
