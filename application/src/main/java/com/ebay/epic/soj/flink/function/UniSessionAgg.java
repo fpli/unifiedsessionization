@@ -10,7 +10,7 @@ import org.apache.flink.api.common.functions.AggregateFunction;
 @Slf4j
 public class UniSessionAgg implements AggregateFunction<UniEvent, UniSessionAccumulator, UniSessionAccumulator> {
 
-    private final UnifiedBotDetector unifiedBotDetector = new UnifiedBotDetector();
+    private static final UnifiedBotDetector unifiedBotDetector = new UnifiedBotDetector();
     @Override
     public UniSessionAccumulator createAccumulator() {
         UniSessionAccumulator sessionAccumulator = new UniSessionAccumulator();

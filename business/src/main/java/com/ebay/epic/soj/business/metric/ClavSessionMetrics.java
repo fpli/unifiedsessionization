@@ -6,11 +6,12 @@ import com.ebay.epic.soj.common.model.ClavSession;
 import com.ebay.epic.soj.common.model.UniSessionAccumulator;
 import com.ebay.epic.soj.common.model.raw.UbiKey;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
-import com.sun.jersey.client.impl.CopyOnWriteHashMap;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collection;
+import java.util.Optional;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 @Slf4j
@@ -40,7 +41,7 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
 
     public void initFieldMetrics() {
         // Clav bot rule, now only handle ubi bot event rule
-        addClavSessionFieldMetrics(new BotSessMetrics());
+        addClavSessionFieldMetrics(new LegacySessMetrics());
         //Page family cnt
         addClavSessionFieldMetrics(new Gr1CntMetrics());
         addClavSessionFieldMetrics(new GrCntMetrics());
@@ -48,14 +49,14 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
         addClavSessionFieldMetrics(new MyebayCntMetrics());
         addClavSessionFieldMetrics(new SigninCntMetrics());
         addClavSessionFieldMetrics(new ViCntMetrics());
-
-        addClavSessionFieldMetrics(new ClavTimestampMetrics());
-        // page id metrics is dependency on timestamp
+        // page id metrics is dependency on timestamp, move before timestamp metrics
         addClavSessionFieldMetrics(new PageIdMetrics());
-        addClavSessionFieldMetrics(new ValidPageCountMetrics());
+        addClavSessionFieldMetrics(new ClavTimestampMetrics());
+        addClavSessionFieldMetrics(new ValidPageCntMetrics());
         addClavSessionFieldMetrics(new CguidAndOldExperienceMetrics());
         addClavSessionFieldMetrics(new SessionSeqnumMetrics());
         addClavSessionFieldMetrics(new BestGuessUserIdMetrics());
+        addClavSessionFieldMetrics(new CobrandMetrics());
     }
 
     @Override
@@ -66,13 +67,19 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
 
     @Override
     public void process(UniEvent uniEvent, UniSessionAccumulator uniSessionAccumulator) throws Exception {
-        ClavSession clavSession = getOrDefault(uniSessionAccumulator, uniEvent);
-        for (FieldMetrics<UniEvent, ClavSession> metrics : fieldMetrics) {
-            try {
-                metrics.process(uniEvent, clavSession);
-            } catch (Exception e) {
-                log.warn(" Clav session metric feed issue :{%s}", e);
+        try {
+            ClavSession clavSession = getOrDefault(uniSessionAccumulator, uniEvent);
+
+            for (FieldMetrics<UniEvent, ClavSession> metrics : fieldMetrics) {
+                try {
+                    metrics.process(uniEvent, clavSession);
+                } catch (Exception e) {
+                    log.warn(" Clav session metric feed issue :{%s}", e);
+                }
             }
+        } catch(Exception e){
+            log.error("Clav session metrics process failed", e);
+            e.printStackTrace();
         }
     }
 
@@ -100,15 +107,21 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
     }
 
     public ClavSession getOrDefault(UniSessionAccumulator uniSessionAccumulator, UniEvent uniEvent) {
-        UbiKey ubiKey = new UbiKey(uniEvent.getGuid(), uniEvent.getSessionSkey().toString(), uniEvent.getSiteId());
+        UbiKey ubiKey = new UbiKey(uniEvent.getGuid(), uniSessionAccumulator.getUniSession().getGlobalSessionId(), uniEvent.getSiteId());
         ClavSession clavSession = uniSessionAccumulator.getUniSession().getClavSessionMap().get(ubiKey);
         if (clavSession == null) {
             clavSession = new ClavSession();
             clavSession.setSiteId(Integer.valueOf(uniEvent.getSiteId()));
-            clavSession.setSessionId(uniEvent.getSessionId());
-            clavSession.setBotFlag(0L);
-            clavSession.setOthers(new CopyOnWriteHashMap<>());
+            clavSession.setSessionId(uniSessionAccumulator.getUniSession().getGlobalSessionId());
+            clavSession.setBotFlag(Optional.ofNullable(uniSessionAccumulator.getUniSession().getBotSignature()).orElse(0L));
+            clavSession.setOthers(new ConcurrentHashMap<>());
+            clavSession.setSessionSkey(uniSessionAccumulator.getUniSession().getAbsStartTimestamp());
             uniSessionAccumulator.getUniSession().getClavSessionMap().put(ubiKey, clavSession);
+        } else {
+            Optional.ofNullable(uniSessionAccumulator.getUniSession().getAbsStartTimestamp())
+                    .ifPresent(clavSession::setSessionSkey);
+            Optional.ofNullable(uniSessionAccumulator.getUniSession().getBotSignature())
+                    .ifPresent(clavSession::setBotFlag);
         }
         return clavSession;
     }

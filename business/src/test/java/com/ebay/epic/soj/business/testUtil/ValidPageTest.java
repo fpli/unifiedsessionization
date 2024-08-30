@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 
 public class ValidPageTest {
     private static List<String> payloadKeyList = Arrays.asList("page", "pfn", "cflgs", "an", "av", "in", "mr", "state",
-            "app", "sHit", "cguidsrc", "eactn", "rdthttps", "mav", "efam", "gf",
+            "app", "sHit", "cguidsrc", "eactn", "rdthttps", "mav", "efam", "gf","spvpf",
             TrafficSourceConstants.PAYLOAD_KEY_CHNL, TrafficSourceConstants.PAYLOAD_KEY_ROTID, TrafficSourceConstants.PAYLOAD_KEY_URL_MPRE,
             TrafficSourceConstants.PAYLOAD_KEY_PNACT, TrafficSourceConstants.PAYLOAD_KEY_MPPID, TrafficSourceConstants.PAYLOAD_KEY_REF);
 

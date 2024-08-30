@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class ClavSession extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -3107785367826339490L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ClavSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"sessionId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"siteId\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"long\"},{\"name\":\"validPageCount\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"startPageId\",\"type\":\"int\"},{\"name\":\"exitPageId\",\"type\":\"int\"},{\"name\":\"startTimestamp\",\"type\":\"long\"},{\"name\":\"exitTimestamp\",\"type\":\"long\"},{\"name\":\"grCount\",\"type\":\"int\"},{\"name\":\"gr1Count\",\"type\":\"int\"},{\"name\":\"homepageCount\",\"type\":\"int\"},{\"name\":\"viCount\",\"type\":\"int\"},{\"name\":\"signinCount\",\"type\":\"int\"},{\"name\":\"myebayCount\",\"type\":\"int\"},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"experienceLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"experienceLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceTypeLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceTypeLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = 5537231589820795636L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ClavSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"sessionId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"align with  globalSessionId\"},{\"name\":\"siteId\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"long\",\"doc\":\"botSignature\"},{\"name\":\"validPageCount\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"startPageId\",\"type\":\"int\"},{\"name\":\"exitPageId\",\"type\":\"int\"},{\"name\":\"startTimestamp\",\"type\":\"long\"},{\"name\":\"exitTimestamp\",\"type\":\"long\"},{\"name\":\"grCount\",\"type\":\"int\"},{\"name\":\"gr1Count\",\"type\":\"int\"},{\"name\":\"homepageCount\",\"type\":\"int\"},{\"name\":\"viCount\",\"type\":\"int\"},{\"name\":\"signinCount\",\"type\":\"int\"},{\"name\":\"myebayCount\",\"type\":\"int\"},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"experienceLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"experienceLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceTypeLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceTypeLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"sessionSkey\",\"type\":[\"null\",\"long\"]},{\"name\":\"cobrand\",\"type\":[\"null\",\"int\"]},{\"name\":\"sessionStartDt\",\"type\":[\"null\",\"long\"],\"doc\":\" clav sessionStartDt\"},{\"name\":\"absStartTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\" clav absStartTimestamp\"},{\"name\":\"absEndTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\" clav absEndTimestamp\"},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -51,8 +51,10 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     return DECODER.decode(b);
   }
 
+  /** align with  globalSessionId */
   @Deprecated public java.lang.String sessionId;
   @Deprecated public int siteId;
+  /** botSignature */
   @Deprecated public long botFlag;
   @Deprecated public int validPageCount;
   @Deprecated public long duration;
@@ -72,6 +74,14 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   @Deprecated public java.lang.String deviceType;
   @Deprecated public java.lang.String deviceTypeLevel1;
   @Deprecated public java.lang.String deviceTypeLevel2;
+  @Deprecated public java.lang.Long sessionSkey;
+  @Deprecated public java.lang.Integer cobrand;
+  /**  clav sessionStartDt */
+  @Deprecated public java.lang.Long sessionStartDt;
+  /**  clav absStartTimestamp */
+  @Deprecated public java.lang.Long absStartTimestamp;
+  /**  clav absEndTimestamp */
+  @Deprecated public java.lang.Long absEndTimestamp;
   @Deprecated public java.util.Map<java.lang.String,java.lang.String> others;
 
   /**
@@ -83,9 +93,9 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
   /**
    * All-args constructor.
-   * @param sessionId The new value for sessionId
+   * @param sessionId align with  globalSessionId
    * @param siteId The new value for siteId
-   * @param botFlag The new value for botFlag
+   * @param botFlag botSignature
    * @param validPageCount The new value for validPageCount
    * @param duration The new value for duration
    * @param startPageId The new value for startPageId
@@ -104,9 +114,14 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
    * @param deviceType The new value for deviceType
    * @param deviceTypeLevel1 The new value for deviceTypeLevel1
    * @param deviceTypeLevel2 The new value for deviceTypeLevel2
+   * @param sessionSkey The new value for sessionSkey
+   * @param cobrand The new value for cobrand
+   * @param sessionStartDt  clav sessionStartDt
+   * @param absStartTimestamp  clav absStartTimestamp
+   * @param absEndTimestamp  clav absEndTimestamp
    * @param others The new value for others
    */
-  public ClavSession(java.lang.String sessionId, java.lang.Integer siteId, java.lang.Long botFlag, java.lang.Integer validPageCount, java.lang.Long duration, java.lang.Integer startPageId, java.lang.Integer exitPageId, java.lang.Long startTimestamp, java.lang.Long exitTimestamp, java.lang.Integer grCount, java.lang.Integer gr1Count, java.lang.Integer homepageCount, java.lang.Integer viCount, java.lang.Integer signinCount, java.lang.Integer myebayCount, java.lang.String userAgent, java.lang.String experienceLevel1, java.lang.String experienceLevel2, java.lang.String deviceType, java.lang.String deviceTypeLevel1, java.lang.String deviceTypeLevel2, java.util.Map<java.lang.String,java.lang.String> others) {
+  public ClavSession(java.lang.String sessionId, java.lang.Integer siteId, java.lang.Long botFlag, java.lang.Integer validPageCount, java.lang.Long duration, java.lang.Integer startPageId, java.lang.Integer exitPageId, java.lang.Long startTimestamp, java.lang.Long exitTimestamp, java.lang.Integer grCount, java.lang.Integer gr1Count, java.lang.Integer homepageCount, java.lang.Integer viCount, java.lang.Integer signinCount, java.lang.Integer myebayCount, java.lang.String userAgent, java.lang.String experienceLevel1, java.lang.String experienceLevel2, java.lang.String deviceType, java.lang.String deviceTypeLevel1, java.lang.String deviceTypeLevel2, java.lang.Long sessionSkey, java.lang.Integer cobrand, java.lang.Long sessionStartDt, java.lang.Long absStartTimestamp, java.lang.Long absEndTimestamp, java.util.Map<java.lang.String,java.lang.String> others) {
     this.sessionId = sessionId;
     this.siteId = siteId;
     this.botFlag = botFlag;
@@ -128,6 +143,11 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     this.deviceType = deviceType;
     this.deviceTypeLevel1 = deviceTypeLevel1;
     this.deviceTypeLevel2 = deviceTypeLevel2;
+    this.sessionSkey = sessionSkey;
+    this.cobrand = cobrand;
+    this.sessionStartDt = sessionStartDt;
+    this.absStartTimestamp = absStartTimestamp;
+    this.absEndTimestamp = absEndTimestamp;
     this.others = others;
   }
 
@@ -156,7 +176,12 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     case 18: return deviceType;
     case 19: return deviceTypeLevel1;
     case 20: return deviceTypeLevel2;
-    case 21: return others;
+    case 21: return sessionSkey;
+    case 22: return cobrand;
+    case 23: return sessionStartDt;
+    case 24: return absStartTimestamp;
+    case 25: return absEndTimestamp;
+    case 26: return others;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -186,14 +211,19 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     case 18: deviceType = (java.lang.String)value$; break;
     case 19: deviceTypeLevel1 = (java.lang.String)value$; break;
     case 20: deviceTypeLevel2 = (java.lang.String)value$; break;
-    case 21: others = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
+    case 21: sessionSkey = (java.lang.Long)value$; break;
+    case 22: cobrand = (java.lang.Integer)value$; break;
+    case 23: sessionStartDt = (java.lang.Long)value$; break;
+    case 24: absStartTimestamp = (java.lang.Long)value$; break;
+    case 25: absEndTimestamp = (java.lang.Long)value$; break;
+    case 26: others = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
   /**
    * Gets the value of the 'sessionId' field.
-   * @return The value of the 'sessionId' field.
+   * @return align with  globalSessionId
    */
   public java.lang.String getSessionId() {
     return sessionId;
@@ -201,6 +231,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
   /**
    * Sets the value of the 'sessionId' field.
+   * align with  globalSessionId
    * @param value the value to set.
    */
   public void setSessionId(java.lang.String value) {
@@ -225,7 +256,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
   /**
    * Gets the value of the 'botFlag' field.
-   * @return The value of the 'botFlag' field.
+   * @return botSignature
    */
   public java.lang.Long getBotFlag() {
     return botFlag;
@@ -233,6 +264,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
   /**
    * Sets the value of the 'botFlag' field.
+   * botSignature
    * @param value the value to set.
    */
   public void setBotFlag(java.lang.Long value) {
@@ -528,6 +560,89 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   }
 
   /**
+   * Gets the value of the 'sessionSkey' field.
+   * @return The value of the 'sessionSkey' field.
+   */
+  public java.lang.Long getSessionSkey() {
+    return sessionSkey;
+  }
+
+  /**
+   * Sets the value of the 'sessionSkey' field.
+   * @param value the value to set.
+   */
+  public void setSessionSkey(java.lang.Long value) {
+    this.sessionSkey = value;
+  }
+
+  /**
+   * Gets the value of the 'cobrand' field.
+   * @return The value of the 'cobrand' field.
+   */
+  public java.lang.Integer getCobrand() {
+    return cobrand;
+  }
+
+  /**
+   * Sets the value of the 'cobrand' field.
+   * @param value the value to set.
+   */
+  public void setCobrand(java.lang.Integer value) {
+    this.cobrand = value;
+  }
+
+  /**
+   * Gets the value of the 'sessionStartDt' field.
+   * @return  clav sessionStartDt
+   */
+  public java.lang.Long getSessionStartDt() {
+    return sessionStartDt;
+  }
+
+  /**
+   * Sets the value of the 'sessionStartDt' field.
+   *  clav sessionStartDt
+   * @param value the value to set.
+   */
+  public void setSessionStartDt(java.lang.Long value) {
+    this.sessionStartDt = value;
+  }
+
+  /**
+   * Gets the value of the 'absStartTimestamp' field.
+   * @return  clav absStartTimestamp
+   */
+  public java.lang.Long getAbsStartTimestamp() {
+    return absStartTimestamp;
+  }
+
+  /**
+   * Sets the value of the 'absStartTimestamp' field.
+   *  clav absStartTimestamp
+   * @param value the value to set.
+   */
+  public void setAbsStartTimestamp(java.lang.Long value) {
+    this.absStartTimestamp = value;
+  }
+
+  /**
+   * Gets the value of the 'absEndTimestamp' field.
+   * @return  clav absEndTimestamp
+   */
+  public java.lang.Long getAbsEndTimestamp() {
+    return absEndTimestamp;
+  }
+
+  /**
+   * Sets the value of the 'absEndTimestamp' field.
+   *  clav absEndTimestamp
+   * @param value the value to set.
+   */
+  public void setAbsEndTimestamp(java.lang.Long value) {
+    this.absEndTimestamp = value;
+  }
+
+  /**
    * Gets the value of the 'others' field.
    * @return The value of the 'others' field.
    */
@@ -575,8 +690,10 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ClavSession>
     implements org.apache.avro.data.RecordBuilder<ClavSession> {
 
+    /** align with  globalSessionId */
     private java.lang.String sessionId;
     private int siteId;
+    /** botSignature */
     private long botFlag;
     private int validPageCount;
     private long duration;
@@ -596,6 +713,14 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     private java.lang.String deviceType;
     private java.lang.String deviceTypeLevel1;
     private java.lang.String deviceTypeLevel2;
+    private java.lang.Long sessionSkey;
+    private java.lang.Integer cobrand;
+    /**  clav sessionStartDt */
+    private java.lang.Long sessionStartDt;
+    /**  clav absStartTimestamp */
+    private java.lang.Long absStartTimestamp;
+    /**  clav absEndTimestamp */
+    private java.lang.Long absEndTimestamp;
     private java.util.Map<java.lang.String,java.lang.String> others;
 
     /** Creates a new Builder */
@@ -693,9 +818,29 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
         this.deviceTypeLevel2 = data().deepCopy(fields()[20].schema(), other.deviceTypeLevel2);
         fieldSetFlags()[20] = true;
       }
-      if (isValidValue(fields()[21], other.others)) {
-        this.others = data().deepCopy(fields()[21].schema(), other.others);
+      if (isValidValue(fields()[21], other.sessionSkey)) {
+        this.sessionSkey = data().deepCopy(fields()[21].schema(), other.sessionSkey);
         fieldSetFlags()[21] = true;
+      }
+      if (isValidValue(fields()[22], other.cobrand)) {
+        this.cobrand = data().deepCopy(fields()[22].schema(), other.cobrand);
+        fieldSetFlags()[22] = true;
+      }
+      if (isValidValue(fields()[23], other.sessionStartDt)) {
+        this.sessionStartDt = data().deepCopy(fields()[23].schema(), other.sessionStartDt);
+        fieldSetFlags()[23] = true;
+      }
+      if (isValidValue(fields()[24], other.absStartTimestamp)) {
+        this.absStartTimestamp = data().deepCopy(fields()[24].schema(), other.absStartTimestamp);
+        fieldSetFlags()[24] = true;
+      }
+      if (isValidValue(fields()[25], other.absEndTimestamp)) {
+        this.absEndTimestamp = data().deepCopy(fields()[25].schema(), other.absEndTimestamp);
+        fieldSetFlags()[25] = true;
+      }
+      if (isValidValue(fields()[26], other.others)) {
+        this.others = data().deepCopy(fields()[26].schema(), other.others);
+        fieldSetFlags()[26] = true;
       }
     }
 
@@ -789,14 +934,35 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
         this.deviceTypeLevel2 = data().deepCopy(fields()[20].schema(), other.deviceTypeLevel2);
         fieldSetFlags()[20] = true;
       }
-      if (isValidValue(fields()[21], other.others)) {
-        this.others = data().deepCopy(fields()[21].schema(), other.others);
+      if (isValidValue(fields()[21], other.sessionSkey)) {
+        this.sessionSkey = data().deepCopy(fields()[21].schema(), other.sessionSkey);
         fieldSetFlags()[21] = true;
+      }
+      if (isValidValue(fields()[22], other.cobrand)) {
+        this.cobrand = data().deepCopy(fields()[22].schema(), other.cobrand);
+        fieldSetFlags()[22] = true;
+      }
+      if (isValidValue(fields()[23], other.sessionStartDt)) {
+        this.sessionStartDt = data().deepCopy(fields()[23].schema(), other.sessionStartDt);
+        fieldSetFlags()[23] = true;
+      }
+      if (isValidValue(fields()[24], other.absStartTimestamp)) {
+        this.absStartTimestamp = data().deepCopy(fields()[24].schema(), other.absStartTimestamp);
+        fieldSetFlags()[24] = true;
+      }
+      if (isValidValue(fields()[25], other.absEndTimestamp)) {
+        this.absEndTimestamp = data().deepCopy(fields()[25].schema(), other.absEndTimestamp);
+        fieldSetFlags()[25] = true;
+      }
+      if (isValidValue(fields()[26], other.others)) {
+        this.others = data().deepCopy(fields()[26].schema(), other.others);
+        fieldSetFlags()[26] = true;
       }
     }
 
     /**
       * Gets the value of the 'sessionId' field.
+      * align with  globalSessionId
       * @return The value.
       */
     public java.lang.String getSessionId() {
@@ -805,6 +971,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
     /**
       * Sets the value of the 'sessionId' field.
+      * align with  globalSessionId
       * @param value The value of 'sessionId'.
       * @return This builder.
       */
@@ -817,6 +984,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
     /**
       * Checks whether the 'sessionId' field has been set.
+      * align with  globalSessionId
       * @return True if the 'sessionId' field has been set, false otherwise.
       */
     public boolean hasSessionId() {
@@ -826,6 +994,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
     /**
       * Clears the value of the 'sessionId' field.
+      * align with  globalSessionId
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearSessionId() {
@@ -874,6 +1043,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
     /**
       * Gets the value of the 'botFlag' field.
+      * botSignature
       * @return The value.
       */
     public java.lang.Long getBotFlag() {
@@ -882,6 +1052,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
     /**
       * Sets the value of the 'botFlag' field.
+      * botSignature
       * @param value The value of 'botFlag'.
       * @return This builder.
       */
@@ -894,6 +1065,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
     /**
       * Checks whether the 'botFlag' field has been set.
+      * botSignature
       * @return True if the 'botFlag' field has been set, false otherwise.
       */
     public boolean hasBotFlag() {
@@ -903,6 +1075,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
 
     /**
       * Clears the value of the 'botFlag' field.
+      * botSignature
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearBotFlag() {
@@ -1601,6 +1774,213 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
+      * Gets the value of the 'sessionSkey' field.
+      * @return The value.
+      */
+    public java.lang.Long getSessionSkey() {
+      return sessionSkey;
+    }
+
+    /**
+      * Sets the value of the 'sessionSkey' field.
+      * @param value The value of 'sessionSkey'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setSessionSkey(java.lang.Long value) {
+      validate(fields()[21], value);
+      this.sessionSkey = value;
+      fieldSetFlags()[21] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'sessionSkey' field has been set.
+      * @return True if the 'sessionSkey' field has been set, false otherwise.
+      */
+    public boolean hasSessionSkey() {
+      return fieldSetFlags()[21];
+    }
+
+
+    /**
+      * Clears the value of the 'sessionSkey' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearSessionSkey() {
+      sessionSkey = null;
+      fieldSetFlags()[21] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'cobrand' field.
+      * @return The value.
+      */
+    public java.lang.Integer getCobrand() {
+      return cobrand;
+    }
+
+    /**
+      * Sets the value of the 'cobrand' field.
+      * @param value The value of 'cobrand'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setCobrand(java.lang.Integer value) {
+      validate(fields()[22], value);
+      this.cobrand = value;
+      fieldSetFlags()[22] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'cobrand' field has been set.
+      * @return True if the 'cobrand' field has been set, false otherwise.
+      */
+    public boolean hasCobrand() {
+      return fieldSetFlags()[22];
+    }
+
+
+    /**
+      * Clears the value of the 'cobrand' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearCobrand() {
+      cobrand = null;
+      fieldSetFlags()[22] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'sessionStartDt' field.
+      *  clav sessionStartDt
+      * @return The value.
+      */
+    public java.lang.Long getSessionStartDt() {
+      return sessionStartDt;
+    }
+
+    /**
+      * Sets the value of the 'sessionStartDt' field.
+      *  clav sessionStartDt
+      * @param value The value of 'sessionStartDt'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setSessionStartDt(java.lang.Long value) {
+      validate(fields()[23], value);
+      this.sessionStartDt = value;
+      fieldSetFlags()[23] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'sessionStartDt' field has been set.
+      *  clav sessionStartDt
+      * @return True if the 'sessionStartDt' field has been set, false otherwise.
+      */
+    public boolean hasSessionStartDt() {
+      return fieldSetFlags()[23];
+    }
+
+
+    /**
+      * Clears the value of the 'sessionStartDt' field.
+      *  clav sessionStartDt
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearSessionStartDt() {
+      sessionStartDt = null;
+      fieldSetFlags()[23] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'absStartTimestamp' field.
+      *  clav absStartTimestamp
+      * @return The value.
+      */
+    public java.lang.Long getAbsStartTimestamp() {
+      return absStartTimestamp;
+    }
+
+    /**
+      * Sets the value of the 'absStartTimestamp' field.
+      *  clav absStartTimestamp
+      * @param value The value of 'absStartTimestamp'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setAbsStartTimestamp(java.lang.Long value) {
+      validate(fields()[24], value);
+      this.absStartTimestamp = value;
+      fieldSetFlags()[24] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'absStartTimestamp' field has been set.
+      *  clav absStartTimestamp
+      * @return True if the 'absStartTimestamp' field has been set, false otherwise.
+      */
+    public boolean hasAbsStartTimestamp() {
+      return fieldSetFlags()[24];
+    }
+
+
+    /**
+      * Clears the value of the 'absStartTimestamp' field.
+      *  clav absStartTimestamp
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearAbsStartTimestamp() {
+      absStartTimestamp = null;
+      fieldSetFlags()[24] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'absEndTimestamp' field.
+      *  clav absEndTimestamp
+      * @return The value.
+      */
+    public java.lang.Long getAbsEndTimestamp() {
+      return absEndTimestamp;
+    }
+
+    /**
+      * Sets the value of the 'absEndTimestamp' field.
+      *  clav absEndTimestamp
+      * @param value The value of 'absEndTimestamp'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setAbsEndTimestamp(java.lang.Long value) {
+      validate(fields()[25], value);
+      this.absEndTimestamp = value;
+      fieldSetFlags()[25] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'absEndTimestamp' field has been set.
+      *  clav absEndTimestamp
+      * @return True if the 'absEndTimestamp' field has been set, false otherwise.
+      */
+    public boolean hasAbsEndTimestamp() {
+      return fieldSetFlags()[25];
+    }
+
+
+    /**
+      * Clears the value of the 'absEndTimestamp' field.
+      *  clav absEndTimestamp
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearAbsEndTimestamp() {
+      absEndTimestamp = null;
+      fieldSetFlags()[25] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'others' field.
       * @return The value.
       */
@@ -1614,9 +1994,9 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setOthers(java.util.Map<java.lang.String,java.lang.String> value) {
-      validate(fields()[21], value);
+      validate(fields()[26], value);
       this.others = value;
-      fieldSetFlags()[21] = true;
+      fieldSetFlags()[26] = true;
       return this;
     }
 
@@ -1625,7 +2005,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
       * @return True if the 'others' field has been set, false otherwise.
       */
     public boolean hasOthers() {
-      return fieldSetFlags()[21];
+      return fieldSetFlags()[26];
     }
 
 
@@ -1635,7 +2015,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearOthers() {
       others = null;
-      fieldSetFlags()[21] = false;
+      fieldSetFlags()[26] = false;
       return this;
     }
 
@@ -1665,7 +2045,12 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
         record.deviceType = fieldSetFlags()[18] ? this.deviceType : (java.lang.String) defaultValue(fields()[18]);
         record.deviceTypeLevel1 = fieldSetFlags()[19] ? this.deviceTypeLevel1 : (java.lang.String) defaultValue(fields()[19]);
         record.deviceTypeLevel2 = fieldSetFlags()[20] ? this.deviceTypeLevel2 : (java.lang.String) defaultValue(fields()[20]);
-        record.others = fieldSetFlags()[21] ? this.others : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[21]);
+        record.sessionSkey = fieldSetFlags()[21] ? this.sessionSkey : (java.lang.Long) defaultValue(fields()[21]);
+        record.cobrand = fieldSetFlags()[22] ? this.cobrand : (java.lang.Integer) defaultValue(fields()[22]);
+        record.sessionStartDt = fieldSetFlags()[23] ? this.sessionStartDt : (java.lang.Long) defaultValue(fields()[23]);
+        record.absStartTimestamp = fieldSetFlags()[24] ? this.absStartTimestamp : (java.lang.Long) defaultValue(fields()[24]);
+        record.absEndTimestamp = fieldSetFlags()[25] ? this.absEndTimestamp : (java.lang.Long) defaultValue(fields()[25]);
+        record.others = fieldSetFlags()[26] ? this.others : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[26]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

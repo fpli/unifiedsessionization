@@ -13,9 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class UniSession extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-
-  private static final long serialVersionUID = -7466229811379266624L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UniSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},\"doc\":\"Rheos header\"},{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession guid\"},{\"name\":\"globalSessionId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from unisession globalSessionId\"},{\"name\":\"absStartTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absStartTimestamp\"},{\"name\":\"absEndTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absEndTimestamp\"},{\"name\":\"sessionStartDt\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession sessionStartDt\"},{\"name\":\"trafficSource\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"traffic source\"},{\"name\":\"trafficSourceDetails\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\",\"default\":{}}],\"doc\":\"\"},{\"name\":\"ubiSessIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},{\"name\":\"ubiSessSkeys\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"autotrackSessIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"autotrackSessSkeys\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"botFlag\",\"type\":{\"type\":\"record\",\"name\":\"BotFlag\",\"fields\":[{\"name\":\"surface\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]},{\"name\":\"ubi\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]},{\"name\":\"utp\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]}]}},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}},{\"name\":\"isOpen\",\"type\":[\"null\",\"boolean\"],\"doc\":\"to identify open or end\"},{\"name\":\"userId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"firstAppId\",\"type\":[\"null\",\"int\"],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"cobrand\",\"type\":[\"null\",\"int\"],\"doc\":\"from ubisession \",\"default\":null},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"experience\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"experienceLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"experienceLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"clavSessions\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ClavSession\",\"fields\":[{\"name\":\"sessionId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"siteId\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"long\"},{\"name\":\"validPageCount\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"startPageId\",\"type\":\"int\"},{\"name\":\"exitPageId\",\"type\":\"int\"},{\"name\":\"startTimestamp\",\"type\":\"long\"},{\"name\":\"exitTimestamp\",\"type\":\"long\"},{\"name\":\"grCount\",\"type\":\"int\"},{\"name\":\"gr1Count\",\"type\":\"int\"},{\"name\":\"homepageCount\",\"type\":\"int\"},{\"name\":\"viCount\",\"type\":\"int\"},{\"name\":\"signinCount\",\"type\":\"int\"},{\"name\":\"myebayCount\",\"type\":\"int\"},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"experienceLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"experienceLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceTypeLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceTypeLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}}],\"doc\":\"from ubisession\",\"default\":null}]}");
+  private static final long serialVersionUID = 733942188068651224L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"UniSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"rheosHeader\",\"type\":{\"type\":\"record\",\"name\":\"RheosHeader\",\"fields\":[{\"name\":\"eventCreateTimestamp\",\"type\":\"long\"},{\"name\":\"eventSentTimestamp\",\"type\":\"long\"},{\"name\":\"schemaId\",\"type\":\"int\"},{\"name\":\"eventId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"producerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},\"doc\":\"Rheos header\"},{\"name\":\"guid\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession guid\"},{\"name\":\"globalSessionId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from unisession globalSessionId\"},{\"name\":\"absStartTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absStartTimestamp\"},{\"name\":\"absEndTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession absEndTimestamp\"},{\"name\":\"sessionStartDt\",\"type\":[\"null\",\"long\"],\"doc\":\"from unisession sessionStartDt\"},{\"name\":\"trafficSource\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"traffic source\"},{\"name\":\"trafficSourceDetails\",\"type\":[\"null\",{\"type\":\"map\",\"values\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"avro.java.string\":\"String\",\"default\":{}}],\"doc\":\"\"},{\"name\":\"ubiSessIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"string\",\"avro.java.string\":\"String\"}}]},{\"name\":\"ubiSessSkeys\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"autotrackSessIds\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"autotrackSessSkeys\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"long\"}]},{\"name\":\"botFlag\",\"type\":{\"type\":\"record\",\"name\":\"BotFlag\",\"fields\":[{\"name\":\"surface\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]},{\"name\":\"ubi\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]},{\"name\":\"utp\",\"type\":[\"null\",{\"type\":\"array\",\"items\":\"int\"}]}]}},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}},{\"name\":\"isOpen\",\"type\":[\"null\",\"boolean\"],\"doc\":\"to identify open or end\"},{\"name\":\"userId\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"firstAppId\",\"type\":[\"null\",\"int\"],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"cobrand\",\"type\":[\"null\",\"int\"],\"doc\":\"from ubisession \",\"default\":null},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"experience\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"experienceLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"experienceLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"sessionSkey\",\"type\":[\"null\",\"long\"]},{\"name\":\"clavSessions\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ClavSession\",\"fields\":[{\"name\":\"sessionId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"doc\":\"align with  globalSessionId\"},{\"name\":\"siteId\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"long\",\"doc\":\"botSignature\"},{\"name\":\"validPageCount\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"startPageId\",\"type\":\"int\"},{\"name\":\"exitPageId\",\"type\":\"int\"},{\"name\":\"startTimestamp\",\"type\":\"long\"},{\"name\":\"exitTimestamp\",\"type\":\"long\"},{\"name\":\"grCount\",\"type\":\"int\"},{\"name\":\"gr1Count\",\"type\":\"int\"},{\"name\":\"homepageCount\",\"type\":\"int\"},{\"name\":\"viCount\",\"type\":\"int\"},{\"name\":\"signinCount\",\"type\":\"int\"},{\"name\":\"myebayCount\",\"type\":\"int\"},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"experienceLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"experienceLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceTypeLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceTypeLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"sessionSkey\",\"type\":[\"null\",\"long\"]},{\"name\":\"cobrand\",\"type\":[\"null\",\"int\"]},{\"name\":\"sessionStartDt\",\"type\":[\"null\",\"long\"],\"doc\":\" clav sessionStartDt\"},{\"name\":\"absStartTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\" clav absStartTimestamp\"},{\"name\":\"absEndTimestamp\",\"type\":[\"null\",\"long\"],\"doc\":\" clav absEndTimestamp\"},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}}],\"doc\":\"from ubisession\",\"default\":null},{\"name\":\"botSignature\",\"type\":[\"null\",\"long\"]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -90,6 +89,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
   @Deprecated public java.lang.String experienceLevel1;
   /** from ubisession */
   @Deprecated public java.lang.String experienceLevel2;
+  @Deprecated public java.lang.Long sessionSkey;
   /** from ubisession */
   @Deprecated public java.util.List<com.ebay.epic.soj.common.model.ClavSession> clavSessions;
   @Deprecated public java.lang.Long botSignature;
@@ -125,10 +125,11 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
    * @param experience from ubisession
    * @param experienceLevel1 from ubisession
    * @param experienceLevel2 from ubisession
+   * @param sessionSkey The new value for sessionSkey
    * @param clavSessions from ubisession
    * @param botSignature The new value for botSignature
    */
-  public UniSession(com.ebay.epic.soj.common.model.RheosHeader rheosHeader, java.lang.String guid, java.lang.String globalSessionId, java.lang.Long absStartTimestamp, java.lang.Long absEndTimestamp, java.lang.Long sessionStartDt, java.lang.String trafficSource, java.util.Map<java.lang.String,java.lang.String> trafficSourceDetails, java.util.List<java.lang.String> ubiSessIds, java.util.List<java.lang.Long> ubiSessSkeys, java.util.List<java.lang.Long> autotrackSessIds, java.util.List<java.lang.Long> autotrackSessSkeys, com.ebay.epic.soj.common.model.BotFlag botFlag, java.util.Map<java.lang.String,java.lang.String> others, java.lang.Boolean isOpen, java.lang.String userId, java.lang.Integer firstAppId, java.lang.Integer cobrand, java.lang.String userAgent, java.lang.String experience, java.lang.String experienceLevel1, java.lang.String experienceLevel2, java.util.List<com.ebay.epic.soj.common.model.ClavSession> clavSessions, java.lang.Long botSignature) {
+  public UniSession(com.ebay.epic.soj.common.model.RheosHeader rheosHeader, java.lang.String guid, java.lang.String globalSessionId, java.lang.Long absStartTimestamp, java.lang.Long absEndTimestamp, java.lang.Long sessionStartDt, java.lang.String trafficSource, java.util.Map<java.lang.String,java.lang.String> trafficSourceDetails, java.util.List<java.lang.String> ubiSessIds, java.util.List<java.lang.Long> ubiSessSkeys, java.util.List<java.lang.Long> autotrackSessIds, java.util.List<java.lang.Long> autotrackSessSkeys, com.ebay.epic.soj.common.model.BotFlag botFlag, java.util.Map<java.lang.String,java.lang.String> others, java.lang.Boolean isOpen, java.lang.String userId, java.lang.Integer firstAppId, java.lang.Integer cobrand, java.lang.String userAgent, java.lang.String experience, java.lang.String experienceLevel1, java.lang.String experienceLevel2, java.lang.Long sessionSkey, java.util.List<com.ebay.epic.soj.common.model.ClavSession> clavSessions, java.lang.Long botSignature) {
     this.rheosHeader = rheosHeader;
     this.guid = guid;
     this.globalSessionId = globalSessionId;
@@ -151,6 +152,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
     this.experience = experience;
     this.experienceLevel1 = experienceLevel1;
     this.experienceLevel2 = experienceLevel2;
+    this.sessionSkey = sessionSkey;
     this.clavSessions = clavSessions;
     this.botSignature = botSignature;
   }
@@ -181,8 +183,9 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
     case 19: return experience;
     case 20: return experienceLevel1;
     case 21: return experienceLevel2;
-    case 22: return clavSessions;
-    case 23: return botSignature;
+    case 22: return sessionSkey;
+    case 23: return clavSessions;
+    case 24: return botSignature;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -213,8 +216,9 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
     case 19: experience = (java.lang.String)value$; break;
     case 20: experienceLevel1 = (java.lang.String)value$; break;
     case 21: experienceLevel2 = (java.lang.String)value$; break;
-    case 22: clavSessions = (java.util.List<com.ebay.epic.soj.common.model.ClavSession>)value$; break;
-    case 23: botSignature = (java.lang.Long)value$; break;
+    case 22: sessionSkey = (java.lang.Long)value$; break;
+    case 23: clavSessions = (java.util.List<com.ebay.epic.soj.common.model.ClavSession>)value$; break;
+    case 24: botSignature = (java.lang.Long)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -588,6 +592,22 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
   }
 
   /**
+   * Gets the value of the 'sessionSkey' field.
+   * @return The value of the 'sessionSkey' field.
+   */
+  public java.lang.Long getSessionSkey() {
+    return sessionSkey;
+  }
+
+  /**
+   * Sets the value of the 'sessionSkey' field.
+   * @param value the value to set.
+   */
+  public void setSessionSkey(java.lang.Long value) {
+    this.sessionSkey = value;
+  }
+
+  /**
    * Gets the value of the 'clavSessions' field.
    * @return from ubisession
    */
@@ -692,6 +712,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
     private java.lang.String experienceLevel1;
     /** from ubisession */
     private java.lang.String experienceLevel2;
+    private java.lang.Long sessionSkey;
     /** from ubisession */
     private java.util.List<com.ebay.epic.soj.common.model.ClavSession> clavSessions;
     private java.lang.Long botSignature;
@@ -801,13 +822,17 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
         this.experienceLevel2 = data().deepCopy(fields()[21].schema(), other.experienceLevel2);
         fieldSetFlags()[21] = true;
       }
-      if (isValidValue(fields()[22], other.clavSessions)) {
-        this.clavSessions = data().deepCopy(fields()[22].schema(), other.clavSessions);
+      if (isValidValue(fields()[22], other.sessionSkey)) {
+        this.sessionSkey = data().deepCopy(fields()[22].schema(), other.sessionSkey);
         fieldSetFlags()[22] = true;
       }
-      if (isValidValue(fields()[23], other.botSignature)) {
-        this.botSignature = data().deepCopy(fields()[23].schema(), other.botSignature);
+      if (isValidValue(fields()[23], other.clavSessions)) {
+        this.clavSessions = data().deepCopy(fields()[23].schema(), other.clavSessions);
         fieldSetFlags()[23] = true;
+      }
+      if (isValidValue(fields()[24], other.botSignature)) {
+        this.botSignature = data().deepCopy(fields()[24].schema(), other.botSignature);
+        fieldSetFlags()[24] = true;
       }
     }
 
@@ -907,13 +932,17 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
         this.experienceLevel2 = data().deepCopy(fields()[21].schema(), other.experienceLevel2);
         fieldSetFlags()[21] = true;
       }
-      if (isValidValue(fields()[22], other.clavSessions)) {
-        this.clavSessions = data().deepCopy(fields()[22].schema(), other.clavSessions);
+      if (isValidValue(fields()[22], other.sessionSkey)) {
+        this.sessionSkey = data().deepCopy(fields()[22].schema(), other.sessionSkey);
         fieldSetFlags()[22] = true;
       }
-      if (isValidValue(fields()[23], other.botSignature)) {
-        this.botSignature = data().deepCopy(fields()[23].schema(), other.botSignature);
+      if (isValidValue(fields()[23], other.clavSessions)) {
+        this.clavSessions = data().deepCopy(fields()[23].schema(), other.clavSessions);
         fieldSetFlags()[23] = true;
+      }
+      if (isValidValue(fields()[24], other.botSignature)) {
+        this.botSignature = data().deepCopy(fields()[24].schema(), other.botSignature);
+        fieldSetFlags()[24] = true;
       }
     }
 
@@ -1913,6 +1942,45 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
     }
 
     /**
+      * Gets the value of the 'sessionSkey' field.
+      * @return The value.
+      */
+    public java.lang.Long getSessionSkey() {
+      return sessionSkey;
+    }
+
+    /**
+      * Sets the value of the 'sessionSkey' field.
+      * @param value The value of 'sessionSkey'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder setSessionSkey(java.lang.Long value) {
+      validate(fields()[22], value);
+      this.sessionSkey = value;
+      fieldSetFlags()[22] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'sessionSkey' field has been set.
+      * @return True if the 'sessionSkey' field has been set, false otherwise.
+      */
+    public boolean hasSessionSkey() {
+      return fieldSetFlags()[22];
+    }
+
+
+    /**
+      * Clears the value of the 'sessionSkey' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.UniSession.Builder clearSessionSkey() {
+      sessionSkey = null;
+      fieldSetFlags()[22] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'clavSessions' field.
       * from ubisession
       * @return The value.
@@ -1928,9 +1996,9 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.UniSession.Builder setClavSessions(java.util.List<com.ebay.epic.soj.common.model.ClavSession> value) {
-      validate(fields()[22], value);
+      validate(fields()[23], value);
       this.clavSessions = value;
-      fieldSetFlags()[22] = true;
+      fieldSetFlags()[23] = true;
       return this;
     }
 
@@ -1940,7 +2008,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'clavSessions' field has been set, false otherwise.
       */
     public boolean hasClavSessions() {
-      return fieldSetFlags()[22];
+      return fieldSetFlags()[23];
     }
 
 
@@ -1951,7 +2019,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public com.ebay.epic.soj.common.model.UniSession.Builder clearClavSessions() {
       clavSessions = null;
-      fieldSetFlags()[22] = false;
+      fieldSetFlags()[23] = false;
       return this;
     }
 
@@ -1969,9 +2037,9 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.UniSession.Builder setBotSignature(java.lang.Long value) {
-      validate(fields()[23], value);
+      validate(fields()[24], value);
       this.botSignature = value;
-      fieldSetFlags()[23] = true;
+      fieldSetFlags()[24] = true;
       return this;
     }
 
@@ -1980,7 +2048,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       * @return True if the 'botSignature' field has been set, false otherwise.
       */
     public boolean hasBotSignature() {
-      return fieldSetFlags()[23];
+      return fieldSetFlags()[24];
     }
 
 
@@ -1990,7 +2058,7 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
       */
     public com.ebay.epic.soj.common.model.UniSession.Builder clearBotSignature() {
       botSignature = null;
-      fieldSetFlags()[23] = false;
+      fieldSetFlags()[24] = false;
       return this;
     }
 
@@ -2029,8 +2097,9 @@ public class UniSession extends org.apache.avro.specific.SpecificRecordBase impl
         record.experience = fieldSetFlags()[19] ? this.experience : (java.lang.String) defaultValue(fields()[19]);
         record.experienceLevel1 = fieldSetFlags()[20] ? this.experienceLevel1 : (java.lang.String) defaultValue(fields()[20]);
         record.experienceLevel2 = fieldSetFlags()[21] ? this.experienceLevel2 : (java.lang.String) defaultValue(fields()[21]);
-        record.clavSessions = fieldSetFlags()[22] ? this.clavSessions : (java.util.List<com.ebay.epic.soj.common.model.ClavSession>) defaultValue(fields()[22]);
-        record.botSignature = fieldSetFlags()[23] ? this.botSignature : (java.lang.Long) defaultValue(fields()[23]);
+        record.sessionSkey = fieldSetFlags()[22] ? this.sessionSkey : (java.lang.Long) defaultValue(fields()[22]);
+        record.clavSessions = fieldSetFlags()[23] ? this.clavSessions : (java.util.List<com.ebay.epic.soj.common.model.ClavSession>) defaultValue(fields()[23]);
+        record.botSignature = fieldSetFlags()[24] ? this.botSignature : (java.lang.Long) defaultValue(fields()[24]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);

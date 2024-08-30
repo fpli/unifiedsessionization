@@ -1,8 +1,7 @@
 package com.ebay.epic.soj.business.metric;
 
-import com.ebay.epic.soj.common.model.raw.RawEvent;
-import com.ebay.epic.soj.common.model.raw.RawUniSession;
 import com.ebay.epic.soj.common.model.UniSessionAccumulator;
+import com.ebay.epic.soj.common.model.raw.RawUniSession;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
 
 public class GlobalSessionIdMetrics implements FieldMetrics<UniEvent, UniSessionAccumulator> {

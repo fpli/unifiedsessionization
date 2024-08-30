@@ -45,8 +45,7 @@ public class UbiGeneralMetrics implements FieldMetrics<UniEvent, UniSessionAccum
 
     // cobrand
     if (uniSessionAccumulator.getUniSession().getCobrand() == Integer.MIN_VALUE
-            && !event.getIframe()
-            && (event.getRdt()==0)
+            && event.isValid()
             && event.isClavValidPage()) {
       uniSessionAccumulator.getUniSession().setCobrand(Integer.valueOf(event.getCobrand()));
     }

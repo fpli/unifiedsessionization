@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
 
+@Deprecated
 public class ClavValidPageNormalizer extends FieldNormalizer<RawEvent, UniEvent> {
 
     private static final int[] CLFGPageIds = {2588, 3030, 3907, 4939, 5108, 2050601};

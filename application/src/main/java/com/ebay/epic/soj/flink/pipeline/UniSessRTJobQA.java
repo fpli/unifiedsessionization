@@ -101,8 +101,8 @@ public class UniSessRTJobQA extends FlinkBaseJob {
         DataStream<UniEvent> ubiBotDS = outputStreamOperator.getSideOutput(ubiBOTOutputTag);
         DataStream<UniEvent> ubiNonBotDS = outputStreamOperator.getSideOutput(ubiNONBOTOutputTag);
 //        DataStream<UniEvent> utpDS = uniSessRTJob.postFilterFunctionBuilder(rawEventWithSessionId, EventType.UTP, RNO);
-        ubiBotDS.print().uid("testevent").slotSharingGroup("local").setParallelism(1);
-        ubiNonBotDS.print().uid("testeventbot").slotSharingGroup("local").setParallelism(1);
+//        ubiBotDS.print().uid("testevent").slotSharingGroup("local").setParallelism(1);
+//        ubiNonBotDS.print().uid("testeventbot").slotSharingGroup("local").setParallelism(1);
 
         // filter our each kind of event based on late events
         SingleOutputStreamOperator<UniSession> outputStreamOperatorSess =

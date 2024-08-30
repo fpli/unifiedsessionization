@@ -263,6 +263,13 @@
       "default": null
     },
     {
+      "name": "sessionSkey",
+      "type": [
+        "null",
+        "long"
+      ]
+    },
+    {
       "name": "clavSessions",
       "type": [
         "null",
@@ -430,11 +437,11 @@
       "default": null
     },
     {
-    "name": "botSignature",
-    "type": [
-    "null",
-    "long"
-    ]
+      "name": "botSignature",
+      "type": [
+        "null",
+        "long"
+      ]
     }
   ]
 }

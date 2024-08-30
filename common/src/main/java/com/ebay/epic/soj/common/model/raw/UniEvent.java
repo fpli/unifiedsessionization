@@ -44,7 +44,7 @@ public class UniEvent {
     private String referer;
     // both for traffic source and Clav session extension
     // See TrafficSourceConstants for available applicationPayload keys
-    private Map<String,String> payload = new ConcurrentHashMap<>();
+    private Map<String, String> payload = new ConcurrentHashMap<>();
     private String pageUrl;
     private String experience;
     private boolean partialValidPage = false;
@@ -85,5 +85,9 @@ public class UniEvent {
         }
         builder.append(x);
         return builder.toString();
+    }
+
+    public boolean isValid() {
+        return !iframe && rdt == 0;
     }
 }

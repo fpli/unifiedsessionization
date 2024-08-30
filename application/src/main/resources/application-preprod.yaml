@@ -40,6 +40,8 @@ flink:
               nonbot: behavior.total.new.sojevent-late-nonbot-poc
             roi:
               nonbot: behavior.total.new.late.globalevents.roi
+        subject:
+          session: unifiedsessionschemanew
       message-key: guid
       sampling-key: guid
       sampling-pct: 10

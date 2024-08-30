@@ -13,6 +13,7 @@ public class TimestampMetrics implements FieldMetrics<UniEvent, UniSessionAccumu
         uniSessionAccumulator.getUniSession().setAbsEndTimestamp(null);
         uniSessionAccumulator.getUniSession().setStartTimestamp(null);
         uniSessionAccumulator.getUniSession().setStartTimestampNOIFRAMERDT(null);
+        uniSessionAccumulator.getUniSession().setEndTimestamp(null);
     }
 
     @Override
@@ -20,7 +21,10 @@ public class TimestampMetrics implements FieldMetrics<UniEvent, UniSessionAccumu
         RawUniSession uniSession = uniSessionAccumulator.getUniSession();
         boolean isEarlyValidEvent = SojEventTimeUtil
                 .isEarlyEvent(event.getEventTs(),
-                        uniSessionAccumulator.getUniSession().getStartTimestamp());
+                        uniSession.getStartTimestamp());
+        boolean isLateValidEvent = SojEventTimeUtil
+                .isEarlyEvent(event.getEventTs(),
+                        uniSession.getEndTimestamp());
         if (uniSession.getAbsStartTimestamp() == null) {
             uniSession.setAbsStartTimestamp(event.getEventTs());
         } else if (event.getEventTs() != null
@@ -33,15 +37,19 @@ public class TimestampMetrics implements FieldMetrics<UniEvent, UniSessionAccumu
                 && uniSession.getAbsEndTimestamp() < event.getEventTs()) {
             uniSession.setAbsEndTimestamp(event.getEventTs());
         }
-        if (isEarlyValidEvent && !event.getIframe() && event.getRdt() == 0) {
+        if (isEarlyValidEvent && event.isValid()) {
             uniSession.setStartTimestamp(event.getEventTs());
         }
-        if (event.getRdt() == 0 && !event.getIframe()) {
+        if (event.isValid()) {
             if (uniSession.getStartTimestampNOIFRAMERDT() == null) {
                 uniSession.setStartTimestampNOIFRAMERDT(event.getEventTs());
             } else if (event.getEventTs() != null && uniSession.getStartTimestampNOIFRAMERDT() > event.getEventTs()) {
                 uniSession.setStartTimestampNOIFRAMERDT(event.getEventTs());
             }
+        }
+        // end timestamp logic
+        if (isLateValidEvent && event.isValid()) {
+            uniSession.setEndTimestamp(event.getEventTs());
         }
     }
 

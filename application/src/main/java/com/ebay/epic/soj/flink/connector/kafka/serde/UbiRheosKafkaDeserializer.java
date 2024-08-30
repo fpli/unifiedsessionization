@@ -2,13 +2,15 @@ package com.ebay.epic.soj.flink.connector.kafka.serde;
 
 import com.ebay.epic.soj.common.model.raw.RawEvent;
 import com.ebay.epic.soj.common.model.trafficsource.TrafficSourceConstants;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Lists;
 import io.ebay.rheos.schema.event.RheosEvent;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.avro.util.Utf8;
-import org.apache.parquet.filter2.predicate.Operators;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> {
 
@@ -19,7 +21,7 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
             TrafficSourceConstants.PAYLOAD_KEY_PNACT, TrafficSourceConstants.PAYLOAD_KEY_MPPID, TrafficSourceConstants.PAYLOAD_KEY_REF,
             TrafficSourceConstants.PAYLOAD_KEY_NTYPE);
 
-    public static final Set<Integer> BOT_BLACK_LIST = ImmutableSet.of(0,220,221,222,223);
+    public static final Set<Integer> BOT_BLACK_LIST = ImmutableSet.of(0, 220, 221, 222, 223);
 
     public UbiRheosKafkaDeserializer(String schemaRegistryUrl) {
         super(schemaRegistryUrl);
@@ -39,7 +41,7 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         rawEvent.setSeqNum(Integer.valueOf(getStrOrDefault(genericRecord.get("seqNum"), "-1")));
         rawEvent.setIframe(Boolean.valueOf(getStrOrDefault(genericRecord.get("iframe"), "true")));
         rawEvent.setRdt(Byte.parseByte(getStrOrDefault(genericRecord.get("rdt"), "0")));
-        rawEvent.setBotFlags(removeAll((List<Integer>) genericRecord.get("botFlags"), BOT_BLACK_LIST));
+        rawEvent.setBotFlags(removeAll(genericRecord.get("botFlags"), BOT_BLACK_LIST));
         rawEvent.setCobrand(getStrOrDefault(genericRecord.get("cobrand"), null));
         rawEvent.setAppId(getStrOrDefault(genericRecord.get("appId"), null));
         //User Agent
@@ -131,9 +133,22 @@ public class UbiRheosKafkaDeserializer extends RheosKafkaDeserializer<RawEvent> 
         return stringMap;
     }
 
-    // remove all the itermidiate bot flags
-    private List<Integer> removeAll(List<Integer> botFlags, Set<Integer> botBlackList) {
-        botFlags.removeAll(botBlackList);
-        return botFlags;
+    // remove all the intermidiate bot flags
+    private List<Integer> removeAll(Object botFlags, Set<Integer> botBlackList) {
+        if (Objects.isNull(botFlags)) {
+            return null;
+        } else {
+            return ((List<Integer>)botFlags)
+                    .stream()
+                    .filter(t-> !botBlackList.contains(t))
+                    .collect(Collectors.toList());
+
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Integer> botflags= Arrays.asList(220,221,222,223);
+        UbiRheosKafkaDeserializer ubiRheosKafkaDeserializer = new UbiRheosKafkaDeserializer(null);
+        System.out.println(ubiRheosKafkaDeserializer.removeAll(botflags,BOT_BLACK_LIST));
     }
 }

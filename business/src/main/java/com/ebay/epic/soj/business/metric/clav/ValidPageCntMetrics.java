@@ -6,7 +6,7 @@ import com.ebay.epic.soj.common.model.raw.UniEvent;
 import java.util.Arrays;
 import java.util.List;
 
-public class ValidPageCountMetrics extends ClavSessionFieldMetrics {
+public class ValidPageCntMetrics extends ClavSessionFieldMetrics {
 
     private static final List<Integer> list = Arrays.asList(2557882, 2691, 2491192, 2364992, 3289, 2550030, 2056976, 2486706);
 
