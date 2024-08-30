@@ -55,6 +55,8 @@ public class RawUniSession {
     private Integer surfaceCnt;
     private Integer roiCnt;
 
+    private Long botSignature;
+
     public RawUniSession merge(RawUniSession uniSession) {
         if (this.getAbsStartTimestamp() == null && uniSession.getAbsStartTimestamp() != null) {
             this.setAbsStartTimestamp(uniSession.getAbsStartTimestamp());
@@ -118,7 +120,7 @@ public class RawUniSession {
         this.utpCnt = add(this.utpCnt, uniSession.getUtpCnt());
         this.surfaceCnt = add(this.surfaceCnt, uniSession.getSurfaceCnt());
         this.roiCnt = add(this.roiCnt, uniSession.getSurfaceCnt());
-
+        this.botSignature = mergeBotSignature(this.botSignature, uniSession.getBotSignature());
         return this;
     }
 
@@ -187,6 +189,12 @@ public class RawUniSession {
 
     private Integer add(Integer a, Integer b) {
         return Optional.ofNullable(a).orElse(0) + Optional.ofNullable(b).orElse(0);
+    }
+
+    private Long mergeBotSignature(Long a, Long b) {
+        Long botSignature = Optional.ofNullable(a).orElse(0L);
+        botSignature |= Optional.ofNullable(b).orElse(0L);
+        return botSignature;
     }
 
 }

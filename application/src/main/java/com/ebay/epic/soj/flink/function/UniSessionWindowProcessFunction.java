@@ -7,6 +7,7 @@ import com.ebay.epic.soj.common.model.UniSession;
 import com.ebay.epic.soj.common.model.UniSessionAccumulator;
 import com.ebay.epic.soj.common.model.raw.RawUniSession;
 import com.ebay.epic.soj.common.utils.SojTimestamp;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.Map;
@@ -73,10 +74,10 @@ public class UniSessionWindowProcessFunction
         rheosHeader.setProducerId("DummyID");
         rheosHeader.setSchemaId(-999);
         uniSession.setRheosHeader(rheosHeader);
-        BotFlag botFlag = new BotFlag();
-        botFlag.setSurface(Lists.newArrayList(rawUniSession.getSurfaceBotList()));
-        botFlag.setUbi(Lists.newArrayList(rawUniSession.getUbiBotList()));
-        botFlag.setUtp(Lists.newArrayList(rawUniSession.getSutpBotList()));
+        BotFlag botFlag = BotFlag.newBuilder()
+                .setSurface(ImmutableList.copyOf(rawUniSession.getSurfaceBotList()))
+                .setUbi(ImmutableList.copyOf(rawUniSession.getUbiBotList()))
+                .setUtp(ImmutableList.copyOf(rawUniSession.getSutpBotList())).build();
         uniSession.setBotFlag(botFlag);
         trafficSourceOutputProcessor.output(rawUniSession, uniSession);
         out.collect(uniSession);

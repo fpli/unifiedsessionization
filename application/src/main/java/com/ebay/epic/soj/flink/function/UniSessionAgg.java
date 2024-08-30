@@ -1,5 +1,6 @@
 package com.ebay.epic.soj.flink.function;
 
+import com.ebay.epic.soj.business.bot.UnifiedBotDetector;
 import com.ebay.epic.soj.business.metric.UniSessionMetrics;
 import com.ebay.epic.soj.common.model.UniSessionAccumulator;
 import com.ebay.epic.soj.common.model.raw.UniEvent;
@@ -9,6 +10,7 @@ import org.apache.flink.api.common.functions.AggregateFunction;
 @Slf4j
 public class UniSessionAgg implements AggregateFunction<UniEvent, UniSessionAccumulator, UniSessionAccumulator> {
 
+    private final UnifiedBotDetector unifiedBotDetector = new UnifiedBotDetector();
     @Override
     public UniSessionAccumulator createAccumulator() {
         UniSessionAccumulator sessionAccumulator = new UniSessionAccumulator();
@@ -26,6 +28,12 @@ public class UniSessionAgg implements AggregateFunction<UniEvent, UniSessionAccu
             UniSessionMetrics.getInstance().feed(value, accumulator);
         } catch (Exception e) {
             log.error("start session metrics collection failed", e);
+        }
+        try {
+            Long botSignature = unifiedBotDetector.detectBot(accumulator.getUniSession());
+            accumulator.getUniSession().setBotSignature(botSignature);
+        } catch (Exception e) {
+            log.error("detect bot failed", e);
         }
         return accumulator;
     }
