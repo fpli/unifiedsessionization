@@ -13,8 +13,8 @@ import org.apache.avro.message.SchemaStore;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class ClavSession extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 1152536039928496387L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ClavSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"sessionId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"siteId\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"long\"},{\"name\":\"validPageCount\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"startPageId\",\"type\":\"int\"},{\"name\":\"exitPageId\",\"type\":\"int\"},{\"name\":\"startTimestamp\",\"type\":\"long\"},{\"name\":\"exitTimestamp\",\"type\":\"long\"},{\"name\":\"grCount\",\"type\":\"int\"},{\"name\":\"gr1Count\",\"type\":\"int\"},{\"name\":\"homepageCount\",\"type\":\"int\"},{\"name\":\"viCount\",\"type\":\"int\"},{\"name\":\"signinCount\",\"type\":\"int\"},{\"name\":\"myebayCount\",\"type\":\"int\"},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
+  private static final long serialVersionUID = -3107785367826339490L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ClavSession\",\"namespace\":\"com.ebay.epic.soj.common.model\",\"fields\":[{\"name\":\"sessionId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"siteId\",\"type\":\"int\"},{\"name\":\"botFlag\",\"type\":\"long\"},{\"name\":\"validPageCount\",\"type\":\"int\"},{\"name\":\"duration\",\"type\":\"long\"},{\"name\":\"startPageId\",\"type\":\"int\"},{\"name\":\"exitPageId\",\"type\":\"int\"},{\"name\":\"startTimestamp\",\"type\":\"long\"},{\"name\":\"exitTimestamp\",\"type\":\"long\"},{\"name\":\"grCount\",\"type\":\"int\"},{\"name\":\"gr1Count\",\"type\":\"int\"},{\"name\":\"homepageCount\",\"type\":\"int\"},{\"name\":\"viCount\",\"type\":\"int\"},{\"name\":\"signinCount\",\"type\":\"int\"},{\"name\":\"myebayCount\",\"type\":\"int\"},{\"name\":\"userAgent\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"experienceLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"experienceLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceType\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceTypeLevel1\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"deviceTypeLevel2\",\"type\":[\"null\",{\"type\":\"string\",\"avro.java.string\":\"String\"}]},{\"name\":\"others\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"string\",\"avro.java.string\":\"String\"},\"avro.java.string\":\"String\"}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
@@ -66,6 +66,12 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   @Deprecated public int viCount;
   @Deprecated public int signinCount;
   @Deprecated public int myebayCount;
+  @Deprecated public java.lang.String userAgent;
+  @Deprecated public java.lang.String experienceLevel1;
+  @Deprecated public java.lang.String experienceLevel2;
+  @Deprecated public java.lang.String deviceType;
+  @Deprecated public java.lang.String deviceTypeLevel1;
+  @Deprecated public java.lang.String deviceTypeLevel2;
   @Deprecated public java.util.Map<java.lang.String,java.lang.String> others;
 
   /**
@@ -92,9 +98,15 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
    * @param viCount The new value for viCount
    * @param signinCount The new value for signinCount
    * @param myebayCount The new value for myebayCount
+   * @param userAgent The new value for userAgent
+   * @param experienceLevel1 The new value for experienceLevel1
+   * @param experienceLevel2 The new value for experienceLevel2
+   * @param deviceType The new value for deviceType
+   * @param deviceTypeLevel1 The new value for deviceTypeLevel1
+   * @param deviceTypeLevel2 The new value for deviceTypeLevel2
    * @param others The new value for others
    */
-  public ClavSession(java.lang.String sessionId, java.lang.Integer siteId, java.lang.Long botFlag, java.lang.Integer validPageCount, java.lang.Long duration, java.lang.Integer startPageId, java.lang.Integer exitPageId, java.lang.Long startTimestamp, java.lang.Long exitTimestamp, java.lang.Integer grCount, java.lang.Integer gr1Count, java.lang.Integer homepageCount, java.lang.Integer viCount, java.lang.Integer signinCount, java.lang.Integer myebayCount, java.util.Map<java.lang.String,java.lang.String> others) {
+  public ClavSession(java.lang.String sessionId, java.lang.Integer siteId, java.lang.Long botFlag, java.lang.Integer validPageCount, java.lang.Long duration, java.lang.Integer startPageId, java.lang.Integer exitPageId, java.lang.Long startTimestamp, java.lang.Long exitTimestamp, java.lang.Integer grCount, java.lang.Integer gr1Count, java.lang.Integer homepageCount, java.lang.Integer viCount, java.lang.Integer signinCount, java.lang.Integer myebayCount, java.lang.String userAgent, java.lang.String experienceLevel1, java.lang.String experienceLevel2, java.lang.String deviceType, java.lang.String deviceTypeLevel1, java.lang.String deviceTypeLevel2, java.util.Map<java.lang.String,java.lang.String> others) {
     this.sessionId = sessionId;
     this.siteId = siteId;
     this.botFlag = botFlag;
@@ -110,6 +122,12 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     this.viCount = viCount;
     this.signinCount = signinCount;
     this.myebayCount = myebayCount;
+    this.userAgent = userAgent;
+    this.experienceLevel1 = experienceLevel1;
+    this.experienceLevel2 = experienceLevel2;
+    this.deviceType = deviceType;
+    this.deviceTypeLevel1 = deviceTypeLevel1;
+    this.deviceTypeLevel2 = deviceTypeLevel2;
     this.others = others;
   }
 
@@ -132,7 +150,13 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     case 12: return viCount;
     case 13: return signinCount;
     case 14: return myebayCount;
-    case 15: return others;
+    case 15: return userAgent;
+    case 16: return experienceLevel1;
+    case 17: return experienceLevel2;
+    case 18: return deviceType;
+    case 19: return deviceTypeLevel1;
+    case 20: return deviceTypeLevel2;
+    case 21: return others;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -156,7 +180,13 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     case 12: viCount = (java.lang.Integer)value$; break;
     case 13: signinCount = (java.lang.Integer)value$; break;
     case 14: myebayCount = (java.lang.Integer)value$; break;
-    case 15: others = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
+    case 15: userAgent = (java.lang.String)value$; break;
+    case 16: experienceLevel1 = (java.lang.String)value$; break;
+    case 17: experienceLevel2 = (java.lang.String)value$; break;
+    case 18: deviceType = (java.lang.String)value$; break;
+    case 19: deviceTypeLevel1 = (java.lang.String)value$; break;
+    case 20: deviceTypeLevel2 = (java.lang.String)value$; break;
+    case 21: others = (java.util.Map<java.lang.String,java.lang.String>)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
@@ -402,6 +432,102 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
   }
 
   /**
+   * Gets the value of the 'userAgent' field.
+   * @return The value of the 'userAgent' field.
+   */
+  public java.lang.String getUserAgent() {
+    return userAgent;
+  }
+
+  /**
+   * Sets the value of the 'userAgent' field.
+   * @param value the value to set.
+   */
+  public void setUserAgent(java.lang.String value) {
+    this.userAgent = value;
+  }
+
+  /**
+   * Gets the value of the 'experienceLevel1' field.
+   * @return The value of the 'experienceLevel1' field.
+   */
+  public java.lang.String getExperienceLevel1() {
+    return experienceLevel1;
+  }
+
+  /**
+   * Sets the value of the 'experienceLevel1' field.
+   * @param value the value to set.
+   */
+  public void setExperienceLevel1(java.lang.String value) {
+    this.experienceLevel1 = value;
+  }
+
+  /**
+   * Gets the value of the 'experienceLevel2' field.
+   * @return The value of the 'experienceLevel2' field.
+   */
+  public java.lang.String getExperienceLevel2() {
+    return experienceLevel2;
+  }
+
+  /**
+   * Sets the value of the 'experienceLevel2' field.
+   * @param value the value to set.
+   */
+  public void setExperienceLevel2(java.lang.String value) {
+    this.experienceLevel2 = value;
+  }
+
+  /**
+   * Gets the value of the 'deviceType' field.
+   * @return The value of the 'deviceType' field.
+   */
+  public java.lang.String getDeviceType() {
+    return deviceType;
+  }
+
+  /**
+   * Sets the value of the 'deviceType' field.
+   * @param value the value to set.
+   */
+  public void setDeviceType(java.lang.String value) {
+    this.deviceType = value;
+  }
+
+  /**
+   * Gets the value of the 'deviceTypeLevel1' field.
+   * @return The value of the 'deviceTypeLevel1' field.
+   */
+  public java.lang.String getDeviceTypeLevel1() {
+    return deviceTypeLevel1;
+  }
+
+  /**
+   * Sets the value of the 'deviceTypeLevel1' field.
+   * @param value the value to set.
+   */
+  public void setDeviceTypeLevel1(java.lang.String value) {
+    this.deviceTypeLevel1 = value;
+  }
+
+  /**
+   * Gets the value of the 'deviceTypeLevel2' field.
+   * @return The value of the 'deviceTypeLevel2' field.
+   */
+  public java.lang.String getDeviceTypeLevel2() {
+    return deviceTypeLevel2;
+  }
+
+  /**
+   * Sets the value of the 'deviceTypeLevel2' field.
+   * @param value the value to set.
+   */
+  public void setDeviceTypeLevel2(java.lang.String value) {
+    this.deviceTypeLevel2 = value;
+  }
+
+  /**
    * Gets the value of the 'others' field.
    * @return The value of the 'others' field.
    */
@@ -464,6 +590,12 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     private int viCount;
     private int signinCount;
     private int myebayCount;
+    private java.lang.String userAgent;
+    private java.lang.String experienceLevel1;
+    private java.lang.String experienceLevel2;
+    private java.lang.String deviceType;
+    private java.lang.String deviceTypeLevel1;
+    private java.lang.String deviceTypeLevel2;
     private java.util.Map<java.lang.String,java.lang.String> others;
 
     /** Creates a new Builder */
@@ -537,9 +669,33 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
         this.myebayCount = data().deepCopy(fields()[14].schema(), other.myebayCount);
         fieldSetFlags()[14] = true;
       }
-      if (isValidValue(fields()[15], other.others)) {
-        this.others = data().deepCopy(fields()[15].schema(), other.others);
+      if (isValidValue(fields()[15], other.userAgent)) {
+        this.userAgent = data().deepCopy(fields()[15].schema(), other.userAgent);
         fieldSetFlags()[15] = true;
+      }
+      if (isValidValue(fields()[16], other.experienceLevel1)) {
+        this.experienceLevel1 = data().deepCopy(fields()[16].schema(), other.experienceLevel1);
+        fieldSetFlags()[16] = true;
+      }
+      if (isValidValue(fields()[17], other.experienceLevel2)) {
+        this.experienceLevel2 = data().deepCopy(fields()[17].schema(), other.experienceLevel2);
+        fieldSetFlags()[17] = true;
+      }
+      if (isValidValue(fields()[18], other.deviceType)) {
+        this.deviceType = data().deepCopy(fields()[18].schema(), other.deviceType);
+        fieldSetFlags()[18] = true;
+      }
+      if (isValidValue(fields()[19], other.deviceTypeLevel1)) {
+        this.deviceTypeLevel1 = data().deepCopy(fields()[19].schema(), other.deviceTypeLevel1);
+        fieldSetFlags()[19] = true;
+      }
+      if (isValidValue(fields()[20], other.deviceTypeLevel2)) {
+        this.deviceTypeLevel2 = data().deepCopy(fields()[20].schema(), other.deviceTypeLevel2);
+        fieldSetFlags()[20] = true;
+      }
+      if (isValidValue(fields()[21], other.others)) {
+        this.others = data().deepCopy(fields()[21].schema(), other.others);
+        fieldSetFlags()[21] = true;
       }
     }
 
@@ -609,9 +765,33 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
         this.myebayCount = data().deepCopy(fields()[14].schema(), other.myebayCount);
         fieldSetFlags()[14] = true;
       }
-      if (isValidValue(fields()[15], other.others)) {
-        this.others = data().deepCopy(fields()[15].schema(), other.others);
+      if (isValidValue(fields()[15], other.userAgent)) {
+        this.userAgent = data().deepCopy(fields()[15].schema(), other.userAgent);
         fieldSetFlags()[15] = true;
+      }
+      if (isValidValue(fields()[16], other.experienceLevel1)) {
+        this.experienceLevel1 = data().deepCopy(fields()[16].schema(), other.experienceLevel1);
+        fieldSetFlags()[16] = true;
+      }
+      if (isValidValue(fields()[17], other.experienceLevel2)) {
+        this.experienceLevel2 = data().deepCopy(fields()[17].schema(), other.experienceLevel2);
+        fieldSetFlags()[17] = true;
+      }
+      if (isValidValue(fields()[18], other.deviceType)) {
+        this.deviceType = data().deepCopy(fields()[18].schema(), other.deviceType);
+        fieldSetFlags()[18] = true;
+      }
+      if (isValidValue(fields()[19], other.deviceTypeLevel1)) {
+        this.deviceTypeLevel1 = data().deepCopy(fields()[19].schema(), other.deviceTypeLevel1);
+        fieldSetFlags()[19] = true;
+      }
+      if (isValidValue(fields()[20], other.deviceTypeLevel2)) {
+        this.deviceTypeLevel2 = data().deepCopy(fields()[20].schema(), other.deviceTypeLevel2);
+        fieldSetFlags()[20] = true;
+      }
+      if (isValidValue(fields()[21], other.others)) {
+        this.others = data().deepCopy(fields()[21].schema(), other.others);
+        fieldSetFlags()[21] = true;
       }
     }
 
@@ -1187,6 +1367,240 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
     }
 
     /**
+      * Gets the value of the 'userAgent' field.
+      * @return The value.
+      */
+    public java.lang.String getUserAgent() {
+      return userAgent;
+    }
+
+    /**
+      * Sets the value of the 'userAgent' field.
+      * @param value The value of 'userAgent'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setUserAgent(java.lang.String value) {
+      validate(fields()[15], value);
+      this.userAgent = value;
+      fieldSetFlags()[15] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'userAgent' field has been set.
+      * @return True if the 'userAgent' field has been set, false otherwise.
+      */
+    public boolean hasUserAgent() {
+      return fieldSetFlags()[15];
+    }
+
+
+    /**
+      * Clears the value of the 'userAgent' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearUserAgent() {
+      userAgent = null;
+      fieldSetFlags()[15] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'experienceLevel1' field.
+      * @return The value.
+      */
+    public java.lang.String getExperienceLevel1() {
+      return experienceLevel1;
+    }
+
+    /**
+      * Sets the value of the 'experienceLevel1' field.
+      * @param value The value of 'experienceLevel1'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setExperienceLevel1(java.lang.String value) {
+      validate(fields()[16], value);
+      this.experienceLevel1 = value;
+      fieldSetFlags()[16] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'experienceLevel1' field has been set.
+      * @return True if the 'experienceLevel1' field has been set, false otherwise.
+      */
+    public boolean hasExperienceLevel1() {
+      return fieldSetFlags()[16];
+    }
+
+
+    /**
+      * Clears the value of the 'experienceLevel1' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearExperienceLevel1() {
+      experienceLevel1 = null;
+      fieldSetFlags()[16] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'experienceLevel2' field.
+      * @return The value.
+      */
+    public java.lang.String getExperienceLevel2() {
+      return experienceLevel2;
+    }
+
+    /**
+      * Sets the value of the 'experienceLevel2' field.
+      * @param value The value of 'experienceLevel2'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setExperienceLevel2(java.lang.String value) {
+      validate(fields()[17], value);
+      this.experienceLevel2 = value;
+      fieldSetFlags()[17] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'experienceLevel2' field has been set.
+      * @return True if the 'experienceLevel2' field has been set, false otherwise.
+      */
+    public boolean hasExperienceLevel2() {
+      return fieldSetFlags()[17];
+    }
+
+
+    /**
+      * Clears the value of the 'experienceLevel2' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearExperienceLevel2() {
+      experienceLevel2 = null;
+      fieldSetFlags()[17] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'deviceType' field.
+      * @return The value.
+      */
+    public java.lang.String getDeviceType() {
+      return deviceType;
+    }
+
+    /**
+      * Sets the value of the 'deviceType' field.
+      * @param value The value of 'deviceType'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setDeviceType(java.lang.String value) {
+      validate(fields()[18], value);
+      this.deviceType = value;
+      fieldSetFlags()[18] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'deviceType' field has been set.
+      * @return True if the 'deviceType' field has been set, false otherwise.
+      */
+    public boolean hasDeviceType() {
+      return fieldSetFlags()[18];
+    }
+
+
+    /**
+      * Clears the value of the 'deviceType' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearDeviceType() {
+      deviceType = null;
+      fieldSetFlags()[18] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'deviceTypeLevel1' field.
+      * @return The value.
+      */
+    public java.lang.String getDeviceTypeLevel1() {
+      return deviceTypeLevel1;
+    }
+
+    /**
+      * Sets the value of the 'deviceTypeLevel1' field.
+      * @param value The value of 'deviceTypeLevel1'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setDeviceTypeLevel1(java.lang.String value) {
+      validate(fields()[19], value);
+      this.deviceTypeLevel1 = value;
+      fieldSetFlags()[19] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'deviceTypeLevel1' field has been set.
+      * @return True if the 'deviceTypeLevel1' field has been set, false otherwise.
+      */
+    public boolean hasDeviceTypeLevel1() {
+      return fieldSetFlags()[19];
+    }
+
+
+    /**
+      * Clears the value of the 'deviceTypeLevel1' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearDeviceTypeLevel1() {
+      deviceTypeLevel1 = null;
+      fieldSetFlags()[19] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'deviceTypeLevel2' field.
+      * @return The value.
+      */
+    public java.lang.String getDeviceTypeLevel2() {
+      return deviceTypeLevel2;
+    }
+
+    /**
+      * Sets the value of the 'deviceTypeLevel2' field.
+      * @param value The value of 'deviceTypeLevel2'.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder setDeviceTypeLevel2(java.lang.String value) {
+      validate(fields()[20], value);
+      this.deviceTypeLevel2 = value;
+      fieldSetFlags()[20] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'deviceTypeLevel2' field has been set.
+      * @return True if the 'deviceTypeLevel2' field has been set, false otherwise.
+      */
+    public boolean hasDeviceTypeLevel2() {
+      return fieldSetFlags()[20];
+    }
+
+
+    /**
+      * Clears the value of the 'deviceTypeLevel2' field.
+      * @return This builder.
+      */
+    public com.ebay.epic.soj.common.model.ClavSession.Builder clearDeviceTypeLevel2() {
+      deviceTypeLevel2 = null;
+      fieldSetFlags()[20] = false;
+      return this;
+    }
+
+    /**
       * Gets the value of the 'others' field.
       * @return The value.
       */
@@ -1200,9 +1614,9 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
       * @return This builder.
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder setOthers(java.util.Map<java.lang.String,java.lang.String> value) {
-      validate(fields()[15], value);
+      validate(fields()[21], value);
       this.others = value;
-      fieldSetFlags()[15] = true;
+      fieldSetFlags()[21] = true;
       return this;
     }
 
@@ -1211,7 +1625,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
       * @return True if the 'others' field has been set, false otherwise.
       */
     public boolean hasOthers() {
-      return fieldSetFlags()[15];
+      return fieldSetFlags()[21];
     }
 
 
@@ -1221,7 +1635,7 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
       */
     public com.ebay.epic.soj.common.model.ClavSession.Builder clearOthers() {
       others = null;
-      fieldSetFlags()[15] = false;
+      fieldSetFlags()[21] = false;
       return this;
     }
 
@@ -1245,7 +1659,13 @@ public class ClavSession extends org.apache.avro.specific.SpecificRecordBase imp
         record.viCount = fieldSetFlags()[12] ? this.viCount : (java.lang.Integer) defaultValue(fields()[12]);
         record.signinCount = fieldSetFlags()[13] ? this.signinCount : (java.lang.Integer) defaultValue(fields()[13]);
         record.myebayCount = fieldSetFlags()[14] ? this.myebayCount : (java.lang.Integer) defaultValue(fields()[14]);
-        record.others = fieldSetFlags()[15] ? this.others : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[15]);
+        record.userAgent = fieldSetFlags()[15] ? this.userAgent : (java.lang.String) defaultValue(fields()[15]);
+        record.experienceLevel1 = fieldSetFlags()[16] ? this.experienceLevel1 : (java.lang.String) defaultValue(fields()[16]);
+        record.experienceLevel2 = fieldSetFlags()[17] ? this.experienceLevel2 : (java.lang.String) defaultValue(fields()[17]);
+        record.deviceType = fieldSetFlags()[18] ? this.deviceType : (java.lang.String) defaultValue(fields()[18]);
+        record.deviceTypeLevel1 = fieldSetFlags()[19] ? this.deviceTypeLevel1 : (java.lang.String) defaultValue(fields()[19]);
+        record.deviceTypeLevel2 = fieldSetFlags()[20] ? this.deviceTypeLevel2 : (java.lang.String) defaultValue(fields()[20]);
+        record.others = fieldSetFlags()[21] ? this.others : (java.util.Map<java.lang.String,java.lang.String>) defaultValue(fields()[21]);
         return record;
       } catch (java.lang.Exception e) {
         throw new org.apache.avro.AvroRuntimeException(e);
