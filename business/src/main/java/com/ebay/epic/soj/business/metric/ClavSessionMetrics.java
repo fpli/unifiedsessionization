@@ -57,6 +57,10 @@ public class ClavSessionMetrics implements FieldMetrics<UniEvent, UniSessionAccu
         addClavSessionFieldMetrics(new SessionSeqnumMetrics());
         addClavSessionFieldMetrics(new BestGuessUserIdMetrics());
         addClavSessionFieldMetrics(new CobrandMetrics());
+
+        // experience and device
+        addClavSessionFieldMetrics(new ClavAgentStringMetrics());
+        addClavSessionFieldMetrics(new ExperienceAndDeviceMetrics());
     }
 
     @Override

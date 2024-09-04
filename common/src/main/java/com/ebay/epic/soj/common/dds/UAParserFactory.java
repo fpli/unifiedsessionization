@@ -21,22 +21,21 @@ public class UAParserFactory {
 
     private static volatile UserAgentParser userAgentParser;
 
-    public static UserAgentParser getInstance(String targetDomain) throws IOException {
-        DdsConfig ddsConfig = new DdsConfig(
-            targetDomain,
-            "unifiedsession-rt",
-            "V3",
-            30000,
-            600000,
-            120000,
-            100,
-            10
-        );
+    public static UserAgentParser getInstance() throws IOException {
+        // staging: https://raptordds.vip.qa.ebay.com
+        // prod: https://www.raptor-dds.stratus.ebay.com
+        final String targetDomain = "https://www.raptor-dds.stratus.ebay.com";
+        final String consumer = "unifiedsession-rt";
+        final String apiVersion = "V3";
 
+        DdsConfig ddsConfig = new DdsConfig(targetDomain, consumer, apiVersion, 30000, 600000, 120000, 100, 10);
+
+        log.info("DDS config: {}", ddsConfig.toString());
 
         if (isNull(userAgentParser)) {
             synchronized (UAParserFactory.class) {
                 if (isNull(userAgentParser)) {
+                    log.info("Initializing UserAgentParser");
                     userAgentParser = new UserAgentParser(init(ddsConfig), null);
                 }
             }

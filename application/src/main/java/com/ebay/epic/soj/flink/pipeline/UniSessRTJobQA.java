@@ -109,7 +109,7 @@ public class UniSessRTJobQA extends FlinkBaseJob {
                 uniSessRTJob.uniSessionSplitFunctionBuilder(uniSessionDataStream, SESSION_BOT);
         DataStream<UniSession> uniSessionNonbotDS = outputStreamOperatorSess.getSideOutput(uniSessNonbotOutputTag);
         DataStream<UniSession> uniSessionBotDS = outputStreamOperatorSess.getSideOutput(uniSessBotOutputTag);
-        uniSessionNonbotDS.print().uid("testsess").slotSharingGroup("local").setParallelism(1);
+//        uniSessionNonbotDS.print().uid("testsess").slotSharingGroup("local").setParallelism(1);
 //        uniSessRTJob.kafkaSinkBuilder(surfaceDS, EventType.AUTOTRACK, RNO);
 //        uniSessRTJob.kafkaSinkBuilder(ubiDS, EventType.UBI, RNO);
 //        uniSessRTJob.kafkaSinkBuilder(utpDS, EventType.UTP, RNO);
