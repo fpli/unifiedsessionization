@@ -27,34 +27,46 @@ public class ExperienceAndDeviceMetrics implements FieldMetrics<UniEvent, ClavSe
 
             if (uaInfo.getDeviceInfo().getBrowser() != null
                     && (uaInfo.isDesktop() || uaInfo.isTablet())) {
+                clavSession.setExperienceLevel1("Browser");
                 clavSession.setExperienceLevel2("Browser: Core site");
+                clavSession.setDeviceTypeLevel1("PC");
                 clavSession.setDeviceTypeLevel2("PC");
             } else if (uaInfo.getDeviceInfo().getBrowser() != null
                     && uaInfo.isMobile()) {
+                clavSession.setExperienceLevel1("Browser");
                 clavSession.setExperienceLevel2("Browser: mWeb");
+                clavSession.setDeviceTypeLevel1("Mobile");
                 clavSession.setDeviceTypeLevel2("Mobile: Phone");
             } else if (uaInfo.getAppInfo() != null
                     && uaInfo.getAppInfo().getAppName() != null
                     && "Android".equalsIgnoreCase(uaInfo.getDeviceInfo().getDeviceOS())) {
+                clavSession.setExperienceLevel1("Apps");
                 clavSession.setExperienceLevel2("Apps: Android");
+                clavSession.setDeviceTypeLevel1("Mobile");
                 clavSession.setDeviceTypeLevel2("Mobile: Phone");
             } else if (uaInfo.getAppInfo() != null
                     && uaInfo.getAppInfo().getAppName() != null
                     && "iOS".equalsIgnoreCase(uaInfo.getDeviceInfo().getDeviceOS())
                     && uaInfo.getDeviceInfo().getModel() != null
                     && uaInfo.getDeviceInfo().getModel().toLowerCase().contains("iphone")) {
+                clavSession.setExperienceLevel1("Apps");
                 clavSession.setExperienceLevel2("Apps: iPhone");
+                clavSession.setDeviceTypeLevel1("Mobile");
                 clavSession.setDeviceTypeLevel2("Mobile: Phone");
             } else if (uaInfo.getAppInfo() != null
                     && uaInfo.getAppInfo().getAppName() != null
                     && "iOS".equalsIgnoreCase(uaInfo.getDeviceInfo().getDeviceOS())
                     && uaInfo.getDeviceInfo().getModel() != null
                     && uaInfo.getDeviceInfo().getModel().toLowerCase().contains("ipad")) {
+                clavSession.setExperienceLevel1("Apps");
                 clavSession.setExperienceLevel2("Apps: iPad");
+                clavSession.setDeviceTypeLevel1("Mobile");
                 clavSession.setDeviceTypeLevel2("Mobile: Tablet");
             } else if (uaInfo.getAppInfo() != null
                     && uaInfo.getAppInfo().getAppName() != null) {
+                clavSession.setExperienceLevel1("Apps");
                 clavSession.setExperienceLevel2("Apps: Other");
+                clavSession.setDeviceTypeLevel1("Mobile");
                 clavSession.setDeviceTypeLevel2("Apps: Other");
             }
         }
